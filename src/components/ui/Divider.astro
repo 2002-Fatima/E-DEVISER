@@ -1,0 +1,14 @@
+---
+interface Props {
+  orientation?: 'horizontal' | 'vertical';
+  label?: string;
+}
+
+const { orientation = 'horizontal', label } = Astro.props;
+---
+
+{orientation === 'vertical' ? (
+  <span class="divider divider-vertical" role="separator" aria-orientation="vertical" aria-label={label}></span>
+) : (
+  <hr class="divider" aria-label={label} />
+)}

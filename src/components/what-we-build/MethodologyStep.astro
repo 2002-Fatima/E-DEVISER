@@ -1,0 +1,9 @@
+---
+const { step } = Astro.props;
+---
+
+<article class="methodology-step">
+  <span class="step-number">{step.number}</span>
+  <h3>{step.title}</h3>
+  <p>{step.description}</p>
+</article>

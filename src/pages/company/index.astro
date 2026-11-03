@@ -1,0 +1,18 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import CompanyHero from '../../components/company/CompanyHero.astro';
+import StorySection from '../../components/company/StorySection.astro';
+import FounderTeamSection from '../../components/company/FounderTeamSection.astro';
+import PhilosophySection from '../../components/company/PhilosophySection.astro';
+import CareersContactSection from '../../components/company/CareersContactSection.astro';
+
+const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Company' }];
+---
+
+<MainLayout title="Company" description="Learn about E Deviser, its story, philosophy, team, and future opportunities." breadcrumbs={breadcrumbs}>
+  <CompanyHero />
+  <StorySection />
+  <FounderTeamSection />
+  <PhilosophySection />
+  <CareersContactSection />
+</MainLayout>

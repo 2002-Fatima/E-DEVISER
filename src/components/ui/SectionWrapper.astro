@@ -1,0 +1,17 @@
+---
+type Background = 'light' | 'dark' | 'atmosphere' | 'pattern';
+type Spacing = 'default' | 'compact' | 'none';
+
+interface Props {
+  background?: Background;
+  spacing?: Spacing;
+  class?: string;
+  id?: string;
+}
+
+const { background = 'light', spacing = 'default', class: className = '', id } = Astro.props;
+---
+
+<div id={id} class:list={['section-wrapper', `background-${background}`, `section-spacing-${spacing}`, className]}>
+  <slot />
+</div>

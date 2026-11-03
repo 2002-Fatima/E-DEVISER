@@ -1,0 +1,10 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import FounderTeamSection from '../../components/company/FounderTeamSection.astro';
+
+const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Company', href: '/company/' }, { label: 'Team' }];
+---
+
+<MainLayout title="Founder and Team" description="Company overview placeholder for founder and team details." breadcrumbs={breadcrumbs}>
+  <FounderTeamSection />
+</MainLayout>

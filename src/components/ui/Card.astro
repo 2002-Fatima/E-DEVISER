@@ -1,0 +1,29 @@
+---
+type Variant = 'solid' | 'raised' | 'glass';
+
+interface Props {
+  variant?: Variant;
+  interactive?: boolean;
+  href?: string;
+  external?: boolean;
+  class?: string;
+}
+
+const { variant = 'solid', interactive = false, href, external = false, class: className = '' } = Astro.props;
+const classes = ['card', `card-${variant}`, (interactive || href) && 'card-interactive', className];
+---
+
+{href ? (
+  <a
+    class:list={classes}
+    href={href}
+    target={external ? '_blank' : undefined}
+    rel={external ? 'noopener noreferrer' : undefined}
+  >
+    <slot />
+  </a>
+) : (
+<article class:list={['card', `card-${variant}`, interactive && 'card-interactive', className]}>
+  <slot />
+</article>
+)}

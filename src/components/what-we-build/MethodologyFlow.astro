@@ -1,0 +1,66 @@
+---
+import { methodologySteps } from '../../content/methodology';
+
+const flowSteps = methodologySteps.map((step, index) => ({
+  ...step,
+  title: index === 0 ? 'The Problem' : step.title,
+}));
+---
+
+<div class="methodology-flow" data-methodology-flow style="--flow-progress: 0">
+  <svg class="methodology-track" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="methodology-track-base" pathLength="100" d="M8 24C15 9 18 9 25 24S35 39 42 24S52 9 59 24S69 39 76 24S85 9 92 24" />
+    <path class="methodology-track-progress" pathLength="100" d="M8 24C15 9 18 9 25 24S35 39 42 24S52 9 59 24S69 39 76 24S85 9 92 24" />
+  </svg>
+
+  <ol class="methodology-flow-list" aria-label="Methodology steps">
+    {flowSteps.map((step, index) => (
+      <li class="methodology-node">
+        <button
+          class="methodology-node-button"
+          type="button"
+          aria-current={index === 0 ? 'step' : undefined}
+          aria-label={`Step ${step.number}: ${step.title}`}
+          data-methodology-node
+          data-title={step.title}
+          data-description={step.description}
+          data-index={index}
+        >
+          {step.number}
+        </button>
+        <span class="methodology-node-title">{step.title}</span>
+      </li>
+    ))}
+  </ol>
+
+  <div class="methodology-description" data-methodology-description aria-live="polite" aria-atomic="true">
+    <h3>{methodologySteps[0].title}</h3>
+    <p>{methodologySteps[0].description}</p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-methodology-flow]').forEach((flow) => {
+    const nodes = Array.from(flow.querySelectorAll<HTMLButtonElement>('[data-methodology-node]'));
+    const panel = flow.querySelector<HTMLElement>('[data-methodology-description]');
+    const heading = panel?.querySelector('h3');
+    const description = panel?.querySelector('p');
+
+    nodes.forEach((node) => {
+      node.addEventListener('click', () => {
+        const selectedIndex = Number(node.dataset.index);
+        const progress = nodes.length > 1 ? (selectedIndex / (nodes.length - 1)) * 100 : 100;
+        flow.style.setProperty('--flow-progress', String(progress));
+        nodes.forEach((candidate) => {
+          if (candidate === node) {
+            candidate.setAttribute('aria-current', 'step');
+          } else {
+            candidate.removeAttribute('aria-current');
+          }
+        });
+        if (heading) heading.textContent = node.dataset.title ?? '';
+        if (description) description.textContent = node.dataset.description ?? '';
+      });
+    });
+  });
+</script>

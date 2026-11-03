@@ -1,0 +1,19 @@
+{
+  "name": "e-deviser",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "array-iterate": "^2.0.1",
+    "astro": "^5.18.2"
+  },
+  "devDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.66.0",
+    "@types/node": "^26.6.6",
+    "typescript": "^5.9.3"
+  }
+}

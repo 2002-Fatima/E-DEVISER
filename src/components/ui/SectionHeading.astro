@@ -1,0 +1,17 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  align?: 'left' | 'center';
+  level?: 2 | 3;
+}
+
+const { eyebrow, title, description, align = 'left', level = 2 } = Astro.props;
+---
+
+<div class:list={['section-heading', `align-${align}`]}>
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  {level === 3 ? <h3>{title}</h3> : <h2>{title}</h2>}
+  {description && <p class="section-heading-description">{description}</p>}
+</div>

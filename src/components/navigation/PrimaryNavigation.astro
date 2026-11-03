@@ -1,0 +1,23 @@
+---
+import { primaryNavigation } from '../../content/navigation';
+---
+<nav class="primary-nav" aria-label="Main navigation">
+  <ul class="nav-list">
+    {primaryNavigation.map((item) => (
+      <li class:list={['nav-item', item.children && 'nav-item-with-children']}>
+        {item.children ? (
+          <details class="nav-details">
+            <summary>{item.label}</summary>
+            <ul class="nav-submenu">
+              {item.children.map((child) => (
+                <li><a href={child.href}>{child.label}</a></li>
+              ))}
+            </ul>
+          </details>
+        ) : (
+          <a href={item.href} target={item.external ? '_blank' : undefined} rel={item.external ? 'noreferrer' : undefined}>{item.label}</a>
+        )}
+      </li>
+    ))}
+  </ul>
+</nav>

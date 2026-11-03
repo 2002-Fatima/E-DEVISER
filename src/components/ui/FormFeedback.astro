@@ -1,0 +1,14 @@
+---
+type Tone = 'success' | 'error' | 'info';
+
+interface Props {
+  tone?: Tone;
+}
+
+const { tone = 'info' } = Astro.props;
+const role = tone === 'error' ? 'alert' : 'status';
+---
+
+<div class:list={['form-feedback', `form-feedback-${tone}`]} role={role}>
+  <slot />
+</div>

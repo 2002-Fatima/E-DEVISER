@@ -1,0 +1,67 @@
+---
+type Variant = 'primary' | 'secondary' | 'tertiary' | 'dark' | 'inverse' | 'destructive';
+type Size = 'sm' | 'md' | 'lg';
+type CommonProps = {
+  href?: string;
+  variant?: Variant;
+  size?: Size;
+  external?: boolean;
+  disabled?: boolean;
+  loading?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+};
+type Props = CommonProps & (
+  | { iconOnly: true; ariaLabel: string; label?: never }
+  | { iconOnly?: false; ariaLabel?: string; label: string }
+);
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  label,
+  ariaLabel,
+  external = false,
+  disabled = false,
+  loading = false,
+  iconOnly = false,
+  type = 'button',
+  class: className = '',
+} = Astro.props;
+const classes = ['btn', `btn-${variant}`, `btn-${size}`, iconOnly && 'btn-icon', className];
+const unavailable = disabled || loading;
+---
+
+{href && unavailable ? (
+  <span class:list={classes} aria-label={iconOnly ? ariaLabel : undefined} aria-disabled="true" aria-busy={loading ? 'true' : undefined}>
+    {loading && <span class="btn-spinner" aria-hidden="true"></span>}
+    {iconOnly ? <span aria-hidden="true"><slot /></span> : label}
+    {loading && <span class="sr-only">Loading</span>}
+  </span>
+) : href ? (
+  <a
+    href={href}
+    class:list={classes}
+    target={external ? '_blank' : undefined}
+    rel={external ? 'noopener noreferrer' : undefined}
+    aria-label={iconOnly ? ariaLabel : undefined}
+    aria-busy={loading ? 'true' : undefined}
+  >
+    {loading && <span class="btn-spinner" aria-hidden="true"></span>}
+    {iconOnly ? <span aria-hidden="true"><slot /></span> : label}
+    {loading && <span class="sr-only">Loading</span>}
+  </a>
+) : (
+  <button
+    class:list={classes}
+    type={type}
+    disabled={unavailable}
+    aria-label={iconOnly ? ariaLabel : undefined}
+    aria-busy={loading ? 'true' : undefined}
+  >
+    {loading && <span class="btn-spinner" aria-hidden="true"></span>}
+    {iconOnly ? <span aria-hidden="true"><slot /></span> : label}
+    {loading && <span class="sr-only">Loading</span>}
+  </button>
+)}

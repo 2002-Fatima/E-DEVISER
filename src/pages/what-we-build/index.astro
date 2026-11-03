@@ -1,0 +1,12 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import WhatWeBuildHero from '../../components/what-we-build/WhatWeBuildHero.astro';
+import MethodologySection from '../../components/what-we-build/MethodologySection.astro';
+
+const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'What We Build' }];
+---
+
+<MainLayout title="What We Build" description="Learn how E Deviser moves from problem understanding to design, build, and evaluation." breadcrumbs={breadcrumbs}>
+  <WhatWeBuildHero />
+  <MethodologySection />
+</MainLayout>

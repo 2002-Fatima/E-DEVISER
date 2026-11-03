@@ -1,0 +1,22 @@
+---
+import Wave from './Wave.astro';
+
+type Variant = 'light-to-blue' | 'blue-to-dark';
+
+interface Props {
+  variant?: Variant;
+  class?: string;
+}
+
+const { variant = 'light-to-blue', class: className = '' } = Astro.props;
+---
+
+<div class:list={['hero-wave-shell', `hero-wave-shell--${variant}`, className]}>
+  <div class="hero-wave-primary">
+    <Wave variant="texture" class="hero-wave-texture" />
+    <div class="hero-wave-content"><slot /></div>
+  </div>
+  <div class="hero-wave-transition">
+    <Wave variant={variant} direction="up" class="hero-wave-layers" />
+  </div>
+</div>

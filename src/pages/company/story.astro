@@ -1,0 +1,10 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import StorySection from '../../components/company/StorySection.astro';
+
+const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Company', href: '/company/' }, { label: 'Story' }];
+---
+
+<MainLayout title="Story" description="The story behind E Deviser and its intent to build intelligent systems for complex problems." breadcrumbs={breadcrumbs}>
+  <StorySection />
+</MainLayout>

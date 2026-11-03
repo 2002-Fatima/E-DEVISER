@@ -1,0 +1,14 @@
+---
+const { items = [] } = Astro.props;
+---
+{items.length > 0 && (
+  <div class="section-nav-wrap">
+    <nav class="section-nav" aria-label="Section navigation">
+      <ul class="section-nav-list">
+        {items.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+)}

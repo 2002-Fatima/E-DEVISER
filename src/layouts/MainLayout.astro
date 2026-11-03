@@ -1,0 +1,18 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader from '../components/layout/SiteHeader.astro';
+import SiteFooter from '../components/layout/SiteFooter.astro';
+import PageShell from '../components/layout/PageShell.astro';
+import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
+
+const { title, description, breadcrumbs = [] } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <SiteHeader />
+  <PageShell>
+    <Breadcrumbs items={breadcrumbs} />
+    <slot />
+  </PageShell>
+  <SiteFooter />
+</BaseLayout>

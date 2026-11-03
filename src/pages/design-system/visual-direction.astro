@@ -1,0 +1,56 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Container from '../../components/ui/Container.astro';
+import HeroTransformation from '../../components/ui/HeroTransformation.astro';
+import HeroWave from '../../components/ui/HeroWave.astro';
+import Wave from '../../components/ui/Wave.astro';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Design System', href: '/design-system/' },
+  { label: 'Visual Direction' },
+];
+---
+
+<MainLayout
+  title="Visual Direction Prototype"
+  description="Focused visual prototype for E Deviser atmospheric backgrounds, layered SVG waves, and particle-morphing typography."
+  breadcrumbs={breadcrumbs}
+>
+  <div class="visual-direction-page">
+    <HeroWave variant="light-to-blue">
+      <HeroTransformation />
+    </HeroWave>
+
+    <section class="background-blue visual-direction-blue">
+      <Wave variant="blue-to-dark" direction="up" class="visual-blue-transition" />
+      <Container width="standard">
+        <div class="visual-direction-blue-copy">
+          <p class="eyebrow">LIGHT → BLUE / ORGANIC TRANSITION</p>
+          <h2>Layered movement. One continuous field.</h2>
+          <p>
+            Three independently shaped SVG layers connect the light atmosphere above to a clear,
+            saturated blue field.
+          </p>
+        </div>
+      </Container>
+    </section>
+
+    <section class="background-ink visual-direction-dark">
+      <Wave variant="texture" class="visual-dark-texture" />
+      <Container width="standard">
+        <div class="visual-direction-dark-copy">
+          <p class="eyebrow">BLUE → DARK / ATMOSPHERIC DEPTH</p>
+          <h2>Refined contrast for the moments that need depth.</h2>
+          <p>
+            Pale blue, teal, primary blue, and deep navy form a deliberate progression; translucent
+            wave textures add depth without making content depend on decoration.
+          </p>
+          <a class="visual-direction-link" href="/design-system/">
+            Return to the full design system
+          </a>
+        </div>
+      </Container>
+    </section>
+  </div>
+</MainLayout>

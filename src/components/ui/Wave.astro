@@ -1,0 +1,71 @@
+---
+type Variant = 'light-to-blue' | 'blue-to-dark' | 'texture' | 'hero-bottom';
+
+interface Props {
+  direction?: 'up' | 'down';
+  variant?: Variant;
+  animated?: boolean;
+  class?: string;
+}
+
+const { direction = 'up', variant = 'light-to-blue', animated = true, class: className = '' } = Astro.props;
+const gradientPrefix = `wave-${Math.random().toString(36).slice(2, 10)}`;
+const palette = variant === 'blue-to-dark'
+  ? [
+      { start: '#5AB9B4', end: '#1D3557', opacity: 0.26 },
+      { start: '#0382BD', end: '#09121D', opacity: 0.54 },
+      { start: '#1D3557', end: '#09121D', opacity: 0.94 },
+    ]
+  : variant === 'texture'
+    ? [
+        { start: '#CDFCF4', end: '#5AB9B4', opacity: 0.45 },
+        { start: '#C0E2FD', end: '#0382BD', opacity: 0.34 },
+        { start: '#5AB9B4', end: '#1D3557', opacity: 0.24 },
+      ]
+    : [
+        { start: '#C0E2FD', end: '#5AB9B4', opacity: 0.38 },
+        { start: '#5AB9B4', end: '#0382BD', opacity: 0.56 },
+        { start: '#0382BD', end: '#0382BD', opacity: 1 },
+      ];
+const paths = [
+  'M0 112 C145 78 250 35 420 75 C585 114 690 169 875 128 C1058 88 1154 43 1305 67 C1365 77 1408 96 1440 108 V260 H0 Z',
+  'M0 151 C155 188 280 196 438 157 C602 116 687 68 865 92 C1046 117 1125 177 1285 159 C1355 151 1400 128 1440 116 V260 H0 Z',
+  'M0 187 C158 148 276 122 432 151 C600 183 710 207 876 178 C1041 149 1138 115 1290 136 C1360 146 1405 166 1440 174 V260 H0 Z',
+];
+const texturePaths = [
+  'M-20 142 C145 108 250 55 420 95 C585 134 690 189 875 148 C1058 108 1154 63 1305 87 C1365 97 1408 116 1460 128',
+  'M-20 175 C155 212 280 220 438 181 C602 140 687 92 865 116 C1046 141 1125 201 1285 183 C1355 175 1400 152 1460 140',
+  'M-20 208 C158 169 276 143 432 172 C600 204 710 228 876 199 C1041 170 1138 136 1290 157 C1360 167 1405 187 1460 195',
+];
+const activePaths = variant === 'texture' ? texturePaths : paths;
+const isTexture = variant === 'texture';
+---
+
+<div
+  class:list={['wave', `wave--${direction}`, `wave--${variant}`, animated && 'wave-animated', className]}
+  aria-hidden="true"
+>
+  <svg viewBox="0 0 1440 260" preserveAspectRatio="none" focusable="false">
+    <defs>
+      {palette.map((colors, index) => (
+        <linearGradient id={`${gradientPrefix}-${index}`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color={colors.start} />
+          <stop offset="100%" stop-color={colors.end} />
+        </linearGradient>
+      ))}
+    </defs>
+    {activePaths.map((path, index) => (
+      <g class:list={['wave-layer', `wave-layer-${index + 1}`]}>
+        <path
+          d={path}
+          fill={isTexture ? 'none' : `url(#${gradientPrefix}-${index})`}
+          fill-opacity={isTexture ? undefined : palette[index].opacity}
+          stroke={isTexture ? `url(#${gradientPrefix}-${index})` : 'none'}
+          stroke-opacity={isTexture ? palette[index].opacity : undefined}
+          stroke-width={isTexture ? 1.5 : undefined}
+          stroke-linecap={isTexture ? 'round' : undefined}
+        />
+      </g>
+    ))}
+  </svg>
+</div>

@@ -1,0 +1,10 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import PhilosophySection from '../../components/company/PhilosophySection.astro';
+
+const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Company', href: '/company/' }, { label: 'Philosophy' }];
+---
+
+<MainLayout title="Philosophy" description="E Deviser values clarity, useful systems, and learning-oriented design." breadcrumbs={breadcrumbs}>
+  <PhilosophySection />
+</MainLayout>

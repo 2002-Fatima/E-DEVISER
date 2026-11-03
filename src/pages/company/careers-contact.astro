@@ -1,0 +1,10 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import CareersContactSection from '../../components/company/CareersContactSection.astro';
+
+const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Company', href: '/company/' }, { label: 'Careers & Contact' }];
+---
+
+<MainLayout title="Careers & Contact" description="Future contact and recruitment information for E Deviser." breadcrumbs={breadcrumbs}>
+  <CareersContactSection />
+</MainLayout>

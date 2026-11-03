@@ -1,0 +1,96 @@
+.background-light {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.background-dark {
+  background: var(--color-surface-dark);
+  color: var(--color-text-inverse);
+}
+
+.background-ink {
+  background: var(--color-ink);
+  color: var(--color-text-inverse);
+}
+
+.background-blue {
+  background: var(--brand-blue);
+  color: var(--color-text-inverse);
+}
+
+.background-atmosphere {
+  background-color: var(--color-primary);
+  background-image: var(--gradient-ambient-blue), var(--gradient-ambient-teal), var(--gradient-atmosphere);
+  color: var(--color-text-inverse);
+}
+
+.background-page-progression {
+  background: var(--gradient-page-progression);
+}
+
+.background-pattern {
+  background-color: var(--color-surface);
+  background-image: var(--pattern-grid);
+  background-position: center;
+  background-size: 2rem 2rem;
+}
+
+.background-glass {
+  border: var(--border-width) solid rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(10px);
+}
+
+.section-spacing-compact {
+  padding-block: clamp(2rem, 5vw, 4rem);
+}
+
+.section-spacing-none {
+  padding-block: 0;
+}
+
+.background-dark .eyebrow,
+.background-atmosphere .eyebrow,
+.background-blue .eyebrow,
+.background-ink .eyebrow {
+  color: var(--brand-teal-light);
+}
+
+.background-dark h1,
+.background-dark h2,
+.background-dark h3,
+.background-atmosphere h1,
+.background-atmosphere h2,
+.background-atmosphere h3,
+.background-blue h1,
+.background-blue h2,
+.background-blue h3,
+.background-ink h1,
+.background-ink h2,
+.background-ink h3 {
+  color: var(--color-white);
+}
+
+.background-dark p,
+.background-atmosphere p,
+.background-blue p,
+.background-ink p {
+  color: var(--color-white);
+}
+
+.background-dark .text-link,
+.background-atmosphere .text-link,
+.background-blue .text-link,
+.background-ink .text-link {
+  color: var(--brand-teal-light);
+}
+
+.background-ink .wave {
+  opacity: 0.48;
+}
+
+@supports not ((backdrop-filter: blur(1px))) {
+  .background-glass {
+    background: var(--color-surface-raised);
+  }
+}

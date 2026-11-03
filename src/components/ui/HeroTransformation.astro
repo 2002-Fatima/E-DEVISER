@@ -1,0 +1,274 @@
+---
+const words = ['PROBLEMS', 'SYSTEMS', 'DECISIONS', 'LEARNING', 'OUTCOMES'];
+---
+
+<section class="particle-hero" data-particle-hero aria-labelledby="particle-hero-title">
+  <p class="eyebrow particle-hero-eyebrow">E DEVISER / HUMAN-CENTRED INTELLIGENCE</p>
+  <h1 class="particle-hero-title" id="particle-hero-title">
+    We build agentic intelligent systems for complex
+  </h1>
+  <div class="particle-word-stage">
+    <canvas class="particle-word-canvas" data-particle-canvas aria-hidden="true"></canvas>
+    <span class="particle-word-fallback" data-particle-fallback aria-hidden="true">PROBLEMS</span>
+  </div>
+  <p class="sr-only">
+    We build agentic intelligent systems for complex problems. The focus word transforms through
+    Problems, Systems, Decisions, Learning, and Outcomes.
+  </p>
+  <p class="particle-hero-caption">
+    A continuous transformation from complex challenges to human-centred learning and measurable outcomes.
+  </p>
+  <button
+    class="btn btn-secondary btn-sm particle-motion-control"
+    type="button"
+    data-particle-toggle
+    aria-label="Pause particle word animation"
+  >
+    Pause animation
+  </button>
+</section>
+
+<script>
+  const particleHero = document.querySelector<HTMLElement>('[data-particle-hero]');
+  const words = ['PROBLEMS', 'SYSTEMS', 'DECISIONS', 'LEARNING', 'OUTCOMES'];
+
+  if (particleHero) {
+    const canvas = particleHero.querySelector<HTMLCanvasElement>('[data-particle-canvas]');
+    const fallback = particleHero.querySelector<HTMLElement>('[data-particle-fallback]');
+    const wordStage = particleHero.querySelector<HTMLElement>('.particle-word-stage');
+    const toggle = particleHero.querySelector<HTMLButtonElement>('[data-particle-toggle]');
+    const context = canvas?.getContext('2d');
+
+    if (canvas && fallback && wordStage && toggle && context) {
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const palette = ['#1D3557', '#174D6B', '#0382BD', '#237D96', '#3C898F', '#2D7572'];
+      const transitionDuration = 1500;
+      const holdDuration = 1200;
+      const cycleDuration = transitionDuration + holdDuration;
+      let shapes: Array<Array<{ x: number; y: number }>> = [];
+      let particleCount = 0;
+      let colorGroups: number[][] = [];
+      let driftVectors: Array<{ x: number; y: number }> = [];
+      let width = 0;
+      let height = 0;
+      let phaseElapsed = 0;
+      let lastFrameTime: number | undefined;
+      let frameId: number | undefined;
+      let paused = false;
+      let inView = true;
+      let disposed = false;
+
+      const spreadBits = (value: number) => {
+        let bits = value & 0xffff;
+        bits = (bits | (bits << 8)) & 0x00ff00ff;
+        bits = (bits | (bits << 4)) & 0x0f0f0f0f;
+        bits = (bits | (bits << 2)) & 0x33333333;
+        bits = (bits | (bits << 1)) & 0x55555555;
+        return bits;
+      };
+
+      const spatialKey = (x: number, y: number) => {
+        const xBits = Math.min(65535, Math.max(0, Math.round(x * 65535)));
+        const yBits = Math.min(65535, Math.max(0, Math.round(y * 65535)));
+        return (spreadBits(xBits) | (spreadBits(yBits) << 1)) >>> 0;
+      };
+
+      const sampleWord = (word: string, fontSize: number, pixelRatio: number) => {
+        const mask = document.createElement('canvas');
+        mask.width = Math.ceil(width * pixelRatio);
+        mask.height = Math.ceil(height * pixelRatio);
+        const maskContext = mask.getContext('2d', { willReadFrequently: true });
+
+        if (!maskContext) return [];
+
+        maskContext.scale(pixelRatio, pixelRatio);
+        maskContext.clearRect(0, 0, width, height);
+        maskContext.fillStyle = '#fff';
+        maskContext.textAlign = 'center';
+        maskContext.textBaseline = 'alphabetic';
+        maskContext.font = `700 ${fontSize}px "Plus Jakarta Sans", Inter, "Segoe UI", sans-serif`;
+
+        let fittedSize = fontSize;
+        const maxTextWidth = width * 0.88;
+        const measuredWidth = maskContext.measureText(word).width;
+        if (measuredWidth > maxTextWidth) {
+          fittedSize *= maxTextWidth / measuredWidth;
+          maskContext.font = `700 ${fittedSize}px "Plus Jakarta Sans", Inter, "Segoe UI", sans-serif`;
+        }
+
+        const metrics = maskContext.measureText(word);
+        const baseline = (height + metrics.actualBoundingBoxAscent - metrics.actualBoundingBoxDescent) / 2;
+        maskContext.fillText(word, width / 2, baseline);
+
+        const pixels = maskContext.getImageData(0, 0, mask.width, mask.height).data;
+        const step = Math.max(2, Math.round(3.2 * pixelRatio));
+        const points: Array<{ x: number; y: number; key: number }> = [];
+
+        for (let y = step >> 1; y < mask.height; y += step) {
+          for (let x = step >> 1; x < mask.width; x += step) {
+            if (pixels[(y * mask.width + x) * 4 + 3] > 72) {
+              const cssX = x / pixelRatio;
+              const cssY = y / pixelRatio;
+              points.push({
+                x: cssX,
+                y: cssY,
+                key: spatialKey(cssX / width, cssY / height),
+              });
+            }
+          }
+        }
+
+        points.sort((a, b) => a.key - b.key);
+        return points;
+      };
+
+      const rebuildShapes = () => {
+        const bounds = wordStage.getBoundingClientRect();
+        if (!bounds.width || !bounds.height) return;
+
+        width = bounds.width;
+        height = bounds.height;
+        const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(width * pixelRatio);
+        canvas.height = Math.round(height * pixelRatio);
+        context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+        const fontSize = Math.min(132, width * 0.13, height * 0.58);
+        const samples = words.map((word) => sampleWord(word, fontSize, pixelRatio));
+        particleCount = Math.min(1800, ...samples.map((sample) => sample.length));
+
+        if (!particleCount) {
+          particleHero.classList.remove('is-ready');
+          return;
+        }
+
+        // Morton-order pairing keeps neighboring samples near each other in both word masks.
+        shapes = samples.map((sample) => {
+          const points = new Array<{ x: number; y: number }>(particleCount);
+          for (let index = 0; index < particleCount; index += 1) {
+            const point = sample[Math.floor((index + 0.5) * sample.length / particleCount)];
+            points[index] = { x: point.x, y: point.y };
+          }
+          return points;
+        });
+
+        colorGroups = palette.map(() => []);
+        driftVectors = [];
+        for (let index = 0; index < particleCount; index += 1) {
+          const meanX = shapes.reduce((sum, shape) => sum + shape[index].x, 0) / shapes.length;
+          const colorIndex = Math.min(palette.length - 1, Math.floor(meanX / width * palette.length));
+          colorGroups[colorIndex].push(index);
+
+          const seed = index * 12.9898 + 78.233;
+          const angle = Math.sin(seed) * Math.PI * 2;
+          const magnitude = 2 + ((Math.sin(seed * 1.37) + 1) / 2) * 4;
+          driftVectors[index] = { x: Math.cos(angle) * magnitude, y: Math.sin(angle) * magnitude };
+        }
+
+        particleHero.classList.add('is-ready');
+        drawFrame(phaseElapsed);
+      };
+
+      const drawFrame = (elapsed: number) => {
+        if (!particleCount) return;
+        context.clearRect(0, 0, width, height);
+
+        const cycleIndex = Math.floor(elapsed / cycleDuration);
+        const fromIndex = cycleIndex % words.length;
+        const toIndex = (fromIndex + 1) % words.length;
+        const stageTime = elapsed % cycleDuration;
+        const rawProgress = Math.min(1, stageTime / transitionDuration);
+        const progress = rawProgress * rawProgress * (3 - 2 * rawProgress);
+        const dispersion = Math.sin(rawProgress * Math.PI);
+        const source = shapes[fromIndex];
+        const destination = shapes[toIndex];
+
+        for (let groupIndex = 0; groupIndex < colorGroups.length; groupIndex += 1) {
+          const particles = colorGroups[groupIndex];
+          if (!particles.length) continue;
+
+          context.beginPath();
+          for (const index of particles) {
+            const start = source[index];
+            const end = destination[index];
+            const drift = driftVectors[index];
+            const x = start.x + (end.x - start.x) * progress + drift.x * dispersion;
+            const y = start.y + (end.y - start.y) * progress + drift.y * dispersion;
+            context.moveTo(x + 1.2, y);
+            context.arc(x, y, 1.45, 0, Math.PI * 2);
+          }
+          context.fillStyle = palette[groupIndex];
+          context.fill();
+        }
+      };
+
+      const canAnimate = () => !reducedMotion.matches && !paused && !document.hidden && inView;
+
+      const animate = (time: number) => {
+        frameId = undefined;
+        if (!canAnimate() || disposed) return;
+
+        if (lastFrameTime !== undefined) {
+          phaseElapsed += Math.min(time - lastFrameTime, 64);
+        }
+        lastFrameTime = time;
+        drawFrame(phaseElapsed);
+        frameId = window.requestAnimationFrame(animate);
+      };
+
+      const syncPlayback = () => {
+        if (reducedMotion.matches) {
+          phaseElapsed = 0;
+          drawFrame(phaseElapsed);
+        }
+
+        if (canAnimate()) {
+          if (frameId === undefined) {
+            lastFrameTime = undefined;
+            frameId = window.requestAnimationFrame(animate);
+          }
+        } else {
+          if (frameId !== undefined) {
+            window.cancelAnimationFrame(frameId);
+            frameId = undefined;
+          }
+          lastFrameTime = undefined;
+          drawFrame(phaseElapsed);
+        }
+
+        if (reducedMotion.matches) {
+          toggle.disabled = true;
+          toggle.textContent = 'Motion reduced';
+          toggle.setAttribute('aria-label', 'Animation disabled by reduced-motion preference');
+        } else {
+          toggle.disabled = false;
+          toggle.textContent = paused ? 'Play animation' : 'Pause animation';
+          toggle.setAttribute('aria-label', paused ? 'Play particle word animation' : 'Pause particle word animation');
+        }
+      };
+
+      const resizeObserver = new ResizeObserver(rebuildShapes);
+      resizeObserver.observe(wordStage);
+      window.addEventListener('resize', rebuildShapes, { passive: true });
+      const intersectionObserver = new IntersectionObserver(([entry]) => {
+        inView = entry.isIntersecting;
+        syncPlayback();
+      });
+      intersectionObserver.observe(particleHero);
+
+      toggle.addEventListener('click', () => {
+        paused = !paused;
+        syncPlayback();
+      });
+      document.addEventListener('visibilitychange', syncPlayback);
+      reducedMotion.addEventListener('change', syncPlayback);
+
+      document.fonts.ready.then(() => {
+        if (!disposed) rebuildShapes();
+      });
+
+      rebuildShapes();
+      syncPlayback();
+    }
+  }
+</script>

@@ -1,0 +1,19 @@
+---
+import { methodologySteps } from '../../content/methodology';
+import MethodologyStep from './MethodologyStep.astro';
+const steps = methodologySteps;
+---
+
+<section id="methodology" class="section-wrapper methodology-section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">METHODOLOGY</p>
+      <h2>Problem → Understand → Design → Build → Solution → Measure</h2>
+    </div>
+    <div class="methodology-grid">
+      {steps.map((step) => (
+        <MethodologyStep step={step} />
+      ))}
+    </div>
+  </div>
+</section>

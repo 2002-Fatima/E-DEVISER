@@ -1,0 +1,12 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import CuevoHero from '../../components/cuovo/CuevoHero.astro';
+import CuevoOverviewSection from '../../components/cuovo/CuevoOverviewSection.astro';
+
+const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Cuevo' }];
+---
+
+<MainLayout title="Cuevo" description="Learn about the Cuevo initiative within E Deviser’s education-focused portfolio." breadcrumbs={breadcrumbs}>
+  <CuevoHero />
+  <CuevoOverviewSection />
+</MainLayout>

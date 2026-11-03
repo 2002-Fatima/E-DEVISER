@@ -1,0 +1,29 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import OurWorkHero from '../../components/our-work/OurWorkHero.astro';
+import SectionNavigation from '../../components/layout/SectionNavigation.astro';
+import InitiativesSection from '../../components/our-work/InitiativesSection.astro';
+import PartnershipsSection from '../../components/our-work/PartnershipsSection.astro';
+import ForumsEventsSection from '../../components/our-work/ForumsEventsSection.astro';
+import InTheFieldSection from '../../components/our-work/InTheFieldSection.astro';
+import NewsFeaturesSection from '../../components/our-work/NewsFeaturesSection.astro';
+
+const navItems = [
+  { label: 'Initiatives', href: '#initiatives' },
+  { label: 'Partnerships', href: '#partnerships' },
+  { label: 'Forums & Events', href: '#forums-events' },
+  { label: 'In the Field', href: '#in-the-field' },
+  { label: 'News / Features', href: '#news-features' },
+];
+const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Our Work' }];
+---
+
+<MainLayout title="Our Work" description="Explore E Deviser initiatives, partnerships, events, field work, and updates." breadcrumbs={breadcrumbs}>
+  <OurWorkHero />
+  <SectionNavigation items={navItems} />
+  <InitiativesSection />
+  <PartnershipsSection />
+  <ForumsEventsSection />
+  <InTheFieldSection />
+  <NewsFeaturesSection />
+</MainLayout>

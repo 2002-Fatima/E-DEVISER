@@ -1,0 +1,403 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import Container from '../../components/ui/Container.astro';
+import Divider from '../../components/ui/Divider.astro';
+import FormFeedback from '../../components/ui/FormFeedback.astro';
+import Link from '../../components/ui/Link.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Select from '../../components/ui/Select.astro';
+import Textarea from '../../components/ui/Textarea.astro';
+import TextInput from '../../components/ui/TextInput.astro';
+import Wave from '../../components/ui/Wave.astro';
+import MethodologyFlow from '../../components/what-we-build/MethodologyFlow.astro';
+
+const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Design System' }];
+const brandColors = [
+  { name: 'Primary blue', token: '--brand-blue', value: '#0382BD' },
+  { name: 'Light blue', token: '--brand-blue-light', value: '#C0E2FD' },
+  { name: 'Secondary teal', token: '--brand-teal', value: '#5AB9B4' },
+  { name: 'Light teal', token: '--brand-teal-light', value: '#CDFCF4' },
+  { name: 'Navy', token: '--brand-navy', value: '#1D3557' },
+  { name: 'Black', token: '--brand-black', value: '#121212' },
+  { name: 'Gray', token: '--brand-gray', value: '#504E4E' },
+  { name: 'White', token: '--brand-white', value: '#FFFFFF' },
+];
+const semanticColors = [
+  { name: 'Page surface', token: '--color-surface', value: '#F7FAFC' },
+  { name: 'Raised surface', token: '--color-surface-raised', value: '#FFFFFF' },
+  { name: 'Soft surface', token: '--color-surface-soft', value: '#EAF4F7' },
+  { name: 'Primary action', token: '--color-primary', value: '#0382BD' },
+  { name: 'Primary hover', token: '--color-primary-strong', value: '#026B9B' },
+  { name: 'Text', token: '--color-text', value: '#1D3557' },
+  { name: 'Muted text', token: '--color-text-muted', value: '#595F69' },
+  { name: 'Focus ring', token: '--color-focus', value: '#006A9C' },
+];
+const fontSpecimens = [
+  { name: 'Display / Plus Jakarta Sans / Bold', sample: 'Human-centred intelligence', family: 'var(--font-display)', size: 'var(--text-2xl)', weight: 'var(--weight-bold)' },
+  { name: 'Heading / Plus Jakarta Sans / Semibold', sample: 'Learning that leads to outcomes', family: 'var(--font-display)', size: 'var(--text-xl)', weight: 'var(--weight-semibold)' },
+  { name: 'Body / Inter / Regular', sample: 'Designed for people, practical learning, and meaningful decisions.', family: 'var(--font-body)', size: 'var(--text-base)', weight: 'var(--weight-regular)' },
+  { name: 'UI / Inter / Semibold', sample: 'Explore the methodology', family: 'var(--font-body)', size: 'var(--text-sm)', weight: 'var(--weight-semibold)' },
+  { name: 'Technical / JetBrains Mono / Medium', sample: 'OUTCOME_BASED_EDUCATION', family: 'var(--font-mono)', size: 'var(--text-xs)', weight: 'var(--weight-medium)' },
+];
+const spaces = [
+  { token: '--space-1', value: '4px', width: '0.25rem' },
+  { token: '--space-2', value: '8px', width: '0.5rem' },
+  { token: '--space-3', value: '12px', width: '0.75rem' },
+  { token: '--space-4', value: '16px', width: '1rem' },
+  { token: '--space-6', value: '24px', width: '1.5rem' },
+  { token: '--space-8', value: '32px', width: '2rem' },
+  { token: '--space-12', value: '48px', width: '3rem' },
+  { token: '--space-16', value: '64px', width: '4rem' },
+];
+const buttonVariants = [
+  { key: 'primary', label: 'Primary' },
+  { key: 'secondary', label: 'Secondary' },
+  { key: 'tertiary', label: 'Tertiary / Ghost' },
+  { key: 'dark', label: 'Dark' },
+  { key: 'inverse', label: 'Inverse' },
+  { key: 'destructive', label: 'Destructive' },
+] as const;
+const buttonSizes = [
+  { key: 'sm', label: 'Small' },
+  { key: 'md', label: 'Medium' },
+  { key: 'lg', label: 'Large' },
+] as const;
+const selectOptions = [
+  { label: 'Education', value: 'education' },
+  { label: 'Learning technology', value: 'learning-tech' },
+  { label: 'Other', value: 'other' },
+];
+---
+
+<MainLayout
+  title="Design System"
+  description="Internal E Deviser design system review: foundations, reusable components, surfaces, and motion prototypes."
+  breadcrumbs={breadcrumbs}
+>
+  <div class="design-system-page">
+    <section class="design-review-intro background-pattern">
+      <Container width="wide">
+        <p class="eyebrow">INTERNAL DESIGN REVIEW</p>
+        <h1>E Deviser design system</h1>
+        <p>Foundations and reusable interface patterns for human-centred education technology.</p>
+        <div class="design-review-meta">
+          <span>Foundations</span>
+          <span>Components</span>
+          <span>Motion prototypes</span>
+        </div>
+      </Container>
+    </section>
+
+    <section class="design-section" id="colors">
+      <Container width="wide">
+        <SectionHeading eyebrow="01 / Foundations" title="Brand and semantic color" description="Brand colors are mapped to interface roles so contrast and meaning stay consistent across surfaces." />
+        <div class="design-subsection">
+          <h3>Brand palette</h3>
+          <div class="swatch-grid">
+            {brandColors.map((color) => (
+              <div class="swatch">
+                <div class="swatch-color" style={`background-color: ${color.value}`}></div>
+                <div class="swatch-caption">
+                  <strong>{color.name}</strong>
+                  <code>{color.value}</code>
+                  <code>{color.token}</code>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="design-subsection">
+          <h3>Semantic roles</h3>
+          <div class="swatch-grid">
+            {semanticColors.map((color) => (
+              <div class="swatch">
+                <div class="swatch-color" style={`background-color: ${color.value}`}></div>
+                <div class="swatch-caption">
+                  <strong>{color.name}</strong>
+                  <code>{color.value}</code>
+                  <code>{color.token}</code>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <section class="design-section background-light" id="typography">
+      <Container width="wide">
+        <SectionHeading eyebrow="02 / Foundations" title="Typography" description="Plus Jakarta Sans for display and headings, Inter for body and UI, and JetBrains Mono for technical microcopy." />
+        <div class="type-specimen-list">
+          {fontSpecimens.map((specimen) => (
+            <div class="type-specimen">
+              <p class="design-label">{specimen.name}</p>
+              <p style={`font-family: ${specimen.family}; font-size: ${specimen.size}; font-weight: ${specimen.weight}`}>{specimen.sample}</p>
+            </div>
+          ))}
+        </div>
+        <p class="font-availability-note">Font-family tokens are wired; local font files are not currently present in the project, so the declared system fallbacks will render until licensed files are supplied.</p>
+      </Container>
+    </section>
+
+    <section class="design-section" id="spacing-layout">
+      <Container width="wide">
+        <SectionHeading eyebrow="03 / Foundations" title="Spacing and layout" description="A 4px rhythm anchors component spacing. Container widths and gutters adapt to the viewport." />
+        <div class="design-grid">
+          <div class="design-stack">
+            <h3>Spacing scale</h3>
+            <div class="space-list">
+              {spaces.map((space) => (
+                <div class="space-item">
+                  <code class="token-code">{space.token}</code>
+                  <span class="space-bar" style={`--space-size: ${space.width}`}></span>
+                  <code class="token-code">{space.value}</code>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="design-stack">
+            <h3>Container widths</h3>
+            <div class="container-sample-wrap">
+              <div class="container container-narrow"><div class="container-sample">Narrow · 48rem</div></div>
+              <div class="container container-standard"><div class="container-sample">Standard · 74rem</div></div>
+              <div class="container container-wide"><div class="container-sample">Wide · 88rem</div></div>
+            </div>
+            <p class="design-label">Breakpoint references: 640 / 768 / 900 / 1200 / 1440px; component rules apply at the sizes they need.</p>
+          </div>
+        </div>
+        <div class="design-grid design-subsection">
+          <div class="design-stack">
+            <h3>Radii and borders</h3>
+            <div class="radius-token-list">
+              <div class="radius-token" style="--sample-radius: var(--radius-xs)">XS · 6px</div>
+              <div class="radius-token" style="--sample-radius: var(--radius-sm)">SM · 10px</div>
+              <div class="radius-token" style="--sample-radius: var(--radius-md)">MD · 16px</div>
+              <div class="radius-token" style="--sample-radius: var(--radius-lg)">LG · 24px</div>
+            </div>
+            <p class="design-label">Structural 1px borders use semantic border tokens.</p>
+          </div>
+          <div class="design-stack">
+            <h3>Elevation</h3>
+            <div class="elevation-token-list">
+              <div class="elevation-token" style="--sample-shadow: var(--shadow-sm)">Low · --shadow-sm</div>
+              <div class="elevation-token" style="--sample-shadow: var(--shadow-md)">Raised · --shadow-md</div>
+              <div class="elevation-token" style="--sample-shadow: var(--shadow-lg)">Overlay · --shadow-lg</div>
+            </div>
+          </div>
+        </div>
+        <div class="design-subsection">
+          <h3>Responsive breakpoints and layers</h3>
+          <p class="design-label">640px small · 768px medium · 900px navigation · 1200px large · 1440px wide</p>
+          <p class="design-label">Z layers: base 0 · sticky 20 · header 30 · overlay 50 · modal 60</p>
+        </div>
+      </Container>
+    </section>
+
+    <section class="design-section" id="buttons">
+      <Container width="wide">
+        <SectionHeading eyebrow="04 / Components" title="Button system" description="One shared API supports six variants, three sizes, and consistent keyboard, hover, active, disabled, and loading behavior." />
+        <div class="design-button-variants">
+          {buttonVariants.map((variant) => (
+            <div class:list={['button-specimen', variant.key === 'inverse' && 'button-specimen-dark']}>
+              <h3>{variant.label}</h3>
+              <div class="button-row">
+                {buttonSizes.map((size) => (
+                  <Button variant={variant.key} size={size.key} label={size.label} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="design-grid design-state-examples">
+          <div class="button-specimen">
+            <h3>Interaction states</h3>
+            <p class="design-label">Tab to focus, hover, and press to inspect interactive states.</p>
+            <div class="button-row">
+              <Button variant="primary" label="Default / focus / hover / active" />
+              <Button variant="primary" label="Disabled" disabled />
+              <Button variant="primary" label="Saving" loading />
+            </div>
+          </div>
+          <div class="button-specimen">
+            <h3>Icon button</h3>
+            <p class="design-label">Icon-only controls require an accessible name.</p>
+            <div class="button-row">
+              <Button variant="secondary" size="sm" iconOnly ariaLabel="Add small item"><span aria-hidden="true">+</span></Button>
+              <Button variant="secondary" size="md" iconOnly ariaLabel="Add item"><span aria-hidden="true">+</span></Button>
+              <Button variant="secondary" size="lg" iconOnly ariaLabel="Add large item"><span aria-hidden="true">+</span></Button>
+            </div>
+          </div>
+        </div>
+        <div class="state-panel">
+          <p class="design-label">Inverse variant on dark surfaces</p>
+          <div class="button-row">
+            <Button variant="inverse" label="Inverse action" />
+            <Button variant="primary" label="Primary action" />
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <section class="design-section" id="links-navigation">
+      <Container width="wide">
+        <SectionHeading eyebrow="05 / Components" title="Links and navigation" description="Links are visually distinct without relying on color alone; navigation has a clear selected state." />
+        <div class="design-grid">
+          <div class="design-stack">
+            <h3>Inline links</h3>
+            <p>Use a <Link href="#cards">text link</Link> when an action belongs within a sentence.</p>
+            <p><Link href="#buttons" external>External link treatment</Link></p>
+          </div>
+          <nav class="design-stack" aria-label="Navigation state examples">
+            <h3>Navigation states</h3>
+            <div class="nav-state-demo">
+              <a href="#colors" aria-current="page">Current</a>
+              <a href="#typography">Default / focus / hover</a>
+              <a href="#forms">Another section</a>
+            </div>
+            <details class="nav-details nav-dropdown-demo">
+              <summary>Dropdown example</summary>
+              <ul class="nav-submenu">
+                <li><a href="#cards">Surface components</a></li>
+                <li><a href="#motion">Motion prototypes</a></li>
+              </ul>
+            </details>
+          </nav>
+        </div>
+      </Container>
+    </section>
+
+    <section class="design-section" id="cards">
+      <Container width="wide">
+        <SectionHeading eyebrow="06 / Components" title="Cards, surfaces, and status" description="Default surfaces stay solid and readable. Glass is limited to deliberate contexts and remains optional." />
+        <div class="design-grid">
+          <Card>
+            <div class="surface-card-content">
+              <Badge tone="neutral" label="Solid surface" />
+              <h3>Clear by default</h3>
+              <p>Structured content on a quiet, high-contrast surface.</p>
+            </div>
+          </Card>
+          <Card variant="raised" interactive href="#buttons">
+            <div class="surface-card-content">
+              <Badge tone="success" dot label="Interactive" />
+              <h3>Subtle response</h3>
+              <p>Hover elevation is restrained; keyboard focus remains visible.</p>
+            </div>
+          </Card>
+          <div class="glass-card-demo">
+            <Card variant="glass">
+              <div class="surface-card-content">
+                <Badge tone="warning" label="Glass surface" />
+                <h3>Translucency with purpose</h3>
+                <p>Use only over a supporting visual layer, with a solid fallback.</p>
+              </div>
+            </Card>
+          </div>
+          <div class="design-stack">
+            <h3>Status indicators</h3>
+            <div class="button-row">
+              <Badge tone="neutral" dot label="Draft" />
+              <Badge tone="success" dot label="Complete" />
+              <Badge tone="warning" dot label="In review" />
+              <Badge tone="danger" dot label="Needs attention" />
+            </div>
+            <Divider />
+            <p class="design-label">Dividers use a shared semantic border color.</p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <section class="design-section" id="forms">
+      <Container width="wide">
+        <SectionHeading eyebrow="07 / Components" title="Forms and feedback" description="Native form controls with associated labels, hint/error descriptions, and visible invalid states." />
+        <div class="design-grid">
+          <Card>
+            <div class="design-form">
+              <TextInput id="review-email" name="email" label="Work email" type="email" placeholder="name@organization.qa" hint="Use your organization email address." autocomplete="email" />
+              <Select id="review-interest" name="interest" label="Area of interest" options={selectOptions} placeholder="Choose an area" />
+              <Textarea id="review-message" name="message" label="Message" placeholder="Share a little context" rows={3} />
+              <div class="button-row">
+                <Button type="submit" label="Submit" />
+                <Button variant="secondary" label="Unavailable" disabled />
+              </div>
+            </div>
+          </Card>
+          <div class="design-stack">
+            <TextInput id="review-invalid-email" name="invalid-email" label="Email with error" type="email" value="not-an-email" error="Enter a valid email address." />
+            <TextInput id="review-disabled" name="disabled-field" label="Disabled input" value="Read-only example" disabled />
+            <FormFeedback tone="success">Your changes are saved.</FormFeedback>
+            <FormFeedback tone="error">Review the highlighted field before continuing.</FormFeedback>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <section class="design-section" id="backgrounds">
+      <Container width="wide">
+        <SectionHeading eyebrow="08 / Visual system" title="Background variants" description="Named surface treatments make gradients and texture repeatable rather than ad hoc." />
+        <div class="design-grid">
+          <div class="surface-demo surface-demo-light">
+            <h3>Light surface</h3>
+            <p>Quiet content canvas</p>
+          </div>
+          <div class="surface-demo surface-demo-dark">
+            <h3>Dark navy surface</h3>
+            <p>High-contrast section anchor</p>
+          </div>
+          <div class="surface-demo surface-demo-atmosphere">
+            <h3>Atmospheric blue to teal</h3>
+            <p>Layered ambient gradient, used selectively</p>
+          </div>
+          <div class="surface-demo background-pattern">
+            <h3>Subtle pattern</h3>
+            <p>Low-contrast grid texture over a light surface</p>
+          </div>
+        </div>
+        <div class="design-subsection">
+          <h3>Reusable SVG wave transitions</h3>
+          <div class="design-grid">
+            <div class="wave-demo">
+              <div class="wave-demo-content"><strong>Upward transition</strong></div>
+              <Wave direction="up" />
+            </div>
+            <div class="wave-demo">
+              <div class="wave-demo-content"><strong>Downward transition</strong></div>
+              <Wave direction="down" />
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <section class="design-section" id="motion">
+      <Container width="wide">
+        <SectionHeading eyebrow="09 / Motion prototypes" title="One intelligence, many complexities" description="Review the focused prototype for particle-based word transformation and the layered atmospheric wave system." />
+        <p><a class="visual-direction-preview-link" href="/design-system/visual-direction/">Open focused visual direction prototype</a></p>
+        <div class="design-subsection">
+          <SectionHeading level={3} eyebrow="Connected process" title="Interactive methodology flow" description="Select any step using a pointer, touch, or keyboard to reveal its description and move the progress path." />
+          <MethodologyFlow />
+        </div>
+        <p class="motion-accessibility-note">The hero animation pauses when requested and follows the operating system reduced-motion preference. The flow remains keyboard-operable without motion.</p>
+        <p class="design-label">Motion tokens: 140 / 220 / 500ms · standard and emphasized easing curves · reduced-motion override.</p>
+      </Container>
+    </section>
+
+    <section class="design-section" id="layout-primitives">
+      <Container width="wide">
+        <SectionHeading eyebrow="10 / Components" title="Layout primitives" description="Section wrappers provide consistent spacing and semantic background variants." />
+        <div class="design-grid">
+          <div class="background-light primitive-demo">Light wrapper</div>
+          <div class="background-dark primitive-demo">Dark wrapper</div>
+          <div class="background-atmosphere primitive-demo">Atmospheric wrapper</div>
+          <div class="background-pattern primitive-demo">Pattern wrapper</div>
+        </div>
+        <Divider />
+        <p class="design-label">Design tokens and primitives are shared across this showcase and the existing site components.</p>
+      </Container>
+    </section>
+  </div>
+</MainLayout>
