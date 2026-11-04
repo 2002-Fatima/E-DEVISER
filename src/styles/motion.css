@@ -154,6 +154,18 @@
   isolation: isolate;
 }
 
+.particle-word-stage--inline {
+  display: inline-grid;
+  width: 5.7em;
+  height: 1.08em;
+  margin-inline-end: 0.015em;
+  vertical-align: -0.07em;
+}
+
+.particle-word-stage--inline::before {
+  display: none;
+}
+
 .particle-word-stage::before {
   position: absolute;
   inset: 9% 9%;
@@ -182,7 +194,20 @@
   line-height: 1;
 }
 
+.particle-word-stage--inline .particle-word-fallback {
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #12d4e5;
+  font-size: 1em;
+  white-space: nowrap;
+}
+
 .particle-hero.is-ready .particle-word-fallback {
+  visibility: hidden;
+}
+
+.particle-word-stage--inline.is-ready .particle-word-fallback {
   visibility: hidden;
 }
 
@@ -443,5 +468,10 @@
 @media (prefers-reduced-motion: reduce) {
   .wave-animated .wave-layer {
     animation: none;
+  }
+
+  .stage-item,
+  .stage-bullet {
+    transition: none;
   }
 }

@@ -1,7 +1,24 @@
 ---
-const words = ['PROBLEMS', 'SYSTEMS', 'DECISIONS', 'LEARNING', 'OUTCOMES'];
+interface Props {
+  inline?: boolean;
+}
+
+const { inline = false } = Astro.props;
 ---
 
+{inline ? (
+  <>
+    <span
+      class="particle-word-stage particle-word-stage--inline"
+      data-particle-hero
+      aria-hidden="true"
+    >
+      <canvas class="particle-word-canvas" data-particle-canvas></canvas>
+      <span class="particle-word-fallback" data-particle-fallback>PROBLEMS</span>
+    </span>
+    <span class="sr-only">PROBLEMS</span>
+  </>
+) : (
 <section class="particle-hero" data-particle-hero aria-labelledby="particle-hero-title">
   <p class="eyebrow particle-hero-eyebrow">E DEVISER / HUMAN-CENTRED INTELLIGENCE</p>
   <h1 class="particle-hero-title" id="particle-hero-title">
@@ -27,23 +44,29 @@ const words = ['PROBLEMS', 'SYSTEMS', 'DECISIONS', 'LEARNING', 'OUTCOMES'];
     Pause animation
   </button>
 </section>
+)}
 
 <script>
   const particleHero = document.querySelector<HTMLElement>('[data-particle-hero]');
   const words = ['PROBLEMS', 'SYSTEMS', 'DECISIONS', 'LEARNING', 'OUTCOMES'];
 
   if (particleHero) {
+    const inline = particleHero.classList.contains('particle-word-stage--inline');
     const canvas = particleHero.querySelector<HTMLCanvasElement>('[data-particle-canvas]');
     const fallback = particleHero.querySelector<HTMLElement>('[data-particle-fallback]');
-    const wordStage = particleHero.querySelector<HTMLElement>('.particle-word-stage');
+    const wordStage = inline
+      ? particleHero
+      : particleHero.querySelector<HTMLElement>('.particle-word-stage');
     const toggle = particleHero.querySelector<HTMLButtonElement>('[data-particle-toggle]');
     const context = canvas?.getContext('2d');
 
-    if (canvas && fallback && wordStage && toggle && context) {
+    if (canvas && fallback && wordStage && context && (inline || toggle)) {
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      const palette = ['#1D3557', '#174D6B', '#0382BD', '#237D96', '#3C898F', '#2D7572'];
-      const transitionDuration = 1500;
-      const holdDuration = 1200;
+      const palette = inline
+        ? ['#0382BD', '#00A8E8', '#12D4E5', '#38DFC9', '#CDFCF4']
+        : ['#1D3557', '#174D6B', '#0382BD', '#237D96', '#3C898F', '#2D7572'];
+      const transitionDuration = 1800;
+      const holdDuration = 1500;
       const cycleDuration = transitionDuration + holdDuration;
       let shapes: Array<Array<{ x: number; y: number }>> = [];
       let particleCount = 0;
@@ -133,7 +156,7 @@ const words = ['PROBLEMS', 'SYSTEMS', 'DECISIONS', 'LEARNING', 'OUTCOMES'];
         canvas.height = Math.round(height * pixelRatio);
         context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
-        const fontSize = Math.min(132, width * 0.13, height * 0.58);
+        const fontSize = Math.min(132, width * (inline ? 0.18 : 0.13), height * (inline ? 0.94 : 0.58));
         const samples = words.map((word) => sampleWord(word, fontSize, pixelRatio));
         particleCount = Math.min(1800, ...samples.map((sample) => sample.length));
 
@@ -236,14 +259,16 @@ const words = ['PROBLEMS', 'SYSTEMS', 'DECISIONS', 'LEARNING', 'OUTCOMES'];
           drawFrame(phaseElapsed);
         }
 
-        if (reducedMotion.matches) {
-          toggle.disabled = true;
-          toggle.textContent = 'Motion reduced';
-          toggle.setAttribute('aria-label', 'Animation disabled by reduced-motion preference');
-        } else {
-          toggle.disabled = false;
-          toggle.textContent = paused ? 'Play animation' : 'Pause animation';
-          toggle.setAttribute('aria-label', paused ? 'Play particle word animation' : 'Pause particle word animation');
+        if (toggle) {
+          if (reducedMotion.matches) {
+            toggle.disabled = true;
+            toggle.textContent = 'Motion reduced';
+            toggle.setAttribute('aria-label', 'Animation disabled by reduced-motion preference');
+          } else {
+            toggle.disabled = false;
+            toggle.textContent = paused ? 'Play animation' : 'Pause animation';
+            toggle.setAttribute('aria-label', paused ? 'Play particle word animation' : 'Pause particle word animation');
+          }
         }
       };
 
@@ -256,7 +281,7 @@ const words = ['PROBLEMS', 'SYSTEMS', 'DECISIONS', 'LEARNING', 'OUTCOMES'];
       });
       intersectionObserver.observe(particleHero);
 
-      toggle.addEventListener('click', () => {
+      toggle?.addEventListener('click', () => {
         paused = !paused;
         syncPlayback();
       });

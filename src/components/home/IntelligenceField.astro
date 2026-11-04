@@ -1,0 +1,358 @@
+<div class="home-hero-visual" aria-label="Animated abstract particle field converging into a luminous intelligence focal point">
+  <canvas class="intelligence-field-canvas" id="intelligence-field-canvas" data-intelligence-field aria-hidden="true"></canvas>
+  <div class="home-hero-stages" role="group" aria-label="Intelligence visualization states">
+    <button class="stage-item" type="button" data-field-state="understand" aria-pressed="true" aria-controls="intelligence-field-canvas">
+      <span class="stage-bullet" aria-hidden="true">◎</span><span>UNDERSTAND</span>
+    </button>
+    <button class="stage-item" type="button" data-field-state="decide" aria-pressed="false" aria-controls="intelligence-field-canvas">
+      <span class="stage-bullet" aria-hidden="true">◌</span><span>DECIDE</span>
+    </button>
+    <button class="stage-item" type="button" data-field-state="act" aria-pressed="false" aria-controls="intelligence-field-canvas">
+      <span class="stage-bullet" aria-hidden="true">▶</span><span>ACT</span>
+    </button>
+    <button class="stage-item" type="button" data-field-state="measure" aria-pressed="false" aria-controls="intelligence-field-canvas">
+      <span class="stage-bullet" aria-hidden="true">◍</span><span>MEASURE</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  const canvases = document.querySelectorAll<HTMLCanvasElement>('[data-intelligence-field]');
+
+  canvases.forEach((canvas) => {
+    const visual = canvas.parentElement;
+    const context = canvas.getContext('2d');
+    if (!visual || !context) return;
+
+    type Particle = {
+      startX: number;
+      lane: number;
+      phase: number;
+      speed: number;
+      size: number;
+      color: string;
+      square: boolean;
+    };
+    type FieldState = 'understand' | 'decide' | 'act' | 'measure';
+
+    const colors = ['#0382BD', '#00A8E8', '#12D4E5', '#38DFC9', '#D6FFF7'];
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const controls = visual.querySelectorAll<HTMLButtonElement>('[data-field-state]');
+    const random = (() => {
+      let seed = 814729;
+      return () => {
+        seed = (seed * 1664525 + 1013904223) >>> 0;
+        return seed / 4294967296;
+      };
+    })();
+
+    let width = 0;
+    let height = 0;
+    let pixelRatio = 1;
+    let particles: Particle[] = [];
+    let frameId = 0;
+    let previousFrame = 0;
+    let elapsed = 0;
+    let visible = true;
+    let disposed = false;
+    let activeState: FieldState = 'understand';
+    let glowSprite: HTMLCanvasElement | undefined;
+
+    const makeGlowSprite = () => {
+      const sprite = document.createElement('canvas');
+      sprite.width = 64;
+      sprite.height = 64;
+      const spriteContext = sprite.getContext('2d');
+      if (!spriteContext) return undefined;
+      const gradient = spriteContext.createRadialGradient(32, 32, 0, 32, 32, 32);
+      gradient.addColorStop(0, 'rgba(225, 255, 247, 0.96)');
+      gradient.addColorStop(0.13, 'rgba(76, 255, 231, 0.66)');
+      gradient.addColorStop(0.42, 'rgba(0, 190, 245, 0.2)');
+      gradient.addColorStop(1, 'rgba(0, 153, 222, 0)');
+      spriteContext.fillStyle = gradient;
+      spriteContext.fillRect(0, 0, 64, 64);
+      return sprite;
+    };
+
+    const buildParticles = () => {
+      particles = [];
+      const count = Math.round(Math.min(2100, Math.max(1000, width * height / 100)));
+      for (let index = 0; index < count; index += 1) {
+        const startX = -0.06 + random() * 0.73;
+        const spread = 0.18 + (1 - startX / 0.73) * 0.3;
+        const lane = (random() + random() + random() - 1.5) * spread;
+        const colorRoll = random();
+        const colorIndex = colorRoll > 0.985 ? 4 : colorRoll > 0.75 ? 3 : colorRoll > 0.3 ? 2 : colorRoll > 0.08 ? 1 : 0;
+        particles.push({
+          startX,
+          lane,
+          phase: random(),
+          speed: 0.055 + random() * 0.075,
+          size: random() > 0.94 ? 1.6 + random() * 1.2 : 0.8 + random() * 1,
+          color: colors[colorIndex],
+          square: random() > 0.92,
+        });
+      }
+    };
+
+    const resize = () => {
+      const bounds = visual.getBoundingClientRect();
+      if (!bounds.width || !bounds.height) return;
+      width = bounds.width;
+      height = bounds.height;
+      pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = Math.round(width * pixelRatio);
+      canvas.height = Math.round(height * pixelRatio);
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      glowSprite = makeGlowSprite();
+      buildParticles();
+      draw();
+    };
+
+    const drawContours = (centerX: number, centerY: number, time: number, contourScale: number) => {
+      const left = -width * 0.04;
+      const focalX = centerX;
+      const lineCount = Math.max(34, Math.round(height / 5.8));
+
+      context.save();
+      context.globalCompositeOperation = 'lighter';
+      context.lineWidth = Math.max(0.7, width / 760);
+
+      for (let index = 0; index < lineCount; index += 1) {
+        const lane = (index / (lineCount - 1)) * 2 - 1;
+        const offset = lane * height * 0.43 * contourScale;
+        const sway = Math.sin(time * 0.24 + index * 0.52) * height * 0.018;
+        const gradient = context.createLinearGradient(left, centerY + offset, width, centerY);
+        gradient.addColorStop(0, 'rgba(0, 150, 223, 0.14)');
+        gradient.addColorStop(0.38, 'rgba(0, 182, 232, 0.46)');
+        gradient.addColorStop(0.67, index % 4 === 0 ? 'rgba(105, 255, 231, 0.92)' : 'rgba(34, 218, 227, 0.72)');
+        gradient.addColorStop(0.84, 'rgba(79, 245, 220, 0.46)');
+        gradient.addColorStop(1, 'rgba(0, 157, 212, 0.03)');
+        context.strokeStyle = gradient;
+        context.beginPath();
+        context.moveTo(left, centerY + offset * 0.92 + sway);
+        context.bezierCurveTo(
+          width * 0.2,
+          centerY + offset * 1.02 - sway,
+          width * 0.36,
+          centerY + offset * 0.7 + sway,
+          focalX - width * 0.13,
+          centerY + offset * 0.27,
+        );
+        context.bezierCurveTo(
+          focalX - width * 0.055,
+          centerY + offset * 0.1 - sway * 0.3,
+          focalX - width * 0.02,
+          centerY + offset * 0.035,
+          focalX,
+          centerY + offset * 0.025,
+        );
+        context.bezierCurveTo(
+          focalX + width * 0.055,
+          centerY + offset * 0.05 + sway * 0.25,
+          focalX + width * 0.095,
+          centerY + offset * 0.32,
+          focalX + width * 0.16,
+          centerY + offset * 0.49 + sway * 0.5,
+        );
+        context.stroke();
+      }
+
+      for (let index = 0; index < 9; index += 1) {
+        const rx = width * (0.045 + index * 0.014);
+        const ry = height * (0.12 + index * 0.033);
+        const shift = Math.sin(time * 0.18 + index) * height * 0.008;
+        context.beginPath();
+        context.moveTo(focalX - rx * 1.2, centerY + ry * (index % 2 ? 0.28 : -0.3) + shift);
+        context.bezierCurveTo(
+          focalX - rx * 0.65,
+          centerY - ry * (index % 2 ? 0.58 : 1.12),
+          focalX + rx * 0.12,
+          centerY - ry * (index % 2 ? 1.18 : 0.72),
+          focalX + rx,
+          centerY - ry * 0.12 + shift,
+        );
+        context.bezierCurveTo(
+          focalX + rx * 1.08,
+          centerY + ry * 0.14,
+          focalX + rx * 0.74,
+          centerY + ry * (index % 2 ? 0.76 : 0.52),
+          focalX + rx * 0.22,
+          centerY + ry * (index % 2 ? 0.58 : 0.92),
+        );
+        context.strokeStyle = `rgba(${index % 2 ? '40, 211, 221' : '67, 241, 214'}, ${0.16 + index * 0.014})`;
+        context.lineWidth = 0.65;
+        context.stroke();
+      }
+      context.restore();
+    };
+
+    const draw = () => {
+      if (!width || !height) return;
+      const centerX = width * (width < 700 ? 0.52 : 0.66);
+      const centerY = height * 0.51;
+      const isDeciding = activeState === 'decide';
+      context.clearRect(0, 0, width, height);
+
+      const beam = context.createLinearGradient(width * 0.08, centerY, centerX, centerY);
+      beam.addColorStop(0, 'rgba(0, 159, 226, 0)');
+      beam.addColorStop(0.55, 'rgba(0, 177, 235, 0.07)');
+      beam.addColorStop(0.9, 'rgba(32, 225, 231, 0.32)');
+      beam.addColorStop(1, 'rgba(174, 255, 243, 0.72)');
+      context.save();
+      context.globalCompositeOperation = 'lighter';
+      context.fillStyle = beam;
+      context.fillRect(width * 0.08, centerY - height * 0.045, centerX - width * 0.08, height * 0.09);
+      context.restore();
+
+      drawContours(centerX, centerY, elapsed, isDeciding ? 0.62 : 1);
+
+      context.save();
+      context.globalCompositeOperation = 'lighter';
+      for (const particle of particles) {
+        const life = (particle.phase + elapsed * particle.speed) % 1;
+        const easedLife = life * life * (3 - 2 * life);
+        const directionalLife = activeState === 'act' ? 1 - easedLife : easedLife;
+        const travel = isDeciding ? 1 - Math.pow(1 - directionalLife, 2.2) : directionalLife;
+        const x = particle.startX * width + (centerX - particle.startX * width) * travel;
+        const startSpread = particle.lane * height * (0.3 + Math.max(0, 0.68 - particle.startX) * 0.55);
+        const targetOffset = particle.lane * height * 0.015;
+        const spreadScale = isDeciding ? 0.55 : 1;
+        const y = centerY + (startSpread * (1 - travel) + targetOffset * travel) * spreadScale;
+        const intensity = 0.27 + travel * 0.72;
+        context.globalAlpha = intensity;
+        context.fillStyle = particle.color;
+        context.beginPath();
+        if (particle.square) {
+          context.rect(x - particle.size * 0.5, y - particle.size * 0.5, particle.size, particle.size);
+        } else {
+          context.arc(x, y, particle.size, 0, Math.PI * 2);
+        }
+        context.fill();
+      }
+
+      if (activeState === 'act') {
+        const pulse = (elapsed * 0.7) % 1;
+        context.lineWidth = 1.1;
+        for (let index = 0; index < 8; index += 1) {
+          const progress = (pulse + index / 8) % 1;
+          const distance = width * (0.08 + progress * 0.24);
+          const offset = Math.sin(index * 2.1) * height * progress * 0.12;
+          context.globalAlpha = (1 - progress) * 0.78;
+          context.strokeStyle = index % 2 ? '#36ead7' : '#50dfff';
+          context.beginPath();
+          context.moveTo(centerX, centerY);
+          context.quadraticCurveTo(centerX + distance * 0.55, centerY + offset * 0.4, centerX + distance, centerY + offset);
+          context.stroke();
+        }
+      }
+
+      if (activeState === 'measure') {
+        const scanX = centerX + Math.sin(elapsed * 0.65) * width * 0.18;
+        const scan = context.createLinearGradient(scanX, centerY - height * 0.33, scanX, centerY + height * 0.33);
+        scan.addColorStop(0, 'rgba(80, 223, 255, 0)');
+        scan.addColorStop(0.5, 'rgba(185, 255, 248, 0.9)');
+        scan.addColorStop(1, 'rgba(80, 223, 255, 0)');
+        context.globalAlpha = 0.8;
+        context.strokeStyle = scan;
+        context.lineWidth = 1;
+        context.beginPath();
+        context.moveTo(scanX, centerY - height * 0.33);
+        context.lineTo(scanX, centerY + height * 0.33);
+        context.stroke();
+        context.globalAlpha = 0.7;
+        context.fillStyle = '#b9fff8';
+        for (let index = -3; index <= 3; index += 1) {
+          const y = centerY + index * height * 0.075;
+          context.fillRect(scanX - (index === 0 ? 4 : 2), y, index === 0 ? 8 : 4, 1);
+        }
+      }
+
+      if (glowSprite) {
+        context.globalAlpha = 0.72;
+        context.drawImage(glowSprite, centerX - 31, centerY - 31, 62, 62);
+        context.globalAlpha = 0.46;
+        context.drawImage(glowSprite, centerX - 70, centerY - 70, 140, 140);
+        context.globalAlpha = 0.18;
+        context.drawImage(glowSprite, centerX - 125, centerY - 105, 250, 210);
+      }
+
+      const core = context.createRadialGradient(centerX, centerY, 0, centerX, centerY, width * 0.065);
+      core.addColorStop(0, 'rgba(255, 255, 239, 1)');
+      core.addColorStop(0.055, 'rgba(216, 255, 242, 0.98)');
+      core.addColorStop(0.12, 'rgba(107, 255, 237, 0.88)');
+      core.addColorStop(0.3, 'rgba(19, 215, 227, 0.45)');
+      core.addColorStop(1, 'rgba(0, 164, 222, 0)');
+      context.globalAlpha = (isDeciding ? 1 : 0.95) + Math.sin(elapsed * 1.7) * (isDeciding ? 0 : 0.05);
+      context.fillStyle = core;
+      context.beginPath();
+      context.arc(centerX, centerY, width * 0.065, 0, Math.PI * 2);
+      context.fill();
+      context.fillStyle = 'rgba(255, 255, 235, 0.98)';
+      context.beginPath();
+      context.arc(centerX, centerY, Math.max(3.2, width * 0.009), 0, Math.PI * 2);
+      context.fill();
+      context.restore();
+    };
+
+    const animate = (time: number) => {
+      frameId = 0;
+      if (disposed || !visible || document.hidden || reducedMotion.matches) return;
+      if (time - previousFrame >= 33) {
+        elapsed += Math.min(64, previousFrame ? time - previousFrame : 33) / 1000;
+        previousFrame = time;
+        draw();
+      }
+      frameId = window.requestAnimationFrame(animate);
+    };
+
+    const syncAnimation = () => {
+      if (frameId) window.cancelAnimationFrame(frameId);
+      frameId = 0;
+      previousFrame = 0;
+      if (reducedMotion.matches || document.hidden || !visible) {
+        draw();
+        return;
+      }
+      frameId = window.requestAnimationFrame(animate);
+    };
+
+    controls.forEach((button) => {
+      button.addEventListener('click', () => {
+        const state = button.dataset.fieldState;
+        if (state !== 'understand' && state !== 'decide' && state !== 'act' && state !== 'measure') return;
+        activeState = state;
+        controls.forEach((control) => {
+          control.setAttribute('aria-pressed', String(control === button));
+        });
+        draw();
+      });
+    });
+
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(visual);
+    const intersectionObserver = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      syncAnimation();
+    });
+    intersectionObserver.observe(visual);
+    window.addEventListener('resize', resize, { passive: true });
+    document.addEventListener('visibilitychange', syncAnimation);
+    reducedMotion.addEventListener('change', syncAnimation);
+
+    resize();
+    syncAnimation();
+
+    const cleanup = () => {
+      disposed = true;
+      if (frameId) window.cancelAnimationFrame(frameId);
+      resizeObserver.disconnect();
+      intersectionObserver.disconnect();
+      window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', syncAnimation);
+      reducedMotion.removeEventListener('change', syncAnimation);
+      document.removeEventListener('astro:before-swap', cleanup);
+    };
+    document.addEventListener('astro:before-swap', cleanup, { once: true });
+  });
+</script>

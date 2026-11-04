@@ -1,28 +1,30 @@
 ---
 import Button from '../ui/Button.astro';
+import HeroTransformation from '../ui/HeroTransformation.astro';
+import IntelligenceField from './IntelligenceField.astro';
 ---
 
-<section class="hero-section">
-  <div class="container hero-layout">
-    <div class="hero-copy">
-      <p class="eyebrow">E DEVISER</p>
-      <h1>We build <span class="headline-accent">agentic intelligent systems</span> for complex problems.</h1>
-      <p class="lede">E Deviser combines AI, data, and domain intelligence to solve complex problems — today, we're building deeply in education.</p>
+<section class="hero-section home-hero">
+  <div class="container home-hero-shell">
+    <div class="home-hero-copy">
+      <p class="home-hero-kicker">WE BUILD INTELLIGENT SYSTEMS FOR</p>
+      <h1>
+        <span class="home-hero-line home-hero-line--primary">COMPLEX</span>
+        <span class="home-hero-line home-hero-line--accent">
+          <HeroTransformation inline />
+          <span aria-hidden="true">.</span>
+        </span>
+      </h1>
+      <p class="lede">
+        E Deviser combines AI, data, and domain intelligence to turn complexity into better
+        decisions and measurable outcomes.
+      </p>
       <div class="hero-actions">
         <Button href="/what-we-build/" label="Explore What We Build" />
-        <Button href="https://cuovo.tech" external label="Explore Cuevo" variant="secondary" />
+        <Button href="https://cuovo.tech/" external label="Explore CUOVO" variant="secondary" />
       </div>
     </div>
 
-    <div class="hero-art" aria-label="Abstract visual placeholder for future morphic typography">
-      <div class="art-orb orb-one"></div>
-      <div class="art-orb orb-two"></div>
-      <div class="art-grid"></div>
-      <div class="art-card">
-        <span>Problems</span>
-        <strong>Systems</strong>
-        <small>Decisions · Learning · Outcomes</small>
-      </div>
-    </div>
+    <IntelligenceField />
   </div>
 </section>
