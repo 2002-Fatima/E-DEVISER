@@ -1,5 +1,14 @@
 ---
-type Variant = 'primary' | 'secondary' | 'tertiary' | 'dark' | 'inverse' | 'destructive';
+type Variant =
+  | 'primary'
+  | 'secondary'
+  | 'outline'
+  | 'ghost'
+  | 'light'
+  | 'tertiary'
+  | 'dark'
+  | 'inverse'
+  | 'destructive';
 type Size = 'sm' | 'md' | 'lg';
 type CommonProps = {
   href?: string;

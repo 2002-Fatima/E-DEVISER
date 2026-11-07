@@ -3,6 +3,11 @@
   color: var(--color-text);
 }
 
+.background-base {
+  background: var(--color-surface-ink);
+  color: var(--color-text-inverse);
+}
+
 .background-dark {
   background: var(--color-surface-dark);
   color: var(--color-text-inverse);
@@ -19,26 +24,26 @@
 }
 
 .background-atmosphere {
-  background-color: var(--color-primary);
-  background-image: var(--gradient-ambient-blue), var(--gradient-ambient-teal), var(--gradient-atmosphere);
+  background: var(--gradient-dark-atmosphere);
   color: var(--color-text-inverse);
 }
 
-.background-page-progression {
-  background: var(--gradient-page-progression);
+.background-luminous {
+  background: var(--gradient-dark-luminous);
+  color: var(--color-text-inverse);
 }
 
 .background-pattern {
-  background-color: var(--color-surface);
-  background-image: var(--pattern-grid);
+  background: var(--gradient-pattern-light);
   background-position: center;
   background-size: 2rem 2rem;
 }
 
 .background-glass {
-  border: var(--border-width) solid rgba(255, 255, 255, 0.42);
-  background: rgba(255, 255, 255, 0.84);
-  backdrop-filter: blur(10px);
+  border: var(--border-width) solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 
 .section-spacing-compact {
@@ -50,7 +55,9 @@
 }
 
 .background-dark .eyebrow,
+.background-base .eyebrow,
 .background-atmosphere .eyebrow,
+.background-luminous .eyebrow,
 .background-blue .eyebrow,
 .background-ink .eyebrow {
   color: var(--brand-teal-light);
@@ -59,9 +66,15 @@
 .background-dark h1,
 .background-dark h2,
 .background-dark h3,
+.background-base h1,
+.background-base h2,
+.background-base h3,
 .background-atmosphere h1,
 .background-atmosphere h2,
 .background-atmosphere h3,
+.background-luminous h1,
+.background-luminous h2,
+.background-luminous h3,
 .background-blue h1,
 .background-blue h2,
 .background-blue h3,
@@ -72,25 +85,25 @@
 }
 
 .background-dark p,
+.background-base p,
 .background-atmosphere p,
+.background-luminous p,
 .background-blue p,
 .background-ink p {
   color: var(--color-white);
 }
 
 .background-dark .text-link,
+.background-base .text-link,
 .background-atmosphere .text-link,
+.background-luminous .text-link,
 .background-blue .text-link,
 .background-ink .text-link {
   color: var(--brand-teal-light);
 }
 
-.background-ink .wave {
-  opacity: 0.48;
-}
-
 @supports not ((backdrop-filter: blur(1px))) {
   .background-glass {
-    background: var(--color-surface-raised);
+    background: rgba(9, 18, 29, 0.94);
   }
 }

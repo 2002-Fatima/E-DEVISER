@@ -62,16 +62,23 @@ const { inline = false } = Astro.props;
 
     if (canvas && fallback && wordStage && context && (inline || toggle)) {
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      const palette = inline
-        ? ['#0382BD', '#00A8E8', '#12D4E5', '#38DFC9', '#CDFCF4']
-        : ['#1D3557', '#174D6B', '#0382BD', '#237D96', '#3C898F', '#2D7572'];
+      const rootStyles = getComputedStyle(document.documentElement);
+      const particleColors = [
+        rootStyles.getPropertyValue('--color-brand-start').trim() || '#0393F2',
+        rootStyles.getPropertyValue('--color-brand-middle').trim() || '#02B6E0',
+        rootStyles.getPropertyValue('--color-brand-end').trim() || '#00E5C7',
+      ];
       const transitionDuration = 1800;
       const holdDuration = 1500;
       const cycleDuration = transitionDuration + holdDuration;
       let shapes: Array<Array<{ x: number; y: number }>> = [];
       let particleCount = 0;
-      let colorGroups: number[][] = [];
+      let particleGroups: number[][] = [[], [], []];
+      let highlightIndices: number[] = [];
+      let particleRadii: number[] = [];
       let driftVectors: Array<{ x: number; y: number }> = [];
+      let particleGradient: CanvasGradient | undefined;
+      const opacityLevels = [0.74, 0.9, 1];
       let width = 0;
       let height = 0;
       let phaseElapsed = 0;
@@ -175,16 +182,42 @@ const { inline = false } = Astro.props;
           return points;
         });
 
-        colorGroups = palette.map(() => []);
-        driftVectors = [];
+        context.font = `700 ${fontSize}px "Plus Jakarta Sans", Inter, "Segoe UI", sans-serif`;
+        const gradientWidth = inline
+          ? width
+          : Math.min(width * 0.88, Math.max(...words.map((word) => context.measureText(word).width)));
+        const gradientHeight = inline ? height : fontSize;
+        const gradientAngle = (100 * Math.PI) / 180;
+        const directionX = Math.sin(gradientAngle);
+        const directionY = -Math.cos(gradientAngle);
+        const halfLength =
+          Math.abs(directionX) * gradientWidth / 2 +
+          Math.abs(directionY) * gradientHeight / 2;
+        const centerX = width / 2;
+        const centerY = height / 2;
+        particleGradient = context.createLinearGradient(
+          centerX - directionX * halfLength,
+          centerY - directionY * halfLength,
+          centerX + directionX * halfLength,
+          centerY + directionY * halfLength,
+        );
+        particleGradient.addColorStop(0, particleColors[0]);
+        particleGradient.addColorStop(0.48, particleColors[1]);
+        particleGradient.addColorStop(1, particleColors[2]);
+        particleGroups = [[], [], []];
+        highlightIndices = [];
+        particleRadii = new Array(particleCount);
+        driftVectors = new Array(particleCount);
         for (let index = 0; index < particleCount; index += 1) {
-          const meanX = shapes.reduce((sum, shape) => sum + shape[index].x, 0) / shapes.length;
-          const colorIndex = Math.min(palette.length - 1, Math.floor(meanX / width * palette.length));
-          colorGroups[colorIndex].push(index);
+          const seed = (index * 16807) % 2147483647;
+          const variation = seed / 2147483647;
+          const opacityGroup = variation < 0.2 ? 0 : variation < 0.72 ? 1 : 2;
+          particleGroups[opacityGroup].push(index);
+          particleRadii[index] = 1.3 + variation * 0.65;
+          if (index % 19 === 0) highlightIndices.push(index);
 
-          const seed = index * 12.9898 + 78.233;
-          const angle = Math.sin(seed) * Math.PI * 2;
-          const magnitude = 2 + ((Math.sin(seed * 1.37) + 1) / 2) * 4;
+          const angle = variation * Math.PI * 2;
+          const magnitude = 1.5 + variation * 2.25;
           driftVectors[index] = { x: Math.cos(angle) * magnitude, y: Math.sin(angle) * magnitude };
         }
 
@@ -193,7 +226,7 @@ const { inline = false } = Astro.props;
       };
 
       const drawFrame = (elapsed: number) => {
-        if (!particleCount) return;
+        if (!particleCount || !particleGradient) return;
         context.clearRect(0, 0, width, height);
 
         const cycleIndex = Math.floor(elapsed / cycleDuration);
@@ -206,10 +239,26 @@ const { inline = false } = Astro.props;
         const source = shapes[fromIndex];
         const destination = shapes[toIndex];
 
-        for (let groupIndex = 0; groupIndex < colorGroups.length; groupIndex += 1) {
-          const particles = colorGroups[groupIndex];
+        context.globalCompositeOperation = 'screen';
+        context.globalAlpha = 0.2;
+        context.beginPath();
+        for (const index of highlightIndices) {
+          const start = source[index];
+          const end = destination[index];
+          const drift = driftVectors[index];
+          const x = start.x + (end.x - start.x) * progress + drift.x * dispersion;
+          const y = start.y + (end.y - start.y) * progress + drift.y * dispersion;
+          context.moveTo(x + 2.9, y);
+          context.arc(x, y, 2.9, 0, Math.PI * 2);
+        }
+        context.fillStyle = particleGradient;
+        context.fill();
+
+        for (let groupIndex = 0; groupIndex < particleGroups.length; groupIndex += 1) {
+          const particles = particleGroups[groupIndex];
           if (!particles.length) continue;
 
+          context.globalAlpha = opacityLevels[groupIndex];
           context.beginPath();
           for (const index of particles) {
             const start = source[index];
@@ -217,12 +266,15 @@ const { inline = false } = Astro.props;
             const drift = driftVectors[index];
             const x = start.x + (end.x - start.x) * progress + drift.x * dispersion;
             const y = start.y + (end.y - start.y) * progress + drift.y * dispersion;
-            context.moveTo(x + 1.2, y);
-            context.arc(x, y, 1.45, 0, Math.PI * 2);
+            const radius = particleRadii[index];
+            context.moveTo(x + radius, y);
+            context.arc(x, y, radius, 0, Math.PI * 2);
           }
-          context.fillStyle = palette[groupIndex];
+          context.fillStyle = particleGradient;
           context.fill();
         }
+        context.globalAlpha = 1;
+        context.globalCompositeOperation = 'source-over';
       };
 
       const canAnimate = () => !reducedMotion.matches && !paused && !document.hidden && inView;

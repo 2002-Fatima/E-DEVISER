@@ -11,7 +11,7 @@ import SectionHeading from '../../components/ui/SectionHeading.astro';
 import Select from '../../components/ui/Select.astro';
 import Textarea from '../../components/ui/Textarea.astro';
 import TextInput from '../../components/ui/TextInput.astro';
-import Wave from '../../components/ui/Wave.astro';
+import HeroTransformation from '../../components/ui/HeroTransformation.astro';
 import MethodologyFlow from '../../components/what-we-build/MethodologyFlow.astro';
 
 const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Design System' }];
@@ -21,25 +21,32 @@ const brandColors = [
   { name: 'Secondary teal', token: '--brand-teal', value: '#5AB9B4' },
   { name: 'Light teal', token: '--brand-teal-light', value: '#CDFCF4' },
   { name: 'Navy', token: '--brand-navy', value: '#1D3557' },
+  { name: 'Dark navy', token: '--brand-ink', value: '#09121D' },
   { name: 'Black', token: '--brand-black', value: '#121212' },
   { name: 'Gray', token: '--brand-gray', value: '#504E4E' },
   { name: 'White', token: '--brand-white', value: '#FFFFFF' },
 ];
 const semanticColors = [
-  { name: 'Page surface', token: '--color-surface', value: '#F7FAFC' },
-  { name: 'Raised surface', token: '--color-surface-raised', value: '#FFFFFF' },
-  { name: 'Soft surface', token: '--color-surface-soft', value: '#EAF4F7' },
+  { name: 'Page surface', token: '--color-surface-ink', value: '#09121D' },
+  { name: 'Raised dark surface', token: '--color-surface-dark', value: '#1D3557' },
+  { name: 'Patterned light surface', token: '--color-surface-patterned', value: '#F3F8FC' },
   { name: 'Primary action', token: '--color-primary', value: '#0382BD' },
   { name: 'Primary hover', token: '--color-primary-strong', value: '#026B9B' },
   { name: 'Text', token: '--color-text', value: '#1D3557' },
   { name: 'Muted text', token: '--color-text-muted', value: '#595F69' },
-  { name: 'Focus ring', token: '--color-focus', value: '#006A9C' },
+  { name: 'Inverse focus ring', token: '--brand-teal-light', value: '#CDFCF4' },
 ];
 const fontSpecimens = [
-  { name: 'Display / Plus Jakarta Sans / Bold', sample: 'Human-centred intelligence', family: 'var(--font-display)', size: 'var(--text-2xl)', weight: 'var(--weight-bold)' },
-  { name: 'Heading / Plus Jakarta Sans / Semibold', sample: 'Learning that leads to outcomes', family: 'var(--font-display)', size: 'var(--text-xl)', weight: 'var(--weight-semibold)' },
-  { name: 'Body / Inter / Regular', sample: 'Designed for people, practical learning, and meaningful decisions.', family: 'var(--font-body)', size: 'var(--text-base)', weight: 'var(--weight-regular)' },
-  { name: 'UI / Inter / Semibold', sample: 'Explore the methodology', family: 'var(--font-body)', size: 'var(--text-sm)', weight: 'var(--weight-semibold)' },
+  { name: 'Display / Plus Jakarta Sans / ExtraBold', sample: 'Human-centred intelligence', family: 'var(--font-display)', size: 'var(--text-display)', weight: 'var(--weight-extrabold)' },
+  { name: 'H1 / Plus Jakarta Sans / Bold', sample: 'Learning that leads to outcomes', family: 'var(--font-display)', size: 'var(--text-h1)', weight: 'var(--weight-bold)' },
+  { name: 'H2 / Plus Jakarta Sans / Bold', sample: 'Designing for better decisions', family: 'var(--font-display)', size: 'var(--text-h2)', weight: 'var(--weight-bold)' },
+  { name: 'H3 / Plus Jakarta Sans / Bold', sample: 'A human-centred approach', family: 'var(--font-display)', size: 'var(--text-h3)', weight: 'var(--weight-bold)' },
+  { name: 'H4 / Plus Jakarta Sans / Bold', sample: 'Learning built around people', family: 'var(--font-display)', size: 'var(--text-h4)', weight: 'var(--weight-bold)' },
+  { name: 'Body large / Inter / Regular', sample: 'Designed for practical learning and meaningful decisions.', family: 'var(--font-body)', size: 'var(--text-body-large)', weight: 'var(--weight-regular)' },
+  { name: 'Body regular / Inter / Regular', sample: 'Clear systems help people make progress with confidence.', family: 'var(--font-body)', size: 'var(--text-base)', weight: 'var(--weight-regular)' },
+  { name: 'Body small / Inter / Regular', sample: 'Supporting details stay legible and comfortably spaced.', family: 'var(--font-body)', size: 'var(--text-body-small)', weight: 'var(--weight-regular)' },
+  { name: 'Eyebrow / Inter / Bold', sample: 'HUMAN-CENTRED INTELLIGENCE', family: 'var(--font-body)', size: 'var(--text-xs)', weight: 'var(--weight-bold)' },
+  { name: 'Button and navigation / Inter / Semibold', sample: 'Explore the methodology', family: 'var(--font-body)', size: 'var(--text-sm)', weight: 'var(--weight-semibold)' },
   { name: 'Technical / JetBrains Mono / Medium', sample: 'OUTCOME_BASED_EDUCATION', family: 'var(--font-mono)', size: 'var(--text-xs)', weight: 'var(--weight-medium)' },
 ];
 const spaces = [
@@ -55,10 +62,9 @@ const spaces = [
 const buttonVariants = [
   { key: 'primary', label: 'Primary' },
   { key: 'secondary', label: 'Secondary' },
-  { key: 'tertiary', label: 'Tertiary / Ghost' },
-  { key: 'dark', label: 'Dark' },
-  { key: 'inverse', label: 'Inverse' },
-  { key: 'destructive', label: 'Destructive' },
+  { key: 'outline', label: 'Outline' },
+  { key: 'ghost', label: 'Ghost' },
+  { key: 'light', label: 'Light' },
 ] as const;
 const buttonSizes = [
   { key: 'sm', label: 'Small' },
@@ -78,10 +84,10 @@ const selectOptions = [
   breadcrumbs={breadcrumbs}
 >
   <div class="design-system-page">
-    <section class="design-review-intro background-pattern">
+    <section class="design-review-intro background-atmosphere">
       <Container width="wide">
         <p class="eyebrow">INTERNAL DESIGN REVIEW</p>
-        <h1>E Deviser design system</h1>
+        <h1>E Deviser <span class="text-gradient">design system</span></h1>
         <p>Foundations and reusable interface patterns for human-centred education technology.</p>
         <div class="design-review-meta">
           <span>Foundations</span>
@@ -127,7 +133,7 @@ const selectOptions = [
       </Container>
     </section>
 
-    <section class="design-section background-light" id="typography">
+    <section class="design-section design-section--light background-pattern" id="typography">
       <Container width="wide">
         <SectionHeading eyebrow="02 / Foundations" title="Typography" description="Plus Jakarta Sans for display and headings, Inter for body and UI, and JetBrains Mono for technical microcopy." />
         <div class="type-specimen-list">
@@ -138,7 +144,8 @@ const selectOptions = [
             </div>
           ))}
         </div>
-        <p class="font-availability-note">Font-family tokens are wired; local font files are not currently present in the project, so the declared system fallbacks will render until licensed files are supplied.</p>
+        <p class="type-gradient-sample text-gradient">One intelligence. Many outcomes.</p>
+        <p class="font-availability-note">Plus Jakarta Sans, Inter, and JetBrains Mono are loaded with swap-enabled fallbacks.</p>
       </Container>
     </section>
 
@@ -201,7 +208,7 @@ const selectOptions = [
         <SectionHeading eyebrow="04 / Components" title="Button system" description="One shared API supports six variants, three sizes, and consistent keyboard, hover, active, disabled, and loading behavior." />
         <div class="design-button-variants">
           {buttonVariants.map((variant) => (
-            <div class:list={['button-specimen', variant.key === 'inverse' && 'button-specimen-dark']}>
+            <div class:list={['button-specimen', variant.key === 'light' && 'button-specimen-dark']}>
               <h3>{variant.label}</h3>
               <div class="button-row">
                 {buttonSizes.map((size) => (
@@ -272,7 +279,7 @@ const selectOptions = [
     <section class="design-section" id="cards">
       <Container width="wide">
         <SectionHeading eyebrow="06 / Components" title="Cards, surfaces, and status" description="Default surfaces stay solid and readable. Glass is limited to deliberate contexts and remains optional." />
-        <div class="design-grid">
+        <div class="design-grid design-card-grid">
           <Card>
             <div class="surface-card-content">
               <Badge tone="neutral" label="Solid surface" />
@@ -280,7 +287,7 @@ const selectOptions = [
               <p>Structured content on a quiet, high-contrast surface.</p>
             </div>
           </Card>
-          <Card variant="raised" interactive href="#buttons">
+          <Card variant="elevated" interactive href="#buttons">
             <div class="surface-card-content">
               <Badge tone="success" dot label="Interactive" />
               <h3>Subtle response</h3>
@@ -296,6 +303,20 @@ const selectOptions = [
               </div>
             </Card>
           </div>
+          <Card variant="highlight">
+            <div class="surface-card-content">
+              <Badge tone="neutral" label="Border highlight" />
+              <h3>Emphasis with restraint</h3>
+              <p>A fine teal border marks a deliberate priority without a glow effect.</p>
+            </div>
+          </Card>
+          <Card variant="patterned-light">
+            <div class="surface-card-content">
+              <Badge tone="neutral" label="Patterned light" />
+              <h3>Contrast when it helps</h3>
+              <p>A quiet geometric surface adds a light pause inside the dark system.</p>
+            </div>
+          </Card>
           <div class="design-stack">
             <h3>Status indicators</h3>
             <div class="button-row">
@@ -339,34 +360,31 @@ const selectOptions = [
     <section class="design-section" id="backgrounds">
       <Container width="wide">
         <SectionHeading eyebrow="08 / Visual system" title="Background variants" description="Named surface treatments make gradients and texture repeatable rather than ad hoc." />
-        <div class="design-grid">
-          <div class="surface-demo surface-demo-light">
+        <div class="design-grid design-background-grid">
+          <div class="surface-demo background-light">
             <h3>Light surface</h3>
             <p>Quiet content canvas</p>
           </div>
-          <div class="surface-demo surface-demo-dark">
-            <h3>Dark navy surface</h3>
-            <p>High-contrast section anchor</p>
+          <div class="surface-demo background-base">
+            <h3>Dark base</h3>
+            <p>Midnight navy, minimal atmosphere</p>
           </div>
-          <div class="surface-demo surface-demo-atmosphere">
-            <h3>Atmospheric blue to teal</h3>
-            <p>Layered ambient gradient, used selectively</p>
+          <div class="surface-demo background-atmosphere">
+            <h3>Dark atmosphere</h3>
+            <p>Subtle, layered brand-color transitions</p>
+          </div>
+          <div class="surface-demo background-luminous">
+            <h3>Luminous dark</h3>
+            <p>Controlled cyan-blue and teal light</p>
           </div>
           <div class="surface-demo background-pattern">
-            <h3>Subtle pattern</h3>
-            <p>Low-contrast grid texture over a light surface</p>
+            <h3>Patterned light</h3>
+            <p>Low-contrast geometric structure</p>
           </div>
-        </div>
-        <div class="design-subsection">
-          <h3>Reusable SVG wave transitions</h3>
-          <div class="design-grid">
-            <div class="wave-demo">
-              <div class="wave-demo-content"><strong>Upward transition</strong></div>
-              <Wave direction="up" />
-            </div>
-            <div class="wave-demo">
-              <div class="wave-demo-content"><strong>Downward transition</strong></div>
-              <Wave direction="down" />
+          <div class="surface-demo surface-demo-glass-stage background-luminous">
+            <div class="background-glass surface-demo-glass">
+              <h3>Glass surface</h3>
+              <p>Limited translucency over a supporting layer</p>
             </div>
           </div>
         </div>
@@ -375,8 +393,12 @@ const selectOptions = [
 
     <section class="design-section" id="motion">
       <Container width="wide">
-        <SectionHeading eyebrow="09 / Motion prototypes" title="One intelligence, many complexities" description="Review the focused prototype for particle-based word transformation and the layered atmospheric wave system." />
-        <p><a class="visual-direction-preview-link" href="/design-system/visual-direction/">Open focused visual direction prototype</a></p>
+        <SectionHeading eyebrow="09 / Motion prototypes" title="One intelligence, many complexities" description="The word form reorganizes through a Canvas particle mask. The animation pauses when hidden and respects reduced-motion preferences." />
+        <div class="morph-specimen">
+          <p class="design-label">PARTICLE-BASED MORPH / WORD FORM</p>
+          <p class="type-h3">Complex <HeroTransformation inline /></p>
+        </div>
+        <p><a class="visual-direction-preview-link" href="/design-system/visual-direction/">Open the focused visual prototype</a></p>
         <div class="design-subsection">
           <SectionHeading level={3} eyebrow="Connected process" title="Interactive methodology flow" description="Select any step using a pointer, touch, or keyboard to reveal its description and move the progress path." />
           <MethodologyFlow />
@@ -390,10 +412,10 @@ const selectOptions = [
       <Container width="wide">
         <SectionHeading eyebrow="10 / Components" title="Layout primitives" description="Section wrappers provide consistent spacing and semantic background variants." />
         <div class="design-grid">
-          <div class="background-light primitive-demo">Light wrapper</div>
-          <div class="background-dark primitive-demo">Dark wrapper</div>
+          <div class="background-base primitive-demo">Dark base wrapper</div>
           <div class="background-atmosphere primitive-demo">Atmospheric wrapper</div>
-          <div class="background-pattern primitive-demo">Pattern wrapper</div>
+          <div class="background-luminous primitive-demo">Luminous wrapper</div>
+          <div class="background-pattern primitive-demo">Patterned-light wrapper</div>
         </div>
         <Divider />
         <p class="design-label">Design tokens and primitives are shared across this showcase and the existing site components.</p>

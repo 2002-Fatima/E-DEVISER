@@ -1,11 +1,13 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
+import { site } from '../../content/site';
 ---
 
-<SectionWrapper>
-  <div class="container mission-section">
-    <p class="eyebrow">MISSION</p>
-    <h2>Intelligent systems for learning, decision-making, and meaningful outcomes.</h2>
-    <p>E Deviser is building an applied practice around AI, data, and domain intelligence. Our mission is to connect technical capability with real-world problem-solving, especially in education and learning environments.</p>
-  </div>
+<SectionWrapper background="light" class="home-mission-section">
+  <section class="container container-wide home-mission-layout" aria-labelledby="home-mission-title">
+    <div class="home-mission-copy">
+      <p class="eyebrow">OUR MISSION</p>
+      <h2 id="home-mission-title">{site.missionStatement}</h2>
+    </div>
+  </section>
 </SectionWrapper>

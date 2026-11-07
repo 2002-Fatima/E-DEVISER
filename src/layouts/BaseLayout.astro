@@ -4,7 +4,18 @@ import '../styles/reset.css';
 import '../styles/global.css';
 import '../styles/utilities.css';
 import '../styles/backgrounds.css';
-import '../styles/components.css';
+import '../styles/components/typography.css';
+import '../styles/components/layout.css';
+import '../styles/components/navigation.css';
+import '../styles/components/buttons.css';
+import '../styles/components/cards.css';
+import '../styles/components/forms.css';
+import '../styles/components/content.css';
+import '../styles/components/home-hero.css';
+import '../styles/components/home-story.css';
+import '../styles/components/showcase.css';
+import '../styles/components/particle-morph.css';
+import '../styles/components/methodology-flow.css';
 import '../styles/motion.css';
 
 const { title = 'E Deviser', description = 'E Deviser combines AI, data, and domain intelligence to solve complex problems.' } = Astro.props;
@@ -17,7 +28,13 @@ const fullTitle = title.includes('E Deviser') ? title : `${title} | E Deviser`;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0382BD" />
+    <meta name="theme-color" content="#09121D" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>{fullTitle}</title>
   </head>
   <body>

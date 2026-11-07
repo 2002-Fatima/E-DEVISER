@@ -2,8 +2,6 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import Container from '../../components/ui/Container.astro';
 import HeroTransformation from '../../components/ui/HeroTransformation.astro';
-import HeroWave from '../../components/ui/HeroWave.astro';
-import Wave from '../../components/ui/Wave.astro';
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
@@ -14,42 +12,37 @@ const breadcrumbs = [
 
 <MainLayout
   title="Visual Direction Prototype"
-  description="Focused visual prototype for E Deviser atmospheric backgrounds, layered SVG waves, and particle-morphing typography."
+  description="Focused E Deviser prototype for dark atmospheric surfaces and particle-based morphic typography."
   breadcrumbs={breadcrumbs}
 >
   <div class="visual-direction-page">
-    <HeroWave variant="light-to-blue">
-      <HeroTransformation />
-    </HeroWave>
-
-    <section class="background-blue visual-direction-blue">
-      <Wave variant="blue-to-dark" direction="up" class="visual-blue-transition" />
+    <section class="section-wrapper background-atmosphere">
       <Container width="standard">
-        <div class="visual-direction-blue-copy">
-          <p class="eyebrow">LIGHT → BLUE / ORGANIC TRANSITION</p>
-          <h2>Layered movement. One continuous field.</h2>
-          <p>
-            Three independently shaped SVG layers connect the light atmosphere above to a clear,
-            saturated blue field.
-          </p>
-        </div>
+        <p class="eyebrow">E DEVISER / VISUAL DIRECTION</p>
+        <h1 class="type-h1">
+          Intelligence adapts to <span class="text-gradient">complexity.</span>
+        </h1>
+        <p class="type-body-large">
+          Deep navy surfaces, restrained brand light, and purposeful motion share one visual language.
+        </p>
       </Container>
     </section>
 
-    <section class="background-ink visual-direction-dark">
-      <Wave variant="texture" class="visual-dark-texture" />
+    <section class="section-wrapper background-base">
+      <Container width="wide">
+        <HeroTransformation />
+      </Container>
+    </section>
+
+    <section class="section-wrapper background-luminous">
       <Container width="standard">
-        <div class="visual-direction-dark-copy">
-          <p class="eyebrow">BLUE → DARK / ATMOSPHERIC DEPTH</p>
-          <h2>Refined contrast for the moments that need depth.</h2>
-          <p>
-            Pale blue, teal, primary blue, and deep navy form a deliberate progression; translucent
-            wave textures add depth without making content depend on decoration.
-          </p>
-          <a class="visual-direction-link" href="/design-system/">
-            Return to the full design system
-          </a>
-        </div>
+        <p class="eyebrow">VISUAL SYSTEM / SURFACE CONTRAST</p>
+        <h2 class="type-h2">Atmosphere supports the message, never competes with it.</h2>
+        <p class="type-body-large">
+          Blue and teal light stays close to the content that needs emphasis. Solid dark surfaces
+          preserve contrast and keep the system readable without decorative waves.
+        </p>
+        <a class="text-link" href="/design-system/">Return to the design system</a>
       </Container>
     </section>
   </div>

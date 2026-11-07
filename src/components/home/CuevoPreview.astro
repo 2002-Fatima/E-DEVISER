@@ -3,15 +3,22 @@ import SectionWrapper from '../ui/SectionWrapper.astro';
 import Button from '../ui/Button.astro';
 ---
 
-<SectionWrapper>
-  <div class="container preview-panel preview-panel-alt">
-    <div class="preview-copy">
-      <p class="eyebrow">CUOVO</p>
-      <h2>Cuevo sits within E Deviser’s education focus.</h2>
-      <p>We use the Cuevo initiative as a relevant education-facing product context and link to its public destination when more detail is available.</p>
+<SectionWrapper background="light" class="home-cuevo-section">
+  <section class="container container-wide home-cuevo-layout" aria-labelledby="home-cuevo-title">
+    <div class="home-cuevo-mark-wrap">
+      <img src="/brand/cuevo-mark.png" alt="CUOVO product mark" width="300" height="300" loading="lazy" />
+      <span class="home-cuevo-mark-caption">BUILT BY E DEVISER</span>
     </div>
-    <div class="preview-action">
-      <Button href="/cuovo/" label="Learn about Cuevo" />
+
+    <div class="home-cuevo-copy">
+      <p class="eyebrow">WHAT WE&apos;RE BUILDING TODAY</p>
+      <h2 id="home-cuevo-title">Our first deep dive: learning.</h2>
+      <p>
+        CUOVO is E Deviser&apos;s learning-intelligence platform, built to help education understand
+        learning more deeply and act on what it learns.
+      </p>
+      <p class="home-cuevo-support">Built by E Deviser. Designed for the complexity of learning.</p>
+      <Button href="https://cuovo.tech/" external label="Explore CUOVO" />
     </div>
-  </div>
+  </section>
 </SectionWrapper>

@@ -1,17 +1,40 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
 import Button from '../ui/Button.astro';
+import MethodologyFlow from '../what-we-build/MethodologyFlow.astro';
 ---
 
-<SectionWrapper>
-  <div class="container preview-panel">
-    <div class="preview-copy">
-      <p class="eyebrow">WHAT WE BUILD</p>
-      <h2>We move from understanding a challenge to designing durable intelligent systems.</h2>
-      <p>E Deviser works across strategy, systems thinking, AI, data, and domain-aware education design to create practical outcomes that matter.</p>
+<SectionWrapper background="atmosphere" class="home-methodology-section">
+  <section class="container container-wide" aria-labelledby="home-methodology-title">
+    <div class="home-methodology-heading">
+      <div>
+        <p class="eyebrow">WHAT WE BUILD</p>
+        <h2 id="home-methodology-title">We turn complex problems into intelligent solutions.</h2>
+      </div>
+      <p>
+        E Deviser brings together technology, domain knowledge, and problem-solving to build
+        solutions for challenges that don&apos;t have simple answers.
+      </p>
     </div>
-    <div class="preview-action">
-      <Button href="/what-we-build/" label="View our approach" />
+
+    <MethodologyFlow />
+
+    <div class="home-methodology-philosophy">
+      <div>
+        <p class="eyebrow">OUR WAY OF BUILDING</p>
+        <h3>Understand first. Build second.</h3>
+      </div>
+      <div class="home-methodology-philosophy-copy">
+        <p>
+          We go deep into a problem—its people, incentives, systems, constraints, evidence, and
+          desired outcomes—before deciding what needs to exist.
+        </p>
+        <p>
+          We don&apos;t start by asking, “What can this technology do?” We start by asking,
+          “What would actually solve this?”
+        </p>
+        <Button href="/what-we-build/" label="Explore What We Build" />
+      </div>
     </div>
-  </div>
+  </section>
 </SectionWrapper>

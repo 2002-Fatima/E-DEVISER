@@ -7,7 +7,7 @@ const flowSteps = methodologySteps.map((step, index) => ({
 }));
 ---
 
-<div class="methodology-flow" data-methodology-flow style="--flow-progress: 0">
+<div class="methodology-flow" data-methodology-flow style="--flow-progress: 0; --flow-progress-factor: 0">
   <svg class="methodology-track" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
     <path class="methodology-track-base" pathLength="100" d="M8 24C15 9 18 9 25 24S35 39 42 24S52 9 59 24S69 39 76 24S85 9 92 24" />
     <path class="methodology-track-progress" pathLength="100" d="M8 24C15 9 18 9 25 24S35 39 42 24S52 9 59 24S69 39 76 24S85 9 92 24" />
@@ -34,8 +34,8 @@ const flowSteps = methodologySteps.map((step, index) => ({
   </ol>
 
   <div class="methodology-description" data-methodology-description aria-live="polite" aria-atomic="true">
-    <h3>{methodologySteps[0].title}</h3>
-    <p>{methodologySteps[0].description}</p>
+    <h3>{flowSteps[0].title}</h3>
+    <p>{flowSteps[0].description}</p>
   </div>
 </div>
 
@@ -51,6 +51,7 @@ const flowSteps = methodologySteps.map((step, index) => ({
         const selectedIndex = Number(node.dataset.index);
         const progress = nodes.length > 1 ? (selectedIndex / (nodes.length - 1)) * 100 : 100;
         flow.style.setProperty('--flow-progress', String(progress));
+        flow.style.setProperty('--flow-progress-factor', String(progress / 100));
         nodes.forEach((candidate) => {
           if (candidate === node) {
             candidate.setAttribute('aria-current', 'step');

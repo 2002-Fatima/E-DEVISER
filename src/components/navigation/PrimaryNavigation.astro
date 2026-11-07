@@ -1,21 +1,43 @@
 ---
 import { primaryNavigation } from '../../content/navigation';
+
+interface Props {
+  label?: string;
+}
+
+const { label = 'Main navigation' } = Astro.props;
+const currentPath = Astro.url.pathname;
 ---
-<nav class="primary-nav" aria-label="Main navigation">
+<nav class="primary-nav" aria-label={label}>
   <ul class="nav-list">
     {primaryNavigation.map((item) => (
       <li class:list={['nav-item', item.children && 'nav-item-with-children']}>
         {item.children ? (
-          <details class="nav-details">
+          <details
+            class="nav-details"
+            open={item.children.some((child) => child.href === currentPath)}
+            data-current={item.children.some((child) => child.href === currentPath) ? 'true' : undefined}
+          >
             <summary>{item.label}</summary>
             <ul class="nav-submenu">
               {item.children.map((child) => (
-                <li><a href={child.href}>{child.label}</a></li>
+                <li>
+                  <a href={child.href} aria-current={child.href === currentPath ? 'page' : undefined}>
+                    {child.label}
+                  </a>
+                </li>
               ))}
             </ul>
           </details>
         ) : (
-          <a href={item.href} target={item.external ? '_blank' : undefined} rel={item.external ? 'noreferrer' : undefined}>{item.label}</a>
+          <a
+            href={item.href}
+            target={item.external ? '_blank' : undefined}
+            rel={item.external ? 'noopener noreferrer' : undefined}
+            aria-current={item.href === currentPath ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
         )}
       </li>
     ))}

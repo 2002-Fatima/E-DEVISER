@@ -1,11 +1,12 @@
 ---
 import PrimaryNavigation from '../navigation/PrimaryNavigation.astro';
+import Button from '../ui/Button.astro';
 ---
 
-<header class="site-header">
+<header class="site-header" data-site-header>
   <div class="container header-inner">
-    <a class="brand" href="/" aria-label="E Deviser home">
-      <span class="brand-mark">E</span>
+    <a class="brand" href="/">
+      <img class="brand-logo" src="/brand/edeviser-mark.png" alt="E Deviser mark" width="837" height="420" />
       <span class="brand-word">E Deviser</span>
     </a>
 
@@ -13,23 +14,27 @@ import PrimaryNavigation from '../navigation/PrimaryNavigation.astro';
       <PrimaryNavigation />
     </div>
 
-    <button
-      class="mobile-menu-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="mobile-navigation"
-      aria-label="Toggle navigation"
-      data-menu-toggle
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <div class="header-actions">
+      <Button href="/company/careers-contact/" label="Let's Talk" size="sm" class="header-cta" />
+      <button
+        class="mobile-menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-navigation"
+        aria-label="Open navigation"
+        data-menu-toggle
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </div>
 
   <div class="mobile-navigation" id="mobile-navigation" hidden>
     <div class="container">
-      <PrimaryNavigation />
+      <PrimaryNavigation label="Mobile navigation" />
+      <Button href="/company/careers-contact/" label="Let's Talk" size="md" class="mobile-talk-cta" />
     </div>
   </div>
 </header>

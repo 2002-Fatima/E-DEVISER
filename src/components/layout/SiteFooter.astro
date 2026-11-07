@@ -1,22 +1,51 @@
 ---
 import { site } from '../../content/site';
+import Button from '../ui/Button.astro';
 ---
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <div>
+  <div class="container footer-layout">
+    <section class="footer-brand" aria-label="E Deviser">
       <a class="brand brand-footer" href="/">
-        <span class="brand-mark">E</span>
+        <img class="brand-logo" src="/brand/edeviser-mark.png" alt="E Deviser mark" width="837" height="420" />
         <span class="brand-word">E Deviser</span>
       </a>
       <p>{site.footerText}</p>
-    </div>
+    </section>
 
-    <div class="footer-links">
-      <a href="/what-we-build/">What We Build</a>
-      <a href="/our-work/">Our Work</a>
-      <a href="/company/">Company</a>
-      <a href="https://cuovo.tech" target="_blank" rel="noreferrer">Cuevo</a>
-    </div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <h2>Explore</h2>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/what-we-build/">What We Build</a></li>
+        <li><a href="/our-work/">Our Work</a></li>
+        <li><a href="https://cuovo.tech" target="_blank" rel="noopener noreferrer">CUOVO</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer-nav footer-company" aria-label="Company navigation">
+      <h2>Company</h2>
+      <ul class="footer-links">
+        <li><a href="/company/">Overview</a></li>
+        <li><a href="/company/story/">Story</a></li>
+        <li><a href="/company/team/">Team</a></li>
+        <li><a href="/company/philosophy/">Philosophy</a></li>
+        <li><a href="/company/careers-contact/">Careers &amp; Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="footer-contact">
+      <h2>Let’s talk</h2>
+      <Button href="/company/careers-contact/" label="Contact E Deviser" variant="secondary" size="sm" />
+      <p>Contact details and career information are not yet published.</p>
+    </section>
+
+    <section class="footer-mission">
+      <p class="eyebrow">Our mission</p>
+      <h2>{site.missionStatement}</h2>
+    </section>
+  </div>
+  <div class="container footer-bottom">
+    <p>© {new Date().getFullYear()} E Deviser. All rights reserved.</p>
   </div>
 </footer>

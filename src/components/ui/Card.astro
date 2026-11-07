@@ -1,5 +1,5 @@
 ---
-type Variant = 'solid' | 'raised' | 'glass';
+type Variant = 'dark' | 'elevated' | 'glass' | 'highlight' | 'patterned-light' | 'light' | 'solid' | 'raised';
 
 interface Props {
   variant?: Variant;
@@ -9,7 +9,7 @@ interface Props {
   class?: string;
 }
 
-const { variant = 'solid', interactive = false, href, external = false, class: className = '' } = Astro.props;
+const { variant = 'dark', interactive = false, href, external = false, class: className = '' } = Astro.props;
 const classes = ['card', `card-${variant}`, (interactive || href) && 'card-interactive', className];
 ---
 

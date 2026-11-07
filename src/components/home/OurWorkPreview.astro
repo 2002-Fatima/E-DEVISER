@@ -3,15 +3,53 @@ import SectionWrapper from '../ui/SectionWrapper.astro';
 import Button from '../ui/Button.astro';
 ---
 
-<SectionWrapper>
-  <div class="container preview-panel">
-    <div class="preview-copy">
-      <p class="eyebrow">OUR WORK</p>
-      <h2>Initiatives, partnerships, learning, and field work.</h2>
-      <p>Our work spans multiple channels of practice, including collaborative initiatives, public-facing programs, and applied learning environments.</p>
+<SectionWrapper background="atmosphere" class="home-work-section">
+  <section class="container container-wide home-work-content" aria-labelledby="home-work-title">
+    <div class="home-work-heading">
+      <div class="home-work-copy">
+        <p class="eyebrow">OUR WORK</p>
+        <h2 id="home-work-title">Ideas are easy. Building is the work.</h2>
+        <p>
+          From initiatives and partnerships to forums and fieldwork, everything we do is driven by
+          one purpose: to turn conviction into real impact.
+        </p>
+      </div>
+      <Button href="/our-work/" label="Explore Our Work" />
     </div>
-    <div class="preview-action">
-      <Button href="/our-work/" label="Explore our work" />
-    </div>
-  </div>
+
+    <ol class="home-work-categories" aria-label="Areas of work">
+      <li>
+        <span class="home-work-category-number">01</span>
+        <div>
+          <h3>Initiatives</h3>
+          <p class="home-work-category-lead">We start what matters.</p>
+          <p>Initiatives and programs we create to solve real problems and drive lasting change.</p>
+        </div>
+      </li>
+      <li>
+        <span class="home-work-category-number">02</span>
+        <div>
+          <h3>Partnerships</h3>
+          <p class="home-work-category-lead">Stronger together.</p>
+          <p>Collaborations with institutions, governments, universities, and organizations that amplify impact.</p>
+        </div>
+      </li>
+      <li>
+        <span class="home-work-category-number">03</span>
+        <div>
+          <h3>Forums &amp; Events</h3>
+          <p class="home-work-category-lead">Conversations that build the future.</p>
+          <p>Forums, summits, and events that spark dialogue, share knowledge, and shape the ecosystem.</p>
+        </div>
+      </li>
+      <li>
+        <span class="home-work-category-number">04</span>
+        <div>
+          <h3>In the Field</h3>
+          <p class="home-work-category-lead">On the ground. In the real world.</p>
+          <p>Workshops, visits, research, and engagements that keep us close to the problems we solve.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
 </SectionWrapper>

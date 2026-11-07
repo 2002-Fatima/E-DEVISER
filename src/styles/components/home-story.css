@@ -1,0 +1,481 @@
+.home-founder-section {
+  position: relative;
+  border-block: 1px solid var(--color-border);
+}
+
+.home-founder-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  align-items: center;
+  gap: clamp(var(--space-8), 7vw, var(--space-20));
+}
+
+.home-founder-copy h2,
+.home-cuevo-copy h2,
+.home-work-copy h2 {
+  max-width: 17ch;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+.home-founder-copy h2,
+.home-cuevo-copy h2 {
+  color: var(--color-navy);
+}
+
+.home-founder-copy > p:not(.eyebrow),
+.home-cuevo-copy > p:not(.eyebrow),
+.home-work-copy > p:not(.eyebrow) {
+  max-width: 46ch;
+  margin-block-start: var(--space-5);
+  font-size: var(--text-lg);
+  line-height: var(--leading-body);
+}
+
+.home-founder-copy > p:not(.eyebrow),
+.home-cuevo-copy > p:not(.eyebrow) {
+  color: var(--color-text-muted);
+}
+
+.home-founder-copy > .btn {
+  margin-block-start: var(--space-6);
+}
+
+.home-founder-media {
+  min-width: 0;
+}
+
+.home-founder-media-frame {
+  position: relative;
+  display: grid;
+  min-height: clamp(19rem, 34vw, 30rem);
+  place-items: center;
+  padding: clamp(var(--space-5), 4vw, var(--space-10));
+  overflow: hidden;
+  border: 1px solid var(--color-border-inverse-strong);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(rgba(192, 226, 253, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(192, 226, 253, 0.035) 1px, transparent 1px),
+    var(--gradient-media-placeholder);
+  background-size: 2.5rem 2.5rem, 2.5rem 2.5rem, auto;
+}
+
+.home-founder-media-index,
+.home-founder-media-caption {
+  position: absolute;
+  color: var(--color-text-inverse-subtle);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-founder-media-index {
+  inset-block-start: var(--space-5);
+  inset-inline-start: var(--space-5);
+}
+
+.home-founder-media-caption {
+  inset-inline: var(--space-5);
+  inset-block-end: var(--space-5);
+  text-align: center;
+}
+
+.home-founder-media-status {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  text-align: center;
+}
+
+.home-founder-media-status p {
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+}
+
+.home-founder-media-status small {
+  max-width: 34ch;
+  color: var(--color-text-inverse-muted);
+  font-size: var(--text-sm);
+}
+
+.home-media-indicator {
+  width: 0.55rem;
+  aspect-ratio: 1;
+  margin-block-end: var(--space-2);
+  border-radius: 50%;
+  background: var(--brand-teal);
+}
+
+.home-methodology-section {
+  border-block: 1px solid var(--color-border-inverse);
+}
+
+.home-methodology-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.7fr);
+  align-items: end;
+  gap: var(--space-10);
+  margin-block-end: clamp(var(--space-10), 6vw, var(--space-16));
+}
+
+.home-methodology-heading h2 {
+  max-width: 19ch;
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+.home-methodology-heading > p {
+  max-width: 42ch;
+  color: var(--color-text-inverse-muted);
+  font-size: var(--text-lg);
+  line-height: var(--leading-body);
+}
+
+.home-methodology-section .methodology-track-base {
+  stroke: var(--color-border-inverse-strong);
+}
+
+.home-methodology-section .methodology-track-progress {
+  stroke: var(--brand-teal);
+}
+
+.home-methodology-section .methodology-node-button {
+  border-color: var(--color-border-inverse-strong);
+  background: var(--color-surface-night-raised);
+  color: var(--color-white);
+}
+
+.home-methodology-section .methodology-node-button:hover {
+  border-color: var(--brand-teal);
+}
+
+.home-methodology-section .methodology-node-button[aria-current="step"] {
+  border-color: var(--brand-blue);
+  background: var(--brand-blue);
+  color: var(--color-white);
+}
+
+.home-methodology-section .methodology-node-title {
+  color: var(--color-text-inverse-muted);
+}
+
+.home-methodology-section .methodology-description {
+  border-color: var(--color-border-inverse);
+  background: var(--color-surface-night-raised);
+}
+
+.home-methodology-section .methodology-description h3 {
+  color: var(--color-white);
+}
+
+.home-methodology-section .methodology-description p {
+  color: var(--color-text-inverse-muted);
+}
+
+.home-methodology-philosophy {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: var(--space-10);
+  margin-block-start: clamp(var(--space-10), 6vw, var(--space-16));
+  padding-block-start: var(--space-8);
+  border-block-start: 1px solid var(--color-border-inverse);
+}
+
+.home-methodology-philosophy h3 {
+  max-width: 14ch;
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+.home-methodology-philosophy-copy {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+  max-width: 58ch;
+  color: var(--color-text-inverse-muted);
+  line-height: var(--leading-body);
+}
+
+.home-methodology-philosophy-copy .btn {
+  margin-block-start: var(--space-3);
+}
+
+.home-cuevo-section {
+  border-block: 1px solid var(--color-border);
+}
+
+.home-cuevo-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(var(--space-8), 8vw, var(--space-20));
+}
+
+.home-cuevo-mark-wrap {
+  position: relative;
+  display: grid;
+  min-height: clamp(18rem, 34vw, 28rem);
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-soft);
+}
+
+.home-cuevo-mark-wrap img {
+  width: clamp(8rem, 20vw, 15rem);
+  height: auto;
+}
+
+.home-cuevo-mark-caption {
+  position: absolute;
+  inset-inline-start: var(--space-5);
+  inset-block-end: var(--space-5);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+}
+
+.home-cuevo-copy > .btn {
+  margin-block-start: var(--space-7);
+}
+
+.home-cuevo-copy > .home-cuevo-support {
+  margin-block-start: var(--space-3);
+  color: var(--color-navy);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+}
+
+.home-cuevo-copy h2 {
+  color: var(--color-navy);
+}
+
+.home-work-section {
+  border-block: 1px solid var(--color-border-inverse);
+}
+
+.home-work-content {
+  display: grid;
+  gap: clamp(var(--space-10), 7vw, var(--space-16));
+}
+
+.home-work-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-10);
+}
+
+.home-work-copy {
+  max-width: 58rem;
+}
+
+.home-work-copy h2 {
+  color: var(--color-white);
+}
+
+.home-work-copy > p:not(.eyebrow) {
+  max-width: 60ch;
+  color: var(--color-text-inverse-muted);
+}
+
+.home-work-categories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(var(--space-8), 8vw, var(--space-16));
+  list-style: none;
+}
+
+.home-work-categories li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: var(--space-4);
+  padding-block: var(--space-6);
+  border-block-start: 1px solid var(--color-border-inverse);
+}
+
+.home-work-category-number {
+  padding-block-start: 0.2rem;
+  color: var(--brand-teal-light);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.home-work-categories h3 {
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+}
+
+.home-work-categories p {
+  color: var(--color-text-inverse-muted);
+  line-height: var(--leading-body);
+}
+
+.home-work-categories .home-work-category-lead {
+  margin-block: var(--space-2);
+  color: var(--brand-teal-light);
+  font-weight: var(--weight-semibold);
+}
+
+.home-mission-section {
+  border-block-start: 1px solid var(--color-border);
+}
+
+.home-mission-layout {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.home-mission-copy h2 {
+  max-width: 20ch;
+  background-image: var(--gradient-brand-text);
+  background-clip: text;
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 62rem) {
+  .home-founder-layout,
+  .home-cuevo-layout,
+  .home-methodology-philosophy {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .home-founder-copy h2,
+  .home-cuevo-copy h2,
+  .home-work-copy h2 {
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+  }
+
+  .home-founder-media-frame,
+  .home-cuevo-mark-wrap {
+    min-height: 22rem;
+  }
+}
+
+@media (max-width: 56.25rem) {
+  .home-methodology-section .methodology-flow-list {
+    position: relative;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .home-methodology-section .methodology-flow-list::before,
+  .home-methodology-section .methodology-flow-list::after {
+    position: absolute;
+    inset-inline-start: 1.7rem;
+    inset-block-start: 1.75rem;
+    z-index: 0;
+    width: 2px;
+    content: "";
+  }
+
+  .home-methodology-section .methodology-flow-list::before {
+    inset-block-end: 1.75rem;
+    background: var(--color-border-inverse-strong);
+  }
+
+  .home-methodology-section .methodology-flow-list::after {
+    height: calc(100% - 3.5rem);
+    background: var(--brand-teal);
+    transform: scaleY(var(--flow-progress-factor));
+    transform-origin: top;
+    transition: transform var(--motion-slow) var(--ease-emphasized);
+  }
+
+  .home-methodology-section .methodology-node {
+    position: relative;
+    z-index: 1;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    align-items: center;
+    justify-items: start;
+    gap: var(--space-4);
+    min-height: 4.5rem;
+    text-align: start;
+  }
+
+  .home-methodology-section .methodology-node-title {
+    max-width: none;
+  }
+}
+
+@media (max-width: 48rem) {
+  .home-founder-layout,
+  .home-cuevo-layout,
+  .home-methodology-philosophy,
+  .home-methodology-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .home-founder-layout,
+  .home-cuevo-layout {
+    gap: var(--space-8);
+  }
+
+  .home-founder-copy,
+  .home-cuevo-copy,
+  .home-work-copy {
+    max-width: 42rem;
+  }
+
+  .home-founder-media-frame,
+  .home-cuevo-mark-wrap {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .home-methodology-heading {
+    align-items: start;
+    gap: var(--space-4);
+  }
+
+  .home-work-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 40rem) {
+  .home-founder-media-frame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .home-work-categories {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-methodology-section .methodology-flow-list::after {
+    transition: none;
+  }
+}

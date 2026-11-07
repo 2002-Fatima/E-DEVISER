@@ -1,6 +1,7 @@
 :root {
   color-scheme: light;
 
+  /* Brand palette */
   --brand-blue: #0382BD;
   --brand-blue-light: #C0E2FD;
   --brand-teal: #5AB9B4;
@@ -15,8 +16,15 @@
   --color-primary-strong: #026b9b;
   --color-primary-hover: #014f73;
   --color-secondary: var(--brand-teal);
+  --color-brand-cyan: #20B7CF;
+  --color-brand-start: #0393F2;
+  --color-brand-middle: #02B6E0;
+  --color-brand-end: #00E5C7;
+  --color-brand-button-text: var(--brand-ink);
+  --color-brand-focus: var(--brand-blue-light);
   --color-navy: var(--brand-navy);
   --color-ink: var(--brand-ink);
+  --color-surface-ink: var(--brand-ink);
   --color-black: var(--brand-black);
   --color-gray: var(--brand-gray);
   --color-white: var(--brand-white);
@@ -24,13 +32,22 @@
   --color-text: var(--brand-navy);
   --color-text-muted: #595f69;
   --color-text-inverse: var(--brand-white);
+  --color-text-inverse-muted: rgba(255, 255, 255, 0.78);
+  --color-text-inverse-subtle: rgba(255, 255, 255, 0.62);
   --color-surface: #F7FAFC;
   --color-surface-raised: var(--brand-white);
   --color-surface-soft: #EAF4F7;
+  --color-surface-patterned: #F3F8FC;
   --color-surface-dark: var(--brand-navy);
+  --color-surface-night: var(--brand-ink);
+  --color-surface-night-raised: #0E1B29;
+  --color-surface-night-hover: #142A40;
   --color-border: rgba(29, 53, 87, 0.14);
   --color-border-strong: rgba(29, 53, 87, 0.28);
+  --color-border-inverse: rgba(255, 255, 255, 0.14);
+  --color-border-inverse-strong: rgba(192, 226, 253, 0.34);
   --color-focus: #006a9c;
+  --color-focus-inverse: var(--brand-teal-light);
   --color-success: #176b52;
   --color-warning: #835300;
   --color-danger: #a83232;
@@ -44,14 +61,23 @@
   --weight-medium: 500;
   --weight-semibold: 600;
   --weight-bold: 700;
+  --weight-extrabold: 800;
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.125rem;
+  --text-body-large: clamp(1.0625rem, 1.25vw, 1.25rem);
+  --text-body-small: 0.875rem;
+  --text-h4: clamp(1.125rem, 1.5vw, 1.375rem);
+  --text-h3: clamp(1.375rem, 2vw, 1.75rem);
+  --text-h2: clamp(1.75rem, 3.6vw, 3rem);
+  --text-h1: clamp(2.5rem, 5vw, 4.5rem);
+  --text-display: clamp(3rem, 7vw, 6.5rem);
+  --text-hero: clamp(3rem, 5.2vw, 4.75rem);
+  --text-hero-mobile: clamp(2.5rem, 12vw, 3.5rem);
   --text-xl: clamp(1.5rem, 2.4vw, 2rem);
   --text-2xl: clamp(2rem, 4.5vw, 3.75rem);
-  --text-display: clamp(2.5rem, 7vw, 6.5rem);
   --leading-tight: 1.08;
   --leading-heading: 1.2;
   --leading-body: 1.65;
@@ -96,28 +122,57 @@
   --shadow-lg: 0 24px 60px rgba(12, 39, 67, 0.16);
   --shadow-soft: var(--shadow-md);
 
-  --gradient-atmosphere: linear-gradient(
-        180deg, 
-        #F4F8FA 0%, 
-        #E3F2F6 18%, 
-        #A7E0DD 45%, 
-        #0382BD 75%, 
-        #1D3557 92%, 
-        #09121D 100%
-      );
-  --gradient-page-progression: linear-gradient(
-    180deg,
-    #F8FCFF 0%,
-    #C0E2FD 18%,
-    #8CCFCE 38%,
-    #5AB9B4 48%,
-    #0382BD 66%,
-    #1D3557 84%,
-    #09121D 100%
-  );
-  --gradient-ambient-blue: radial-gradient(ellipse at 18% 8%, rgba(192, 226, 253, 0.1), transparent 50%);
-  --gradient-ambient-teal: radial-gradient(ellipse at 84% 82%, rgba(90, 185, 180, 0.08), transparent 46%);
-  --pattern-grid: linear-gradient(rgba(29, 53, 87, 0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(29, 53, 87, 0.055) 1px, transparent 1px);
+  --gradient-brand:
+    linear-gradient(
+      110deg,
+      var(--color-brand-start) 0%,
+      var(--color-brand-middle) 48%,
+      var(--color-brand-end) 100%
+    );
+  --gradient-brand-action: var(--gradient-brand);
+  --gradient-brand-action-hover:
+    linear-gradient(
+      110deg,
+      var(--color-brand-end) 0%,
+      var(--color-brand-middle) 52%,
+      var(--color-brand-start) 100%
+    );
+  --gradient-brand-text:
+    linear-gradient(
+      100deg,
+      var(--color-brand-start) 0%,
+      var(--color-brand-middle) 48%,
+      var(--color-brand-end) 100%
+    );
+  --gradient-brand-accent:
+    linear-gradient(
+      90deg,
+      var(--color-brand-start) 0%,
+      var(--color-brand-middle) 48%,
+      var(--color-brand-end) 100%
+    );
+  --gradient-dark-atmosphere:
+    radial-gradient(ellipse at 76% 18%, rgba(3, 130, 189, 0.16), transparent 36%),
+    radial-gradient(ellipse at 18% 78%, rgba(90, 185, 180, 0.08), transparent 42%),
+    linear-gradient(145deg, #09121D 0%, #10263A 55%, #09121D 100%);
+  --gradient-dark-luminous:
+    radial-gradient(ellipse at 72% 45%, rgba(3, 130, 189, 0.24), transparent 38%),
+    radial-gradient(ellipse at 82% 55%, rgba(90, 185, 180, 0.14), transparent 46%),
+    linear-gradient(145deg, #09121D 0%, #0D1D2D 100%);
+  --gradient-hero-approved:
+    radial-gradient(ellipse at 72% 44%, rgba(3, 130, 189, 0.14), transparent 39%),
+    radial-gradient(ellipse at 91% 82%, rgba(90, 185, 180, 0.07), transparent 32%),
+    linear-gradient(118deg, #09121D 0%, #071724 54%, #09121D 100%);
+  --gradient-media-placeholder:
+    radial-gradient(ellipse at 82% 18%, rgba(3, 130, 189, 0.11), transparent 42%),
+    linear-gradient(145deg, #0E1B29 0%, #09121D 100%);
+  --pattern-grid:
+    linear-gradient(rgba(29, 53, 87, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29, 53, 87, 0.045) 1px, transparent 1px);
+  --gradient-pattern-light:
+    radial-gradient(ellipse at 100% 0%, rgba(192, 226, 253, 0.38), transparent 45%),
+    var(--pattern-grid),
+    var(--color-surface-patterned);
 
   --motion-fast: 140ms;
   --motion-base: 220ms;

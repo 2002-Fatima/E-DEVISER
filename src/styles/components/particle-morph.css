@@ -1,0 +1,111 @@
+.particle-hero {
+  display: grid;
+  min-height: 0;
+  align-content: center;
+  justify-items: center;
+  gap: clamp(var(--space-3), 2vw, var(--space-6));
+  padding-block: var(--space-10);
+  color: var(--color-white);
+  text-align: center;
+}
+
+.particle-hero-eyebrow {
+  margin: 0;
+  color: var(--brand-teal-light);
+}
+
+.particle-hero .eyebrow {
+  color: var(--brand-teal-light);
+}
+
+.particle-hero-title {
+  max-width: 27ch;
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 5.2vw, 4.5rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.08;
+}
+
+.particle-word-stage {
+  position: relative;
+  display: grid;
+  width: min(100%, 74rem);
+  height: clamp(7rem, 19vw, 14rem);
+  place-items: center;
+  isolation: isolate;
+}
+
+.particle-word-stage--inline {
+  display: inline-grid;
+  width: 5.7em;
+  height: 1.08em;
+  margin-inline-end: 0.015em;
+  vertical-align: -0.07em;
+  filter: drop-shadow(0 0 0.32em rgba(3, 130, 189, 0.18));
+}
+
+.particle-word-stage--inline::before {
+  display: none;
+}
+
+.particle-word-stage::before {
+  position: absolute;
+  inset: 9% 9%;
+  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.035);
+  content: "";
+}
+
+.particle-word-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.particle-word-fallback {
+  position: absolute;
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.particle-word-stage--inline .particle-word-fallback {
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background-image: var(--gradient-brand-text);
+  background-clip: text;
+  color: var(--brand-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1em;
+  white-space: nowrap;
+}
+
+.particle-hero.is-ready .particle-word-fallback {
+  visibility: hidden;
+}
+
+.particle-word-stage--inline.is-ready .particle-word-fallback {
+  visibility: hidden;
+}
+
+.particle-hero-caption {
+  max-width: 48ch;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.particle-motion-control {
+  margin-block-start: var(--space-2);
+  border-color: var(--color-border-inverse);
+  background: rgba(255, 255, 255, 0.06);
+}
