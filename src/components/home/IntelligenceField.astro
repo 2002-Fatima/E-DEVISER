@@ -1,17 +1,17 @@
-<div class="home-hero-visual" aria-label="Animated cyan and turquoise light particles flowing into a luminous orbital nucleus">
+<div class="home-hero-visual" aria-label="An intelligent light field transforms scattered problem particles into organized orbital outcomes">
   <canvas class="intelligence-field-canvas" id="intelligence-field-canvas" data-intelligence-field aria-hidden="true"></canvas>
-  <div class="home-hero-stages" role="group" aria-label="Intelligence visualization states">
-    <button class="stage-item" type="button" data-field-state="understand" aria-pressed="true" aria-controls="intelligence-field-canvas">
-      <span class="stage-bullet" aria-hidden="true">◎</span><span>UNDERSTAND</span>
+  <div class="home-hero-stages" role="group" aria-label="Explore the intelligence process">
+    <button class="stage-item is-active" type="button" data-field-state="understand" aria-pressed="true" aria-controls="intelligence-field-canvas">
+      <span class="stage-bullet" aria-hidden="true"><span class="stage-glyph">◎</span></span><span>UNDERSTAND</span>
     </button>
     <button class="stage-item" type="button" data-field-state="decide" aria-pressed="false" aria-controls="intelligence-field-canvas">
-      <span class="stage-bullet" aria-hidden="true">◌</span><span>DECIDE</span>
+      <span class="stage-bullet" aria-hidden="true"><span class="stage-glyph">⌁</span></span><span>DECIDE</span>
     </button>
     <button class="stage-item" type="button" data-field-state="act" aria-pressed="false" aria-controls="intelligence-field-canvas">
-      <span class="stage-bullet" aria-hidden="true">▶</span><span>ACT</span>
+      <span class="stage-bullet" aria-hidden="true"><span class="stage-glyph">↗</span></span><span>ACT</span>
     </button>
     <button class="stage-item" type="button" data-field-state="measure" aria-pressed="false" aria-controls="intelligence-field-canvas">
-      <span class="stage-bullet" aria-hidden="true">◍</span><span>MEASURE</span>
+      <span class="stage-bullet" aria-hidden="true"><span class="stage-glyph">◉</span></span><span>MEASURE</span>
     </button>
   </div>
 </div>
@@ -22,16 +22,16 @@
     const context = canvas.getContext('2d');
     if (!visual || !context) return;
 
-    type StreamParticle = {
-      startX: number; lane: number; phase: number; speed: number;
-      size: number; color: string; square: boolean;
+    type Stage = 'understand' | 'decide' | 'act' | 'measure';
+    type Particle = {
+      seed: number; phase: number; speed: number; lane: number; startX: number;
+      size: number; color: string; square: boolean; orbit: number; direction: number;
     };
-    type OrbitParticle = { angle: number; orbit: number; speed: number; size: number; color: string };
-    type FieldState = 'understand' | 'decide' | 'act' | 'measure';
 
+    const stages: Stage[] = ['understand', 'decide', 'act', 'measure'];
     const colors = ['#0382BD', '#00A8E8', '#12D4E5', '#38DFC9', '#D6FFF7'];
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const controls = visual.querySelectorAll<HTMLButtonElement>('[data-field-state]');
+    const controls = Array.from(visual.querySelectorAll<HTMLButtonElement>('[data-field-state]'));
     const random = (() => {
       let seed = 814729;
       return () => {
@@ -43,37 +43,37 @@
     let width = 0;
     let height = 0;
     let pixelRatio = 1;
-    let streamParticles: StreamParticle[] = [];
-    let orbitParticles: OrbitParticle[] = [];
+    let particles: Particle[] = [];
     let frameId = 0;
     let previousFrame = 0;
     let elapsed = 0;
     let visible = true;
     let disposed = false;
-    let activeState: FieldState = 'understand';
+    let selectedStage: Stage | null = null;
+    let selectedUntil = 0;
+
+    const smooth = (a: number, b: number, value: number) => {
+      const t = Math.max(0, Math.min(1, (value - a) / (b - a)));
+      return t * t * (3 - 2 * t);
+    };
+    const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
     const buildParticles = () => {
-      streamParticles = [];
-      orbitParticles = [];
-      const count = Math.round(Math.min(1800, Math.max(850, width * height / 125)));
+      particles = [];
+      const count = Math.round(Math.min(1900, Math.max(1000, width * height / 115)));
       for (let i = 0; i < count; i += 1) {
-        const startX = -0.025 + random() * 0.66;
-        const lane = (random() + random() + random() - 1.5) * (0.22 + (1 - startX / 0.66) * 0.38);
         const roll = random();
-        const color = colors[roll > 0.985 ? 4 : roll > 0.75 ? 3 : roll > 0.3 ? 2 : roll > 0.08 ? 1 : 0];
-        streamParticles.push({
-          startX, lane, phase: random(), speed: 0.035 + random() * 0.065,
-          size: random() > 0.94 ? 1.5 + random() * 1.2 : 0.55 + random() * 1.05,
-          color, square: random() > 0.94,
-        });
-      }
-      for (let i = 0; i < 150; i += 1) {
-        orbitParticles.push({
-          angle: random() * Math.PI * 2,
-          orbit: 0.48 + random() * 1.5,
-          speed: (random() > 0.5 ? 1 : -1) * (0.12 + random() * 0.34),
-          size: 0.55 + random() * 1.25,
-          color: colors[random() > 0.72 ? 3 : random() > 0.5 ? 2 : 1],
+        particles.push({
+          seed: random() * Math.PI * 2,
+          phase: random(),
+          speed: 0.045 + random() * 0.035,
+          lane: (random() + random() + random() - 1.5) * 1.5,
+          startX: -0.035 + random() * 0.57,
+          size: random() > 0.965 ? 1.8 + random() * 1.3 : 0.55 + random() * 1.1,
+          color: colors[roll > 0.985 ? 4 : roll > 0.72 ? 3 : roll > 0.34 ? 2 : roll > 0.09 ? 1 : 0],
+          square: random() > 0.95,
+          orbit: 0.38 + random() * 1.32,
+          direction: random() > 0.5 ? 1 : -1,
         });
       }
     };
@@ -91,109 +91,158 @@
       draw();
     };
 
-    const drawFlowLines = (cx: number, cy: number, time: number, compression: number) => {
-      const lineCount = Math.max(38, Math.round(height / 4.7));
-      const focalRadiusX = height * 0.25;
+    const drawScatteredField = (cx: number, cy: number, phaseTime: number, intensity: number) => {
       context.save();
       context.globalCompositeOperation = 'lighter';
-      for (let i = 0; i < lineCount; i += 1) {
-        const lane = (i / (lineCount - 1)) * 2 - 1;
-        const spread = lane * height * 0.47 * compression;
-        const drift = Math.sin(time * 0.22 + i * 0.41) * height * 0.018;
-        const alpha = 0.14 + (1 - Math.abs(lane)) * 0.32;
+      // Fine particles are deliberately irregular at the unresolved end of the field.
+      for (let i = 0; i < 28; i += 1) {
+        const lane = (i / 27) * 2 - 1;
+        const startY = cy + lane * height * 0.42;
+        const sway = Math.sin(phaseTime * 0.55 + i * 1.37) * height * 0.045;
+        const endY = cy + lane * height * 0.075;
         context.beginPath();
-        context.moveTo(-width * 0.035, cy + spread + drift);
+        context.moveTo(-width * 0.03, startY + sway);
         context.bezierCurveTo(
-          width * 0.18, cy + spread * 1.04 - drift,
-          cx - focalRadiusX * 1.65, cy + spread * 0.76 + drift,
-          cx - focalRadiusX * 0.56, cy + spread * 0.18,
+          width * 0.18, startY - sway * 0.8,
+          cx * 0.52, cy + lane * height * 0.33 + sway,
+          cx - height * 0.34, endY,
         );
-        context.bezierCurveTo(
-          cx - focalRadiusX * 0.12, cy + spread * 0.035 - drift * 0.35,
-          cx - focalRadiusX * 0.03, cy + spread * 0.012,
-          cx + focalRadiusX * 0.1, cy + spread * 0.045,
-        );
-        const gradient = context.createLinearGradient(-width * 0.03, cy + spread, cx, cy);
-        gradient.addColorStop(0, 'rgba(0, 145, 220, 0.02)');
-        gradient.addColorStop(0.38, `rgba(0, 174, 235, ${alpha})`);
-        gradient.addColorStop(0.76, i % 5 === 0 ? 'rgba(90, 255, 231, 0.82)' : 'rgba(28, 218, 226, 0.55)');
-        gradient.addColorStop(1, 'rgba(185, 255, 245, 0.12)');
-        context.strokeStyle = gradient;
-        context.lineWidth = i % 7 === 0 ? 1.05 : 0.62;
+        context.strokeStyle = `rgba(0, 170, 232, ${0.035 + intensity * 0.045})`;
+        context.lineWidth = 0.6;
         context.stroke();
       }
       context.restore();
     };
 
-    const drawOrbit = (cx: number, cy: number, time: number) => {
+    const drawOrganizingWaves = (cx: number, cy: number, time: number, strength: number) => {
+      context.save();
+      context.globalCompositeOperation = 'lighter';
+      // Wavefronts travel outward from the nucleus, reaching the incoming cloud
+      // before the particles arrive and gently pulling their paths into alignment.
+      for (let wave = 0; wave < 4; wave += 1) {
+        const radius = ((time * 0.22 + wave * 0.25) % 1) * height * 0.58;
+        const alpha = (1 - radius / (height * 0.58)) * (0.13 + strength * 0.22);
+        context.beginPath();
+        context.ellipse(cx, cy, radius * 1.62, radius * 0.92, 0, Math.PI * 0.78, Math.PI * 2.22);
+        context.strokeStyle = `rgba(74, 255, 230, ${Math.max(0.015, alpha)})`;
+        context.lineWidth = wave === 0 ? 1.25 : 0.7;
+        context.shadowColor = 'rgba(31, 238, 228, 0.32)';
+        context.shadowBlur = wave === 0 ? 9 : 4;
+        context.stroke();
+      }
+
+      // The wave's fine filaments bend into parallel paths near the core.
+      const filamentCount = 16;
+      for (let i = 0; i < filamentCount; i += 1) {
+        const lane = (i / (filamentCount - 1)) * 2 - 1;
+        const offset = lane * height * 0.34;
+        const pulse = Math.sin(time * 1.3 + i * 0.7) * height * 0.012;
+        context.beginPath();
+        context.moveTo(cx - width * 0.72, cy + offset + pulse);
+        context.bezierCurveTo(
+          cx - width * 0.46, cy + offset * 0.9,
+          cx - height * 0.42, cy + offset * 0.44 + pulse,
+          cx - height * 0.17, cy + offset * 0.11,
+        );
+        context.bezierCurveTo(
+          cx - height * 0.09, cy + offset * 0.035,
+          cx - height * 0.045, cy + offset * 0.01,
+          cx - height * 0.015, cy + offset * 0.006,
+        );
+        context.strokeStyle = i % 4 === 0
+          ? `rgba(105, 255, 235, ${0.2 + strength * 0.25})`
+          : `rgba(0, 195, 238, ${0.08 + strength * 0.18})`;
+        context.lineWidth = i % 4 === 0 ? 0.95 : 0.55;
+        context.stroke();
+      }
+      context.restore();
+    };
+
+    const drawOrbitSystem = (cx: number, cy: number, time: number, emphasis: number) => {
       context.save();
       context.translate(cx, cy);
       context.globalCompositeOperation = 'lighter';
 
-      // Fine, elliptical orbital contours around the focal nucleus.
-      for (let i = 0; i < 13; i += 1) {
-        const progress = i / 12;
-        const rx = height * (0.105 + progress * 0.22);
-        const ry = height * (0.13 + progress * 0.24);
-        const wobble = Math.sin(time * 0.28 + i * 0.7) * 1.8;
+      // Slightly elliptical, tilted orbital paths. Outer rings stay understated.
+      for (let i = 0; i < 11; i += 1) {
+        const p = i / 10;
+        const rx = height * (0.105 + p * 0.215);
+        const ry = height * (0.12 + p * 0.205);
+        const breathe = Math.sin(time * 0.42 + i * 0.6) * 1.8;
         context.beginPath();
-        context.ellipse(0, 0, rx + wobble, ry - wobble * 0.45, Math.sin(time * 0.12) * 0.025, 0, Math.PI * 2);
-        context.strokeStyle = i % 4 === 0
-          ? `rgba(105, 255, 231, ${0.24 + progress * 0.12})`
-          : `rgba(20, 207, 226, ${0.12 + progress * 0.13})`;
-        context.lineWidth = i % 4 === 0 ? 0.95 : 0.58;
+        context.ellipse(0, 0, rx + breathe, ry - breathe * 0.5, Math.sin(time * 0.13) * 0.035, 0, Math.PI * 2);
+        context.strokeStyle = i % 3 === 0
+          ? `rgba(89, 255, 230, ${0.2 + emphasis * 0.18})`
+          : `rgba(10, 193, 225, ${0.075 + emphasis * 0.095})`;
+        context.lineWidth = i % 3 === 0 ? 0.9 : 0.55;
         context.stroke();
       }
 
-      // Small points orbit at different radii and directions, giving the rings life.
-      for (const particle of orbitParticles) {
-        const angle = particle.angle + time * particle.speed;
-        const rx = height * (0.12 + particle.orbit * 0.105);
-        const ry = height * (0.15 + particle.orbit * 0.115);
-        const x = Math.cos(angle) * rx;
-        const y = Math.sin(angle) * ry;
-        context.globalAlpha = 0.38 + (Math.sin(angle * 2.4 + time) + 1) * 0.22;
-        context.fillStyle = particle.color;
+      // A few luminous orbit markers reinforce that these are organized outcomes.
+      for (let i = 0; i < 9; i += 1) {
+        const orbit = 0.48 + i * 0.105;
+        const angle = time * (0.18 + i * 0.018) * (i % 2 ? 1 : -1) + i * 1.4;
+        const x = Math.cos(angle) * height * (0.13 + orbit * 0.105);
+        const y = Math.sin(angle) * height * (0.15 + orbit * 0.1);
+        const radius = i % 3 === 0 ? 2.0 : 1.15;
+        context.globalAlpha = 0.42 + (Math.sin(time * 2 + i) + 1) * 0.22;
+        context.fillStyle = i % 3 === 0 ? '#CFFFF5' : '#21E9D5';
+        context.shadowColor = '#27F0DF';
+        context.shadowBlur = i % 3 === 0 ? 12 : 5;
         context.beginPath();
-        context.arc(x, y, particle.size, 0, Math.PI * 2);
+        context.arc(x, y, radius, 0, Math.PI * 2);
         context.fill();
       }
       context.restore();
     };
 
-    const drawCore = (cx: number, cy: number, time: number) => {
+    const drawNucleus = (cx: number, cy: number, time: number, flash: number) => {
       context.save();
       context.globalCompositeOperation = 'lighter';
-      const pulse = 1 + Math.sin(time * 1.45) * 0.055;
+      const pulse = 1 + Math.sin(time * 1.45) * 0.045 + flash * 0.12;
 
-      const halo = context.createRadialGradient(cx, cy, 0, cx, cy, height * 0.31 * pulse);
-      halo.addColorStop(0, 'rgba(255, 255, 241, 0.98)');
-      halo.addColorStop(0.035, 'rgba(220, 255, 244, 0.94)');
-      halo.addColorStop(0.12, 'rgba(101, 255, 231, 0.48)');
-      halo.addColorStop(0.32, 'rgba(14, 208, 229, 0.17)');
+      const halo = context.createRadialGradient(cx, cy, 0, cx, cy, height * 0.27 * pulse);
+      halo.addColorStop(0, `rgba(255, 255, 244, ${0.96 + flash * 0.04})`);
+      halo.addColorStop(0.045, 'rgba(221, 255, 246, 0.92)');
+      halo.addColorStop(0.14, `rgba(89, 255, 231, ${0.48 + flash * 0.2})`);
+      halo.addColorStop(0.34, 'rgba(13, 209, 231, 0.18)');
       halo.addColorStop(0.68, 'rgba(0, 151, 221, 0.055)');
       halo.addColorStop(1, 'rgba(0, 151, 221, 0)');
       context.fillStyle = halo;
       context.beginPath();
-      context.arc(cx, cy, height * 0.31 * pulse, 0, Math.PI * 2);
+      context.arc(cx, cy, height * 0.27 * pulse, 0, Math.PI * 2);
       context.fill();
 
-      const nucleus = context.createRadialGradient(cx, cy, 0, cx, cy, height * 0.045);
-      nucleus.addColorStop(0, 'rgba(255, 255, 246, 1)');
-      nucleus.addColorStop(0.28, 'rgba(238, 255, 244, 1)');
-      nucleus.addColorStop(0.56, 'rgba(183, 255, 237, 0.92)');
-      nucleus.addColorStop(1, 'rgba(83, 255, 226, 0)');
-      context.fillStyle = nucleus;
+      // Bright circular plasma nucleus with a soft bloom instead of a hard square.
+      const coreRadius = height * 0.055 * pulse;
+      const core = context.createRadialGradient(cx, cy, 0, cx, cy, coreRadius);
+      core.addColorStop(0, '#FFFFFF');
+      core.addColorStop(0.22, '#F4FFF8');
+      core.addColorStop(0.48, '#D8FFF2');
+      core.addColorStop(0.72, `rgba(132, 255, 232, ${0.94 + flash * 0.06})`);
+      core.addColorStop(1, 'rgba(47, 235, 220, 0)');
+      context.fillStyle = core;
       context.beginPath();
-      context.arc(cx, cy, height * 0.045, 0, Math.PI * 2);
+      context.arc(cx, cy, coreRadius, 0, Math.PI * 2);
       context.fill();
 
-      context.fillStyle = 'rgba(255, 255, 238, 0.98)';
-      context.shadowColor = 'rgba(207, 255, 243, 0.95)';
-      context.shadowBlur = 16;
+      context.shadowColor = 'rgba(229, 255, 247, 0.98)';
+      context.shadowBlur = 20 + flash * 24;
+      context.fillStyle = '#FFFDF0';
       context.beginPath();
-      context.arc(cx, cy, Math.max(2.8, height * 0.012), 0, Math.PI * 2);
+      context.arc(cx, cy, Math.max(2.6, height * 0.012), 0, Math.PI * 2);
       context.fill();
+
+      // A short cross-light glint gives the nucleus a polished, lens-like highlight.
+      context.globalAlpha = 0.16 + flash * 0.2;
+      context.strokeStyle = '#E8FFF9';
+      context.lineWidth = 0.7;
+      context.beginPath();
+      context.moveTo(cx - height * 0.09, cy);
+      context.lineTo(cx + height * 0.09, cy);
+      context.moveTo(cx, cy - height * 0.09);
+      context.lineTo(cx, cy + height * 0.09);
+      context.stroke();
       context.restore();
     };
 
@@ -201,58 +250,108 @@
       if (!width || !height) return;
       const cx = width * (width < 700 ? 0.54 : 0.65);
       const cy = height * 0.51;
-      const compress = activeState === 'decide' ? 0.72 : 1;
+      const cycle = (elapsed * 0.105) % 1;
+      const stageIndex = Math.min(3, Math.floor(cycle * 4));
+      const automaticStage = stages[stageIndex];
+      const stage = selectedStage && elapsed < selectedUntil ? selectedStage : automaticStage;
+      const understand = stage === 'understand' ? 1 : 0.3;
+      const decide = stage === 'decide' ? 1 : 0.35;
+      const act = stage === 'act' ? 1 : 0.3;
+      const measure = stage === 'measure' ? 1 : 0.35;
+
       context.clearRect(0, 0, width, height);
 
-      drawFlowLines(cx, cy, elapsed, compress);
+      drawScatteredField(cx, cy, elapsed, understand);
+      drawOrganizingWaves(cx, cy, elapsed, decide + act);
 
       context.save();
       context.globalCompositeOperation = 'lighter';
-      for (const particle of streamParticles) {
-        const life = (particle.phase + elapsed * particle.speed) % 1;
-        const eased = life * life * (3 - 2 * life);
-        const progress = activeState === 'act' ? 1 - eased : eased;
-        const x0 = particle.startX * width;
-        const x = x0 + (cx - x0) * progress;
-        const spread = particle.lane * height * (0.34 + Math.max(0, 0.64 - particle.startX) * 0.58);
-        const curved = Math.sin(progress * Math.PI) * particle.lane * height * 0.085;
-        const y = cy + (spread * (1 - progress) + particle.lane * height * 0.012 * progress + curved) * compress;
-        context.globalAlpha = 0.22 + progress * 0.72;
-        context.fillStyle = particle.color;
+
+      for (const particle of particles) {
+        // Each particle completes one lifecycle: chaotic -> aligned -> nucleus -> orbit -> reset.
+        const progress = (particle.phase + cycle * 1.8) % 1;
+        const approach = smooth(0.0, 0.47, progress);
+        const alignment = smooth(0.32, 0.57, progress);
+        const crossing = smooth(0.53, 0.67, progress);
+        const orbital = smooth(0.64, 0.77, progress);
+
+        const scatterX = particle.startX * width + Math.sin(particle.seed + elapsed * 0.7) * width * 0.035;
+        const scatterY = cy + particle.lane * height * (0.3 + (0.65 - particle.startX) * 0.52)
+          + Math.cos(particle.seed * 1.7 + elapsed * 0.58) * height * 0.045;
+
+        // Waves align the particles into a sequence before the nucleus, not at it.
+        const stagingX = cx - height * (0.16 + particle.orbit * 0.025);
+        const stagingY = cy + particle.lane * height * 0.055;
+        const incomingX = lerp(scatterX, stagingX, approach);
+        const incomingY = lerp(scatterY, stagingY, alignment);
+
+        // They cross the nucleus in an organized stream; flash energy follows their arrival.
+        const exitX = cx + height * 0.065 + particle.orbit * height * 0.018;
+        const exitY = cy + particle.lane * height * 0.018;
+        const transitX = lerp(incomingX, exitX, crossing);
+        const transitY = lerp(incomingY, exitY, crossing);
+
+        // Post-solution particles settle into stable, circulating elliptical tracks.
+        const angle = (progress - 0.67) * Math.PI * 3.1 * particle.direction + particle.seed;
+        const orbitRx = height * (0.12 + particle.orbit * 0.105);
+        const orbitRy = height * (0.14 + particle.orbit * 0.105);
+        const orbitX = cx + Math.cos(angle) * orbitRx;
+        const orbitY = cy + Math.sin(angle) * orbitRy;
+
+        let x = lerp(transitX, orbitX, orbital);
+        let y = lerp(transitY, orbitY, orbital);
+
+        // Chaotic field keeps a broad distribution; alignment tightens near the wavefront.
+        const preCore = 1 - crossing;
+        x += Math.sin(particle.seed + elapsed * 1.8) * height * 0.018 * preCore;
+        y += Math.cos(particle.seed * 1.2 + elapsed * 1.6) * height * 0.022 * preCore * (1 - alignment);
+
+        const solvedGlow = orbital;
+        const shimmer = 0.58 + (Math.sin(elapsed * 3.1 + particle.seed) + 1) * 0.21;
+        const alpha = Math.min(1, 0.2 + approach * 0.38 + alignment * 0.2 + solvedGlow * 0.48) * shimmer;
+
+        context.globalAlpha = alpha;
+        context.fillStyle = solvedGlow > 0.55 && particle.orbit > 1.1 ? '#D8FFF7' : particle.color;
+        context.shadowColor = solvedGlow > 0.55 ? '#41FFE3' : particle.color;
+        context.shadowBlur = solvedGlow > 0.55 ? 5 + measure * 6 : alignment > 0.5 ? 2.5 : 0;
+
         context.beginPath();
-        if (particle.square) context.rect(x - particle.size * 0.5, y - particle.size * 0.5, particle.size, particle.size);
-        else context.arc(x, y, particle.size, 0, Math.PI * 2);
+        if (particle.square && solvedGlow < 0.45) {
+          context.rect(x - particle.size * 0.5, y - particle.size * 0.5, particle.size, particle.size);
+        } else {
+          context.arc(x, y, particle.size * (1 + solvedGlow * 0.2), 0, Math.PI * 2);
+        }
         context.fill();
+
+        // Fine short trails become increasingly straight as particles are solved.
+        if (progress > 0.3 && progress < 0.78) {
+          context.globalAlpha = alpha * (0.12 + alignment * 0.18);
+          context.strokeStyle = particle.color;
+          context.lineWidth = 0.55;
+          context.beginPath();
+          context.moveTo(x - height * (0.018 + alignment * 0.022), y - particle.lane * height * 0.006);
+          context.lineTo(x, y);
+          context.stroke();
+        }
       }
       context.restore();
 
-      if (activeState === 'act') {
-        for (let i = 0; i < 7; i += 1) {
-          const progress = (elapsed * 0.38 + i / 7) % 1;
+      // An energy ripple visibly travels through the nucleus during the ACT transition.
+      const pulsePhase = (cycle * 4) % 1;
+      if (stage === 'act' || automaticStage === 'act') {
+        for (let ring = 0; ring < 3; ring += 1) {
+          const radius = height * (0.065 + ((pulsePhase + ring / 3) % 1) * 0.25);
           context.beginPath();
-          context.arc(cx, cy, height * (0.12 + progress * 0.24), 0, Math.PI * 2);
-          context.strokeStyle = `rgba(54, 234, 215, ${(1 - progress) * 0.42})`;
-          context.lineWidth = 0.9;
+          context.arc(cx, cy, radius, 0, Math.PI * 2);
+          context.strokeStyle = `rgba(113, 255, 234, ${(1 - ((pulsePhase + ring / 3) % 1)) * 0.28})`;
+          context.lineWidth = ring === 0 ? 1.1 : 0.65;
           context.stroke();
         }
       }
 
-      if (activeState === 'measure') {
-        const scanX = cx + Math.sin(elapsed * 0.55) * width * 0.11;
-        const scan = context.createLinearGradient(scanX, cy - height * 0.28, scanX, cy + height * 0.28);
-        scan.addColorStop(0, 'rgba(80, 223, 255, 0)');
-        scan.addColorStop(0.5, 'rgba(185, 255, 248, 0.65)');
-        scan.addColorStop(1, 'rgba(80, 223, 255, 0)');
-        context.strokeStyle = scan;
-        context.lineWidth = 0.8;
-        context.beginPath();
-        context.moveTo(scanX, cy - height * 0.28);
-        context.lineTo(scanX, cy + height * 0.28);
-        context.stroke();
-      }
-
-      drawOrbit(cx, cy, elapsed);
-      drawCore(cx, cy, elapsed);
+      drawOrbitSystem(cx, cy, elapsed, measure);
+      const flash = Math.max(0, 1 - Math.abs((cycle * 4 % 1) - 0.58) * 5) * (stage === 'act' ? 1 : 0.5);
+      drawNucleus(cx, cy, elapsed, flash);
     };
 
     const animate = (time: number) => {
@@ -280,9 +379,14 @@
     controls.forEach((button) => {
       button.addEventListener('click', () => {
         const state = button.dataset.fieldState;
-        if (state !== 'understand' && state !== 'decide' && state !== 'act' && state !== 'measure') return;
-        activeState = state;
-        controls.forEach((control) => control.setAttribute('aria-pressed', String(control === button)));
+        if (!state || !stages.includes(state as Stage)) return;
+        selectedStage = state as Stage;
+        selectedUntil = elapsed + 5.5;
+        controls.forEach((control) => {
+          const active = control === button;
+          control.setAttribute('aria-pressed', String(active));
+          control.classList.toggle('is-active', active);
+        });
         draw();
       });
     });
@@ -314,3 +418,76 @@
     document.addEventListener('astro:before-swap', cleanup, { once: true });
   });
 </script>
+
+<style>
+  .home-hero-stages .stage-item {
+    position: relative;
+    isolation: isolate;
+    transition: color 260ms ease, transform 260ms ease, background 260ms ease;
+  }
+
+  .home-hero-stages .stage-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 999px;
+    background: radial-gradient(ellipse at left, rgba(0, 204, 230, 0.13), transparent 72%);
+    opacity: 0;
+    transform: scaleX(0.82);
+    transform-origin: left;
+    transition: opacity 320ms ease, transform 320ms ease;
+  }
+
+  .home-hero-stages .stage-item:hover::before,
+  .home-hero-stages .stage-item.is-active::before,
+  .home-hero-stages .stage-item[aria-pressed='true']::before {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .home-hero-stages .stage-item:hover {
+    transform: translateX(-3px);
+    color: #cffff7;
+  }
+
+  .home-hero-stages .stage-bullet {
+    position: relative;
+    transition: border-color 300ms ease, box-shadow 300ms ease, background 300ms ease;
+  }
+
+  .home-hero-stages .stage-glyph {
+    display: inline-block;
+    transition: transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .home-hero-stages .stage-item:hover .stage-glyph {
+    transform: rotate(18deg) scale(1.12);
+  }
+
+  .home-hero-stages .stage-item.is-active .stage-bullet,
+  .home-hero-stages .stage-item[aria-pressed='true'] .stage-bullet {
+    border-color: rgba(100, 255, 235, 0.9);
+    background: rgba(0, 184, 220, 0.16);
+    box-shadow: 0 0 0 3px rgba(0, 200, 224, 0.045), 0 0 18px rgba(34, 238, 222, 0.24), inset 0 0 10px rgba(30, 245, 226, 0.1);
+  }
+
+  .home-hero-stages .stage-item.is-active .stage-glyph {
+    animation: intelligence-stage-breathe 2.4s ease-in-out infinite;
+  }
+
+  @keyframes intelligence-stage-breathe {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 1px rgba(190, 255, 246, 0.4)); }
+    50% { transform: scale(1.12); filter: drop-shadow(0 0 5px rgba(90, 255, 232, 0.85)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-hero-stages .stage-item,
+    .home-hero-stages .stage-glyph,
+    .home-hero-stages .stage-bullet,
+    .home-hero-stages .stage-item::before {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
