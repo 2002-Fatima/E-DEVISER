@@ -24,7 +24,7 @@
 
     type StreamParticle = {
       startX: number; lane: number; phase: number; speed: number;
-      size: number; color: string; square: boolean;
+      size: number; color: string; shape: 'circle' | 'square' | 'diamond' | 'dash';
     };
     type OrbitParticle = { angle: number; orbit: number; speed: number; size: number; color: string };
     type FieldState = 'understand' | 'decide' | 'act' | 'measure';
@@ -61,10 +61,12 @@
         const lane = (random() + random() + random() - 1.5) * (0.22 + (1 - startX / 0.66) * 0.38);
         const roll = random();
         const color = colors[roll > 0.985 ? 4 : roll > 0.75 ? 3 : roll > 0.3 ? 2 : roll > 0.08 ? 1 : 0];
+        const shapeRoll = random();
+        const shape = shapeRoll > 0.975 ? 'dash' : shapeRoll > 0.93 ? 'diamond' : shapeRoll > 0.87 ? 'square' : 'circle';
         streamParticles.push({
           startX, lane, phase: random(), speed: 0.035 + random() * 0.065,
-          size: random() > 0.94 ? 1.5 + random() * 1.2 : 0.55 + random() * 1.05,
-          color, square: random() > 0.94,
+          size: random() > 0.91 ? 1.65 + random() * 1.35 : 0.5 + random() * 1.25,
+          color, shape,
         });
       }
       for (let i = 0; i < 150; i += 1) {
@@ -219,10 +221,24 @@
         const y = cy + (spread * (1 - progress) + particle.lane * height * 0.012 * progress + curved) * compress;
         context.globalAlpha = 0.22 + progress * 0.72;
         context.fillStyle = particle.color;
+        context.shadowColor = particle.color;
+        context.shadowBlur = progress > 0.82 ? 4.5 : 0;
         context.beginPath();
-        if (particle.square) context.rect(x - particle.size * 0.5, y - particle.size * 0.5, particle.size, particle.size);
-        else context.arc(x, y, particle.size, 0, Math.PI * 2);
+        if (particle.shape === 'square') {
+          context.rect(x - particle.size * 0.5, y - particle.size * 0.5, particle.size, particle.size);
+        } else if (particle.shape === 'diamond') {
+          context.moveTo(x, y - particle.size * 0.8);
+          context.lineTo(x + particle.size * 0.8, y);
+          context.lineTo(x, y + particle.size * 0.8);
+          context.lineTo(x - particle.size * 0.8, y);
+          context.closePath();
+        } else if (particle.shape === 'dash') {
+          context.roundRect(x - particle.size * 1.25, y - particle.size * 0.35, particle.size * 2.5, particle.size * 0.7, particle.size * 0.35);
+        } else {
+          context.arc(x, y, particle.size, 0, Math.PI * 2);
+        }
         context.fill();
+        context.shadowBlur = 0;
       }
       context.restore();
 
@@ -238,17 +254,44 @@
       }
 
       if (activeState === 'measure') {
-        const scanX = cx + Math.sin(elapsed * 0.55) * width * 0.11;
-        const scan = context.createLinearGradient(scanX, cy - height * 0.28, scanX, cy + height * 0.28);
+        // Measurement phase: a luminous sweep, subtle data ticks, and a pulsing outcome ring.
+        const sweep = (elapsed * 0.24) % 1;
+        const scanX = cx - width * 0.16 + sweep * width * 0.32;
+        const scan = context.createLinearGradient(scanX - width * 0.035, cy, scanX + width * 0.035, cy);
         scan.addColorStop(0, 'rgba(80, 223, 255, 0)');
-        scan.addColorStop(0.5, 'rgba(185, 255, 248, 0.65)');
+        scan.addColorStop(0.5, 'rgba(185, 255, 248, 0.48)');
         scan.addColorStop(1, 'rgba(80, 223, 255, 0)');
+        context.save();
+        context.globalCompositeOperation = 'lighter';
         context.strokeStyle = scan;
-        context.lineWidth = 0.8;
+        context.lineWidth = 1.2;
         context.beginPath();
-        context.moveTo(scanX, cy - height * 0.28);
-        context.lineTo(scanX, cy + height * 0.28);
+        context.moveTo(scanX, cy - height * 0.32);
+        context.lineTo(scanX, cy + height * 0.32);
         context.stroke();
+
+        for (let tick = 0; tick < 9; tick += 1) {
+          const angle = (tick / 9) * Math.PI * 2 + elapsed * 0.12;
+          const radius = height * (0.31 + Math.sin(elapsed * 0.8 + tick) * 0.008);
+          const inner = radius - height * 0.012;
+          const outer = radius + height * 0.012;
+          context.globalAlpha = 0.28 + (Math.sin(elapsed * 1.6 + tick * 0.9) + 1) * 0.2;
+          context.strokeStyle = '#7CFFF0';
+          context.lineWidth = tick % 3 === 0 ? 1.15 : 0.65;
+          context.beginPath();
+          context.moveTo(cx + Math.cos(angle) * inner, cy + Math.sin(angle) * inner);
+          context.lineTo(cx + Math.cos(angle) * outer, cy + Math.sin(angle) * outer);
+          context.stroke();
+        }
+
+        const outcomePulse = 0.5 + (Math.sin(elapsed * 1.25) + 1) * 0.25;
+        context.globalAlpha = outcomePulse;
+        context.beginPath();
+        context.ellipse(cx, cy, height * 0.29, height * 0.32, 0, 0, Math.PI * 2);
+        context.strokeStyle = 'rgba(114, 255, 234, 0.28)';
+        context.lineWidth = 0.8;
+        context.stroke();
+        context.restore();
       }
 
       drawOrbit(cx, cy, elapsed);

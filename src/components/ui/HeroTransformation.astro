@@ -78,7 +78,7 @@ const { inline = false } = Astro.props;
       let particleRadii: number[] = [];
       let driftVectors: Array<{ x: number; y: number }> = [];
       let particleGradient: CanvasGradient | undefined;
-      const opacityLevels = [0.74, 0.9, 1];
+      const opacityLevels = [0.68, 0.88, 1];
       let width = 0;
       let height = 0;
       let phaseElapsed = 0;
@@ -213,8 +213,8 @@ const { inline = false } = Astro.props;
           const variation = seed / 2147483647;
           const opacityGroup = variation < 0.2 ? 0 : variation < 0.72 ? 1 : 2;
           particleGroups[opacityGroup].push(index);
-          particleRadii[index] = 1.3 + variation * 0.65;
-          if (index % 19 === 0) highlightIndices.push(index);
+          particleRadii[index] = variation > 0.965 ? 2.05 + variation * 0.65 : 0.78 + variation * 1.12;
+          if (index % 17 === 0 || variation > 0.985) highlightIndices.push(index);
 
           const angle = variation * Math.PI * 2;
           const magnitude = 1.5 + variation * 2.25;
@@ -239,8 +239,10 @@ const { inline = false } = Astro.props;
         const source = shapes[fromIndex];
         const destination = shapes[toIndex];
 
+        // A restrained bloom layer gives selected particles a premium, glass-like sparkle
+        // without changing the established word-to-word morphing sequence.
         context.globalCompositeOperation = 'screen';
-        context.globalAlpha = 0.2;
+        context.globalAlpha = 0.13 + dispersion * 0.1;
         context.beginPath();
         for (const index of highlightIndices) {
           const start = source[index];
@@ -248,11 +250,15 @@ const { inline = false } = Astro.props;
           const drift = driftVectors[index];
           const x = start.x + (end.x - start.x) * progress + drift.x * dispersion;
           const y = start.y + (end.y - start.y) * progress + drift.y * dispersion;
-          context.moveTo(x + 2.9, y);
-          context.arc(x, y, 2.9, 0, Math.PI * 2);
+          const radius = 2.2 + particleRadii[index] * 0.7;
+          context.moveTo(x + radius, y);
+          context.arc(x, y, radius, 0, Math.PI * 2);
         }
         context.fillStyle = particleGradient;
+        context.shadowColor = particleColors[2];
+        context.shadowBlur = 7;
         context.fill();
+        context.shadowBlur = 0;
 
         for (let groupIndex = 0; groupIndex < particleGroups.length; groupIndex += 1) {
           const particles = particleGroups[groupIndex];
