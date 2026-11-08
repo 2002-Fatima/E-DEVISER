@@ -65,7 +65,7 @@
         const roll = random();
         particles.push({
           seed: random() * Math.PI * 2,
-          phase: random(),
+          phase: random() * 0.075,
           speed: 0.045 + random() * 0.035,
           lane: (random() + random() + random() - 1.5) * 1.5,
           startX: -0.035 + random() * 0.57,
@@ -276,7 +276,7 @@
 
       for (const particle of particles) {
         // Each particle completes one lifecycle: chaotic -> aligned -> nucleus -> orbit -> reset.
-        const progress = (particle.phase + cycle * 1.8) % 1;
+        const progress = (cycle + particle.phase) % 1;
         const approach = smooth(0.0, 0.47, progress);
         const alignment = smooth(0.32, 0.57, progress);
         const crossing = smooth(0.53, 0.67, progress);
