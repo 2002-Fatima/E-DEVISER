@@ -289,8 +289,14 @@ const { inline = false } = Astro.props;
         frameId = undefined;
         if (!canAnimate() || disposed) return;
 
+        // Render at a steady ~30 FPS. The particle morph remains fluid while
+        // avoiding unnecessary full-canvas redraws on slower machines.
+        if (lastFrameTime !== undefined && time - lastFrameTime < 32) {
+          frameId = window.requestAnimationFrame(animate);
+          return;
+        }
         if (lastFrameTime !== undefined) {
-          phaseElapsed += Math.min(time - lastFrameTime, 64);
+          phaseElapsed += Math.min(time - lastFrameTime, 50);
         }
         lastFrameTime = time;
         drawFrame(phaseElapsed);
