@@ -259,6 +259,13 @@
       const act = stage === 'act' ? 1 : 0.3;
       const measure = stage === 'measure' ? 1 : 0.35;
 
+      // Keep the stage indicators synchronized with the automatic cycle after a manual focus.
+      controls.forEach((button) => {
+        const active = button.dataset.fieldState === stage;
+        button.setAttribute('aria-pressed', String(active));
+        button.classList.toggle('is-active', active);
+      });
+
       context.clearRect(0, 0, width, height);
 
       drawScatteredField(cx, cy, elapsed, understand);
