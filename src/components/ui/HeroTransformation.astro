@@ -131,7 +131,7 @@ const { inline = false } = Astro.props;
         maskContext.fillText(word, width / 2, baseline);
 
         const pixels = maskContext.getImageData(0, 0, mask.width, mask.height).data;
-        const step = Math.max(2, Math.round(3.2 * pixelRatio));
+        const step = Math.max(2, Math.round(4.0 * pixelRatio));
         const points: Array<{ x: number; y: number; key: number }> = [];
 
         for (let y = step >> 1; y < mask.height; y += step) {
@@ -165,7 +165,7 @@ const { inline = false } = Astro.props;
 
         const fontSize = Math.min(132, width * (inline ? 0.18 : 0.13), height * (inline ? 0.94 : 0.58));
         const samples = words.map((word) => sampleWord(word, fontSize, pixelRatio));
-        particleCount = Math.min(1800, ...samples.map((sample) => sample.length));
+        particleCount = Math.min(1100, ...samples.map((sample) => sample.length));
 
         if (!particleCount) {
           particleHero.classList.remove('is-ready');
@@ -214,7 +214,7 @@ const { inline = false } = Astro.props;
           const opacityGroup = variation < 0.2 ? 0 : variation < 0.72 ? 1 : 2;
           particleGroups[opacityGroup].push(index);
           particleRadii[index] = variation > 0.965 ? 2.05 + variation * 0.65 : 0.78 + variation * 1.12;
-          if (index % 17 === 0 || variation > 0.985) highlightIndices.push(index);
+          if (index % 29 === 0 || variation > 0.992) highlightIndices.push(index);
 
           const angle = variation * Math.PI * 2;
           const magnitude = 1.5 + variation * 2.25;
@@ -256,7 +256,7 @@ const { inline = false } = Astro.props;
         }
         context.fillStyle = particleGradient;
         context.shadowColor = particleColors[2];
-        context.shadowBlur = 7;
+        context.shadowBlur = 4;
         context.fill();
         context.shadowBlur = 0;
 
