@@ -55,7 +55,7 @@
     const buildParticles = () => {
       streamParticles = [];
       orbitParticles = [];
-      const count = Math.round(Math.min(1800, Math.max(850, width * height / 125)));
+      const count = Math.round(Math.min(900, Math.max(520, width * height / 430)));
       for (let i = 0; i < count; i += 1) {
         const startX = -0.025 + random() * 0.66;
         const lane = (random() + random() + random() - 1.5) * (0.22 + (1 - startX / 0.66) * 0.38);
@@ -69,7 +69,7 @@
           color, shape,
         });
       }
-      for (let i = 0; i < 150; i += 1) {
+      for (let i = 0; i < 90; i += 1) {
         orbitParticles.push({
           angle: random() * Math.PI * 2,
           orbit: 0.48 + random() * 1.5,
@@ -85,7 +85,7 @@
       if (!bounds.width || !bounds.height) return;
       width = bounds.width;
       height = bounds.height;
-      pixelRatio = Math.min(window.devicePixelRatio || 1, 1.6);
+      pixelRatio = Math.min(window.devicePixelRatio || 1, 1.25);
       canvas.width = Math.round(width * pixelRatio);
       canvas.height = Math.round(height * pixelRatio);
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
@@ -94,7 +94,7 @@
     };
 
     const drawFlowLines = (cx: number, cy: number, time: number, compression: number) => {
-      const lineCount = Math.max(38, Math.round(height / 4.7));
+      const lineCount = Math.max(24, Math.min(42, Math.round(height / 8.5)));
       const focalRadiusX = height * 0.25;
       context.save();
       context.globalCompositeOperation = 'lighter';
@@ -102,7 +102,7 @@
         const lane = (i / (lineCount - 1)) * 2 - 1;
         const spread = lane * height * 0.47 * compression;
         const drift = Math.sin(time * 0.22 + i * 0.41) * height * 0.018;
-        const alpha = 0.14 + (1 - Math.abs(lane)) * 0.32;
+        const alpha = 0.12 + (1 - Math.abs(lane)) * 0.26;
         context.beginPath();
         context.moveTo(-width * 0.035, cy + spread + drift);
         context.bezierCurveTo(
@@ -115,13 +115,12 @@
           cx - focalRadiusX * 0.03, cy + spread * 0.012,
           cx + focalRadiusX * 0.1, cy + spread * 0.045,
         );
-        const gradient = context.createLinearGradient(-width * 0.03, cy + spread, cx, cy);
-        gradient.addColorStop(0, 'rgba(0, 145, 220, 0.02)');
-        gradient.addColorStop(0.38, `rgba(0, 174, 235, ${alpha})`);
-        gradient.addColorStop(0.76, i % 5 === 0 ? 'rgba(90, 255, 231, 0.82)' : 'rgba(28, 218, 226, 0.55)');
-        gradient.addColorStop(1, 'rgba(185, 255, 245, 0.12)');
-        context.strokeStyle = gradient;
-        context.lineWidth = i % 7 === 0 ? 1.05 : 0.62;
+        // Reuse a simple stroke color per filament; allocating a gradient for every
+        // curve on every frame was a major source of main-thread pressure.
+        context.strokeStyle = i % 5 === 0
+          ? `rgba(90, 255, 231, ${alpha * 0.72})`
+          : `rgba(28, 190, 226, ${alpha * 0.62})`;
+        context.lineWidth = i % 7 === 0 ? 0.9 : 0.55;
         context.stroke();
       }
       context.restore();
@@ -222,7 +221,7 @@
         context.globalAlpha = 0.22 + progress * 0.72;
         context.fillStyle = particle.color;
         context.shadowColor = particle.color;
-        context.shadowBlur = progress > 0.82 ? 4.5 : 0;
+        context.shadowBlur = 0;
         context.beginPath();
         if (particle.shape === 'square') {
           context.rect(x - particle.size * 0.5, y - particle.size * 0.5, particle.size, particle.size);
