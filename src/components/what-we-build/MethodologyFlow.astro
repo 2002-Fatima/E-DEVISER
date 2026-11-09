@@ -36,14 +36,14 @@ const flowSteps = methodologySteps.map((step, index) => ({
           <feGaussianBlur stdDeviation="3.5" result="blur" />
           <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
         </filter>
-        <path id="methodology-river-path" d="M64 216 C150 216 154 142 278 178 S418 280 520 216 S666 122 766 190 S914 286 1008 216 S1160 140 1376 216" />
+        <path id="methodology-river-path" d="M120 216 C190 216 260 146 360 178 S500 280 600 216 S740 122 840 190 S980 286 1080 216 S1220 140 1320 216" />
       </defs>
 
-      <path class="methodology-river-shadow" d="M64 216 C150 216 154 142 278 178 S418 280 520 216 S666 122 766 190 S914 286 1008 216 S1160 140 1376 216" />
-      <path class="methodology-river-line" d="M64 216 C150 216 154 142 278 178 S418 280 520 216 S666 122 766 190 S914 286 1008 216 S1160 140 1376 216" />
-      <path class="methodology-river-highlight" d="M64 216 C150 216 154 142 278 178 S418 280 520 216 S666 122 766 190 S914 286 1008 216 S1160 140 1376 216" />
+      <path class="methodology-river-shadow" d="M120 216 C190 216 260 146 360 178 S500 280 600 216 S740 122 840 190 S980 286 1080 216 S1220 140 1320 216" />
+      <path class="methodology-river-line" d="M120 216 C190 216 260 146 360 178 S500 280 600 216 S740 122 840 190 S980 286 1080 216 S1220 140 1320 216" />
+      <path class="methodology-river-highlight" d="M120 216 C190 216 260 146 360 178 S500 280 600 216 S740 122 840 190 S980 286 1080 216 S1220 140 1320 216" />
 
-      <g class="methodology-constellation methodology-constellation--problem" transform="translate(64 216)">
+      <g class="methodology-constellation methodology-constellation--problem" transform="translate(120 216)">
         <circle class="methodology-aura" r="92" fill="url(#methodology-aura)" />
         <path class="problem-shard" d="M-58-18L-24-55L-5-24L-31 4Z" />
         <path class="problem-shard problem-shard--two" d="M8-64L42-48L31-12L-2-24Z" />
@@ -56,7 +56,7 @@ const flowSteps = methodologySteps.map((step, index) => ({
         <circle class="problem-grain" cx="2" cy="-81" r="2" /><circle class="problem-grain" cx="84" cy="18" r="1.8" />
       </g>
 
-      <g class="methodology-constellation methodology-constellation--understand" transform="translate(278 178)">
+      <g class="methodology-constellation methodology-constellation--understand" transform="translate(360 178)">
         <circle class="methodology-aura" r="94" fill="url(#methodology-aura)" />
         <circle class="understand-contour understand-contour--one" r="67" />
         <circle class="understand-contour understand-contour--two" r="48" />
@@ -68,7 +68,7 @@ const flowSteps = methodologySteps.map((step, index) => ({
         <circle class="understand-orbit-dot" cx="0" cy="-67" r="4" />
       </g>
 
-      <g class="methodology-constellation methodology-constellation--design" transform="translate(520 216)">
+      <g class="methodology-constellation methodology-constellation--design" transform="translate(600 216)">
         <circle class="methodology-aura" r="96" fill="url(#methodology-aura)" />
         <path class="design-shell" d="M0-77C42-77 78-43 78 0C78 43 42 77 0 77C-42 77-78 43-78 0C-78-43-42-77 0-77Z" />
         <path class="design-lattice" d="M0-77L26-26L78 0L26 26L0 77L-26 26L-78 0L-26-26Z M-26-26H26V26H-26Z M0-77V77 M-78 0H78" />
@@ -78,7 +78,7 @@ const flowSteps = methodologySteps.map((step, index) => ({
         <circle class="design-core" r="7" />
       </g>
 
-      <g class="methodology-constellation methodology-constellation--build" transform="translate(766 190)">
+      <g class="methodology-constellation methodology-constellation--build" transform="translate(840 190)">
         <circle class="methodology-aura" r="98" fill="url(#methodology-aura)" />
         <path class="build-helix" d="M-65-53C-12-84 12 84 65 53M-65 53C-12 84 12-84 65-53" />
         <path class="build-circuit" d="M-65-53L-31-53L-12-31L12-31L31-53L65-53M-65 53L-31 53L-12 31L12 31L31 53L65 53M0-72V-31M0 31V72" />
@@ -90,7 +90,7 @@ const flowSteps = methodologySteps.map((step, index) => ({
         </g>
       </g>
 
-      <g class="methodology-constellation methodology-constellation--solution" transform="translate(1008 216)">
+      <g class="methodology-constellation methodology-constellation--solution" transform="translate(1080 216)">
         <circle class="methodology-aura" r="108" fill="url(#methodology-aura)" />
         <path class="solution-shell" d="M0-73C39-73 73-39 73 0C73 39 39 73 0 73C-39 73-73 39-73 0C-73-39-39-73 0-73Z" />
         <ellipse class="solution-orbit solution-orbit--one" rx="91" ry="31" />
@@ -101,7 +101,7 @@ const flowSteps = methodologySteps.map((step, index) => ({
         <circle class="solution-satellite" cx="0" cy="-91" r="5" />
       </g>
 
-      <g class="methodology-constellation methodology-constellation--measure" transform="translate(1376 216)">
+      <g class="methodology-constellation methodology-constellation--measure" transform="translate(1320 216)">
         <circle class="methodology-aura" r="100" fill="url(#methodology-aura)" />
         <circle class="measure-outer" r="78" />
         <circle class="measure-inner" r="56" />
@@ -125,7 +125,7 @@ const flowSteps = methodologySteps.map((step, index) => ({
 
   <ol class="methodology-sequence" aria-label="Our six-stage methodology">
     {flowSteps.map((step, index) => (
-      <li class="methodology-sequence-step" data-methodology-step data-index={index} aria-current={index === 0 ? 'step' : undefined}>
+      <li class="methodology-sequence-step" data-methodology-step data-index={index} data-description={step.description} aria-current={index === 0 ? 'step' : undefined}>
         <span class="methodology-sequence-number">{step.number}</span>
         <span class="methodology-sequence-title">{step.title}</span>
       </li>
@@ -142,7 +142,6 @@ const flowSteps = methodologySteps.map((step, index) => ({
       <span></span><span></span><span></span><span></span><span></span>
     </span>
   </div>
-  <div class="methodology-cycle-progress" aria-hidden="true"><span data-methodology-progress></span></div>
 </div>
 
 <script>
@@ -154,7 +153,6 @@ const flowSteps = methodologySteps.map((step, index) => ({
     const title = flow.querySelector<HTMLElement>('[data-methodology-title]');
     const description = flow.querySelector<HTMLElement>('[data-methodology-description]');
     const index = flow.querySelector<HTMLElement>('.methodology-transcript-index');
-    const progress = flow.querySelector<HTMLElement>('[data-methodology-progress]');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const duration = 5200;
     let activeIndex = 0;
@@ -180,7 +178,7 @@ const flowSteps = methodologySteps.map((step, index) => ({
       window.setTimeout(() => {
         if (title) title.textContent = nextTitle;
         if (description) description.textContent = sourceDescription;
-        if (index) index.innerHTML = `${String(nextIndex + 1).padStart(2, '0')} <i>/</i> 06`;
+        if (index) index.textContent = `${String(nextIndex + 1).padStart(2, '0')} / 06`;
         flow.classList.remove('is-transitioning');
       }, 280);
     };
@@ -198,7 +196,6 @@ const flowSteps = methodologySteps.map((step, index) => ({
       timer = window.setInterval(() => {
         const cycleElapsed = elapsed + (performance.now() - startedAt);
         const nextIndex = Math.min(5, Math.floor(cycleElapsed / duration));
-        if (progress) progress.style.transform = `scaleX(${Math.min(1, (cycleElapsed % (duration * 6)) / (duration * 6))})`;
         if (nextIndex !== activeIndex) render(nextIndex);
         if (cycleElapsed >= duration * 6) {
           elapsed = 0;
