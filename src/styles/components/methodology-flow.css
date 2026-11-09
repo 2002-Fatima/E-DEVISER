@@ -64,14 +64,14 @@
 }
 
 .methodology-river-highlight {
-  stroke: var(--brand-teal-light);
+  stroke: url("#methodology-spectrum");
   stroke-width: 0.8;
   stroke-dasharray: 2 12;
   opacity: 0.8;
 }
 
 .methodology-constellation {
-  color: var(--brand-teal-light);
+  color: var(--color-brand-middle);
   opacity: 0.13;
   transform-box: view-box;
   transform-origin: center;
@@ -90,13 +90,13 @@
 .methodology-flow[data-active-index="4"] .methodology-constellation--solution,
 .methodology-flow[data-active-index="5"] .methodology-constellation--measure {
   opacity: 1;
-  filter: drop-shadow(0 0 14px var(--brand-blue));
+  filter: drop-shadow(0 0 13px rgba(2, 182, 224, 0.34)) drop-shadow(0 0 26px rgba(0, 229, 199, 0.2));
 }
 
 .problem-shard {
-  fill: var(--brand-blue-light);
-  fill-opacity: 0.1;
-  stroke: var(--brand-teal-light);
+  fill: url("#methodology-spectrum");
+  fill-opacity: 0.13;
+  stroke: url("#methodology-spectrum");
   stroke-width: 1.2;
   stroke-linejoin: bevel;
   transform-box: fill-box;
@@ -128,7 +128,7 @@
 .understand-axis,
 .understand-ray {
   fill: none;
-  stroke: currentColor;
+  stroke: url("#methodology-spectrum");
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
@@ -147,7 +147,7 @@
 .understand-axis { stroke-dasharray: 1 8; opacity: 0.44; }
 .understand-ray { stroke: var(--brand-white); stroke-width: 1.5; filter: url("#methodology-soft-bloom"); }
 .understand-focus { fill: var(--brand-white); filter: url("#methodology-bloom"); }
-.understand-orbit-dot { fill: var(--brand-teal-light); filter: url("#methodology-soft-bloom"); }
+.understand-orbit-dot { fill: var(--color-brand-end); filter: url("#methodology-soft-bloom"); }
 
 .design-shell,
 .design-lattice,
@@ -159,7 +159,7 @@
 }
 
 .design-shell {
-  stroke: var(--brand-blue-light);
+  stroke: url("#methodology-spectrum");
   stroke-dasharray: 110 12;
   stroke-width: 1.4;
   animation: methodology-contour-turn 28s linear infinite;
@@ -337,7 +337,7 @@
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: var(--space-3);
-  margin: -1.1rem 0 0;
+  margin: 0 0 var(--space-2);
   padding: 0;
   list-style: none;
 }
@@ -373,10 +373,10 @@
 }
 
 .methodology-sequence-step[aria-current="step"] .methodology-sequence-number {
-  border-color: var(--brand-teal-light);
-  background: var(--brand-navy);
+  border-color: var(--color-brand-middle);
+  background: linear-gradient(135deg, rgba(3, 147, 242, 0.22), rgba(0, 229, 199, 0.16)), var(--color-surface-night);
   color: var(--brand-white);
-  box-shadow: 0 0 0 5px rgba(3, 130, 189, 0.12), 0 0 22px rgba(32, 183, 207, 0.28);
+  box-shadow: 0 0 0 4px rgba(2, 182, 224, 0.1), 0 0 24px rgba(0, 229, 199, 0.2);
 }
 
 .methodology-sequence-title {
@@ -403,7 +403,7 @@
   align-items: center;
   gap: var(--space-6);
   min-height: 8.25rem;
-  margin-block-start: var(--space-8);
+  margin-block-start: var(--space-6);
   padding-block: var(--space-6);
   border-block: 1px solid var(--color-border-inverse);
   background: transparent;
@@ -412,7 +412,7 @@
 .methodology-transcript-index {
   align-self: start;
   padding-block-start: var(--space-2);
-  color: var(--brand-teal-light);
+  color: var(--color-brand-end);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.12em;
@@ -465,8 +465,8 @@
   width: 2px;
   height: 12px;
   border-radius: var(--radius-pill);
-  background: var(--brand-teal);
-  box-shadow: 0 0 8px rgba(90, 185, 180, 0.34);
+  background: var(--gradient-brand);
+  box-shadow: 0 0 10px rgba(0, 229, 199, 0.28);
   animation: methodology-signal-bars 1.2s ease-in-out infinite alternate;
 }
 
@@ -525,7 +525,7 @@
 
   .methodology-sequence {
     gap: var(--space-2);
-    margin-block-start: -0.2rem;
+    margin-block-start: 0;
   }
 
   .methodology-sequence-title {
@@ -548,7 +548,7 @@
   .methodology-sequence {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     row-gap: var(--space-5);
-    margin-block-start: var(--space-2);
+    margin-block-start: 0;
   }
 
   .methodology-sequence-step {
@@ -563,7 +563,7 @@
   .methodology-transcript {
     grid-template-columns: 1fr auto;
     gap: var(--space-3);
-    margin-block-start: var(--space-6);
+    margin-block-start: var(--space-5);
     padding-block: var(--space-5);
   }
 
