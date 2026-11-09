@@ -266,7 +266,7 @@
   transition: color var(--transition-base);
 }
 
-.methodology-node:has(.methodology-node-button[aria-current="step"]) .methodology-node-title {
+.methodology-node-button[aria-current="step"] + .methodology-node-title {
   color: var(--color-white);
 }
 
@@ -385,3 +385,21 @@
     display: none;
   }
 }
+
+/* Context-specific integration: the homepage uses the same flow on its dark atmospheric surface. */
+.home-methodology-section .methodology-description {
+  background: transparent;
+  border-color: var(--color-border-inverse);
+  padding-inline: 0;
+}
+
+.home-methodology-section .methodology-node-button[aria-current="step"] {
+  box-shadow: 0 0 0 6px rgba(3, 130, 189, 0.14), 0 0 24px rgba(32, 183, 207, 0.38);
+}
+
+.home-methodology-section[data-active-index="0"] .methodology-flow-list::after { transform: scaleY(0); }
+.home-methodology-section[data-active-index="1"] .methodology-flow-list::after { transform: scaleY(0.2); }
+.home-methodology-section[data-active-index="2"] .methodology-flow-list::after { transform: scaleY(0.4); }
+.home-methodology-section[data-active-index="3"] .methodology-flow-list::after { transform: scaleY(0.6); }
+.home-methodology-section[data-active-index="4"] .methodology-flow-list::after { transform: scaleY(0.8); }
+.home-methodology-section[data-active-index="5"] .methodology-flow-list::after { transform: scaleY(1); }
