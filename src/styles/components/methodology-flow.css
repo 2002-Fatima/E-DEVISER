@@ -93,10 +93,6 @@
   filter: drop-shadow(0 0 14px var(--brand-blue));
 }
 
-.methodology-constellation--problem {
-  animation: methodology-problem-float 9s ease-in-out infinite alternate;
-}
-
 .problem-shard {
   fill: var(--brand-blue-light);
   fill-opacity: 0.1;
