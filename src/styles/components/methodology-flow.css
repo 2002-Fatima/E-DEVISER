@@ -111,7 +111,7 @@
 
 .problem-thread {
   fill: none;
-  stroke: var(--brand-teal-light);
+  stroke: url("#methodology-spectrum");
   stroke-width: 0.9;
   stroke-dasharray: 3 8;
   opacity: 0.8;
@@ -153,7 +153,7 @@
 .design-lattice,
 .design-inner {
   fill: none;
-  stroke: currentColor;
+  stroke: url("#methodology-spectrum");
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
@@ -166,7 +166,7 @@
 }
 
 .design-lattice {
-  stroke: var(--brand-teal-light);
+  stroke: url("#methodology-spectrum");
   stroke-dasharray: 2 5;
   opacity: 0.64;
 }
@@ -183,7 +183,7 @@
 }
 
 .design-core {
-  fill: var(--brand-teal-light);
+  fill: var(--color-brand-end);
   filter: url("#methodology-bloom");
   animation: methodology-core-breathe 3.2s ease-in-out infinite;
 }
@@ -192,7 +192,7 @@
 .build-circuit,
 .build-bridge {
   fill: none;
-  stroke: currentColor;
+  stroke: url("#methodology-spectrum");
   stroke-width: 1.35;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -200,14 +200,14 @@
 }
 
 .build-helix {
-  stroke: var(--brand-blue-light);
+  stroke: url("#methodology-spectrum");
   stroke-width: 1.7;
   stroke-dasharray: 5 6;
   animation: methodology-dash-flow 7s linear infinite;
 }
 
 .build-circuit {
-  stroke: var(--brand-teal-light);
+  stroke: url("#methodology-spectrum");
   opacity: 0.68;
 }
 
@@ -219,7 +219,7 @@
 
 .build-nodes circle {
   fill: var(--brand-white);
-  stroke: var(--brand-teal);
+  stroke: url("#methodology-spectrum");
   stroke-width: 1.8;
   filter: url("#methodology-soft-bloom");
   animation: methodology-core-breathe 2.8s ease-in-out infinite alternate;
@@ -229,7 +229,7 @@
 
 .solution-shell {
   fill: none;
-  stroke: var(--brand-blue-light);
+  stroke: url("#methodology-spectrum");
   stroke-width: 1;
   stroke-dasharray: 2 7;
   opacity: 0.72;
@@ -237,7 +237,7 @@
 
 .solution-orbit {
   fill: none;
-  stroke: var(--brand-teal-light);
+  stroke: url("#methodology-spectrum");
   stroke-width: 1.15;
   opacity: 0.82;
   transform-box: fill-box;
@@ -254,7 +254,7 @@
 }
 
 .solution-satellite {
-  fill: var(--brand-teal-light);
+  fill: var(--color-brand-end);
   filter: url("#methodology-soft-bloom");
 }
 
@@ -263,19 +263,19 @@
 .measure-calibration,
 .measure-grid {
   fill: none;
-  stroke: currentColor;
+  stroke: url("#methodology-spectrum");
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
 
 .measure-outer {
-  stroke: var(--brand-blue-light);
+  stroke: url("#methodology-spectrum");
   stroke-dasharray: 2 9;
   animation: methodology-orbit-spin 24s linear infinite;
 }
 
 .measure-inner {
-  stroke: var(--brand-teal-light);
+  stroke: url("#methodology-spectrum");
   stroke-dasharray: 40 7 2 7;
   opacity: 0.82;
 }
@@ -301,7 +301,7 @@
 }
 
 .measure-sweep {
-  stroke: var(--brand-teal-light);
+  stroke: url("#methodology-spectrum");
   stroke-width: 1;
   opacity: 0.76;
   transform-box: fill-box;
@@ -315,7 +315,7 @@
 }
 
 .methodology-flow-dust circle {
-  fill: var(--brand-teal-light);
+  fill: var(--color-brand-end);
   opacity: 0.6;
   filter: url("#methodology-soft-bloom");
   animation: methodology-grain-pulse 4s ease-in-out infinite alternate;
@@ -328,8 +328,8 @@
   filter: url("#methodology-bloom");
 }
 
-.methodology-traveller--two { fill: var(--brand-teal-light); }
-.methodology-traveller--three { fill: var(--brand-blue-light); }
+.methodology-traveller--two { fill: var(--color-brand-end); }
+.methodology-traveller--three { fill: url("#methodology-spectrum"); }
 
 .methodology-sequence {
   position: relative;
@@ -393,7 +393,7 @@
 
 .methodology-sequence-step[aria-current="step"] .methodology-sequence-title {
   color: var(--brand-white);
-  text-shadow: 0 0 18px rgba(90, 185, 180, 0.32);
+  text-shadow: 0 0 18px rgba(2, 182, 224, 0.32), 0 0 26px rgba(0, 229, 199, 0.2);
 }
 
 .methodology-transcript {
