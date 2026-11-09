@@ -114,106 +114,79 @@
 }
 
 .home-methodology-section {
-  border-block: 1px solid var(--color-border-inverse);
+  position: relative;
+  overflow: hidden;
+  border-block: var(--border-width) solid var(--color-border-inverse);
+  background: var(--gradient-dark-atmosphere);
+}
+
+.home-methodology-section::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--pattern-grid);
+  background-size: 3.5rem 3.5rem;
+  mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent);
+  content: "";
+  pointer-events: none;
+}
+
+.home-methodology-section > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .home-methodology-heading {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.7fr);
-  align-items: end;
-  gap: var(--space-10);
-  margin-block-end: clamp(var(--space-10), 6vw, var(--space-16));
+  justify-items: center;
+  gap: var(--space-3);
+  max-width: var(--container-standard);
+  margin: 0 auto clamp(var(--space-10), 5vw, var(--space-16));
+  text-align: center;
+}
+
+.home-methodology-heading .eyebrow {
+  margin: 0;
+  color: var(--brand-teal-light);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
 }
 
 .home-methodology-heading h2 {
   max-width: 19ch;
-  color: var(--color-white);
+  margin: 0;
+  color: var(--color-text-inverse);
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: var(--text-h1);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-tight);
 }
 
-.home-methodology-heading > p {
-  max-width: 42ch;
-  color: var(--color-text-inverse-muted);
-  font-size: var(--text-lg);
-  line-height: var(--leading-body);
+.home-methodology-heading h2 span {
+  background-image: var(--gradient-brand-text);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
 }
 
-.home-methodology-section .methodology-track-base {
-  stroke: var(--color-border-inverse-strong);
-}
-
-.home-methodology-section .methodology-track-progress {
-  stroke: var(--brand-teal);
-}
-
-.home-methodology-section .methodology-node-button {
-  border-color: var(--color-border-inverse-strong);
-  background: var(--color-surface-night-raised);
-  color: var(--color-white);
-}
-
-.home-methodology-section .methodology-node-button:hover {
-  border-color: var(--brand-teal);
-}
-
-.home-methodology-section .methodology-node-button[aria-current="step"] {
-  border-color: var(--brand-blue);
-  background: var(--brand-blue);
-  color: var(--color-white);
-}
-
-.home-methodology-section .methodology-node-title {
-  color: var(--color-text-inverse-muted);
-}
-
-.home-methodology-section .methodology-description {
-  border-color: var(--color-border-inverse);
-  background: var(--color-surface-night-raised);
-}
-
-.home-methodology-section .methodology-description h3 {
-  color: var(--color-white);
-}
-
-.home-methodology-section .methodology-description p {
-  color: var(--color-text-inverse-muted);
-}
-
-.home-methodology-philosophy {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  align-items: start;
-  gap: var(--space-10);
-  margin-block-start: clamp(var(--space-10), 6vw, var(--space-16));
-  padding-block-start: var(--space-8);
-  border-block-start: 1px solid var(--color-border-inverse);
-}
-
-.home-methodology-philosophy h3 {
-  max-width: 14ch;
-  color: var(--color-white);
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-tight);
-  line-height: var(--leading-tight);
-}
-
-.home-methodology-philosophy-copy {
-  display: grid;
-  gap: var(--space-4);
-  justify-items: start;
+.home-methodology-heading > p:last-child {
   max-width: 58ch;
+  margin-block-start: var(--space-2);
   color: var(--color-text-inverse-muted);
+  font-size: var(--text-base);
   line-height: var(--leading-body);
 }
 
-.home-methodology-philosophy-copy .btn {
-  margin-block-start: var(--space-3);
+.home-methodology-action {
+  display: flex;
+  justify-content: center;
+  margin-block-start: clamp(var(--space-8), 4vw, var(--space-12));
+}
+
+.home-methodology-action .btn {
+  min-width: 13rem;
 }
 
 .home-cuevo-section {

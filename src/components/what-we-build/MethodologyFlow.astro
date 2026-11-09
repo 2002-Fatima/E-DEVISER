@@ -1,66 +1,130 @@
 ---
 import { methodologySteps } from '../../content/methodology';
-
-const flowSteps = methodologySteps.map((step, index) => ({
-  ...step,
-  title: index === 0 ? 'The Problem' : step.title,
-}));
 ---
 
-<div class="methodology-flow" data-methodology-flow style="--flow-progress: 0; --flow-progress-factor: 0">
-  <svg class="methodology-track" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path class="methodology-track-base" pathLength="100" d="M8 24C15 9 18 9 25 24S35 39 42 24S52 9 59 24S69 39 76 24S85 9 92 24" />
-    <path class="methodology-track-progress" pathLength="100" d="M8 24C15 9 18 9 25 24S35 39 42 24S52 9 59 24S69 39 76 24S85 9 92 24" />
-  </svg>
+<section class="methodology-visual" data-methodology-flow aria-label="E Deviser's problem-solving process">
+  <div class="methodology-morphic-field" aria-hidden="true">
+    <svg class="methodology-morphic-svg" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <linearGradient id="methodology-energy-gradient" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="var(--brand-blue)" stop-opacity=".12" />
+          <stop offset=".22" stop-color="var(--brand-blue)" />
+          <stop offset=".52" stop-color="var(--color-brand-cyan)" />
+          <stop offset=".76" stop-color="var(--brand-teal)" />
+          <stop offset="1" stop-color="var(--brand-teal-light)" />
+        </linearGradient>
+        <radialGradient id="methodology-core-gradient">
+          <stop offset="0" stop-color="var(--brand-white)" />
+          <stop offset=".22" stop-color="var(--color-brand-cyan)" stop-opacity=".9" />
+          <stop offset="1" stop-color="var(--brand-blue)" stop-opacity="0" />
+        </radialGradient>
+        <filter id="methodology-soft-glow" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation="5" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+        <filter id="methodology-wide-glow" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation="15" />
+        </filter>
+        <path id="methodology-flow-path" d="M20 150 C110 38 150 250 245 150 S380 52 485 150 S620 248 720 150 S855 55 960 150 S1090 244 1180 150" />
+      </defs>
 
-  <ol class="methodology-flow-list" aria-label="Methodology steps">
-    {flowSteps.map((step, index) => (
-      <li class="methodology-node">
+      <path class="morphic-flow-halo" d="M20 150 C110 38 150 250 245 150 S380 52 485 150 S620 248 720 150 S855 55 960 150 S1090 244 1180 150" />
+      <path class="morphic-flow-line morphic-flow-line-a" d="M20 150 C110 38 150 250 245 150 S380 52 485 150 S620 248 720 150 S855 55 960 150 S1090 244 1180 150" />
+      <path class="morphic-flow-line morphic-flow-line-b" d="M20 150 C110 250 150 45 245 150 S380 245 485 150 S620 55 720 150 S855 245 960 150 S1090 55 1180 150" />
+
+      <g class="morphic-phase morphic-phase-problem">
+        <circle cx="85" cy="150" r="42" class="morphic-phase-aura" />
+        <path d="M48 126 70 104 96 117 111 145 89 169 59 161 43 143Z M76 91 94 80 109 98 100 116 M33 169 51 181 72 174" class="morphic-fragment" />
+        <circle cx="53" cy="110" r="4" class="morphic-fragment-dot" /><circle cx="119" cy="124" r="3" class="morphic-fragment-dot" /><circle cx="105" cy="187" r="5" class="morphic-fragment-dot" /><circle cx="31" cy="145" r="2.5" class="morphic-fragment-dot" />
+      </g>
+      <g class="morphic-phase morphic-phase-understand">
+        <ellipse cx="285" cy="150" rx="51" ry="29" class="morphic-orbit" />
+        <ellipse cx="285" cy="150" rx="37" ry="17" class="morphic-orbit morphic-orbit-inner" />
+        <circle cx="285" cy="150" r="8" class="morphic-core" />
+        <circle cx="236" cy="150" r="4" class="morphic-particle" /><circle cx="333" cy="150" r="3" class="morphic-particle" />
+      </g>
+      <g class="morphic-phase morphic-phase-design">
+        <ellipse cx="485" cy="150" rx="56" ry="25" class="morphic-orbit morphic-orbit-tilt" />
+        <ellipse cx="485" cy="150" rx="28" ry="54" class="morphic-orbit morphic-orbit-tilt" />
+        <circle cx="485" cy="150" r="17" class="morphic-core" />
+        <circle cx="485" cy="150" r="5" class="morphic-core-center" />
+      </g>
+      <g class="morphic-phase morphic-phase-build">
+        <path d="M685 112 720 92 755 112 755 188 720 208 685 188Z" class="morphic-build-shape" />
+        <path d="M685 112 720 132 755 112 M720 132V208 M685 188 720 168 755 188" class="morphic-build-lines" />
+        <circle cx="720" cy="150" r="10" class="morphic-core" />
+      </g>
+      <g class="morphic-phase morphic-phase-solution">
+        <path d="M914 150 960 108 1006 150 960 192Z" class="morphic-solution-diamond" />
+        <circle cx="960" cy="150" r="34" class="morphic-orbit" />
+        <circle cx="960" cy="150" r="15" class="morphic-core" />
+        <circle cx="960" cy="150" r="5" class="morphic-core-center" />
+      </g>
+      <g class="morphic-phase morphic-phase-measure">
+        <circle cx="1120" cy="150" r="54" class="morphic-measure-ring" />
+        <circle cx="1120" cy="150" r="39" class="morphic-measure-ring morphic-measure-ring-inner" />
+        <circle cx="1120" cy="150" r="24" class="morphic-measure-ring morphic-measure-ring-core" />
+        <path d="M1120 150 1151 119 M1120 150V108 M1120 150H1162" class="morphic-measure-needle" />
+        <circle cx="1120" cy="150" r="7" class="morphic-core" />
+      </g>
+
+      <g class="morphic-travel-particles" filter="url(#methodology-soft-glow)">
+        <circle r="4" class="morphic-travel-particle"><animateMotion dur="8s" repeatCount="indefinite"><mpath href="#methodology-flow-path" /></animateMotion></circle>
+        <circle r="2.5" class="morphic-travel-particle morphic-travel-particle-secondary"><animateMotion dur="11s" begin="-3.5s" repeatCount="indefinite"><mpath href="#methodology-flow-path" /></animateMotion></circle>
+        <circle r="2" class="morphic-travel-particle morphic-travel-particle-tertiary"><animateMotion dur="6.5s" begin="-5s" repeatCount="indefinite"><mpath href="#methodology-flow-path" /></animateMotion></circle>
+      </g>
+    </svg>
+  </div>
+
+  <ol class="methodology-steps" aria-label="Six phases from problem to measurable outcome">
+    {methodologySteps.map((step, index) => (
+      <li class:list={['methodology-step', index === 0 ? 'is-active' : '']} data-methodology-step>
         <button
-          class="methodology-node-button"
+          class="methodology-step-trigger"
           type="button"
-          aria-current={index === 0 ? 'step' : undefined}
-          aria-label={`Step ${step.number}: ${step.title}`}
+          aria-pressed={index === 0 ? 'true' : 'false'}
           data-methodology-node
-          data-title={step.title}
-          data-description={step.description}
           data-index={index}
+          aria-label={`Explore phase ${step.number}: ${index === 0 ? 'The Problem' : step.title}`}
         >
-          {step.number}
+          <span class="methodology-step-index">{step.number}</span>
+          <span class="methodology-step-title">{index === 0 ? 'The Problem' : step.title}</span>
+          <span class="methodology-step-indicator" aria-hidden="true"></span>
         </button>
-        <span class="methodology-node-title">{step.title}</span>
+        <p class="methodology-step-description">{step.description}</p>
       </li>
     ))}
   </ol>
 
-  <div class="methodology-description" data-methodology-description aria-live="polite" aria-atomic="true">
-    <h3>{flowSteps[0].title}</h3>
-    <p>{flowSteps[0].description}</p>
+  <div class="methodology-live-detail" aria-live="polite" aria-atomic="true">
+    <span class="methodology-live-kicker">THE PROCESS, IN MOTION</span>
+    <p data-methodology-detail>Every meaningful solution starts with a problem worth understanding.</p>
   </div>
-</div>
+</section>
 
 <script>
   document.querySelectorAll<HTMLElement>('[data-methodology-flow]').forEach((flow) => {
-    const nodes = Array.from(flow.querySelectorAll<HTMLButtonElement>('[data-methodology-node]'));
-    const panel = flow.querySelector<HTMLElement>('[data-methodology-description]');
-    const heading = panel?.querySelector('h3');
-    const description = panel?.querySelector('p');
+    const steps = Array.from(flow.querySelectorAll<HTMLElement>('[data-methodology-step]'));
+    const triggers = Array.from(flow.querySelectorAll<HTMLButtonElement>('[data-methodology-node]'));
+    const detail = flow.querySelector<HTMLElement>('[data-methodology-detail]');
+    const summaries = [
+      'A complex, messy real-world problem — the starting point for the entire process.',
+      'We investigate the domain, constraints, people, systems, and evidence.',
+      'We determine what intelligence, technology, and solution are actually required.',
+      'AI agents, software, data, and automation are combined only where they create value.',
+      'A working system turns the chosen approach into something real and useful.',
+      'We measure outcomes, learn from evidence, and improve what matters most.',
+    ];
 
-    nodes.forEach((node) => {
-      node.addEventListener('click', () => {
-        const selectedIndex = Number(node.dataset.index);
-        const progress = nodes.length > 1 ? (selectedIndex / (nodes.length - 1)) * 100 : 100;
-        flow.style.setProperty('--flow-progress', String(progress));
-        flow.style.setProperty('--flow-progress-factor', String(progress / 100));
-        nodes.forEach((candidate) => {
-          if (candidate === node) {
-            candidate.setAttribute('aria-current', 'step');
-          } else {
-            candidate.removeAttribute('aria-current');
-          }
+    triggers.forEach((trigger, index) => {
+      trigger.addEventListener('click', () => {
+        steps.forEach((step, stepIndex) => {
+          const active = stepIndex === index;
+          step.classList.toggle('is-active', active);
+          triggers[stepIndex].setAttribute('aria-pressed', String(active));
         });
-        if (heading) heading.textContent = node.dataset.title ?? '';
-        if (description) description.textContent = node.dataset.description ?? '';
+        flow.dataset.activePhase = String(index);
+        if (detail) detail.textContent = summaries[index];
       });
     });
   });
