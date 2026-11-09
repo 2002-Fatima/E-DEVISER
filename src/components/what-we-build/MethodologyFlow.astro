@@ -21,20 +21,24 @@ const flowSteps = methodologySteps.map((step, index) => ({
     <svg class="methodology-cosmos-svg" viewBox="0 0 1440 420" preserveAspectRatio="none" focusable="false">
       <defs>
         <linearGradient id="methodology-ribbon" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="var(--brand-blue)" stop-opacity="0.04" />
-          <stop offset=".24" stop-color="var(--brand-blue-light)" stop-opacity=".72" />
-          <stop offset=".55" stop-color="var(--brand-teal-light)" />
-          <stop offset="1" stop-color="var(--brand-teal)" stop-opacity=".78" />
+          <stop offset="0" stop-color="var(--color-brand-start)" stop-opacity=".16" />
+          <stop offset=".48" stop-color="var(--color-brand-middle)" stop-opacity=".88" />
+          <stop offset="1" stop-color="var(--color-brand-end)" stop-opacity=".9" />
+        </linearGradient>
+        <linearGradient id="methodology-spectrum" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="var(--color-brand-start)" />
+          <stop offset=".48" stop-color="var(--color-brand-middle)" />
+          <stop offset="1" stop-color="var(--color-brand-end)" />
         </linearGradient>
         <radialGradient id="methodology-aura">
           <stop offset="0" stop-color="var(--brand-white)" />
-          <stop offset=".16" stop-color="var(--brand-teal-light)" stop-opacity=".92" />
-          <stop offset=".46" stop-color="var(--brand-blue)" stop-opacity=".28" />
-          <stop offset="1" stop-color="var(--brand-blue)" stop-opacity="0" />
+          <stop offset=".16" stop-color="var(--color-brand-end)" stop-opacity=".92" />
+          <stop offset=".46" stop-color="var(--color-brand-start)" stop-opacity=".28" />
+          <stop offset="1" stop-color="var(--color-brand-start)" stop-opacity="0" />
         </radialGradient>
         <linearGradient id="methodology-thread" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="var(--brand-blue-light)" stop-opacity="0" />
-          <stop offset=".5" stop-color="var(--brand-teal-light)" />
+          <stop offset="0" stop-color="var(--color-brand-start)" stop-opacity="0" />
+          <stop offset=".5" stop-color="var(--color-brand-end)" />
           <stop offset="1" stop-color="var(--brand-blue-light)" stop-opacity="0" />
         </linearGradient>
         <filter id="methodology-bloom" x="-200%" y="-200%" width="500%" height="500%">
