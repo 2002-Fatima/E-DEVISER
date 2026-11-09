@@ -8,6 +8,15 @@ const flowSteps = methodologySteps.map((step, index) => ({
 ---
 
 <div class="methodology-flow" data-methodology-flow data-active-index="0">
+  <ol class="methodology-sequence" aria-label="Our six-stage methodology">
+    {flowSteps.map((step, index) => (
+      <li class="methodology-sequence-step" data-methodology-step data-index={index} data-description={step.description} aria-current={index === 0 ? 'step' : undefined}>
+        <span class="methodology-sequence-number">{step.number}</span>
+        <span class="methodology-sequence-title">{step.title}</span>
+      </li>
+    ))}
+  </ol>
+
   <div class="methodology-cosmos" aria-hidden="true">
     <svg class="methodology-cosmos-svg" viewBox="0 0 1440 420" preserveAspectRatio="none" focusable="false">
       <defs>
@@ -123,17 +132,8 @@ const flowSteps = methodologySteps.map((step, index) => ({
     </svg>
   </div>
 
-  <ol class="methodology-sequence" aria-label="Our six-stage methodology">
-    {flowSteps.map((step, index) => (
-      <li class="methodology-sequence-step" data-methodology-step data-index={index} data-description={step.description} aria-current={index === 0 ? 'step' : undefined}>
-        <span class="methodology-sequence-number">{step.number}</span>
-        <span class="methodology-sequence-title">{step.title}</span>
-      </li>
-    ))}
-  </ol>
-
   <div class="methodology-transcript" data-methodology-transcript aria-live="polite" aria-atomic="true">
-    <span class="methodology-transcript-index">01 <i>/</i> 06</span>
+    <span class="methodology-transcript-index"><span data-methodology-current>01</span> <i>/</i> 06</span>
     <div class="methodology-transcript-content">
       <h3 data-methodology-title>{flowSteps[0].title}</h3>
       <p data-methodology-description>{flowSteps[0].description}</p>
@@ -178,7 +178,7 @@ const flowSteps = methodologySteps.map((step, index) => ({
       window.setTimeout(() => {
         if (title) title.textContent = nextTitle;
         if (description) description.textContent = sourceDescription;
-        if (index) index.textContent = `${String(nextIndex + 1).padStart(2, '0')} / 06`;
+        if (index) index.querySelector('[data-methodology-current]')?.replaceChildren(String(nextIndex + 1).padStart(2, '0'));
         flow.classList.remove('is-transitioning');
       }, 280);
     };
