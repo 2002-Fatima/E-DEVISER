@@ -540,24 +540,28 @@
   }
 
   .methodology-sequence {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    row-gap: var(--space-4);
-    column-gap: var(--space-2);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.15rem;
     margin-block-start: 0;
   }
 
   .methodology-sequence-step {
+    flex-direction: column;
     justify-content: flex-start;
-    gap: var(--space-1);
+    gap: 0.2rem;
+    text-align: center;
   }
 
   .methodology-sequence-number {
-    font-size: 0.62rem;
+    font-size: 0.58rem;
   }
 
   .methodology-sequence-title {
-    max-width: 12ch;
-    font-size: 0.62rem;
+    max-width: 100%;
+    font-size: 0.52rem;
+    letter-spacing: 0;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
   }
 
   .methodology-transcript {
