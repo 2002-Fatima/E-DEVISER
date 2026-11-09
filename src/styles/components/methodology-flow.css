@@ -344,12 +344,12 @@
 
 .methodology-sequence-step {
   position: relative;
-  display: grid;
-  justify-items: center;
-  align-content: start;
-  gap: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
   min-width: 0;
-  text-align: center;
+  text-align: left;
   opacity: 0.48;
   transition: opacity 900ms var(--ease-emphasized);
 }
@@ -359,24 +359,18 @@
 }
 
 .methodology-sequence-number {
-  display: grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  border: 1px solid var(--color-border-inverse-strong);
-  border-radius: var(--radius-pill);
-  background: var(--color-surface-night);
-  color: var(--color-text-inverse-subtle);
+  flex: 0 0 auto;
+  color: var(--color-brand-middle);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  transition: border-color 900ms var(--ease-emphasized), color 900ms var(--ease-emphasized), box-shadow 900ms var(--ease-emphasized), background-color 900ms var(--ease-emphasized);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.04em;
+  transition: color 900ms var(--ease-emphasized), text-shadow 900ms var(--ease-emphasized);
 }
 
 .methodology-sequence-step[aria-current="step"] .methodology-sequence-number {
-  border-color: var(--color-brand-middle);
-  background: linear-gradient(135deg, rgba(3, 147, 242, 0.22), rgba(0, 229, 199, 0.16)), var(--color-surface-night);
-  color: var(--brand-white);
-  box-shadow: 0 0 0 4px rgba(2, 182, 224, 0.1), 0 0 24px rgba(0, 229, 199, 0.2);
+  color: var(--color-brand-end);
+  text-shadow: 0 0 16px rgba(0, 229, 199, 0.32);
 }
 
 .methodology-sequence-title {
@@ -547,17 +541,23 @@
 
   .methodology-sequence {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    row-gap: var(--space-5);
+    row-gap: var(--space-4);
+    column-gap: var(--space-2);
     margin-block-start: 0;
   }
 
   .methodology-sequence-step {
-    gap: var(--space-2);
+    justify-content: flex-start;
+    gap: var(--space-1);
+  }
+
+  .methodology-sequence-number {
+    font-size: 0.62rem;
   }
 
   .methodology-sequence-title {
     max-width: 12ch;
-    font-size: 0.65rem;
+    font-size: 0.62rem;
   }
 
   .methodology-transcript {
