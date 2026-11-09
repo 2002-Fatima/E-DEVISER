@@ -7,11 +7,102 @@ const flowSteps = methodologySteps.map((step, index) => ({
 }));
 ---
 
-<div class="methodology-flow" data-methodology-flow style="--flow-progress: 0; --flow-progress-factor: 0">
-  <svg class="methodology-track" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path class="methodology-track-base" pathLength="100" d="M8 24C15 9 18 9 25 24S35 39 42 24S52 9 59 24S69 39 76 24S85 9 92 24" />
-    <path class="methodology-track-progress" pathLength="100" d="M8 24C15 9 18 9 25 24S35 39 42 24S52 9 59 24S69 39 76 24S85 9 92 24" />
-  </svg>
+<div class="methodology-flow" data-methodology-flow data-active-index="0">
+  <div class="methodology-visual" aria-hidden="true">
+    <svg class="methodology-track" viewBox="0 0 1200 220" preserveAspectRatio="none" focusable="false">
+      <defs>
+        <linearGradient id="methodology-energy-gradient" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="var(--brand-blue)" stop-opacity="0.16" />
+          <stop offset="48%" stop-color="var(--brand-blue-light)" />
+          <stop offset="100%" stop-color="var(--brand-teal)" />
+        </linearGradient>
+        <radialGradient id="methodology-core-gradient">
+          <stop offset="0%" stop-color="var(--brand-white)" />
+          <stop offset="34%" stop-color="var(--brand-teal-light)" />
+          <stop offset="72%" stop-color="var(--brand-blue)" stop-opacity="0.42" />
+          <stop offset="100%" stop-color="var(--brand-blue)" stop-opacity="0" />
+        </radialGradient>
+        <filter id="methodology-soft-glow" x="-150%" y="-150%" width="400%" height="400%">
+          <feGaussianBlur stdDeviation="5" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        <path id="methodology-flow-path" d="M100 110 C175 110 205 68 300 110 S420 152 500 110 S620 68 700 110 S820 152 900 110 S1020 68 1100 110" />
+      </defs>
+
+      <path class="methodology-track-base" d="M100 110 C175 110 205 68 300 110 S420 152 500 110 S620 68 700 110 S820 152 900 110 S1020 68 1100 110" />
+      <path class="methodology-track-progress" pathLength="100" d="M100 110 C175 110 205 68 300 110 S420 152 500 110 S620 68 700 110 S820 152 900 110 S1020 68 1100 110" />
+
+      <g class="methodology-phase-art methodology-phase-art--problem" transform="translate(100 110)">
+        <g class="methodology-fragments">
+          <path d="M-29-22l10-8 7 12-12 7zM9-31l13 5-4 13-12-5zM-34 8l14-4 5 13-12 8zM16 14l11-9 8 13-12 8zM-3-5l7-10 9 10-7 10z" />
+          <path d="M-40-4l8-3M25-28l8-6M-20 28l-7 7M34 2l8 1M1 31l2 8" />
+          <circle cx="-43" cy="-25" r="2.5" /><circle cx="34" cy="-31" r="2" />
+          <circle cx="-38" cy="31" r="1.8" /><circle cx="43" cy="19" r="2.4" />
+          <circle cx="0" cy="-39" r="1.8" /><circle cx="-5" cy="38" r="2.2" />
+        </g>
+        <circle class="methodology-phase-halo" r="47" />
+      </g>
+
+      <g class="methodology-phase-art methodology-phase-art--understand" transform="translate(300 110)">
+        <circle class="methodology-scan-ring methodology-scan-ring--outer" r="39" />
+        <circle class="methodology-scan-ring methodology-scan-ring--inner" r="25" />
+        <path class="methodology-scan-crosshair" d="M-48 0h96M0-48v96" />
+        <path class="methodology-scan-sweep" d="M0 0L0-43" />
+        <circle class="methodology-phase-core" r="5" />
+        <circle class="methodology-phase-halo" r="47" />
+      </g>
+
+      <g class="methodology-phase-art methodology-phase-art--design" transform="translate(500 110)">
+        <path class="methodology-wire-shape" d="M0-43L37-21L37 21L0 43L-37 21L-37-21Z M0-43V43 M-37-21L37 21 M37-21L-37 21" />
+        <path class="methodology-wire-inner" d="M0-22L19-11V11L0 22L-19 11V-11Z" />
+        <circle cx="0" cy="-43" r="3" /><circle cx="37" cy="-21" r="3" />
+        <circle cx="37" cy="21" r="3" /><circle cx="0" cy="43" r="3" />
+        <circle cx="-37" cy="21" r="3" /><circle cx="-37" cy="-21" r="3" />
+        <circle class="methodology-phase-halo" r="51" />
+      </g>
+
+      <g class="methodology-phase-art methodology-phase-art--build" transform="translate(700 110)">
+        <path class="methodology-build-links" d="M-30-18L0-35L30-18L30 18L0 35L-30 18Z M-30-18L0 0L30-18 M0-35V0V35 M-30 18L0 0L30 18" />
+        <g class="methodology-build-points">
+          <circle cx="-30" cy="-18" r="5" /><circle cx="0" cy="-35" r="5" />
+          <circle cx="30" cy="-18" r="5" /><circle cx="30" cy="18" r="5" />
+          <circle cx="0" cy="35" r="5" /><circle cx="-30" cy="18" r="5" />
+          <circle cx="0" cy="0" r="6" />
+        </g>
+        <circle class="methodology-phase-halo" r="52" />
+      </g>
+
+      <g class="methodology-phase-art methodology-phase-art--solution" transform="translate(900 110)">
+        <ellipse class="methodology-orbit methodology-orbit--one" rx="48" ry="19" />
+        <ellipse class="methodology-orbit methodology-orbit--two" rx="48" ry="19" transform="rotate(60)" />
+        <ellipse class="methodology-orbit methodology-orbit--three" rx="48" ry="19" transform="rotate(120)" />
+        <circle class="methodology-solution-core" r="19" fill="url(#methodology-core-gradient)" filter="url(#methodology-soft-glow)" />
+        <circle class="methodology-phase-halo" r="56" />
+      </g>
+
+      <g class="methodology-phase-art methodology-phase-art--measure" transform="translate(1100 110)">
+        <circle class="methodology-measure-ring" r="43" />
+        <circle class="methodology-measure-ring methodology-measure-ring--inner" r="29" />
+        <path class="methodology-measure-wave" d="M-34 0H-20L-12-13L-2 17L9-22L18 0H34" />
+        <path class="methodology-measure-sweep" d="M0-48V48" />
+        <circle class="methodology-phase-core" r="4" />
+        <circle class="methodology-phase-halo" r="56" />
+      </g>
+
+      <circle class="methodology-energy-particle methodology-energy-particle--one" r="4">
+        <animateMotion dur="9s" repeatCount="indefinite"><mpath href="#methodology-flow-path" /></animateMotion>
+      </circle>
+      <circle class="methodology-energy-particle methodology-energy-particle--two" r="2.5">
+        <animateMotion dur="9s" begin="-3s" repeatCount="indefinite"><mpath href="#methodology-flow-path" /></animateMotion>
+      </circle>
+      <circle class="methodology-energy-particle methodology-energy-particle--three" r="2">
+        <animateMotion dur="9s" begin="-6s" repeatCount="indefinite"><mpath href="#methodology-flow-path" /></animateMotion>
+      </circle>
+    </svg>
+  </div>
 
   <ol class="methodology-flow-list" aria-label="Methodology steps">
     {flowSteps.map((step, index) => (
@@ -26,7 +117,7 @@ const flowSteps = methodologySteps.map((step, index) => ({
           data-description={step.description}
           data-index={index}
         >
-          {step.number}
+          <span>{step.number}</span>
         </button>
         <span class="methodology-node-title">{step.title}</span>
       </li>
@@ -34,24 +125,31 @@ const flowSteps = methodologySteps.map((step, index) => ({
   </ol>
 
   <div class="methodology-description" data-methodology-description aria-live="polite" aria-atomic="true">
-    <h3>{flowSteps[0].title}</h3>
-    <p>{flowSteps[0].description}</p>
+    <span class="methodology-description-index">01 / THE PROCESS</span>
+    <div class="methodology-description-copy">
+      <h3>{flowSteps[0].title}</h3>
+      <p>{flowSteps[0].description}</p>
+    </div>
+    <span class="methodology-description-marker" aria-hidden="true">↗</span>
   </div>
 </div>
 
 <script>
   document.querySelectorAll<HTMLElement>('[data-methodology-flow]').forEach((flow) => {
+    if (flow.dataset.initialized === 'true') return;
+    flow.dataset.initialized = 'true';
+
     const nodes = Array.from(flow.querySelectorAll<HTMLButtonElement>('[data-methodology-node]'));
     const panel = flow.querySelector<HTMLElement>('[data-methodology-description]');
     const heading = panel?.querySelector('h3');
     const description = panel?.querySelector('p');
+    const indexLabel = panel?.querySelector<HTMLElement>('.methodology-description-index');
 
     nodes.forEach((node) => {
       node.addEventListener('click', () => {
         const selectedIndex = Number(node.dataset.index);
-        const progress = nodes.length > 1 ? (selectedIndex / (nodes.length - 1)) * 100 : 100;
-        flow.style.setProperty('--flow-progress', String(progress));
-        flow.style.setProperty('--flow-progress-factor', String(progress / 100));
+        flow.dataset.activeIndex = String(selectedIndex);
+
         nodes.forEach((candidate) => {
           if (candidate === node) {
             candidate.setAttribute('aria-current', 'step');
@@ -59,8 +157,12 @@ const flowSteps = methodologySteps.map((step, index) => ({
             candidate.removeAttribute('aria-current');
           }
         });
+
         if (heading) heading.textContent = node.dataset.title ?? '';
         if (description) description.textContent = node.dataset.description ?? '';
+        if (indexLabel) {
+          indexLabel.textContent = `${String(selectedIndex + 1).padStart(2, '0')} / THE PROCESS`;
+        }
       });
     });
   });
