@@ -1,13 +1,31 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
+import MissionGlobeField from './MissionGlobeField.astro';
 import { site } from '../../content/site';
 ---
 
 <SectionWrapper background="light" class="home-mission-section">
   <section class="container container-wide home-mission-layout" aria-labelledby="home-mission-title">
     <div class="home-mission-copy">
-      <p class="eyebrow">OUR MISSION</p>
-      <h2 id="home-mission-title">{site.missionStatement}</h2>
+      <p class="eyebrow"><span class="home-mission-eyebrow-mark" aria-hidden="true"></span> OUR MISSION <span class="home-mission-index">06 / 06</span></p>
+      <p class="home-mission-pretitle">A region-wide ambition.<br />A generation-changing outcome.</p>
+      <h2 id="home-mission-title">
+        To improve learning outcomes for
+        <span class="home-mission-number">10 million</span>
+        learners across the <span class="home-mission-highlight">GCC</span> by
+        <span class="home-mission-year">2030.</span>
+      </h2>
+      <p class="home-mission-support">Building a more intelligent, inclusive future for learning through technology.</p>
+      <ul class="home-mission-tags" aria-label="Mission focus areas">
+        <li>10 MILLION LEARNERS</li>
+        <li>GCC REGION</li>
+        <li>2030 VISION</li>
+        <li>EDTECH</li>
+      </ul>
+      <span class="home-mission-sr-only">{site.missionStatement}</span>
+    </div>
+    <div class="home-mission-visual">
+      <MissionGlobeField />
     </div>
   </section>
 </SectionWrapper>
