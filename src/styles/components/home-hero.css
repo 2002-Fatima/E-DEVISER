@@ -122,9 +122,9 @@
   text-transform: uppercase;
   text-align: start;
   transition:
-    background-color var(--motion-base) var(--ease-standard),
-    color var(--motion-base) var(--ease-standard),
-    transform var(--motion-base) var(--ease-standard);
+    background-color var(--transition-interactive),
+    color var(--transition-interactive),
+    transform var(--transition-interactive);
 }
 
 .stage-item:hover {
@@ -153,9 +153,9 @@
   color: var(--brand-teal-light);
   font-size: var(--text-sm);
   transition:
-    border-color var(--motion-base) var(--ease-standard),
-    background-color var(--motion-base) var(--ease-standard),
-    box-shadow var(--motion-base) var(--ease-standard);
+    border-color var(--transition-interactive),
+    background-color var(--transition-interactive),
+    box-shadow var(--transition-interactive);
 }
 
 .stage-item[aria-pressed="true"] .stage-bullet {
