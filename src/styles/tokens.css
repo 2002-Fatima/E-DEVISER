@@ -201,13 +201,28 @@
     var(--pattern-grid),
     var(--color-surface-patterned);
 
-  --motion-fast: 140ms;
-  --motion-base: 220ms;
-  --motion-slow: 500ms;
+  /* Shared motion system: consistent interaction, transition and ambient timing. */
+  --motion-instant: 120ms;
+  --motion-fast: 180ms;
+  --motion-base: 280ms;
+  --motion-slow: 560ms;
+  --motion-slower: 900ms;
+  --motion-ambient: 8s;
+  --motion-orbit: 32s;
+  --motion-stagger-step: 70ms;
+  --motion-distance-sm: 4px;
+  --motion-distance-md: 8px;
+  --motion-distance-lg: 14px;
+  --motion-blur-soft: 8px;
+
   --ease-standard: cubic-bezier(0.2, 0.75, 0.25, 1);
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-linear: linear;
   --ease: var(--ease-standard);
   --transition-base: var(--motion-base) var(--ease-standard);
+  --transition-interactive: var(--motion-fast) var(--ease-standard);
+  --transition-enter: var(--motion-slow) var(--ease-enter);
 
   --z-base: 0;
   --z-sticky: 20;
