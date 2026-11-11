@@ -77,23 +77,20 @@
   display: block;
   width: 100%;
   min-width: 0;
-  min-height: clamp(29rem, 43vw, 39rem);
-  overflow: hidden;
+  min-height: clamp(35rem, 49vw, 45rem);
+  overflow: visible;
   isolation: isolate;
-  border: 1px solid var(--color-border-inverse);
-  border-radius: var(--radius-lg);
-  background: var(--gradient-dark-luminous);
-  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background: transparent;
 }
 
 .mission-globe-field::before {
   position: absolute;
   z-index: 0;
-  inset: 0;
+  inset: -12% -8%;
+  border-radius: 50%;
   background:
-    linear-gradient(rgba(192, 226, 253, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(192, 226, 253, 0.025) 1px, transparent 1px);
-  background-size: 3.25rem 3.25rem;
+    radial-gradient(ellipse at 52% 49%, rgba(25, 139, 160, 0.16), transparent 43%),
+    radial-gradient(ellipse at 50% 50%, rgba(8, 49, 70, 0.075), transparent 69%);
   content: "";
   pointer-events: none;
 }
@@ -101,8 +98,8 @@
 .mission-globe-field::after {
   position: absolute;
   z-index: 0;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 48%, transparent 34%, rgba(5, 17, 29, 0.42) 100%);
+  inset: -5%;
+  background: radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(243, 248, 250, 0.72) 100%);
   content: "";
   pointer-events: none;
 }
@@ -140,15 +137,15 @@
   height: 2rem;
   place-items: center;
   padding: 0;
-  border: 1px solid rgba(147, 245, 226, 0.52);
+  border: 1px solid rgba(147, 245, 226, 0.68);
   border-radius: 50%;
-  background: rgba(7, 31, 44, 0.82);
+  background: radial-gradient(circle at 35% 28%, rgba(31, 100, 113, 0.96), rgba(5, 29, 43, 0.96) 76%);
   color: #D7FFF5;
   font-family: var(--font-mono);
   font-size: 0.52rem;
   font-weight: var(--weight-bold);
   letter-spacing: 0.02em;
-  box-shadow: 0 0 0 4px rgba(73, 226, 207, 0.07), 0 0 16px rgba(73, 226, 207, 0.22);
+  box-shadow: 0 0 0 5px rgba(73, 226, 207, 0.055), 0 0 22px rgba(73, 226, 207, 0.3), inset 0 0 8px rgba(125, 255, 230, 0.1);
   cursor: pointer;
   pointer-events: auto;
   transform: translate(-50%, -50%);
@@ -171,7 +168,7 @@
 
 .mission-globe-core {
   position: absolute;
-  z-index: 4;
+  z-index: 6;
   top: 51%;
   left: 50%;
   display: flex;
@@ -181,12 +178,24 @@
   align-items: center;
   justify-content: center;
   gap: 0.15rem;
-  border: 1px solid rgba(177, 255, 239, 0.42);
+  padding: 0;
+  border: 1px solid rgba(177, 255, 239, 0.52);
   border-radius: 50%;
+  color: inherit;
+  cursor: pointer;
   background: radial-gradient(circle, rgba(35, 139, 133, 0.58), rgba(7, 32, 46, 0.88) 70%);
   box-shadow: 0 0 0 7px rgba(72, 228, 207, 0.055), 0 0 30px rgba(82, 240, 216, 0.3), inset 0 0 18px rgba(119, 255, 229, 0.15);
   transform: translate(-50%, -50%);
-  pointer-events: none;
+  transition: box-shadow 220ms ease, border-color 220ms ease, scale 220ms ease;
+}
+
+.mission-globe-core:hover,
+.mission-globe-core:focus-visible {
+  border-color: rgba(209, 255, 246, 0.92);
+  outline: 2px solid rgba(81, 221, 207, 0.45);
+  outline-offset: 6px;
+  box-shadow: 0 0 0 10px rgba(72, 228, 207, 0.09), 0 0 48px rgba(82, 240, 216, 0.55), inset 0 0 22px rgba(119, 255, 229, 0.24);
+  scale: 1.06;
 }
 
 .mission-globe-core__halo {
@@ -417,7 +426,7 @@
   }
 
   .mission-globe-field {
-    min-height: 31rem;
+    min-height: 34rem;
   }
 
   .mission-globe-data {
@@ -451,13 +460,13 @@
   }
 
   .mission-globe-field {
-    min-height: min(108vw, 35rem);
+    min-height: min(112vw, 39rem);
   }
 }
 
 @media (max-width: 30rem) {
   .mission-globe-field {
-    min-height: 25rem;
+    min-height: 28rem;
   }
 
   .mission-globe-core {
