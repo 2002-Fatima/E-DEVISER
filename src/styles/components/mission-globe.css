@@ -372,7 +372,7 @@
 }
 
 .mission-globe-data small {
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   font-family: var(--font-mono);
   font-size: 0.5rem;
   font-weight: var(--weight-medium);
