@@ -1,4 +1,4 @@
-<div class="mission-globe-field" data-mission-globe role="img" aria-label="An illuminated Earth with the six GCC countries connected by flowing light pathways, representing a shared learning mission for 2030">
+<div class="mission-globe-field" data-mission-globe role="group" aria-label="Interactive globe showing EDEviser connecting the six GCC countries through a shared learning mission">
   <svg class="mission-globe-art" viewBox="0 0 640 640" aria-hidden="true" focusable="false">
     <defs>
       <radialGradient id="mission-ocean" cx="34%" cy="27%" r="78%">
@@ -79,6 +79,23 @@
     <span class="mission-globe-particle mission-globe-particle--eight"></span>
   </div>
   <canvas class="mission-globe-canvas" data-mission-globe-canvas aria-hidden="true"></canvas>
+  <div class="mission-globe-country-controls" data-mission-globe-controls aria-label="Explore GCC countries">
+    <button type="button" data-gcc-index="0" aria-label="Saudi Arabia"><span>SA</span></button>
+    <button type="button" data-gcc-index="1" aria-label="Kuwait"><span>KW</span></button>
+    <button type="button" data-gcc-index="2" aria-label="Bahrain"><span>BH</span></button>
+    <button type="button" data-gcc-index="3" aria-label="Qatar"><span>QA</span></button>
+    <button type="button" data-gcc-index="4" aria-label="United Arab Emirates"><span>AE</span></button>
+    <button type="button" data-gcc-index="5" aria-label="Oman"><span>OM</span></button>
+  </div>
+  <div class="mission-globe-core" aria-hidden="true">
+    <span class="mission-globe-core__halo"></span>
+    <img src="/brand/edeviser-mark.png" alt="" />
+    <span class="mission-globe-core__wordmark">EDEVISER</span>
+  </div>
+  <div class="mission-globe-interaction" aria-live="polite" aria-atomic="true">
+    <span class="mission-globe-interaction__pulse"></span>
+    <span data-mission-globe-label>GCC NETWORK · CONNECTED</span>
+  </div>
   <div class="mission-globe-frame" aria-hidden="true">
     <span class="mission-globe-data mission-globe-data--learners">10M <small>LEARNERS</small></span>
     <span class="mission-globe-data mission-globe-data--region">GCC <small>REGION</small></span>
@@ -124,6 +141,49 @@
     let lastFrame = 0;
     let visible = true;
     let disposed = false;
+    let activeCountry = -1;
+    const pointer = { x: -1000, y: -1000, inside: false };
+    const countryControls = Array.from(field.querySelectorAll<HTMLButtonElement>('[data-gcc-index]'));
+    const interactionLabel = field.querySelector<HTMLElement>('[data-mission-globe-label]');
+
+    const setActiveCountry = (index: number) => {
+      activeCountry = index;
+      field.dataset.activeCountry = index >= 0 ? gcc[index].name : 'all';
+      if (interactionLabel) {
+        interactionLabel.textContent = index >= 0
+          ? `${gcc[index].label} · CONNECTED TO THE GCC`
+          : 'GCC NETWORK · CONNECTED';
+      }
+      countryControls.forEach((control, controlIndex) => {
+        if (controlIndex === index) control.setAttribute('aria-pressed', 'true');
+        else control.setAttribute('aria-pressed', 'false');
+      });
+      draw();
+    };
+
+    const updatePointer = (event: PointerEvent) => {
+      const rect = field.getBoundingClientRect();
+      pointer.x = event.clientX - rect.left;
+      pointer.y = event.clientY - rect.top;
+      pointer.inside = true;
+      const cx = width * 0.5;
+      const cy = height * 0.51;
+      const radius = Math.min(width * 0.345, height * 0.405);
+      const rotation = reducedMotion.matches ? 0 : Math.sin(elapsed * 0.045) * 1.15;
+      let nearest = -1;
+      let nearestDistance = Infinity;
+      gcc.forEach((country, index) => {
+        const point = project(country.lat, country.lon, cx, cy, radius, rotation);
+        const distance = Math.hypot(point.x - pointer.x, point.y - pointer.y);
+        if (point.z > 0 && distance < nearestDistance) {
+          nearest = index;
+          nearestDistance = distance;
+        }
+      });
+      setActiveCountry(nearestDistance < Math.max(22, radius * 0.105) ? nearest : -1);
+      if (!reducedMotion.matches && !frame && visible && !document.hidden) sync();
+      else draw();
+    };
 
     const project = (lat: number, lon: number, cx: number, cy: number, radius: number, rotation: number) => {
       const phi = lat * Math.PI / 180;
@@ -267,10 +327,18 @@
 
       // GCC routes: six country origins, each flowing toward a shared regional core.
       const target = project(25.4, 51.2, cx, cy, radius, rotation);
+      countryControls.forEach((control, index) => {
+        const point = project(gcc[index].lat, gcc[index].lon, cx, cy, radius, rotation);
+        control.style.left = `${(point.x / width) * 100}%`;
+        control.style.top = `${(point.y / height) * 100}%`;
+        control.hidden = point.z <= 0.015;
+      });
       gcc.forEach((country, index) => {
         const origin = project(country.lat, country.lon, cx, cy, radius, rotation);
         if (origin.z <= 0) return;
         const pulse = 0.72 + Math.sin(elapsed * 1.15 + index * 1.04) * 0.18;
+        const isFocused = activeCountry === index;
+        const focusLevel = activeCountry < 0 ? 1 : isFocused ? 1.35 : 0.28;
         const startX = origin.x;
         const startY = origin.y;
         const endX = target.x + Math.cos(index * 1.05) * radius * 0.035;
@@ -287,9 +355,10 @@
         route.addColorStop(0.55, 'rgba(81, 231, 220, 0.82)');
         route.addColorStop(1, 'rgba(229, 255, 244, 0.98)');
         ctx.strokeStyle = route;
-        ctx.lineWidth = 1.1 + pulse * 0.55;
+        ctx.globalAlpha = focusLevel;
+        ctx.lineWidth = (1.05 + pulse * 0.5) * (isFocused ? 1.55 : 1);
         ctx.shadowColor = 'rgba(77, 239, 220, 0.85)';
-        ctx.shadowBlur = 12 + pulse * 7;
+        ctx.shadowBlur = (10 + pulse * 6) * (isFocused ? 1.5 : 1);
         ctx.stroke();
 
         const t = (elapsed * (0.22 + index * 0.012) + index / gcc.length) % 1;
@@ -301,9 +370,20 @@
         const px = inv ** 3 * startX + 3 * inv ** 2 * t * cp1x + 3 * inv * t ** 2 * cp2x + t ** 3 * endX;
         const py = inv ** 3 * startY + 3 * inv ** 2 * t * cp1y + 3 * inv * t ** 2 * cp2y + t ** 3 * endY;
         glow(px, py, 1.65, 'rgba(235, 255, 248, 0.98)', 13);
-        glow(startX, startY, 2.2 + pulse * 0.6, 'rgba(119, 255, 224, 0.98)', 15);
+        glow(startX, startY, (2.1 + pulse * 0.6) * (isFocused ? 1.45 : 1), 'rgba(119, 255, 224, 0.98)', isFocused ? 21 : 15);
         ctx.restore();
       });
+
+      // A restrained pointer halo makes the globe respond without following the cursor mechanically.
+      if (pointer.inside) {
+        const pointerGlow = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, radius * 0.22);
+        pointerGlow.addColorStop(0, 'rgba(125, 255, 230, 0.12)');
+        pointerGlow.addColorStop(1, 'rgba(125, 255, 230, 0)');
+        ctx.fillStyle = pointerGlow;
+        ctx.beginPath();
+        ctx.arc(pointer.x, pointer.y, radius * 0.22, 0, Math.PI * 2);
+        ctx.fill();
+      }
 
       // Fine terrain contours give the illuminated region a sense of place.
       for (let ring = 0; ring < 4; ring += 1) {
@@ -359,6 +439,24 @@
       frame = requestAnimationFrame(animate);
     };
 
+    countryControls.forEach((control, index) => {
+      control.addEventListener('pointerenter', () => setActiveCountry(index));
+      control.addEventListener('focus', () => setActiveCountry(index));
+      control.addEventListener('click', () => setActiveCountry(activeCountry === index ? -1 : index));
+      control.addEventListener('pointerleave', () => {
+        if (document.activeElement !== control) setActiveCountry(-1);
+      });
+      control.addEventListener('blur', () => setActiveCountry(-1));
+    });
+    field.addEventListener('pointermove', updatePointer);
+    field.addEventListener('pointerleave', () => {
+      pointer.inside = false;
+      pointer.x = -1000;
+      pointer.y = -1000;
+      if (document.activeElement?.matches('[data-gcc-index]')) return;
+      setActiveCountry(-1);
+    });
+
     const resizeObserver = new ResizeObserver(resize);
     const intersectionObserver = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;
@@ -377,6 +475,7 @@
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
       document.removeEventListener('visibilitychange', sync);
+      field.removeEventListener('pointermove', updatePointer);
       reducedMotion.removeEventListener('change', sync);
       document.removeEventListener('astro:before-swap', cleanup);
     };
