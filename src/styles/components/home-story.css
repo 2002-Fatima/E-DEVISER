@@ -589,15 +589,6 @@
 }
 
 /* Our Work: editorial feature first, then the four durable areas of execution. */
-.home-work-index {
-  flex: 0 0 auto;
-  padding-block-end: var(--space-2);
-  color: var(--brand-teal-light);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.08em;
-}
-
 .home-work-feature {
   position: relative;
   display: grid;
@@ -855,9 +846,6 @@
 }
 
 @media (max-width: 40rem) {
-  .home-work-index {
-    display: none;
-  }
 
   .home-work-feature-copy h3 {
     font-size: clamp(2rem, 9vw, 2.7rem);
