@@ -212,6 +212,8 @@
   --motion-orbit: 32s;
   --motion-orbit-short: 22s;
   --motion-sweep: 5s;
+  --motion-draw: 4.8s;
+  --motion-drift: 7s;
   --motion-signal: 1.2s;
   --motion-stagger-step: 70ms;
   --motion-distance-sm: 4px;
