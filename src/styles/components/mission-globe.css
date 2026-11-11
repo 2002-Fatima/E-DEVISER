@@ -149,7 +149,7 @@
   cursor: pointer;
   pointer-events: auto;
   transform: translate(-50%, -50%);
-  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, scale 180ms ease;
+  transition: background var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), scale var(--motion-fast) var(--ease-standard);
 }
 
 .mission-globe-country-controls button:hover,
@@ -186,7 +186,7 @@
   background: radial-gradient(circle, rgba(35, 139, 133, 0.58), rgba(7, 32, 46, 0.88) 70%);
   box-shadow: 0 0 0 7px rgba(72, 228, 207, 0.055), 0 0 30px rgba(82, 240, 216, 0.3), inset 0 0 18px rgba(119, 255, 229, 0.15);
   transform: translate(-50%, -50%);
-  transition: box-shadow 220ms ease, border-color 220ms ease, scale 220ms ease;
+  transition: box-shadow var(--motion-base) var(--ease-standard), border-color var(--motion-base) var(--ease-standard), scale var(--motion-base) var(--ease-standard);
 }
 
 .mission-globe-core:hover,
@@ -203,7 +203,7 @@
   inset: -0.65rem;
   border: 1px solid rgba(117, 245, 223, 0.24);
   border-radius: 50%;
-  animation: mission-core-pulse 4.8s ease-out infinite;
+  animation: mission-core-pulse var(--motion-slow) var(--ease-enter) infinite;
 }
 
 .mission-globe-core img {
@@ -275,7 +275,7 @@
   background: radial-gradient(ellipse at 50% 52%, rgba(61, 217, 210, 0.105), transparent 58%);
   content: "";
   transform: scale(0.92);
-  animation: mission-aura-breathe 7s ease-in-out infinite;
+  animation: mission-aura-breathe var(--motion-ambient) var(--ease-standard) infinite;
 }
 
 .mission-globe-atmosphere::after {
@@ -288,7 +288,7 @@
   border-radius: 50%;
   content: "";
   transform: translate(-50%, -50%) rotate(-27deg);
-  animation: mission-orbit-drift 34s linear infinite;
+  animation: mission-orbit-drift var(--motion-orbit) var(--ease-linear) infinite;
 }
 
 .mission-globe-particle {
@@ -299,7 +299,7 @@
   background: #B9FFF0;
   box-shadow: 0 0 7px 2px rgba(104, 255, 228, 0.5), 0 0 18px rgba(104, 255, 228, 0.3);
   opacity: 0;
-  animation: mission-particle-rise 6.5s ease-in-out infinite;
+  animation: mission-particle-rise var(--motion-ambient) var(--ease-standard) infinite;
 }
 
 .mission-globe-particle--one { top: 23%; left: 21%; animation-delay: -1.2s; }
