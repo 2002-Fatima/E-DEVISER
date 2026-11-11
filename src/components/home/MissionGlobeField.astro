@@ -1,4 +1,73 @@
 <div class="mission-globe-field" data-mission-globe role="img" aria-label="An illuminated Earth with the six GCC countries connected by flowing light pathways, representing a shared learning mission for 2030">
+  <svg class="mission-globe-art" viewBox="0 0 640 640" aria-hidden="true" focusable="false">
+    <defs>
+      <radialGradient id="mission-ocean" cx="34%" cy="27%" r="78%">
+        <stop offset="0" stop-color="#28647C"/>
+        <stop offset=".42" stop-color="#123D57"/>
+        <stop offset=".78" stop-color="#0A293F"/>
+        <stop offset="1" stop-color="#061725"/>
+      </radialGradient>
+      <linearGradient id="mission-land" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#A4D5C4"/>
+        <stop offset=".52" stop-color="#5B9D99"/>
+        <stop offset="1" stop-color="#2D667A"/>
+      </linearGradient>
+      <radialGradient id="mission-atmosphere">
+        <stop offset=".78" stop-color="#50E3D4" stop-opacity="0"/>
+        <stop offset=".91" stop-color="#50E3D4" stop-opacity=".08"/>
+        <stop offset="1" stop-color="#7DEBEE" stop-opacity=".48"/>
+      </radialGradient>
+      <radialGradient id="mission-gulf-glow">
+        <stop offset="0" stop-color="#B7FFF0" stop-opacity=".9"/>
+        <stop offset=".22" stop-color="#54E6D4" stop-opacity=".42"/>
+        <stop offset="1" stop-color="#54E6D4" stop-opacity="0"/>
+      </radialGradient>
+      <clipPath id="mission-globe-clip"><circle cx="320" cy="320" r="214"/></clipPath>
+      <filter id="mission-soft-glow" x="-100%" y="-100%" width="300%" height="300%">
+        <feGaussianBlur stdDeviation="5" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <circle cx="320" cy="320" r="237" fill="#39C8D0" opacity=".045"/>
+    <circle cx="320" cy="320" r="226" fill="url(#mission-atmosphere)"/>
+    <g clip-path="url(#mission-globe-clip)">
+      <circle cx="320" cy="320" r="214" fill="url(#mission-ocean)"/>
+      <g fill="none" stroke="#9AD9DB" stroke-opacity=".17" stroke-width="1">
+        <ellipse cx="320" cy="320" rx="214" ry="65"/>
+        <ellipse cx="320" cy="320" rx="214" ry="125"/>
+        <ellipse cx="320" cy="320" rx="214" ry="177"/>
+        <ellipse cx="320" cy="320" rx="72" ry="214"/>
+        <ellipse cx="320" cy="320" rx="139" ry="214"/>
+        <path d="M106 320h428M122 240h396M122 400h396"/>
+      </g>
+      <g fill="url(#mission-land)" stroke="#B8E9D8" stroke-opacity=".54" stroke-width="1.5">
+        <path d="M122 130 151 101 190 92 224 110 245 145 231 174 247 197 230 224 204 229 185 211 159 218 141 195 117 184 105 157Z"/>
+        <path d="M191 240 221 223 252 232 267 260 253 288 266 316 250 345 235 374 210 392 195 369 181 337 167 310 173 276Z"/>
+        <path d="M257 190 284 169 315 176 341 196 370 190 395 210 421 213 449 240 469 266 459 294 436 306 421 330 394 342 378 324 355 319 338 295 315 285 294 260 272 248Z"/>
+        <path d="M276 304 298 294 316 302 331 320 349 326 363 344 355 364 337 376 318 369 302 351 286 342 271 326Z"/>
+        <path d="M372 344 389 337 404 346 410 361 401 374 384 371Z"/>
+        <path d="M411 376 429 369 445 378 449 395 435 405 419 398Z"/>
+      </g>
+      <path d="M340 307c19-13 39-16 59-7 12 6 19 17 21 30-13 16-30 24-50 23-18-1-30-13-37-28Z" fill="url(#mission-gulf-glow)" filter="url(#mission-soft-glow)"/>
+      <g fill="none" stroke="#75F3DF" stroke-linecap="round" filter="url(#mission-soft-glow)">
+        <path d="M348 327Q355 301 384 313" stroke-width="2.1" opacity=".9"/>
+        <path d="M369 315Q383 300 395 317" stroke-width="1.8" opacity=".9"/>
+        <path d="M389 321Q399 310 410 326" stroke-width="1.8" opacity=".85"/>
+        <path d="M354 337Q378 353 398 337" stroke-width="1.7" opacity=".82"/>
+        <path d="M384 313Q405 298 419 318" stroke-width="1.5" opacity=".8"/>
+        <path d="M363 344Q385 369 416 348" stroke-width="1.4" opacity=".76"/>
+      </g>
+      <g fill="#D7FFF5" stroke="#65F5DE" stroke-width="2" filter="url(#mission-soft-glow)">
+        <circle cx="348" cy="327" r="4"/><circle cx="369" cy="315" r="3.4"/>
+        <circle cx="389" cy="321" r="3.2"/><circle cx="401" cy="343" r="3.5"/>
+        <circle cx="414" cy="330" r="3.2"/><circle cx="384" cy="344" r="3.1"/>
+      </g>
+    </g>
+    <circle cx="320" cy="320" r="214" fill="none" stroke="#A0F5EB" stroke-opacity=".78" stroke-width="1.5"/>
+    <circle cx="320" cy="320" r="222" fill="none" stroke="#62DCE0" stroke-opacity=".28" stroke-width="1"/>
+    <ellipse cx="320" cy="320" rx="264" ry="91" transform="rotate(-24 320 320)" fill="none" stroke="#8ADFE0" stroke-opacity=".3" stroke-width="1.2" stroke-dasharray="3 8"/>
+    <circle cx="551" cy="225" r="3.5" fill="#C9FFF4" filter="url(#mission-soft-glow)"/>
+  </svg>
   <canvas class="mission-globe-canvas" data-mission-globe-canvas aria-hidden="true"></canvas>
   <div class="mission-globe-frame" aria-hidden="true">
     <span class="mission-globe-data mission-globe-data--learners">10M <small>LEARNERS</small></span>
