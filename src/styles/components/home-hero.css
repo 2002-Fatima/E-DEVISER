@@ -26,6 +26,31 @@
   min-width: 0;
 }
 
+.home-hero-brand {
+  animation: motion-fade-up var(--motion-slow) var(--ease-enter) both;
+  animation-delay: calc(var(--motion-stagger-step) * 1);
+}
+
+.home-hero-kicker {
+  animation: motion-fade-up var(--motion-slow) var(--ease-enter) both;
+  animation-delay: calc(var(--motion-stagger-step) * 2);
+}
+
+.home-hero-copy h1 {
+  animation: motion-fade-up var(--motion-slow) var(--ease-enter) both;
+  animation-delay: calc(var(--motion-stagger-step) * 3);
+}
+
+.home-hero-copy .lede {
+  animation: motion-fade-up var(--motion-slow) var(--ease-enter) both;
+  animation-delay: calc(var(--motion-stagger-step) * 4);
+}
+
+.home-hero .hero-actions {
+  animation: motion-fade-up var(--motion-slow) var(--ease-enter) both;
+  animation-delay: calc(var(--motion-stagger-step) * 5);
+}
+
 .home-hero-kicker {
   margin-block-end: var(--space-5);
   color: var(--color-text-inverse-muted);
@@ -85,6 +110,8 @@
 }
 
 .intelligence-field-canvas {
+  animation: motion-fade-up var(--motion-slower) var(--ease-enter) both;
+  animation-delay: calc(var(--motion-stagger-step) * 2);
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -105,6 +132,7 @@
 }
 
 .stage-item {
+  animation: motion-fade-up var(--motion-slow) var(--ease-enter) both;
   display: inline-flex;
   min-height: 2.5rem;
   align-items: center;
@@ -126,6 +154,11 @@
     color var(--transition-interactive),
     transform var(--transition-interactive);
 }
+
+.stage-item:nth-child(1) { animation-delay: calc(var(--motion-stagger-step) * 4); }
+.stage-item:nth-child(2) { animation-delay: calc(var(--motion-stagger-step) * 5); }
+.stage-item:nth-child(3) { animation-delay: calc(var(--motion-stagger-step) * 6); }
+.stage-item:nth-child(4) { animation-delay: calc(var(--motion-stagger-step) * 7); }
 
 .stage-item:hover {
   background: rgba(255, 255, 255, 0.07);
