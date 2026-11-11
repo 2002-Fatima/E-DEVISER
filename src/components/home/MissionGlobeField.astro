@@ -442,7 +442,7 @@
     countryControls.forEach((control, index) => {
       control.addEventListener('pointerenter', () => setActiveCountry(index));
       control.addEventListener('focus', () => setActiveCountry(index));
-      control.addEventListener('click', () => setActiveCountry(activeCountry === index ? -1 : index));
+      control.addEventListener('click', () => setActiveCountry(index));
       control.addEventListener('pointerleave', () => {
         if (document.activeElement !== control) setActiveCountry(-1);
       });
