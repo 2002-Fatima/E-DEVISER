@@ -29,7 +29,7 @@
     type OrbitParticle = { angle: number; orbit: number; speed: number; size: number; color: string };
     type FieldState = 'understand' | 'decide' | 'act' | 'measure';
 
-    const colors = ['#0382BD', '#00A8E8', '#12D4E5', '#38DFC9', '#D6FFF7'];
+    const colors = ['#0382BD', '#2F9EAD', '#5AB9B4', '#C0E2FD', '#CDFCF4'];
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const controls = visual.querySelectorAll<HTMLButtonElement>('[data-field-state]');
     const random = (() => {
@@ -115,8 +115,8 @@
         );
         const gradient = context.createLinearGradient(-width * 0.03, cy + spread, cx, cy);
         gradient.addColorStop(0, 'rgba(0, 145, 220, 0.02)');
-        gradient.addColorStop(0.38, `rgba(0, 174, 235, ${alpha})`);
-        gradient.addColorStop(0.76, i % 5 === 0 ? 'rgba(90, 255, 231, 0.82)' : 'rgba(28, 218, 226, 0.55)');
+        gradient.addColorStop(0.38, `rgba(3, 130, 189, ${alpha})`);
+        gradient.addColorStop(0.76, i % 5 === 0 ? 'rgba(205, 252, 244, 0.82)' : 'rgba(90, 185, 180, 0.55)');
         gradient.addColorStop(1, 'rgba(185, 255, 245, 0.12)');
         context.strokeStyle = gradient;
         context.lineWidth = i % 7 === 0 ? 1.05 : 0.62;
@@ -139,8 +139,8 @@
         context.beginPath();
         context.ellipse(0, 0, rx + wobble, ry - wobble * 0.45, Math.sin(time * 0.12) * 0.025, 0, Math.PI * 2);
         context.strokeStyle = i % 4 === 0
-          ? `rgba(105, 255, 231, ${0.24 + progress * 0.12})`
-          : `rgba(20, 207, 226, ${0.12 + progress * 0.13})`;
+          ? `rgba(90, 185, 180, ${0.24 + progress * 0.12})`
+          : `rgba(3, 130, 189, ${0.12 + progress * 0.13})`;
         context.lineWidth = i % 4 === 0 ? 0.95 : 0.58;
         context.stroke();
       }
@@ -231,7 +231,7 @@
           const progress = (elapsed * 0.38 + i / 7) % 1;
           context.beginPath();
           context.arc(cx, cy, height * (0.12 + progress * 0.24), 0, Math.PI * 2);
-          context.strokeStyle = `rgba(54, 234, 215, ${(1 - progress) * 0.42})`;
+          context.strokeStyle = `rgba(90, 185, 180, ${(1 - progress) * 0.42})`;
           context.lineWidth = 0.9;
           context.stroke();
         }
@@ -240,9 +240,9 @@
       if (activeState === 'measure') {
         const scanX = cx + Math.sin(elapsed * 0.55) * width * 0.11;
         const scan = context.createLinearGradient(scanX, cy - height * 0.28, scanX, cy + height * 0.28);
-        scan.addColorStop(0, 'rgba(80, 223, 255, 0)');
-        scan.addColorStop(0.5, 'rgba(185, 255, 248, 0.65)');
-        scan.addColorStop(1, 'rgba(80, 223, 255, 0)');
+        scan.addColorStop(0, 'rgba(192, 226, 253, 0)');
+        scan.addColorStop(0.5, 'rgba(205, 252, 244, 0.65)');
+        scan.addColorStop(1, 'rgba(192, 226, 253, 0)');
         context.strokeStyle = scan;
         context.lineWidth = 0.8;
         context.beginPath();
@@ -277,6 +277,9 @@
       frameId = window.requestAnimationFrame(animate);
     };
 
+    const listenerController = new AbortController();
+    const listenerOptions = { signal: listenerController.signal };
+
     controls.forEach((button) => {
       button.addEventListener('click', () => {
         const state = button.dataset.fieldState;
@@ -284,7 +287,7 @@
         activeState = state;
         controls.forEach((control) => control.setAttribute('aria-pressed', String(control === button)));
         draw();
-      });
+      }, listenerOptions);
     });
 
     const resizeObserver = new ResizeObserver(resize);
@@ -294,9 +297,9 @@
       syncAnimation();
     });
     intersectionObserver.observe(visual);
-    window.addEventListener('resize', resize, { passive: true });
-    document.addEventListener('visibilitychange', syncAnimation);
-    reducedMotion.addEventListener('change', syncAnimation);
+    window.addEventListener('resize', resize, { passive: true, ...listenerOptions });
+    document.addEventListener('visibilitychange', syncAnimation, listenerOptions);
+    reducedMotion.addEventListener('change', syncAnimation, listenerOptions);
 
     resize();
     syncAnimation();
@@ -306,9 +309,7 @@
       if (frameId) window.cancelAnimationFrame(frameId);
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
-      window.removeEventListener('resize', resize);
-      document.removeEventListener('visibilitychange', syncAnimation);
-      reducedMotion.removeEventListener('change', syncAnimation);
+      listenerController.abort();
       document.removeEventListener('astro:before-swap', cleanup);
     };
     document.addEventListener('astro:before-swap', cleanup, { once: true });
