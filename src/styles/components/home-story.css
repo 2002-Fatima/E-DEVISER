@@ -336,30 +336,6 @@
   font-weight: var(--weight-semibold);
 }
 
-.home-mission-section {
-  border-block-start: 1px solid var(--color-border);
-}
-
-.home-mission-layout {
-  display: grid;
-  justify-items: center;
-  text-align: center;
-}
-
-.home-mission-copy h2 {
-  max-width: 20ch;
-  background-image: var(--gradient-brand-text);
-  background-clip: text;
-  color: var(--color-white);
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5vw, 4.5rem);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-tight);
-  line-height: var(--leading-tight);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 @media (max-width: 62rem) {
   .home-founder-layout,
   .home-cuevo-layout,
