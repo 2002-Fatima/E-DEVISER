@@ -163,7 +163,7 @@
     linear-gradient(110deg, var(--brand-blue) 0%, #2F9EAD 52%, var(--brand-teal) 100%);
   --gradient-brand-action: var(--gradient-brand);
   --gradient-brand-action-hover:
-    linear-gradient(110deg, var(--primary-700) 0%, #268E9D 52%, #438F8B 100%);
+    linear-gradient(110deg, var(--brand-teal) 0%, #2F9EAD 52%, var(--brand-blue) 100%);
   --gradient-brand-text:
     linear-gradient(
       100deg,
