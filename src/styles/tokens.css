@@ -208,7 +208,11 @@
   --motion-slow: 560ms;
   --motion-slower: 900ms;
   --motion-ambient: 8s;
+  --motion-ambient-long: 16s;
   --motion-orbit: 32s;
+  --motion-orbit-short: 22s;
+  --motion-sweep: 5s;
+  --motion-signal: 1.2s;
   --motion-stagger-step: 70ms;
   --motion-distance-sm: 4px;
   --motion-distance-md: 8px;
