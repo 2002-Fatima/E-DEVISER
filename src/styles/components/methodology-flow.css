@@ -101,7 +101,7 @@
   stroke-linejoin: bevel;
   transform-box: fill-box;
   transform-origin: center;
-  animation: methodology-shard-drift 7s ease-in-out infinite alternate;
+  animation: methodology-shard-drift var(--motion-drift) var(--ease-standard) infinite alternate;
 }
 
 .problem-shard--two { animation-delay: -1.8s; }
@@ -297,7 +297,7 @@
   filter: url("#methodology-soft-bloom");
   stroke-dasharray: 220;
   stroke-dashoffset: 220;
-  animation: methodology-signal-draw 4.8s var(--ease-emphasized) infinite;
+  animation: methodology-signal-draw var(--motion-draw) var(--ease-emphasized) infinite;
 }
 
 .measure-sweep {
