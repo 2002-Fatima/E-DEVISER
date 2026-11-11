@@ -336,7 +336,7 @@
 
 .mission-globe-coordinate {
   position: absolute;
-  color: var(--color-text-inverse-subtle);
+  color: var(--color-text-subtle);
   font-family: var(--font-mono);
   font-size: 0.58rem;
   letter-spacing: 0.12em;
@@ -397,7 +397,7 @@
 .mission-globe-data--edtech {
   inset-block-end: 29%;
   inset-inline-start: 7%;
-  color: var(--color-text-inverse);
+  color: var(--color-primary-strong);
   font-family: var(--font-mono);
   font-size: 0.58rem;
   letter-spacing: 0.1em;
