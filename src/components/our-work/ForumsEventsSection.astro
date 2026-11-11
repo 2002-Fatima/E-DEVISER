@@ -3,13 +3,44 @@ import SectionWrapper from '../ui/SectionWrapper.astro';
 ---
 
 <SectionWrapper>
-  <section id="forums-events" class="container content-section">
+  <section id="forums-events" class="container content-section" aria-labelledby="forums-events-title">
     <div class="section-heading">
-      <p class="eyebrow">FORUMS & EVENTS</p>
-      <h2>Public conversations and field engagement</h2>
+      <p class="eyebrow">FORUMS &amp; EVENTS</p>
+      <h2 id="forums-events-title">Conversations that build the future.</h2>
+      <p class="section-heading-description">
+        Forums, summits, and events that spark dialogue, share knowledge, and shape the ecosystem.
+      </p>
     </div>
-    <div class="empty-state">
-      <p>Event listings and forum references remain intentionally blank until confirmed.</p>
-    </div>
+
+    <article class="forums-feature" aria-labelledby="forums-feature-title">
+      <div class="forums-feature-copy">
+        <p class="forums-feature-label"><span></span> FEATURED FORUM</p>
+        <p class="forums-feature-kicker">AI × FUTURE FORUM</p>
+        <h3 id="forums-feature-title">Shaping what&apos;s next.</h3>
+        <p>
+          Bringing together global leaders, educators, researchers, and innovators to explore how
+          AI is redefining the future of learning and society.
+        </p>
+        <div class="forums-feature-topics" aria-label="Forum themes">
+          <span>Future of learning</span>
+          <span>AI &amp; society</span>
+          <span>Global perspectives</span>
+        </div>
+      </div>
+
+      <div class="forums-feature-visual" aria-hidden="true">
+        <span class="forums-feature-visual-label">IDEAS INTO ACTION</span>
+        <div class="forums-feature-orbit forums-feature-orbit--outer"></div>
+        <div class="forums-feature-orbit forums-feature-orbit--inner"></div>
+        <div class="forums-feature-visual-core">
+          <strong>AI</strong>
+          <span>×</span>
+          <strong>FUTURE</strong>
+        </div>
+        <span class="forums-feature-point forums-feature-point--one"></span>
+        <span class="forums-feature-point forums-feature-point--two"></span>
+        <span class="forums-feature-point forums-feature-point--three"></span>
+      </div>
+    </article>
   </section>
 </SectionWrapper>
