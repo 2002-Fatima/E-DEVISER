@@ -87,11 +87,11 @@
     <button type="button" data-gcc-index="4" aria-label="United Arab Emirates"><span>AE</span></button>
     <button type="button" data-gcc-index="5" aria-label="Oman"><span>OM</span></button>
   </div>
-  <div class="mission-globe-core" aria-hidden="true">
-    <span class="mission-globe-core__halo"></span>
+  <button class="mission-globe-core" type="button" data-gcc-core aria-label="Show the shared GCC learning mission">
+    <span class="mission-globe-core__halo" aria-hidden="true"></span>
     <img src="/brand/edeviser-mark.png" alt="" />
     <span class="mission-globe-core__wordmark">EDEVISER</span>
-  </div>
+  </button>
   <div class="mission-globe-interaction" aria-live="polite" aria-atomic="true">
     <span class="mission-globe-interaction__pulse"></span>
     <span data-mission-globe-label>GCC NETWORK · CONNECTED</span>
@@ -152,7 +152,7 @@
       if (interactionLabel) {
         interactionLabel.textContent = index >= 0
           ? `${gcc[index].label} · CONNECTED TO THE GCC`
-          : 'GCC NETWORK · CONNECTED';
+          : 'ALL SIX COUNTRIES · ONE LEARNING MISSION';
       }
       countryControls.forEach((control, controlIndex) => {
         if (controlIndex === index) control.setAttribute('aria-pressed', 'true');
@@ -168,7 +168,7 @@
       pointer.inside = true;
       const cx = width * 0.5;
       const cy = height * 0.51;
-      const radius = Math.min(width * 0.345, height * 0.405);
+      const radius = Math.min(width * 0.435, height * 0.455);
       const rotation = reducedMotion.matches ? 0 : Math.sin(elapsed * 0.045) * 1.15;
       let nearest = -1;
       let nearestDistance = Infinity;
@@ -241,7 +241,7 @@
       ctx.clearRect(0, 0, width, height);
       const cx = width * 0.5;
       const cy = height * 0.51;
-      const radius = Math.min(width * 0.345, height * 0.405);
+      const radius = Math.min(width * 0.435, height * 0.455);
       const rotation = reducedMotion.matches ? 0 : Math.sin(elapsed * 0.045) * 1.15;
 
       // Fine atmospheric field and distant stars.
@@ -327,10 +327,23 @@
 
       // GCC routes: six country origins, each flowing toward a shared regional core.
       const target = project(25.4, 51.2, cx, cy, radius, rotation);
-      countryControls.forEach((control, index) => {
+      const controlOrbit = [
+        [-0.17, -0.11], [-0.04, -0.19], [0.10, -0.15],
+        [0.19, -0.02], [0.10, 0.13], [-0.08, 0.17],
+      ];
+      const coreControl = field.querySelector<HTMLButtonElement>('[data-gcc-core]');
+    coreControl?.addEventListener('click', () => setActiveCountry(-1));
+    coreControl?.addEventListener('focus', () => setActiveCountry(-1));
+
+    countryControls.forEach((control, index) => {
         const point = project(gcc[index].lat, gcc[index].lon, cx, cy, radius, rotation);
-        control.style.left = `${(point.x / width) * 100}%`;
-        control.style.top = `${(point.y / height) * 100}%`;
+        const [offsetX, offsetY] = controlOrbit[index];
+        const anchorX = target.x + offsetX * radius;
+        const anchorY = target.y + offsetY * radius;
+        control.style.left = `${(anchorX / width) * 100}%`;
+        control.style.top = `${(anchorY / height) * 100}%`;
+        control.style.setProperty('--country-anchor-x', `${point.x - anchorX}px`);
+        control.style.setProperty('--country-anchor-y', `${point.y - anchorY}px`);
         control.hidden = point.z <= 0.015;
       });
       gcc.forEach((country, index) => {
@@ -343,13 +356,17 @@
         const startY = origin.y;
         const endX = target.x + Math.cos(index * 1.05) * radius * 0.035;
         const endY = target.y + Math.sin(index * 1.05) * radius * 0.035;
-        const lift = radius * (0.045 + (index % 3) * 0.012);
+        const routeAngle = index * (Math.PI * 2 / gcc.length) - 0.8;
+        const spread = radius * (0.17 + (index % 2) * 0.035);
+        const controlX = target.x + Math.cos(routeAngle) * spread;
+        const controlY = target.y + Math.sin(routeAngle) * spread;
+        const lift = radius * (0.075 + (index % 3) * 0.018);
 
         ctx.save();
         ctx.globalCompositeOperation = 'lighter';
         ctx.beginPath();
         ctx.moveTo(startX, startY);
-        ctx.bezierCurveTo(startX + (endX - startX) * 0.25, startY - lift, endX - (endX - startX) * 0.25, endY - lift * 0.55, endX, endY);
+        ctx.bezierCurveTo(controlX, controlY - lift, controlX, controlY + lift, endX, endY);
         const route = ctx.createLinearGradient(startX, startY, endX, endY);
         route.addColorStop(0, 'rgba(60, 191, 207, 0.16)');
         route.addColorStop(0.55, 'rgba(81, 231, 220, 0.82)');
@@ -363,13 +380,15 @@
 
         const t = (elapsed * (0.22 + index * 0.012) + index / gcc.length) % 1;
         const inv = 1 - t;
-        const cp1x = startX + (endX - startX) * 0.25;
-        const cp1y = startY - lift;
-        const cp2x = endX - (endX - startX) * 0.25;
-        const cp2y = endY - lift * 0.55;
+        const cp1x = controlX;
+        const cp1y = controlY - lift;
+        const cp2x = controlX;
+        const cp2y = controlY + lift;
         const px = inv ** 3 * startX + 3 * inv ** 2 * t * cp1x + 3 * inv * t ** 2 * cp2x + t ** 3 * endX;
         const py = inv ** 3 * startY + 3 * inv ** 2 * t * cp1y + 3 * inv * t ** 2 * cp2y + t ** 3 * endY;
-        glow(px, py, 1.65, 'rgba(235, 255, 248, 0.98)', 13);
+        glow(px, py, 1.8, 'rgba(235, 255, 248, 0.98)', 15);
+        const convergence = 0.5 + 0.5 * Math.sin(elapsed * 1.65 - index * 0.72);
+        glow(endX, endY, 1.1 + convergence * 1.5, 'rgba(193, 255, 241, 0.92)', 9 + convergence * 12);
         glow(startX, startY, (2.1 + pulse * 0.6) * (isFocused ? 1.45 : 1), 'rgba(119, 255, 224, 0.98)', isFocused ? 21 : 15);
         ctx.restore();
       });
