@@ -126,9 +126,77 @@
   height: 100%;
 }
 
-.mission-globe-frame {
+.mission-globe-atmosphere {
   position: absolute;
   z-index: 3;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mission-globe-atmosphere::before {
+  position: absolute;
+  inset: 14% 10%;
+  border: 1px solid rgba(112, 226, 225, 0.12);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 52%, rgba(61, 217, 210, 0.105), transparent 58%);
+  content: "";
+  transform: scale(0.92);
+  animation: mission-aura-breathe 7s ease-in-out infinite;
+}
+
+.mission-globe-atmosphere::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 76%;
+  aspect-ratio: 1.22;
+  border: 1px dashed rgba(136, 230, 226, 0.24);
+  border-radius: 50%;
+  content: "";
+  transform: translate(-50%, -50%) rotate(-27deg);
+  animation: mission-orbit-drift 34s linear infinite;
+}
+
+.mission-globe-particle {
+  position: absolute;
+  width: 3px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #B9FFF0;
+  box-shadow: 0 0 7px 2px rgba(104, 255, 228, 0.5), 0 0 18px rgba(104, 255, 228, 0.3);
+  opacity: 0;
+  animation: mission-particle-rise 6.5s ease-in-out infinite;
+}
+
+.mission-globe-particle--one { top: 23%; left: 21%; animation-delay: -1.2s; }
+.mission-globe-particle--two { top: 32%; left: 78%; width: 2px; animation-delay: -4.4s; }
+.mission-globe-particle--three { top: 69%; left: 17%; animation-delay: -2.7s; }
+.mission-globe-particle--four { top: 77%; left: 72%; width: 2px; animation-delay: -5.5s; }
+.mission-globe-particle--five { top: 15%; left: 58%; width: 2px; animation-delay: -3.6s; }
+.mission-globe-particle--six { top: 57%; left: 88%; animation-delay: -0.8s; }
+.mission-globe-particle--seven { top: 84%; left: 43%; width: 2px; animation-delay: -4.9s; }
+.mission-globe-particle--eight { top: 43%; left: 10%; width: 2px; animation-delay: -2s; }
+
+@keyframes mission-aura-breathe {
+  0%, 100% { opacity: 0.48; transform: scale(0.92); }
+  50% { opacity: 1; transform: scale(1.035); }
+}
+
+@keyframes mission-orbit-drift {
+  from { transform: translate(-50%, -50%) rotate(-27deg); }
+  to { transform: translate(-50%, -50%) rotate(333deg); }
+}
+
+@keyframes mission-particle-rise {
+  0% { opacity: 0; transform: translate3d(0, 13px, 0) scale(0.65); }
+  24%, 72% { opacity: 0.82; }
+  100% { opacity: 0; transform: translate3d(7px, -28px, 0) scale(1.2); }
+}
+
+.mission-globe-frame {
+  position: absolute;
+  z-index: 4;
   inset: 0;
   pointer-events: none;
 }
@@ -306,5 +374,14 @@
   .mission-globe-field::after {
     animation: none !important;
     transition: none !important;
+  }
+
+  .mission-globe-atmosphere::before {
+    opacity: 0.7;
+    transform: none;
+  }
+
+  .mission-globe-atmosphere::after {
+    transform: translate(-50%, -50%) rotate(-27deg);
   }
 }
