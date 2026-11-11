@@ -145,6 +145,9 @@
     const pointer = { x: -1000, y: -1000, inside: false };
     const countryControls = Array.from(field.querySelectorAll<HTMLButtonElement>('[data-gcc-index]'));
     const interactionLabel = field.querySelector<HTMLElement>('[data-mission-globe-label]');
+    const coreControl = field.querySelector<HTMLButtonElement>('[data-gcc-core]');
+    const listenerController = new AbortController();
+    const listenerOptions = { signal: listenerController.signal };
 
     const setActiveCountry = (index: number) => {
       activeCountry = index;
@@ -331,11 +334,7 @@
         [-0.17, -0.11], [-0.04, -0.19], [0.10, -0.15],
         [0.19, -0.02], [0.10, 0.13], [-0.08, 0.17],
       ];
-      const coreControl = field.querySelector<HTMLButtonElement>('[data-gcc-core]');
-    coreControl?.addEventListener('click', () => setActiveCountry(-1));
-    coreControl?.addEventListener('focus', () => setActiveCountry(-1));
-
-    countryControls.forEach((control, index) => {
+      countryControls.forEach((control, index) => {
         const point = project(gcc[index].lat, gcc[index].lon, cx, cy, radius, rotation);
         const [offsetX, offsetY] = controlOrbit[index];
         const anchorX = target.x + offsetX * radius;
@@ -459,22 +458,24 @@
     };
 
     countryControls.forEach((control, index) => {
-      control.addEventListener('pointerenter', () => setActiveCountry(index));
-      control.addEventListener('focus', () => setActiveCountry(index));
-      control.addEventListener('click', () => setActiveCountry(index));
+      control.addEventListener('pointerenter', () => setActiveCountry(index), listenerOptions);
+      control.addEventListener('focus', () => setActiveCountry(index), listenerOptions);
+      control.addEventListener('click', () => setActiveCountry(index), listenerOptions);
       control.addEventListener('pointerleave', () => {
         if (document.activeElement !== control) setActiveCountry(-1);
-      });
-      control.addEventListener('blur', () => setActiveCountry(-1));
+      }, listenerOptions);
+      control.addEventListener('blur', () => setActiveCountry(-1), listenerOptions);
     });
-    field.addEventListener('pointermove', updatePointer);
+    coreControl?.addEventListener('click', () => setActiveCountry(-1), listenerOptions);
+    coreControl?.addEventListener('focus', () => setActiveCountry(-1), listenerOptions);
+    field.addEventListener('pointermove', updatePointer, listenerOptions);
     field.addEventListener('pointerleave', () => {
       pointer.inside = false;
       pointer.x = -1000;
       pointer.y = -1000;
       if (document.activeElement?.matches('[data-gcc-index]')) return;
       setActiveCountry(-1);
-    });
+    }, listenerOptions);
 
     const resizeObserver = new ResizeObserver(resize);
     const intersectionObserver = new IntersectionObserver(([entry]) => {
@@ -483,8 +484,8 @@
     });
     resizeObserver.observe(field);
     intersectionObserver.observe(field);
-    document.addEventListener('visibilitychange', sync);
-    reducedMotion.addEventListener('change', sync);
+    document.addEventListener('visibilitychange', sync, listenerOptions);
+    reducedMotion.addEventListener('change', sync, listenerOptions);
     resize();
     sync();
 
@@ -493,9 +494,7 @@
       if (frame) cancelAnimationFrame(frame);
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
-      document.removeEventListener('visibilitychange', sync);
-      field.removeEventListener('pointermove', updatePointer);
-      reducedMotion.removeEventListener('change', sync);
+      listenerController.abort();
       document.removeEventListener('astro:before-swap', cleanup);
     };
     document.addEventListener('astro:before-swap', cleanup, { once: true });
