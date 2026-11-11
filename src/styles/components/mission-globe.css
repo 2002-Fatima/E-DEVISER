@@ -10,6 +10,8 @@
 
 .home-mission-layout {
   display: grid;
+  justify-items: stretch;
+  text-align: start;
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
   align-items: center;
   gap: clamp(var(--space-8), 6vw, var(--space-16));
