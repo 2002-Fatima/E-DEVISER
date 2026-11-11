@@ -120,7 +120,7 @@
 .problem-grain {
   fill: var(--brand-white);
   filter: url("#methodology-soft-bloom");
-  animation: methodology-grain-pulse var(--motion-slower) var(--ease-standard) infinite alternate;
+  animation: methodology-grain-pulse var(--motion-ambient) var(--ease-standard) infinite alternate;
 }
 
 .understand-contour,
@@ -185,7 +185,7 @@
 .design-core {
   fill: var(--color-brand-end);
   filter: url("#methodology-bloom");
-  animation: methodology-core-breathe var(--motion-slow) var(--ease-standard) infinite;
+  animation: methodology-core-breathe var(--motion-ambient) var(--ease-standard) infinite;
 }
 
 .build-helix,
@@ -245,8 +245,8 @@
 }
 
 .solution-orbit--one { animation: methodology-orbit-spin var(--motion-ambient) var(--ease-linear) infinite; }
-.solution-orbit--two { animation: methodology-orbit-spin 1var(--motion-ambient) var(--ease-linear) infinite reverse; }
-.solution-orbit--three { animation: methodology-orbit-spin calc(var(--motion-orbit) * 0.6875) var(--ease-linear) infinite; }
+.solution-orbit--two { animation: methodology-orbit-spin var(--motion-ambient-long) var(--ease-linear) infinite reverse; }
+.solution-orbit--three { animation: methodology-orbit-spin var(--motion-orbit-short) var(--ease-linear) infinite; }
 
 .solution-core {
   fill: var(--brand-white);
@@ -306,7 +306,7 @@
   opacity: 0.76;
   transform-box: fill-box;
   transform-origin: center;
-  animation: methodology-orbit-spin var(--motion-slow) var(--ease-linear) infinite;
+  animation: methodology-orbit-spin var(--motion-sweep) var(--ease-linear) infinite;
 }
 
 .measure-point {
@@ -318,7 +318,7 @@
   fill: var(--color-brand-end);
   opacity: 0.6;
   filter: url("#methodology-soft-bloom");
-  animation: methodology-grain-pulse var(--motion-slow) var(--ease-standard) infinite alternate;
+  animation: methodology-grain-pulse var(--motion-ambient) var(--ease-standard) infinite alternate;
 }
 
 .methodology-flow-dust circle:nth-child(2n) { animation-delay: -2s; }
@@ -461,7 +461,7 @@
   border-radius: var(--radius-pill);
   background: var(--gradient-brand);
   box-shadow: 0 0 10px rgba(90, 185, 180, 0.28);
-  animation: methodology-signal-bars var(--motion-base) var(--ease-standard) infinite alternate;
+  animation: methodology-signal-bars var(--motion-signal) var(--ease-standard) infinite alternate;
 }
 
 .methodology-transcript-signal span:nth-child(2) { height: 22px; animation-delay: -0.3s; }
