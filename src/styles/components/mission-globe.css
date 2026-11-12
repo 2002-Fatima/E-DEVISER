@@ -189,17 +189,19 @@
 .mission-globe-country-controls button::after {
   position: absolute;
   top: 50%;
-  right: 50%;
+  left: 50%;
   width: var(--country-leader-length, 0px);
   height: 1px;
   content: "";
   pointer-events: none;
   transform: rotate(var(--country-leader-angle, 0rad));
-  transform-origin: right center;
+  transform-origin: left center;
   background: linear-gradient(90deg, rgba(137, 245, 226, 0.72), rgba(137, 245, 226, 0.04));
   opacity: 0.76;
-  z-index: -1;
+  z-index: 0;
 }
+
+.mission-globe-country-controls button span { position: relative; z-index: 1; }
 
 .mission-globe-country-controls button:hover,
 .mission-globe-country-controls button:focus-visible,
