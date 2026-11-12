@@ -14,8 +14,37 @@ import Button from '../ui/Button.astro';
           one purpose: to turn conviction into real impact.
         </p>
       </div>
-      <Button href="/our-work/" label="Explore Our Work" />
     </div>
+
+    <article class="home-work-feature" aria-labelledby="home-work-feature-title">
+      <div class="home-work-feature-copy">
+        <p class="home-work-feature-label"><span></span> FEATURED</p>
+        <p class="home-work-feature-kicker">AI × FUTURE FORUM</p>
+        <h3 id="home-work-feature-title">Shaping what&apos;s next.</h3>
+        <p>
+          Bringing together global leaders, educators, researchers, and innovators to explore how
+          AI is redefining the future of learning and society.
+        </p>
+        <a class="home-work-feature-link" href="/our-work/#forums-events">
+          View Highlights <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="home-work-feature-visual" aria-hidden="true">
+        <div class="home-work-feature-orbit home-work-feature-orbit--outer"></div>
+        <div class="home-work-feature-orbit home-work-feature-orbit--inner"></div>
+        <div class="home-work-feature-core">
+          <span>AI</span>
+          <span>×</span>
+          <span>FUTURE</span>
+        </div>
+        <span class="home-work-feature-coordinate home-work-feature-coordinate--top">LEARNING / SOCIETY</span>
+        <span class="home-work-feature-coordinate home-work-feature-coordinate--bottom">IDEAS INTO ACTION</span>
+        <span class="home-work-feature-node home-work-feature-node--one"></span>
+        <span class="home-work-feature-node home-work-feature-node--two"></span>
+        <span class="home-work-feature-node home-work-feature-node--three"></span>
+      </div>
+    </article>
 
     <ol class="home-work-categories" aria-label="Areas of work">
       <li>
@@ -51,5 +80,13 @@ import Button from '../ui/Button.astro';
         </div>
       </li>
     </ol>
+
+    <div class="home-work-footer">
+      <div>
+        <p class="home-work-footer-title">Progress is built together.</p>
+        <p>See more initiatives, partnerships, events, and moments from the field.</p>
+      </div>
+      <Button href="/our-work/" label="Explore Our Work" variant="primary" />
+    </div>
   </section>
 </SectionWrapper>

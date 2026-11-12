@@ -1,0 +1,495 @@
+<div class="mission-globe-field" data-mission-globe role="group" aria-label="Interactive globe showing EDEviser connecting the six GCC countries through a shared learning mission">
+  <svg class="mission-globe-art" viewBox="0 0 640 640" aria-hidden="true" focusable="false">
+    <defs>
+      <radialGradient id="mission-ocean" cx="34%" cy="27%" r="78%">
+        <stop offset="0" stop-color="#28647C"/>
+        <stop offset=".42" stop-color="#123D57"/>
+        <stop offset=".78" stop-color="#0A293F"/>
+        <stop offset="1" stop-color="#061725"/>
+      </radialGradient>
+      <linearGradient id="mission-land" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#A4D5C4"/>
+        <stop offset=".52" stop-color="#5B9D99"/>
+        <stop offset="1" stop-color="#2D667A"/>
+      </linearGradient>
+      <radialGradient id="mission-atmosphere">
+        <stop offset=".78" stop-color="#50E3D4" stop-opacity="0"/>
+        <stop offset=".91" stop-color="#50E3D4" stop-opacity=".08"/>
+        <stop offset="1" stop-color="#7DEBEE" stop-opacity=".48"/>
+      </radialGradient>
+      <radialGradient id="mission-gulf-glow">
+        <stop offset="0" stop-color="#B7FFF0" stop-opacity=".9"/>
+        <stop offset=".22" stop-color="#54E6D4" stop-opacity=".42"/>
+        <stop offset="1" stop-color="#54E6D4" stop-opacity="0"/>
+      </radialGradient>
+      <clipPath id="mission-globe-clip"><circle cx="320" cy="320" r="214"/></clipPath>
+      <filter id="mission-soft-glow" x="-100%" y="-100%" width="300%" height="300%">
+        <feGaussianBlur stdDeviation="5" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <circle cx="320" cy="320" r="237" fill="#39C8D0" opacity=".045"/>
+    <circle cx="320" cy="320" r="226" fill="url(#mission-atmosphere)"/>
+    <g clip-path="url(#mission-globe-clip)">
+      <circle cx="320" cy="320" r="214" fill="url(#mission-ocean)"/>
+      <g fill="none" stroke="#9AD9DB" stroke-opacity=".17" stroke-width="1">
+        <ellipse cx="320" cy="320" rx="214" ry="65"/>
+        <ellipse cx="320" cy="320" rx="214" ry="125"/>
+        <ellipse cx="320" cy="320" rx="214" ry="177"/>
+        <ellipse cx="320" cy="320" rx="72" ry="214"/>
+        <ellipse cx="320" cy="320" rx="139" ry="214"/>
+        <path d="M106 320h428M122 240h396M122 400h396"/>
+      </g>
+      <g fill="url(#mission-land)" stroke="#B8E9D8" stroke-opacity=".54" stroke-width="1.5">
+        <path d="M122 130 151 101 190 92 224 110 245 145 231 174 247 197 230 224 204 229 185 211 159 218 141 195 117 184 105 157Z"/>
+        <path d="M191 240 221 223 252 232 267 260 253 288 266 316 250 345 235 374 210 392 195 369 181 337 167 310 173 276Z"/>
+        <path d="M257 190 284 169 315 176 341 196 370 190 395 210 421 213 449 240 469 266 459 294 436 306 421 330 394 342 378 324 355 319 338 295 315 285 294 260 272 248Z"/>
+        <path d="M276 304 298 294 316 302 331 320 349 326 363 344 355 364 337 376 318 369 302 351 286 342 271 326Z"/>
+        <path d="M372 344 389 337 404 346 410 361 401 374 384 371Z"/>
+        <path d="M411 376 429 369 445 378 449 395 435 405 419 398Z"/>
+      </g>
+      <path d="M340 307c19-13 39-16 59-7 12 6 19 17 21 30-13 16-30 24-50 23-18-1-30-13-37-28Z" fill="url(#mission-gulf-glow)" filter="url(#mission-soft-glow)"/>
+      <g fill="none" stroke="#75F3DF" stroke-linecap="round" filter="url(#mission-soft-glow)">
+        <path d="M348 327Q355 301 384 313" stroke-width="2.1" opacity=".9"/>
+        <path d="M369 315Q383 300 395 317" stroke-width="1.8" opacity=".9"/>
+        <path d="M389 321Q399 310 410 326" stroke-width="1.8" opacity=".85"/>
+        <path d="M354 337Q378 353 398 337" stroke-width="1.7" opacity=".82"/>
+        <path d="M384 313Q405 298 419 318" stroke-width="1.5" opacity=".8"/>
+        <path d="M363 344Q385 369 416 348" stroke-width="1.4" opacity=".76"/>
+      </g>
+      <g fill="#D7FFF5" stroke="#65F5DE" stroke-width="2" filter="url(#mission-soft-glow)">
+        <circle cx="348" cy="327" r="4"/><circle cx="369" cy="315" r="3.4"/>
+        <circle cx="389" cy="321" r="3.2"/><circle cx="401" cy="343" r="3.5"/>
+        <circle cx="414" cy="330" r="3.2"/><circle cx="384" cy="344" r="3.1"/>
+      </g>
+    </g>
+    <circle cx="320" cy="320" r="214" fill="none" stroke="#A0F5EB" stroke-opacity=".78" stroke-width="1.5"/>
+    <circle cx="320" cy="320" r="222" fill="none" stroke="#62DCE0" stroke-opacity=".28" stroke-width="1"/>
+    <circle cx="551" cy="225" r="3.5" fill="#C9FFF4" filter="url(#mission-soft-glow)"/>
+  </svg>
+  <div class="mission-globe-atmosphere" aria-hidden="true"></div>
+  <p class="mission-globe-heading" aria-hidden="true">ONE REGION <span>·</span> ONE SHARED FUTURE</p>
+  <canvas class="mission-globe-canvas" data-mission-globe-canvas aria-hidden="true"></canvas>
+  <div class="mission-globe-country-controls" data-mission-globe-controls aria-label="Explore GCC countries">
+    <button type="button" data-gcc-index="0" aria-pressed="false" aria-label="Saudi Arabia"><span>SA</span></button>
+    <button type="button" data-gcc-index="1" aria-pressed="false" aria-label="Kuwait"><span>KW</span></button>
+    <button type="button" data-gcc-index="2" aria-pressed="false" aria-label="Bahrain"><span>BH</span></button>
+    <button type="button" data-gcc-index="3" aria-pressed="false" aria-label="Qatar"><span>QA</span></button>
+    <button type="button" data-gcc-index="4" aria-pressed="false" aria-label="United Arab Emirates"><span>AE</span></button>
+    <button type="button" data-gcc-index="5" aria-pressed="false" aria-label="Oman"><span>OM</span></button>
+  </div>
+  <button class="mission-globe-core" type="button" data-gcc-core aria-label="Show the shared GCC learning mission">
+    <span class="mission-globe-core__halo" aria-hidden="true"></span>
+    <img src="/brand/edeviser-mark.png" alt="" />
+    <span class="mission-globe-core__wordmark">EDEVISER</span>
+  </button>
+  <div class="mission-globe-interaction" aria-live="polite" aria-atomic="true">
+    <span class="mission-globe-interaction__pulse"></span>
+    <span data-mission-globe-label>SIX GCC COUNTRIES · ONE SHARED LEARNING MISSION</span>
+  </div>
+  <p class="mission-globe-caption" aria-hidden="true">SAUDI ARABIA · KUWAIT · BAHRAIN · QATAR · UAE · OMAN</p>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-mission-globe]').forEach((field) => {
+    const canvas = field.querySelector<HTMLCanvasElement>('[data-mission-globe-canvas]');
+    const ctx = canvas?.getContext('2d', { alpha: true });
+    if (!canvas || !ctx) return;
+
+    const gcc = [
+      { name: 'SA', label: 'SAUDI ARABIA', lat: 24.7, lon: 46.7 },
+      { name: 'KW', label: 'KUWAIT', lat: 29.3, lon: 47.5 },
+      { name: 'BH', label: 'BAHRAIN', lat: 26.1, lon: 50.6 },
+      { name: 'QA', label: 'QATAR', lat: 25.3, lon: 51.5 },
+      { name: 'AE', label: 'UNITED ARAB EMIRATES', lat: 24.4, lon: 54.4 },
+      { name: 'OM', label: 'OMAN', lat: 23.6, lon: 58.5 },
+    ];
+
+    // Simplified, hand-drawn geographic silhouettes in latitude/longitude.
+    // The camera is centred on the Arabian Peninsula so the GCC sits in view.
+    const landmasses: number[][][] = [
+      [[36,-10],[43,-8],[47,2],[45,12],[41,19],[44,28],[40,36],[35,35],[31,30],[29,23],[34,16],[36,8]],
+      [[37,-17],[32,-5],[28,2],[22,12],[13,18],[5,10],[-2,12],[-8,14],[-17,12],[-26,16],[-35,27],[-30,34],[-20,39],[-8,42],[5,42],[12,50],[20,48],[27,44],[32,35],[35,25]],
+      [[38,28],[43,35],[47,42],[53,48],[58,58],[57,70],[52,78],[48,88],[43,96],[38,105],[31,111],[24,108],[20,100],[14,94],[8,83],[7,75],[13,70],[20,67],[25,60],[29,53],[34,46]],
+      [[31,34],[29,40],[25,44],[20,48],[16,51],[13,49],[12,45],[15,42],[18,39],[22,36],[27,34]],
+      [[31,47],[29,49],[27,51],[24,54],[22,57],[20,59],[17,57],[16,54],[18,51],[21,49],[24,47],[27,46]],
+      [[29,67],[25,70],[21,73],[17,77],[12,79],[8,77],[7,73],[10,69],[15,67],[20,66],[25,65]],
+    ];
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+    let elapsed = 0;
+    let frame = 0;
+    let lastFrame = 0;
+    let visible = true;
+    let disposed = false;
+    let activeCountry = -1;
+    const pointer = { x: -1000, y: -1000, inside: false };
+    const countryControls = Array.from(field.querySelectorAll<HTMLButtonElement>('[data-gcc-index]'));
+    const interactionLabel = field.querySelector<HTMLElement>('[data-mission-globe-label]');
+    const coreControl = field.querySelector<HTMLButtonElement>('[data-gcc-core]');
+    const listenerController = new AbortController();
+    const listenerOptions = { signal: listenerController.signal };
+
+    const setActiveCountry = (index: number) => {
+      activeCountry = index;
+      field.dataset.activeCountry = index >= 0 ? gcc[index].name : 'all';
+      if (interactionLabel) {
+        interactionLabel.textContent = index >= 0
+          ? `${gcc[index].label} · CONNECTED TO THE GCC`
+          : 'ALL SIX COUNTRIES · ONE LEARNING MISSION';
+      }
+      countryControls.forEach((control, controlIndex) => {
+        if (controlIndex === index) control.setAttribute('aria-pressed', 'true');
+        else control.setAttribute('aria-pressed', 'false');
+      });
+      draw();
+    };
+
+    const updatePointer = (event: PointerEvent) => {
+      const rect = field.getBoundingClientRect();
+      pointer.x = event.clientX - rect.left;
+      pointer.y = event.clientY - rect.top;
+      pointer.inside = true;
+      const cx = width * 0.5;
+      const cy = height * 0.51;
+      const radius = Math.min(width * 0.435, height * 0.455);
+      const rotation = reducedMotion.matches ? 0 : Math.sin(elapsed * 0.045) * 1.15;
+      let nearest = -1;
+      let nearestDistance = Infinity;
+      gcc.forEach((country, index) => {
+        const point = project(country.lat, country.lon, cx, cy, radius, rotation);
+        const distance = Math.hypot(point.x - pointer.x, point.y - pointer.y);
+        if (point.z > 0 && distance < nearestDistance) {
+          nearest = index;
+          nearestDistance = distance;
+        }
+      });
+      setActiveCountry(nearestDistance < Math.max(22, radius * 0.105) ? nearest : -1);
+      if (!reducedMotion.matches && !frame && visible && !document.hidden) sync();
+      else draw();
+    };
+
+    const project = (lat: number, lon: number, cx: number, cy: number, radius: number, rotation: number) => {
+      const phi = lat * Math.PI / 180;
+      const lambda = (lon - 50 + rotation) * Math.PI / 180;
+      const centre = 25 * Math.PI / 180;
+      const x = Math.cos(phi) * Math.sin(lambda);
+      const y = -(Math.cos(centre) * Math.sin(phi) - Math.sin(centre) * Math.cos(phi) * Math.cos(lambda));
+      const z = Math.sin(centre) * Math.sin(phi) + Math.cos(centre) * Math.cos(phi) * Math.cos(lambda);
+      return { x: cx + x * radius, y: cy + y * radius, z };
+    };
+
+    const resize = () => {
+      const rect = field.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      width = rect.width;
+      height = rect.height;
+      dpr = Math.min(window.devicePixelRatio || 1, 1.8);
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      draw();
+    };
+
+    const glow = (x: number, y: number, radius: number, color: string, blur: number) => {
+      ctx.save();
+      ctx.shadowColor = color;
+      ctx.shadowBlur = blur;
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    };
+
+    const strokeGeoLine = (points: number[][], cx: number, cy: number, radius: number, rotation: number, color: string, lineWidth: number) => {
+      ctx.beginPath();
+      let drawing = false;
+      for (const [lat, lon] of points) {
+        const p = project(lat, lon, cx, cy, radius, rotation);
+        if (p.z > 0.015) {
+          if (!drawing) ctx.moveTo(p.x, p.y);
+          else ctx.lineTo(p.x, p.y);
+          drawing = true;
+        } else {
+          drawing = false;
+        }
+      }
+      ctx.strokeStyle = color;
+      ctx.lineWidth = lineWidth;
+      ctx.stroke();
+    };
+
+    const draw = () => {
+      if (!width || !height) return;
+      ctx.clearRect(0, 0, width, height);
+      const cx = width * 0.5;
+      const cy = height * 0.51;
+      const radius = Math.min(width * 0.435, height * 0.455);
+      const rotation = reducedMotion.matches ? 0 : Math.sin(elapsed * 0.045) * 1.15;
+
+      // Cinematic reveal: the region awakens before its connections form.
+      const signalReveal = reducedMotion.matches ? 1 : Math.min(1, elapsed / 1.8);
+      const routeReveal = reducedMotion.matches ? 1 : Math.max(0, Math.min(1, (elapsed - 1.35) / 2.35));
+
+      // A restrained field of distant stars keeps the globe dimensional, not busy.
+      for (let i = 0; i < 30; i += 1) {
+        const x = ((i * 97.31) % 997) / 997 * width;
+        const y = ((i * 173.17) % 991) / 991 * height;
+        const alpha = 0.12 + ((i * 13) % 7) * 0.025;
+        glow(x, y, i % 9 === 0 ? 1.05 : 0.55, `rgba(170, 225, 230, ${alpha})`, 2);
+      }
+
+      const aura = ctx.createRadialGradient(cx, cy, radius * 0.72, cx, cy, radius * 1.55);
+      aura.addColorStop(0, 'rgba(3, 130, 189, 0.23)');
+      aura.addColorStop(0.52, 'rgba(90, 185, 180, 0.12)');
+      aura.addColorStop(1, 'rgba(34, 178, 192, 0)');
+      ctx.fillStyle = aura;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius * 1.55, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Sphere body: layered ocean light, depth shading and a precise rim.
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.clip();
+
+      const ocean = ctx.createRadialGradient(cx - radius * 0.42, cy - radius * 0.46, radius * 0.05, cx + radius * 0.18, cy + radius * 0.2, radius * 1.45);
+      ocean.addColorStop(0, '#245D78');
+      ocean.addColorStop(0.34, '#123D59');
+      ocean.addColorStop(0.72, '#092A42');
+      ocean.addColorStop(1, '#041725');
+      ctx.fillStyle = ocean;
+      ctx.fillRect(cx - radius, cy - radius, radius * 2, radius * 2);
+
+      // Latitude and longitude graticule.
+      ctx.lineWidth = 0.65;
+      for (let lat = -60; lat <= 75; lat += 15) {
+        const points: number[][] = [];
+        for (let lon = -180; lon <= 180; lon += 3) points.push([lat, lon]);
+        strokeGeoLine(points, cx, cy, radius, rotation, 'rgba(123, 202, 211, 0.14)', 0.65);
+      }
+      for (let lon = -180; lon < 180; lon += 20) {
+        const points: number[][] = [];
+        for (let lat = -88; lat <= 88; lat += 3) points.push([lat, lon]);
+        strokeGeoLine(points, cx, cy, radius, rotation, 'rgba(123, 202, 211, 0.12)', 0.65);
+      }
+
+      // Continents have a soft mineral fill, coastline edge and subtle inner relief.
+      for (const polygon of landmasses) {
+        const projected = polygon.map(([lat, lon]) => project(lat, lon, cx, cy, radius, rotation));
+        ctx.beginPath();
+        let started = false;
+        for (const p of projected) {
+          if (p.z > 0.02) {
+            if (!started) ctx.moveTo(p.x, p.y);
+            else ctx.lineTo(p.x, p.y);
+            started = true;
+          }
+        }
+        if (started) {
+          ctx.closePath();
+          const land = ctx.createLinearGradient(cx - radius, cy - radius, cx + radius, cy + radius);
+          land.addColorStop(0, 'rgba(103, 173, 164, 0.72)');
+          land.addColorStop(0.55, 'rgba(60, 130, 132, 0.72)');
+          land.addColorStop(1, 'rgba(33, 91, 111, 0.72)');
+          ctx.fillStyle = land;
+          ctx.fill();
+          ctx.strokeStyle = 'rgba(159, 222, 210, 0.42)';
+          ctx.lineWidth = 0.9;
+          ctx.stroke();
+        }
+      }
+
+      // Regional illumination around the Arabian Peninsula and Gulf.
+      const gulf = project(25, 51, cx, cy, radius, rotation);
+      const regionalGlow = ctx.createRadialGradient(gulf.x, gulf.y, 0, gulf.x, gulf.y, radius * 0.34);
+      regionalGlow.addColorStop(0, 'rgba(121, 255, 226, 0.28)');
+      regionalGlow.addColorStop(0.22, 'rgba(61, 213, 210, 0.15)');
+      regionalGlow.addColorStop(1, 'rgba(61, 213, 210, 0)');
+      ctx.fillStyle = regionalGlow;
+      ctx.beginPath();
+      ctx.arc(gulf.x, gulf.y, radius * 0.34, 0, Math.PI * 2);
+      ctx.fill();
+
+      // GCC routes: six country origins, each flowing toward a shared regional core.
+      const target = project(25.4, 51.2, cx, cy, radius, rotation);
+      const controlOrbit = [
+        [-0.17, -0.11], [-0.04, -0.19], [0.10, -0.15],
+        [0.19, -0.02], [0.10, 0.13], [-0.08, 0.17],
+      ];
+      countryControls.forEach((control, index) => {
+        const point = project(gcc[index].lat, gcc[index].lon, cx, cy, radius, rotation);
+        const [offsetX, offsetY] = controlOrbit[index];
+        const anchorX = target.x + offsetX * radius;
+        const anchorY = target.y + offsetY * radius;
+        control.style.left = `${(anchorX / width) * 100}%`;
+        control.style.top = `${(anchorY / height) * 100}%`;
+        control.style.setProperty('--country-anchor-x', `${point.x - anchorX}px`);
+        control.style.setProperty('--country-anchor-y', `${point.y - anchorY}px`);
+        control.hidden = point.z <= 0.015;
+      });
+      gcc.forEach((country, index) => {
+        const origin = project(country.lat, country.lon, cx, cy, radius, rotation);
+        if (origin.z <= 0) return;
+        const pulse = 0.72 + Math.sin(elapsed * 1.15 + index * 1.04) * 0.18;
+        const isFocused = activeCountry === index;
+        const focusLevel = activeCountry < 0 ? 1 : isFocused ? 1.35 : 0.28;
+        const startX = origin.x;
+        const startY = origin.y;
+        const endX = target.x + Math.cos(index * 1.05) * radius * 0.035;
+        const endY = target.y + Math.sin(index * 1.05) * radius * 0.035;
+        const routeAngle = index * (Math.PI * 2 / gcc.length) - 0.8;
+        const spread = radius * (0.17 + (index % 2) * 0.035);
+        const controlX = target.x + Math.cos(routeAngle) * spread;
+        const controlY = target.y + Math.sin(routeAngle) * spread;
+        const lift = radius * (0.075 + (index % 3) * 0.018);
+
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.bezierCurveTo(controlX, controlY - lift, controlX, controlY + lift, endX, endY);
+        const route = ctx.createLinearGradient(startX, startY, endX, endY);
+        route.addColorStop(0, 'rgba(60, 191, 207, 0.16)');
+        route.addColorStop(0.55, 'rgba(81, 231, 220, 0.82)');
+        route.addColorStop(1, 'rgba(229, 255, 244, 0.98)');
+        ctx.strokeStyle = route;
+        ctx.globalAlpha = focusLevel * routeReveal;
+        ctx.lineWidth = (1.05 + pulse * 0.5) * (isFocused ? 1.55 : 1);
+        ctx.shadowColor = 'rgba(77, 239, 220, 0.85)';
+        ctx.shadowBlur = (10 + pulse * 6) * (isFocused ? 1.5 : 1);
+        ctx.stroke();
+
+        const t = (elapsed * (0.22 + index * 0.012) + index / gcc.length) % 1;
+        const inv = 1 - t;
+        const cp1x = controlX;
+        const cp1y = controlY - lift;
+        const cp2x = controlX;
+        const cp2y = controlY + lift;
+        const px = inv ** 3 * startX + 3 * inv ** 2 * t * cp1x + 3 * inv * t ** 2 * cp2x + t ** 3 * endX;
+        const py = inv ** 3 * startY + 3 * inv ** 2 * t * cp1y + 3 * inv * t ** 2 * cp2y + t ** 3 * endY;
+        if (routeReveal > 0) {
+          ctx.globalAlpha = routeReveal;
+          glow(px, py, 1.8, 'rgba(235, 255, 248, 0.98)', 15);
+          const convergence = 0.5 + 0.5 * Math.sin(elapsed * 1.65 - index * 0.72);
+          glow(endX, endY, 1.1 + convergence * 1.5, 'rgba(193, 255, 241, 0.92)', 9 + convergence * 12);
+        }
+        ctx.globalAlpha = signalReveal * focusLevel;
+        glow(startX, startY, (2.1 + pulse * 0.6) * (isFocused ? 1.45 : 1), 'rgba(119, 255, 224, 0.98)', isFocused ? 21 : 15);
+        ctx.globalAlpha = 1;
+        ctx.restore();
+      });
+
+      // A restrained pointer halo makes the globe respond without following the cursor mechanically.
+      if (pointer.inside) {
+        const pointerGlow = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, radius * 0.22);
+        pointerGlow.addColorStop(0, 'rgba(125, 255, 230, 0.12)');
+        pointerGlow.addColorStop(1, 'rgba(125, 255, 230, 0)');
+        ctx.fillStyle = pointerGlow;
+        ctx.beginPath();
+        ctx.arc(pointer.x, pointer.y, radius * 0.22, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Fine terrain contours give the illuminated region a sense of place.
+      for (let ring = 0; ring < 4; ring += 1) {
+        ctx.beginPath();
+        ctx.ellipse(gulf.x, gulf.y, radius * (0.045 + ring * 0.022), radius * (0.018 + ring * 0.012), -0.3, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(127, 245, 221, ${0.22 - ring * 0.035})`;
+        ctx.lineWidth = 0.75;
+        ctx.stroke();
+      }
+
+      ctx.restore();
+
+      // Atmospheric rim and a restrained orbital trajectory.
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(139, 231, 226, 0.72)';
+      ctx.lineWidth = 1.15;
+      ctx.shadowColor = 'rgba(61, 212, 218, 0.72)';
+      ctx.shadowBlur = 18;
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(-0.23);
+      ctx.beginPath();
+      ctx.ellipse(0, 0, radius * 1.2, radius * 0.36, 0, Math.PI * 0.12, Math.PI * 1.88);
+      ctx.strokeStyle = 'rgba(123, 211, 215, 0.22)';
+      ctx.lineWidth = 0.85;
+      ctx.stroke();
+      ctx.restore();
+    };
+
+    const animate = (time: number) => {
+      frame = 0;
+      if (disposed || !visible || document.hidden || reducedMotion.matches) return;
+      if (time - lastFrame > 32) {
+        elapsed += Math.min(64, lastFrame ? time - lastFrame : 32) / 1000;
+        lastFrame = time;
+        draw();
+      }
+      frame = requestAnimationFrame(animate);
+    };
+
+    const sync = () => {
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0;
+      lastFrame = 0;
+      if (reducedMotion.matches || document.hidden || !visible) {
+        draw();
+        return;
+      }
+      frame = requestAnimationFrame(animate);
+    };
+
+    countryControls.forEach((control, index) => {
+      control.addEventListener('pointerenter', () => setActiveCountry(index), listenerOptions);
+      control.addEventListener('focus', () => setActiveCountry(index), listenerOptions);
+      control.addEventListener('click', () => setActiveCountry(index), listenerOptions);
+      control.addEventListener('pointerleave', () => {
+        if (document.activeElement !== control) setActiveCountry(-1);
+      }, listenerOptions);
+      control.addEventListener('blur', () => setActiveCountry(-1), listenerOptions);
+    });
+    coreControl?.addEventListener('click', () => setActiveCountry(-1), listenerOptions);
+    coreControl?.addEventListener('focus', () => setActiveCountry(-1), listenerOptions);
+    field.addEventListener('pointermove', updatePointer, listenerOptions);
+    field.addEventListener('pointerleave', () => {
+      pointer.inside = false;
+      pointer.x = -1000;
+      pointer.y = -1000;
+      if (document.activeElement?.matches('[data-gcc-index]')) return;
+      setActiveCountry(-1);
+    }, listenerOptions);
+
+    const resizeObserver = new ResizeObserver(resize);
+    const intersectionObserver = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      sync();
+    });
+    resizeObserver.observe(field);
+    intersectionObserver.observe(field);
+    document.addEventListener('visibilitychange', sync, listenerOptions);
+    reducedMotion.addEventListener('change', sync, listenerOptions);
+    resize();
+    sync();
+
+    const cleanup = () => {
+      disposed = true;
+      if (frame) cancelAnimationFrame(frame);
+      resizeObserver.disconnect();
+      intersectionObserver.disconnect();
+      listenerController.abort();
+      document.removeEventListener('astro:before-swap', cleanup);
+    };
+    document.addEventListener('astro:before-swap', cleanup, { once: true });
+  });
+</script>

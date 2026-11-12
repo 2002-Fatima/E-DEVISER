@@ -163,8 +163,13 @@ const flowSteps = methodologySteps.map((step, index) => ({
     let elapsed = 0;
     let startedAt = 0;
     let timer: number | undefined;
+    let transitionTimer: number | undefined;
     let visible = true;
     let paused = false;
+    let disposed = false;
+    const listenerController = new AbortController();
+    const listenerOptions = { signal: listenerController.signal };
+    let observer: IntersectionObserver | undefined;
 
     const render = (nextIndex: number) => {
       activeIndex = nextIndex;
@@ -179,7 +184,10 @@ const flowSteps = methodologySteps.map((step, index) => ({
       const sourceDescription = selected?.getAttribute('data-description') ?? '';
 
       flow.classList.add('is-transitioning');
-      window.setTimeout(() => {
+      if (transitionTimer !== undefined) window.clearTimeout(transitionTimer);
+      transitionTimer = window.setTimeout(() => {
+        transitionTimer = undefined;
+        if (disposed) return;
         if (title) title.textContent = nextTitle;
         if (description) description.textContent = sourceDescription;
         if (index) index.querySelector('[data-methodology-current]')?.replaceChildren(String(nextIndex + 1).padStart(2, '0'));
@@ -195,7 +203,7 @@ const flowSteps = methodologySteps.map((step, index) => ({
     };
 
     const start = () => {
-      if (timer !== undefined || paused || !visible || reducedMotion.matches) return;
+      if (disposed || timer !== undefined || paused || !visible || document.hidden || reducedMotion.matches) return;
       startedAt = performance.now();
       timer = window.setInterval(() => {
         const cycleElapsed = elapsed + (performance.now() - startedAt);
@@ -212,21 +220,27 @@ const flowSteps = methodologySteps.map((step, index) => ({
     const pause = () => { paused = true; stop(); };
     const resume = () => { paused = false; start(); };
 
-    flow.addEventListener('pointerenter', pause);
-    flow.addEventListener('pointerleave', resume);
-    flow.addEventListener('focusin', pause);
-    flow.addEventListener('focusout', resume);
+    const syncInteractionPause = () => {
+      const interactionActive = flow.matches(':hover') || flow.contains(document.activeElement);
+      if (interactionActive) pause();
+      else resume();
+    };
+
+    flow.addEventListener('pointerenter', syncInteractionPause, listenerOptions);
+    flow.addEventListener('pointerleave', syncInteractionPause, listenerOptions);
+    flow.addEventListener('focusin', syncInteractionPause, listenerOptions);
+    flow.addEventListener('focusout', syncInteractionPause, listenerOptions);
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) stop();
       else start();
-    });
+    }, listenerOptions);
     reducedMotion.addEventListener('change', () => {
       if (reducedMotion.matches) stop();
       else start();
-    });
+    }, listenerOptions);
 
     if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(([entry]) => {
+      observer = new IntersectionObserver(([entry]) => {
         visible = entry.isIntersecting;
         if (visible) start();
         else stop();
@@ -235,5 +249,16 @@ const flowSteps = methodologySteps.map((step, index) => ({
     } else {
       start();
     }
+
+    const cleanup = () => {
+      if (disposed) return;
+      disposed = true;
+      stop();
+      if (transitionTimer !== undefined) window.clearTimeout(transitionTimer);
+      observer?.disconnect();
+      listenerController.abort();
+      document.removeEventListener('astro:before-swap', cleanup);
+    };
+    document.addEventListener('astro:before-swap', cleanup, { once: true });
   });
 </script>

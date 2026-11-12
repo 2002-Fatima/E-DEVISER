@@ -64,9 +64,9 @@ const { inline = false } = Astro.props;
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
       const rootStyles = getComputedStyle(document.documentElement);
       const particleColors = [
-        rootStyles.getPropertyValue('--color-brand-start').trim() || '#0393F2',
-        rootStyles.getPropertyValue('--color-brand-middle').trim() || '#02B6E0',
-        rootStyles.getPropertyValue('--color-brand-end').trim() || '#00E5C7',
+        rootStyles.getPropertyValue('--color-brand-start').trim() || '#0382BD',
+        rootStyles.getPropertyValue('--color-brand-middle').trim() || '#2F9EAD',
+        rootStyles.getPropertyValue('--color-brand-end').trim() || '#5AB9B4',
       ];
       const transitionDuration = 1800;
       const holdDuration = 1500;
@@ -324,9 +324,11 @@ const { inline = false } = Astro.props;
         }
       };
 
+      const listenerController = new AbortController();
+      const listenerOptions = { signal: listenerController.signal };
       const resizeObserver = new ResizeObserver(rebuildShapes);
       resizeObserver.observe(wordStage);
-      window.addEventListener('resize', rebuildShapes, { passive: true });
+      window.addEventListener('resize', rebuildShapes, { passive: true, ...listenerOptions });
       const intersectionObserver = new IntersectionObserver(([entry]) => {
         inView = entry.isIntersecting;
         syncPlayback();
@@ -336,9 +338,9 @@ const { inline = false } = Astro.props;
       toggle?.addEventListener('click', () => {
         paused = !paused;
         syncPlayback();
-      });
-      document.addEventListener('visibilitychange', syncPlayback);
-      reducedMotion.addEventListener('change', syncPlayback);
+      }, listenerOptions);
+      document.addEventListener('visibilitychange', syncPlayback, listenerOptions);
+      reducedMotion.addEventListener('change', syncPlayback, listenerOptions);
 
       document.fonts.ready.then(() => {
         if (!disposed) rebuildShapes();
@@ -346,6 +348,18 @@ const { inline = false } = Astro.props;
 
       rebuildShapes();
       syncPlayback();
+
+      const cleanup = () => {
+        if (disposed) return;
+        disposed = true;
+        if (frameId !== undefined) window.cancelAnimationFrame(frameId);
+        frameId = undefined;
+        resizeObserver.disconnect();
+        intersectionObserver.disconnect();
+        listenerController.abort();
+        document.removeEventListener('astro:before-swap', cleanup);
+      };
+      document.addEventListener('astro:before-swap', cleanup, { once: true });
     }
   }
 </script>
