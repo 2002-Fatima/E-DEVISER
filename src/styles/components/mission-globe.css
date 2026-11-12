@@ -498,16 +498,14 @@
 }
 
 .mission-globe-art {
-  transition: opacity var(--motion-slow) var(--ease-standard);
-}
-
-.mission-globe-field.has-webgl-globe .mission-globe-art {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
 }
 
 .mission-globe-canvas {
   z-index: 2;
+  opacity: 0.92;
+  mix-blend-mode: screen;
   filter: drop-shadow(0 22px 38px rgba(7, 44, 63, 0.12));
 }
 
