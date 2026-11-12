@@ -192,6 +192,7 @@
     background var(--motion-fast) var(--ease-standard),
     border-color var(--motion-fast) var(--ease-standard),
     box-shadow var(--motion-fast) var(--ease-standard),
+    opacity var(--motion-slow) var(--ease-enter),
     scale var(--motion-fast) var(--ease-standard);
 }
 
@@ -218,6 +219,7 @@
 .mission-globe-country-controls button:hover,
 .mission-globe-country-controls button:focus-visible,
 .mission-globe-country-controls button[aria-pressed="true"] {
+  opacity: 1 !important;
   border-color: #D5FFF4;
   outline: none;
   background: linear-gradient(135deg, var(--brand-blue), #176C83);
@@ -267,6 +269,7 @@
 
 .mission-globe-core:hover,
 .mission-globe-core:focus-visible {
+  opacity: 1 !important;
   border-color: rgba(209, 255, 246, 0.96);
   outline: 2px solid rgba(3, 130, 189, 0.5);
   outline-offset: 6px;
