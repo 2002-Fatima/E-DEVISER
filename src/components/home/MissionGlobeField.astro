@@ -449,12 +449,16 @@
         button.style.top = (y / height * 100) + '%';
         button.style.setProperty('--country-leader-length', Math.hypot(point.x - x, point.y - y) + 'px');
         button.style.setProperty('--country-leader-angle', Math.atan2(point.y - y, point.x - x) + 'rad');
+        const signalReveal = reducedMotion.matches ? 1 : Math.max(0, Math.min(1, (elapsed - index * 0.16) / 0.72));
+        button.style.opacity = String(signalReveal);
         button.hidden = point.z <= 0.01;
       });
       const target = project(25.4, 51.2, cx, cy, radius, rotation);
       if (core) {
         core.style.left = (target.x / width * 100) + '%';
         core.style.top = (target.y / height * 100) + '%';
+        const convergenceReveal = reducedMotion.matches ? 1 : Math.max(0, Math.min(1, (elapsed - 2.8) / 1.1));
+        core.style.opacity = String(convergenceReveal);
       }
     };
 
