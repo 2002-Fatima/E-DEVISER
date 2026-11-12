@@ -95,6 +95,7 @@
     const canvas = field.querySelector<HTMLCanvasElement>('[data-mission-globe-canvas]');
     const ctx = canvas?.getContext('2d', { alpha: true });
     if (!canvas || !ctx) return;
+    field.classList.add('has-canvas-globe');
 
     const gcc = [
       { name: 'SA', label: 'SAUDI ARABIA', lat: 24.7, lon: 46.7 },
@@ -305,6 +306,14 @@
         }
       }
 
+      // Sculpt the sphere with a soft day-side highlight and a controlled night-side falloff.
+      const surfaceLight = ctx.createRadialGradient(cx - radius * 0.48, cy - radius * 0.52, radius * 0.02, cx - radius * 0.2, cy - radius * 0.12, radius * 1.18);
+      surfaceLight.addColorStop(0, 'rgba(172, 231, 226, 0.13)');
+      surfaceLight.addColorStop(0.38, 'rgba(88, 174, 190, 0.055)');
+      surfaceLight.addColorStop(1, 'rgba(2, 12, 25, 0.34)');
+      ctx.fillStyle = surfaceLight;
+      ctx.fillRect(cx - radius, cy - radius, radius * 2, radius * 2);
+
       // Regional illumination around the Arabian Peninsula and Gulf.
       const gulf = project(25, 51, cx, cy, radius, rotation);
       const regionalGlow = ctx.createRadialGradient(gulf.x, gulf.y, 0, gulf.x, gulf.y, radius * 0.34);
@@ -329,8 +338,12 @@
         const anchorY = target.y + offsetY * radius;
         control.style.left = `${(anchorX / width) * 100}%`;
         control.style.top = `${(anchorY / height) * 100}%`;
-        control.style.setProperty('--country-anchor-x', `${point.x - anchorX}px`);
-        control.style.setProperty('--country-anchor-y', `${point.y - anchorY}px`);
+        const leaderX = point.x - anchorX;
+        const leaderY = point.y - anchorY;
+        control.style.setProperty('--country-anchor-x', `${leaderX}px`);
+        control.style.setProperty('--country-anchor-y', `${leaderY}px`);
+        control.style.setProperty('--country-leader-length', `${Math.hypot(leaderX, leaderY)}px`);
+        control.style.setProperty('--country-leader-angle', `${Math.atan2(leaderY, leaderX)}rad`);
         control.hidden = point.z <= 0.015;
       });
       gcc.forEach((country, index) => {
@@ -384,6 +397,15 @@
         ctx.globalAlpha = 1;
         ctx.restore();
       });
+
+      // A narrow atmospheric reflection gives the sphere a more dimensional glass surface.
+      const reflection = ctx.createLinearGradient(cx - radius, cy - radius * 0.7, cx + radius * 0.8, cy + radius * 0.55);
+      reflection.addColorStop(0, 'rgba(201, 255, 246, 0.075)');
+      reflection.addColorStop(0.34, 'rgba(201, 255, 246, 0.018)');
+      reflection.addColorStop(0.72, 'rgba(2, 13, 26, 0.025)');
+      reflection.addColorStop(1, 'rgba(2, 13, 26, 0.17)');
+      ctx.fillStyle = reflection;
+      ctx.fillRect(cx - radius, cy - radius, radius * 2, radius * 2);
 
       // A restrained pointer halo makes the globe respond without following the cursor mechanically.
       if (pointer.inside) {
