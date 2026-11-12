@@ -355,8 +355,6 @@
     gl.uniform3fv(uniforms.countries, countryVectors);
     gl.uniform3fv(uniforms.target, targetVector);
     gl.clearColor(0, 0, 0, 0);
-    field.classList.add('has-webgl-globe');
-
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const controls = Array.from(field.querySelectorAll('[data-gcc-index]'));
     const label = field.querySelector('[data-mission-globe-label]');
@@ -374,6 +372,7 @@
     let visible = true;
     let disposed = false;
     let active = -1;
+    let firstFramePresented = false;
 
     const project = (lat, lon, cx, cy, radius, angle) => {
       const phi = lat * Math.PI / 180;
@@ -429,6 +428,19 @@
       gl.uniform1i(uniforms.focus, active);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
       layoutSignals();
+
+      // Keep the SVG artwork as a true fallback until WebGL has completed
+      // its first valid frame. Once it has, remove the duplicate sphere so
+      // the page has one coherent silhouette, one atmosphere and one light model.
+      if (!firstFramePresented) {
+        const frameError = gl.getError();
+        if (frameError === gl.NO_ERROR) {
+          firstFramePresented = true;
+          field.classList.add('has-webgl-globe');
+        } else {
+          console.warn('Mission globe first frame failed:', frameError);
+        }
+      }
     };
 
     const resize = () => {
