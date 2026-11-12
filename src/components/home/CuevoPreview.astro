@@ -5,39 +5,81 @@ import Button from '../ui/Button.astro';
 
 <SectionWrapper background="pattern" class="home-cuevo-section">
   <section class="container container-wide home-cuevo-layout" aria-labelledby="home-cuevo-title">
-    <div class="home-cuevo-visual" aria-label="CUOVO platform model">
-      <div class="home-cuevo-mark-wrap">
-        <span class="home-cuevo-visual-kicker">THE LEARNING INTELLIGENCE PLATFORM</span>
-        <img src="/brand/cuevo-mark.png" alt="CUOVO product mark" width="300" height="300" loading="lazy" />
-        <span class="home-cuevo-mark-caption">BUILT BY E DEVISER</span>
+    <div class="home-cuevo-visual" aria-label="How CUOVO turns learning signals into meaningful action">
+      <div class="cuovo-engine">
+        <div class="cuovo-engine-topline">
+          <span>CUOVO / LEARNING INTELLIGENCE</span>
+          <span class="cuovo-engine-status"><i aria-hidden="true"></i> CONNECTED THINKING</span>
+        </div>
+
+        <div class="cuovo-engine-field" aria-hidden="true">
+          <span class="cuovo-orbit cuovo-orbit--outer"></span>
+          <span class="cuovo-orbit cuovo-orbit--middle"></span>
+          <span class="cuovo-orbit cuovo-orbit--inner"></span>
+          <span class="cuovo-orbit-axis cuovo-orbit-axis--one"></span>
+          <span class="cuovo-orbit-axis cuovo-orbit-axis--two"></span>
+
+          <svg class="cuovo-network" viewBox="0 0 560 390" fill="none" preserveAspectRatio="xMidYMid meet">
+            <path class="cuovo-network-path" d="M74 104 172 151 280 82 390 137 486 78M74 104 126 267 238 310 390 255 486 78M126 267 172 151 280 205 390 137 390 255M172 151 238 310M280 82 280 205 238 310M390 137 486 78M390 137 390 255" />
+            <path class="cuovo-network-path cuovo-network-path--soft" d="M74 104 280 205 486 78M126 267 280 82 390 255" />
+            <circle class="cuovo-network-node" cx="74" cy="104" r="4" />
+            <circle class="cuovo-network-node" cx="172" cy="151" r="4" />
+            <circle class="cuovo-network-node" cx="280" cy="82" r="4" />
+            <circle class="cuovo-network-node" cx="390" cy="137" r="4" />
+            <circle class="cuovo-network-node" cx="486" cy="78" r="4" />
+            <circle class="cuovo-network-node" cx="126" cy="267" r="4" />
+            <circle class="cuovo-network-node" cx="238" cy="310" r="4" />
+            <circle class="cuovo-network-node" cx="390" cy="255" r="4" />
+            <circle class="cuovo-network-node cuovo-network-node--bright" cx="280" cy="205" r="6" />
+          </svg>
+
+          <div class="cuovo-signal cuovo-signal--one">
+            <span class="cuovo-signal-index">01 / INPUT</span>
+            <strong>Learning signals</strong>
+            <small>Activity · Engagement · Evidence</small>
+          </div>
+          <div class="cuovo-signal cuovo-signal--two">
+            <span class="cuovo-signal-index">02 / UNDERSTAND</span>
+            <strong>Outcome patterns</strong>
+            <small>Progress · Context · Needs</small>
+          </div>
+          <div class="cuovo-signal cuovo-signal--three">
+            <span class="cuovo-signal-index">03 / ACT</span>
+            <strong>Meaningful next steps</strong>
+            <small>Insight translated into action</small>
+          </div>
+
+          <div class="cuovo-engine-core">
+            <span class="cuovo-core-halo"></span>
+            <img src="/brand/cuevo-mark.png" alt="" width="180" height="180" loading="lazy" />
+            <span class="cuovo-core-caption">INTELLIGENCE, IN CONTEXT</span>
+          </div>
+        </div>
+
+        <div class="cuovo-engine-footer">
+          <span>FROM SIGNAL</span>
+          <span class="cuovo-engine-progress" aria-hidden="true"><i></i></span>
+          <span>TO BETTER ACTION</span>
+        </div>
       </div>
-      <div class="home-cuevo-capabilities" aria-label="CUOVO foundations">
-        <div>
-          <span>01</span>
-          <strong>Outcome-based education</strong>
-        </div>
-        <div>
-          <span>02</span>
-          <strong>Meaningful gamification</strong>
-        </div>
-        <div>
-          <span>03</span>
-          <strong>Agentic AI</strong>
-        </div>
+
+      <div class="cuovo-foundations" aria-label="CUOVO foundations">
+        <div><span>01</span><strong>Outcome-based education</strong></div>
+        <div><span>02</span><strong>Meaningful gamification</strong></div>
+        <div><span>03</span><strong>Agentic AI</strong></div>
       </div>
     </div>
 
-    <div class="home-cuevo-copy">
-      <p class="eyebrow">WHAT WE&apos;RE BUILDING TODAY</p>
-      <h2 id="home-cuevo-title">Make learning visible. Make progress actionable.</h2>
-      <p>
-        CUOVO is E Deviser&apos;s learning-intelligence platform. It brings outcome-based education,
-        meaningful gamification, and agentic AI into a more connected way to understand learning
-        and act on what matters.
+    <div class="home-cuevo-copy cuovo-story-copy">
+      <p class="eyebrow">WHAT WE&apos;RE BUILDING TODAY <span class="cuovo-section-index">/ 04</span></p>
+      <p class="cuovo-overline">A NEW WAY TO UNDERSTAND LEARNING</p>
+      <h2 id="home-cuevo-title">Make learning visible. <span>Make progress actionable.</span></h2>
+      <p class="cuovo-story-lede">
+        CUOVO is E Deviser&apos;s learning-intelligence platform — bringing outcome-based education,
+        meaningful gamification, and agentic AI into one connected experience.
       </p>
-      <p class="home-cuevo-support">
-        Designed around the people who make learning happen.
-      </p>
+      <div class="cuovo-story-divider" aria-hidden="true"></div>
+      <p class="home-cuevo-support">Designed around the people who make learning happen.</p>
       <ul class="home-cuevo-roles" aria-label="People CUOVO is designed to support">
         <li>Admin</li>
         <li>Coordinator</li>
@@ -45,7 +87,10 @@ import Button from '../ui/Button.astro';
         <li>Student</li>
         <li>Parent</li>
       </ul>
-      <Button href="https://cuovo.tech/" external label="Explore CUOVO" />
+      <div class="cuovo-story-action">
+        <Button href="https://cuovo.tech/" external label="Explore CUOVO" />
+        <span>LEARNING, UNDERSTOOD BETTER.</span>
+      </div>
     </div>
   </section>
 </SectionWrapper>
