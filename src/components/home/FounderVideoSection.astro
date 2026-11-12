@@ -6,30 +6,36 @@ import Button from '../ui/Button.astro';
 <SectionWrapper background="light" class="home-founder-section">
   <section class="container container-wide home-founder-layout" aria-labelledby="home-founder-title">
     <div class="home-founder-copy">
-      <p class="eyebrow">FOUNDER INTRODUCTION</p>
-      <h2 id="home-founder-title">Why we&apos;re building E Deviser</h2>
-      <p>We believe the hardest problems deserve better intelligence.</p>
+      <p class="eyebrow home-founder-eyebrow"><span aria-hidden="true"></span> THE CONVICTION BEHIND EDEVISER</p>
+      <h2 id="home-founder-title">Progress begins with <span>people.</span></h2>
+      <p class="home-founder-lead">We believe the hardest problems deserve better intelligence.</p>
       <p class="home-founder-note">
-        A personal introduction from our founder is being prepared. Until then, explore the thinking
-        behind what we build.
+        EDEviser brings human understanding and intelligent technology together to solve problems
+        that matter — and turn better thinking into meaningful outcomes.
       </p>
-      <Button href="/company/story/" label="Meet E Deviser" variant="outline" />
+
+      <ol class="home-founder-principles" aria-label="Our founding principles">
+        <li><span>01</span><strong>Start with people</strong></li>
+        <li><span>02</span><strong>Think beyond the obvious</strong></li>
+        <li><span>03</span><strong>Build for real impact</strong></li>
+      </ol>
+
+      <div class="home-founder-actions">
+        <Button href="/company/story/" label="Meet E Deviser" variant="primary" />
+        <span class="home-founder-action-note">Explore our story and purpose</span>
+      </div>
     </div>
 
     <figure class="home-founder-media">
-      <div class="home-founder-media-frame" aria-label="Founder video introduction coming soon">
-        <span class="home-founder-media-index" aria-hidden="true">E / D</span>
-        <div class="home-founder-media-orbit home-founder-media-orbit--one" aria-hidden="true"></div>
-        <div class="home-founder-media-orbit home-founder-media-orbit--two" aria-hidden="true"></div>
-        <div class="home-founder-media-status">
-          <span class="home-founder-monogram" aria-hidden="true">E<span>/</span>D</span>
-          <p>A message from the founder</p>
-          <small>Video introduction coming soon</small>
+      <div class="home-founder-video-frame" aria-label="Founder video introduction coming soon">
+        <div class="home-founder-video-placeholder">
+          <span class="home-founder-video-kicker">A MESSAGE FROM OUR FOUNDER</span>
+          <span class="home-founder-video-title">The story behind<br />the work.</span>
+          <span class="home-founder-video-caption">Founder film · Coming soon</span>
         </div>
-        <span class="home-founder-media-caption" aria-hidden="true">Founder perspective · Coming soon</span>
       </div>
       <figcaption class="sr-only">
-        The founder video introduction is not yet available. This is a placeholder and does not contain playback.
+        Reserved space for the founder video introduction. Video playback will be added when the approved film is available.
       </figcaption>
     </figure>
   </section>
