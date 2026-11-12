@@ -333,7 +333,6 @@
     let visible = true;
     let disposed = false;
     let active = -1;
-    let pointerInside = false;
 
     const project = (lat, lon, cx, cy, radius, angle) => {
       const phi = lat * Math.PI / 180;
@@ -442,7 +441,6 @@
       const rect = field.getBoundingClientRect();
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
-      pointerInside = true;
       const radius = Math.min(width, height) * 0.455;
       let nearest = -1;
       let distance = Infinity;
@@ -451,11 +449,19 @@
         const d = Math.hypot(point.x - x, point.y - y);
         if (point.z > 0 && d < distance) { distance = d; nearest = index; }
       });
-      if (distance < Math.max(18, radius * 0.055)) setActive(nearest);
+      const next = distance < Math.max(18, radius * 0.055) ? nearest : -1;
+      if (next !== active) setActive(next);
     }, listeners);
     field.addEventListener('pointerleave', () => {
-      pointerInside = false;
       if (!field.contains(document.activeElement)) setActive(-1);
+    }, listeners);
+
+    canvas.addEventListener('webglcontextlost', (event) => {
+      event.preventDefault();
+      disposed = true;
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0;
+      field.classList.remove('has-webgl-globe');
     }, listeners);
 
     const resizeObserver = new ResizeObserver(resize);
