@@ -166,10 +166,10 @@
       '  float shade=smoothstep(-0.82,0.62,dot(normal,light));',
       '  float grain=sin(world.x*410.0+world.y*270.0)*sin(world.z*360.0-world.y*190.0)*0.012;',
       '  vec3 ocean=tex.rgb;',
-      '  float ambient=0.48+0.10*max(normal.y,0.0);',
-      '  vec3 color=ocean*(ambient+diffuse*0.62)+grain;',
-      '  color+=vec3(0.10,0.34,0.42)*fresnel*0.30;',
-      '  color*=mix(0.84,1.08,shade);',
+      '  float ambient=0.56+0.08*max(normal.y,0.0);',
+      '  vec3 color=ocean*(ambient+diffuse*0.58)+grain;',
+      '  color+=vec3(0.10,0.38,0.46)*fresnel*0.34;',
+      '  color*=mix(0.90,1.10,shade);',
       '  vec2 texel=vec2(1.0/1024.0,1.0/512.0);',
       '  float landMask=step(0.34,dot(tex.rgb,vec3(0.333)));',
       '  float landEast=step(0.34,dot(texture2D(uMap,mapUv+vec2(texel.x,0.0)).rgb,vec3(0.333)));',
@@ -256,9 +256,9 @@
       const w = map.width;
       const h = map.height;
       const ocean = context.createLinearGradient(0, 0, w, h);
-      ocean.addColorStop(0, '#1A5062');
-      ocean.addColorStop(0.42, '#10394D');
-      ocean.addColorStop(1, '#071F30');
+      ocean.addColorStop(0, '#286B7D');
+      ocean.addColorStop(0.42, '#174B63');
+      ocean.addColorStop(1, '#0D3047');
       context.fillStyle = ocean;
       context.fillRect(0, 0, w, h);
 
