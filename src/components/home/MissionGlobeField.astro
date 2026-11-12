@@ -182,12 +182,12 @@
       '    float pd=acos(clamp(dot(world,pulsePoint),-1.0,1.0));',
       '    pulseLight=max(pulseLight,(1.0-smoothstep(0.008,0.028,pd))*uReveal);',
       '  }',
-      '  color+=vec3(0.10,0.86,0.79)*routeLight*(0.58+0.42*uReveal);',
+      '  float routeReveal=smoothstep(0.24,0.72,uReveal); color+=vec3(0.10,0.86,0.79)*routeLight*routeReveal;',
       '  color+=vec3(0.46,1.0,0.88)*countryLight*0.72;',
-      '  color+=vec3(0.72,1.0,0.92)*pulseLight*0.82;',
+      '  color+=vec3(0.72,1.0,0.92)*pulseLight*routeReveal*0.82;',
       '  vec3 gulf=rotateY(uTarget,uRotation);',
       '  float gulfDistance=acos(clamp(dot(world,gulf),-1.0,1.0));',
-      '  float convergence=(1.0-smoothstep(0.018,0.10,gulfDistance))*uReveal;',
+      '  float convergence=(1.0-smoothstep(0.018,0.10,gulfDistance))*smoothstep(0.68,1.0,uReveal);',
       '  color+=vec3(0.10,0.90,0.82)*convergence*0.52;',
       '  float edge=pow(1.0-max(dot(normal,-rd),0.0),2.4);',
       '  color+=vec3(0.12,0.66,0.75)*edge*0.24;',
@@ -384,8 +384,8 @@
       gl.useProgram(program);
       gl.uniform2f(uniforms.resolution, canvas.width, canvas.height);
       gl.uniform1f(uniforms.time, elapsed);
-      gl.uniform1f(uniforms.rotation, rotation);
-      gl.uniform1f(uniforms.reveal, reducedMotion.matches ? 1 : Math.min(1, elapsed / 2.8));
+      gl.uniform1f(uniforms.rotation, rotation + 10 * Math.PI / 180);
+      gl.uniform1f(uniforms.reveal, reducedMotion.matches ? 1 : Math.min(1, elapsed / 4.5));
       gl.uniform1i(uniforms.focus, active);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
       layoutSignals();
