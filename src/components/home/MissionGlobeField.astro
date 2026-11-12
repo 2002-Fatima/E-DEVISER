@@ -231,8 +231,8 @@
 
     const makeSurfaceMap = () => {
       const map = document.createElement('canvas');
-      map.width = 1536;
-      map.height = 768;
+      map.width = 1024;
+      map.height = 512;
       const context = map.getContext('2d');
       if (!context) return map;
       const w = map.width;
@@ -298,6 +298,12 @@
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    const textureError = gl.getError();
+    if (textureError !== gl.NO_ERROR) {
+      console.warn('Mission globe texture upload failed:', textureError);
+      gl.deleteTexture(texture);
+      return;
+    }
 
     const uniform = (name) => gl.getUniformLocation(program, name);
     const uniforms = {
