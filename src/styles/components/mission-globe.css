@@ -371,7 +371,7 @@
 @media (max-width: 48rem) {
   .home-mission-layout {
     grid-template-columns: 1fr;
-    gap: var(--space-7);
+    gap: var(--space-8);
   }
 
   .home-mission-copy {
