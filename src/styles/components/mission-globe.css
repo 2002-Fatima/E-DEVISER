@@ -85,7 +85,7 @@
   display: block;
   width: 100%;
   min-width: 0;
-  min-height: clamp(35rem, 49vw, 45rem);
+  min-height: clamp(38rem, 53vw, 47rem);
   overflow: visible;
   isolation: isolate;
   background: transparent;
@@ -94,11 +94,9 @@
 .mission-globe-field::before {
   position: absolute;
   z-index: 0;
-  inset: -8% -5%;
+  inset: -10% -8%;
   border-radius: 50%;
-  background:
-    radial-gradient(ellipse at 52% 49%, rgba(3, 130, 189, 0.19), transparent 43%),
-    radial-gradient(ellipse at 50% 50%, rgba(90, 185, 180, 0.12), transparent 68%);
+  background: radial-gradient(ellipse at 52% 49%, rgba(3, 130, 189, 0.16), transparent 43%), radial-gradient(ellipse at 50% 50%, rgba(90, 185, 180, 0.1), transparent 68%);
   content: "";
   pointer-events: none;
 }
@@ -107,7 +105,7 @@
   position: absolute;
   z-index: 0;
   inset: 2% 4%;
-  border: 1px solid rgba(3, 130, 189, 0.11);
+  border: 1px solid rgba(3, 130, 189, 0.075);
   border-radius: 50%;
   content: "";
   pointer-events: none;
@@ -122,6 +120,11 @@
   width: 100%;
   height: 100%;
   overflow: visible;
+  transition: opacity var(--motion-slow) var(--ease-standard);
+}
+
+.mission-globe-field.has-canvas-globe .mission-globe-art {
+  opacity: 0;
 }
 
 .mission-globe-canvas {
@@ -176,11 +179,26 @@
   font-size: 0.54rem;
   font-weight: var(--weight-bold);
   letter-spacing: 0.02em;
-  box-shadow: 0 0 0 5px rgba(73, 226, 207, 0.075), 0 0 26px rgba(73, 226, 207, 0.38), inset 0 0 8px rgba(125, 255, 230, 0.12);
+  box-shadow: 0 0 0 4px rgba(73, 226, 207, 0.065), 0 0 19px rgba(73, 226, 207, 0.28), inset 0 0 8px rgba(125, 255, 230, 0.12);
   cursor: pointer;
   pointer-events: auto;
   transform: translate(-50%, -50%);
   transition: background var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), scale var(--motion-fast) var(--ease-standard);
+}
+
+.mission-globe-country-controls button::after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: var(--country-leader-length, 0px);
+  height: 1px;
+  content: "";
+  pointer-events: none;
+  transform: rotate(var(--country-leader-angle, 0rad));
+  transform-origin: right center;
+  background: linear-gradient(90deg, rgba(137, 245, 226, 0.72), rgba(137, 245, 226, 0.04));
+  opacity: 0.76;
+  z-index: -1;
 }
 
 .mission-globe-country-controls button:hover,
@@ -220,7 +238,7 @@
   color: inherit;
   cursor: pointer;
   background: radial-gradient(circle at 38% 30%, rgba(56, 168, 161, 0.9), rgba(7, 32, 46, 0.96) 72%);
-  box-shadow: 0 0 0 8px rgba(72, 228, 207, 0.075), 0 0 38px rgba(82, 240, 216, 0.42), inset 0 0 20px rgba(119, 255, 229, 0.2);
+  box-shadow: 0 0 0 7px rgba(72, 228, 207, 0.07), 0 0 30px rgba(82, 240, 216, 0.34), inset 0 0 20px rgba(119, 255, 229, 0.2);
   transform: translate(-50%, -50%);
   transition: box-shadow var(--motion-base) var(--ease-standard), border-color var(--motion-base) var(--ease-standard), scale var(--motion-base) var(--ease-standard);
 }
@@ -359,7 +377,7 @@
   }
 
   .mission-globe-field {
-    min-height: 34rem;
+    min-height: 36rem;
   }
 
   .mission-globe-country-controls button {
