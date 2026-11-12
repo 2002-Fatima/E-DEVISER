@@ -247,6 +247,9 @@
       context.fillStyle = ocean;
       context.fillRect(0, 0, w, h);
 
+      const px = (lon) => (lon + 180) / 360 * w;
+      const py = (lat) => (90 - lat) / 180 * h;
+
       // Low-contrast bathymetric bands create depth in the Gulf and Arabian Sea
       // without adding dashboard-like graticules to the finished planet.
       context.save();
@@ -266,8 +269,6 @@
       // Natural Earth-derived WGS84 country outlines replace the previous
       // hand-drawn Arabian landmass. GCC countries are highlighted separately
       // from their neighbours so the geography reads clearly at globe scale.
-      const px = (lon) => (lon + 180) / 360 * w;
-      const py = (lat) => (90 - lat) / 180 * h;
       const drawPolygon = (polygon) => {
         context.beginPath();
         polygon.coordinates.forEach(([lon, lat], index) => {
