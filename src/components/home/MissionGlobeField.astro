@@ -91,6 +91,8 @@
 </div>
 
 <script>
+  import { missionRegionPolygons } from '../../data/mission-region-geography';
+
   document.querySelectorAll('[data-mission-globe]').forEach((field) => {
     const canvas = field.querySelector('[data-mission-globe-canvas]');
     const gl = canvas && canvas.getContext('webgl', {
@@ -245,54 +247,92 @@
       context.fillStyle = ocean;
       context.fillRect(0, 0, w, h);
 
-      const landmasses = [
-        [[36,-10],[43,-8],[47,2],[45,12],[41,19],[44,28],[40,36],[35,35],[31,30],[29,23],[34,16],[36,8]],
-        [[37,-17],[32,-5],[28,2],[22,12],[13,18],[5,10],[-2,12],[-8,14],[-17,12],[-26,16],[-35,27],[-30,34],[-20,39],[-8,42],[5,42],[12,50],[20,48],[27,44],[32,35],[35,25]],
-        [[38,28],[43,35],[47,42],[53,48],[58,58],[57,70],[52,78],[48,88],[43,96],[38,105],[31,111],[24,108],[20,100],[14,94],[8,83],[7,75],[13,70],[20,67],[25,60],[29,53],[34,46]],
-        [[31,34],[29,40],[25,44],[20,48],[16,51],[13,49],[12,45],[15,42],[18,39],[22,36],[27,34]],
-        [[31,47],[29,49],[27,51],[24,54],[22,57],[20,59],[17,57],[16,54],[18,51],[21,49],[24,47],[27,46]],
-        [[29,67],[25,70],[21,73],[17,77],[12,79],[8,77],[7,73],[10,69],[15,67],[20,66],[25,65]],
-      ];
+      // Low-contrast bathymetric bands create depth in the Gulf and Arabian Sea
+      // without adding dashboard-like graticules to the finished planet.
+      context.save();
+      context.globalAlpha = 0.12;
+      context.strokeStyle = '#8ACCC6';
+      context.lineWidth = 1;
+      for (let band = 0; band < 9; band += 1) {
+        const y = py(34 - band * 8);
+        context.beginPath();
+        context.moveTo(px(35), y);
+        context.bezierCurveTo(px(43), y + 9, px(55), y - 12, px(67), y + 3);
+        context.bezierCurveTo(px(77), y + 14, px(83), y - 8, px(91), y + 2);
+        context.stroke();
+      }
+      context.restore();
+
+      // Natural Earth-derived WGS84 country outlines replace the previous
+      // hand-drawn Arabian landmass. GCC countries are highlighted separately
+      // from their neighbours so the geography reads clearly at globe scale.
       const px = (lon) => (lon + 180) / 360 * w;
       const py = (lat) => (90 - lat) / 180 * h;
-      landmasses.forEach((polygon, index) => {
+      const drawPolygon = (polygon) => {
         context.beginPath();
-        polygon.forEach(([lat, lon], pointIndex) => {
+        polygon.coordinates.forEach(([lon, lat], index) => {
           const x = px(lon);
           const y = py(lat);
-          if (pointIndex === 0) context.moveTo(x, y);
+          if (index === 0) context.moveTo(x, y);
           else context.lineTo(x, y);
         });
         context.closePath();
-        const land = context.createLinearGradient(0, py(65), w, py(-50));
-        land.addColorStop(0, '#D0DDCF');
-        land.addColorStop(0.45, '#82AAA0');
-        land.addColorStop(1, '#456F76');
+
+        const gcc = polygon.role === 'gcc';
+        const land = context.createLinearGradient(px(42), py(38), px(60), py(12));
+        if (gcc) {
+          land.addColorStop(0, '#C9DED0');
+          land.addColorStop(0.48, '#8FB8A9');
+          land.addColorStop(1, '#5B8E8B');
+        } else {
+          land.addColorStop(0, '#8BAEA7');
+          land.addColorStop(0.55, '#557E7F');
+          land.addColorStop(1, '#315967');
+        }
         context.fillStyle = land;
-        context.shadowColor = 'rgba(91, 205, 184, 0.16)';
-        context.shadowBlur = 5;
+        context.shadowColor = gcc ? 'rgba(103, 232, 205, 0.20)' : 'rgba(65, 160, 165, 0.10)';
+        context.shadowBlur = gcc ? 7 : 3;
         context.fill();
         context.shadowBlur = 0;
-        context.strokeStyle = 'rgba(203,239,222,0.48)';
-        context.lineWidth = index === 4 ? 1.8 : 1.15;
+        context.strokeStyle = gcc ? 'rgba(218, 250, 231, 0.74)' : 'rgba(179, 220, 213, 0.30)';
+        context.lineWidth = gcc ? 1.5 : 0.9;
         context.stroke();
 
-        // Restrained topographic contours add surface richness without turning
-        // the map into a noisy data visualization.
+        // Fine relief lines are clipped to each land polygon, suggesting
+        // terrain without inventing borders or political subdivisions.
         context.save();
         context.clip();
-        context.strokeStyle = 'rgba(218,244,228,0.12)';
-        context.lineWidth = 1;
-        for (let band = 0; band < 7; band += 1) {
-          const y = py(58 - band * 13);
+        context.strokeStyle = gcc ? 'rgba(235, 255, 239, 0.14)' : 'rgba(209, 239, 228, 0.075)';
+        context.lineWidth = 0.85;
+        for (let band = 0; band < 5; band += 1) {
+          const y = py(37 - band * 5.5);
           context.beginPath();
-          context.moveTo(px(-4), y);
-          context.bezierCurveTo(px(18), y - 22, px(38), y + 18, px(66), y - 5);
-          context.bezierCurveTo(px(88), y - 24, px(108), y + 16, px(132), y - 2);
+          context.moveTo(px(34), y);
+          context.bezierCurveTo(px(41), y - 5, px(49), y + 5, px(57), y - 2);
+          context.bezierCurveTo(px(64), y - 7, px(71), y + 5, px(79), y - 1);
           context.stroke();
         }
         context.restore();
-      });
+      };
+
+      missionRegionPolygons
+        .filter((polygon) => polygon.role === 'region')
+        .forEach(drawPolygon);
+      missionRegionPolygons
+        .filter((polygon) => polygon.role === 'gcc')
+        .forEach(drawPolygon);
+
+      // Bahrain is geographically tiny at this scale. Its true location is
+      // retained by the interactive marker; this restrained island glint keeps
+      // the island nation legible on the rendered surface.
+      context.save();
+      context.fillStyle = '#B8D9C9';
+      context.shadowColor = 'rgba(115, 255, 222, 0.72)';
+      context.shadowBlur = 5;
+      context.beginPath();
+      context.ellipse(px(50.55), py(26.07), 2.1, 3.2, -0.18, 0, Math.PI * 2);
+      context.fill();
+      context.restore();
 
       // Fine deterministic surface grain keeps the ocean and land from feeling
       // like flat vector fills. This is generated locally and uploaded once.
