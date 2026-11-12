@@ -6,30 +6,50 @@ import Button from '../ui/Button.astro';
 <SectionWrapper background="light" class="home-founder-section">
   <section class="container container-wide home-founder-layout" aria-labelledby="home-founder-title">
     <div class="home-founder-copy">
-      <p class="eyebrow">FOUNDER INTRODUCTION</p>
-      <h2 id="home-founder-title">Why we&apos;re building E Deviser</h2>
-      <p>We believe the hardest problems deserve better intelligence.</p>
+      <p class="eyebrow home-founder-eyebrow"><span aria-hidden="true"></span> THE CONVICTION BEHIND EDEVISER</p>
+      <h2 id="home-founder-title">Why we&apos;re building <span>E Deviser.</span></h2>
+      <p class="home-founder-lead">We believe the hardest problems deserve better intelligence.</p>
       <p class="home-founder-note">
-        A personal introduction from our founder is being prepared. Until then, explore the thinking
-        behind what we build.
+        The work starts with people: understanding what matters, bringing the right intelligence
+        together, and building systems that make a measurable difference.
       </p>
-      <Button href="/company/story/" label="Meet E Deviser" variant="outline" />
+      <div class="home-founder-actions">
+        <Button href="/company/story/" label="Meet E Deviser" variant="primary" />
+        <span class="home-founder-action-note">The thinking behind the work</span>
+      </div>
     </div>
 
     <figure class="home-founder-media">
-      <div class="home-founder-media-frame" aria-label="Founder video introduction coming soon">
-        <span class="home-founder-media-index" aria-hidden="true">E / D</span>
-        <div class="home-founder-media-orbit home-founder-media-orbit--one" aria-hidden="true"></div>
-        <div class="home-founder-media-orbit home-founder-media-orbit--two" aria-hidden="true"></div>
-        <div class="home-founder-media-status">
-          <span class="home-founder-monogram" aria-hidden="true">E<span>/</span>D</span>
-          <p>A message from the founder</p>
-          <small>Video introduction coming soon</small>
+      <div class="home-founder-media-frame" aria-label="An abstract visual expressing the principles behind E Deviser. A founder video introduction is being prepared.">
+        <div class="home-founder-art-topline">
+          <span>THE FOUNDING IDEA</span>
+          <span>ED / 001</span>
         </div>
-        <span class="home-founder-media-caption" aria-hidden="true">Founder perspective · Coming soon</span>
+
+        <div class="home-founder-art-composition" aria-hidden="true">
+          <span class="home-founder-art-ghost">E</span>
+          <div class="home-founder-art-statement">
+            <span class="home-founder-art-kicker">A DIFFERENT WAY FORWARD</span>
+            <p>Human insight<span>.</span><br />Intelligent systems<span>.</span><br />Meaningful impact<span>.</span></p>
+          </div>
+          <svg class="home-founder-art-signal" viewBox="0 0 520 300" fill="none" preserveAspectRatio="none">
+            <path d="M-18 244C86 244 85 68 190 68S294 244 398 244 462 126 540 126" />
+            <path class="home-founder-art-signal-highlight" d="M-18 244C86 244 85 68 190 68S294 244 398 244 462 126 540 126" />
+            <circle cx="190" cy="68" r="5" />
+            <circle cx="398" cy="244" r="5" />
+          </svg>
+          <div class="home-founder-art-axis">
+            <span>01</span><i></i><span>03</span>
+          </div>
+        </div>
+
+        <div class="home-founder-art-bottomline">
+          <span>PEOPLE FIRST. INTELLIGENCE IN ACTION.</span>
+          <span class="home-founder-video-status"><i aria-hidden="true"></i> FOUNDER FILM IN PREPARATION</span>
+        </div>
       </div>
       <figcaption class="sr-only">
-        The founder video introduction is not yet available. This is a placeholder and does not contain playback.
+        An abstract brand composition expressing E Deviser's human-centred approach. The founder video introduction is being prepared and is not yet available for playback.
       </figcaption>
     </figure>
   </section>
