@@ -38,6 +38,9 @@ import Button from '../ui/Button.astro';
             <filter id="work-glow" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur stdDeviation="5"/>
             </filter>
+            <path id="work-label-idea" d="M34 52 Q140 12 248 52"/>
+            <path id="work-label-brand" d="M242 62 Q330 24 418 62"/>
+            <path id="work-label-building" d="M397 48 Q486 10 575 48"/>
           </defs>
 
           <g class="work-art-grid" stroke="#9AD9E2" stroke-opacity=".09" stroke-width=".7">
@@ -135,6 +138,12 @@ import Button from '../ui/Button.astro';
             <circle cx="287" cy="222" r="1"/>
           </g>
           <path class="work-art-orbit" d="M342 143C376 24 525 23 574 127C610 204 507 257 430 239" stroke="#65D6D0" stroke-opacity=".26" stroke-width=".8" stroke-dasharray="2 7"/>
+          <g class="work-art-labels" aria-hidden="true">
+            <text class="work-art-label"><textPath href="#work-label-idea" startOffset="50%" text-anchor="middle">IDEA</textPath></text>
+            <text class="work-art-label work-art-label--brand"><textPath href="#work-label-brand" startOffset="50%" text-anchor="middle">E DEVISER</textPath></text>
+            <text class="work-art-label"><textPath href="#work-label-building" startOffset="50%" text-anchor="middle">BUILDING</textPath></text>
+          </g>
+
         </svg>
       </div>
     </header>
@@ -396,8 +405,10 @@ import Button from '../ui/Button.astro';
 
   /* Final morphic composition tuning: borderless, expansive, balanced with the copy. */
   .home-work-build-visual {
-    min-height: clamp(19rem, 27vw, 24rem);
-    padding: 0;
+    width: 100%;
+    min-height: clamp(20rem, 30vw, 27rem);
+    padding-inline: 5%;
+    box-sizing: border-box;
     overflow: visible;
     border: 0;
     border-radius: 0;
@@ -406,18 +417,65 @@ import Button from '../ui/Button.astro';
   }
 
   .home-work-build-art {
-    width: 124%;
-    margin-inline: -12%;
+    width: 140%;
+    max-width: none;
+    margin-inline: -20%;
+    overflow: visible;
+  }
+
+  .work-art-label {
+    fill: rgba(194, 248, 240, 0.82);
+    font-family: var(--font-mono), "SFMono-Regular", Consolas, monospace;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 2.4px;
+    paint-order: stroke;
+    stroke: rgba(7, 24, 37, 0.72);
+    stroke-width: 3px;
+    stroke-linejoin: round;
+  }
+
+  .work-art-label--brand {
+    fill: #C7FFF2;
+    font-size: 8.5px;
+    letter-spacing: 2.8px;
+  }
+
+  @media (max-width: 62rem) {
+    .home-work-build-visual {
+      min-height: clamp(18rem, 28vw, 23rem);
+      padding-inline: 3%;
+    }
+    .home-work-build-art {
+      width: 132%;
+      margin-inline: -16%;
+    }
   }
 
   @media (max-width: 48rem) {
     .home-work-build-visual {
       min-height: 0;
       aspect-ratio: 2 / 1;
+      padding-inline: 3%;
+    }
+    .home-work-build-art {
+      width: 124%;
+      margin-inline: -12%;
+    }
+  }
+
+  @media (max-width: 36rem) {
+    .home-work-build-visual {
+      aspect-ratio: 1.65 / 1;
+      padding-inline: 0;
     }
     .home-work-build-art {
       width: 116%;
       margin-inline: -8%;
+    }
+    .work-art-label {
+      font-size: 7px;
+      letter-spacing: 1.8px;
     }
   }
 
