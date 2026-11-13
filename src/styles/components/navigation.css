@@ -528,25 +528,13 @@
 }
 
 .footer-bottom p,
-.footer-back-top {
+.footer-bottom-note {
   color: var(--color-text-inverse-subtle);
   font-size: var(--text-xs);
 }
 
-.footer-back-top {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  transition: color var(--transition-base);
-}
-
-.footer-back-top:hover {
-  color: var(--brand-teal-light);
-}
-
-.footer-back-top span {
-  color: var(--brand-teal);
-  font-size: var(--text-sm);
+.footer-bottom-note {
+  letter-spacing: 0.015em;
 }
 
 .section-nav-wrap {
