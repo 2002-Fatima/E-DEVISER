@@ -14,6 +14,25 @@ import Button from '../ui/Button.astro';
           one purpose: to turn conviction into real impact.
         </p>
       </div>
+
+      <div class="home-work-build-visual" aria-hidden="true">
+        <div class="home-work-build-stage home-work-build-stage--idea">
+          <span class="home-work-build-stage-label">IDEA</span>
+          <span class="home-work-build-sketch"></span>
+          <i class="home-work-build-particle home-work-build-particle--one"></i>
+          <i class="home-work-build-particle home-work-build-particle--two"></i>
+          <i class="home-work-build-particle home-work-build-particle--three"></i>
+          <i class="home-work-build-particle home-work-build-particle--four"></i>
+          <i class="home-work-build-particle home-work-build-particle--five"></i>
+        </div>
+        <span class="home-work-build-transfer"></span>
+        <div class="home-work-build-stage home-work-build-stage--built">
+          <span class="home-work-build-stage-label">BUILT</span>
+          <span class="home-work-build-frame">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </span>
+        </div>
+      </div>
     </header>
 
     <article class="home-work-feature" aria-labelledby="home-work-feature-title">
@@ -34,8 +53,13 @@ import Button from '../ui/Button.astro';
         <div
           class="home-work-image-placeholder home-work-image-placeholder--feature"
           role="img"
-          aria-label="Featured AI Future Forum image area"
-        ></div>
+          aria-label="Featured AI Future Forum image placeholder, awaiting event photography"
+        ><span class="home-work-media-state">
+            <span class="home-work-media-state-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="home-work-media-state-label">FEATURE IMAGE INCOMING</span>
+            <span class="home-work-media-state-detail">AI × Future Forum</span>
+            <span class="home-work-media-state-track" aria-hidden="true"><i></i></span>
+          </span></div>
       </figure>
     </article>
 
@@ -44,17 +68,17 @@ import Button from '../ui/Button.astro';
         <p class="eyebrow">OUR WORK</p>
         <h3>Areas of work</h3>
       </div>
-      <div class="home-work-morphic-lens" aria-hidden="true">
-        <span class="home-work-morphic-lens-core"></span>
-        <span class="home-work-morphic-lens-orbit home-work-morphic-lens-orbit--one"></span>
-        <span class="home-work-morphic-lens-orbit home-work-morphic-lens-orbit--two"></span>
-        <span class="home-work-morphic-lens-glint"></span>
-      </div>
+
     </div>
 
     <div class="home-work-gallery" aria-label="Selected work and event highlights">
       <article class="home-work-gallery-item home-work-gallery-item--wide">
-        <div class="home-work-gallery-image home-work-gallery-image--one" role="img" aria-label="initiatives image area"></div>
+        <div class="home-work-gallery-image home-work-gallery-image--one" role="img" aria-label="Initiatives image placeholder, awaiting project photography"><span class="home-work-media-state">
+            <span class="home-work-media-state-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="home-work-media-state-label">IMAGE INCOMING</span>
+            <span class="home-work-media-state-detail">Initiatives & programmes</span>
+            <span class="home-work-media-state-track" aria-hidden="true"><i></i></span>
+          </span></div>
         <div class="home-work-gallery-caption">
           <div>
             <p class="home-work-gallery-kicker">INITIATIVES</p>
@@ -66,7 +90,12 @@ import Button from '../ui/Button.astro';
       </article>
 
       <article class="home-work-gallery-item">
-        <div class="home-work-gallery-image home-work-gallery-image--two" role="img" aria-label="partnerships image area"></div>
+        <div class="home-work-gallery-image home-work-gallery-image--two" role="img" aria-label="Partnerships image placeholder, awaiting collaboration photography"><span class="home-work-media-state">
+            <span class="home-work-media-state-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="home-work-media-state-label">IMAGE INCOMING</span>
+            <span class="home-work-media-state-detail">People & partnerships</span>
+            <span class="home-work-media-state-track" aria-hidden="true"><i></i></span>
+          </span></div>
         <div class="home-work-gallery-caption">
           <div>
             <p class="home-work-gallery-kicker">PARTNERSHIPS</p>
@@ -78,7 +107,12 @@ import Button from '../ui/Button.astro';
       </article>
 
       <article class="home-work-gallery-item">
-        <div class="home-work-gallery-image home-work-gallery-image--three" role="img" aria-label="forums and events image area"></div>
+        <div class="home-work-gallery-image home-work-gallery-image--three" role="img" aria-label="Forums and events image placeholder, awaiting event photography"><span class="home-work-media-state">
+            <span class="home-work-media-state-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="home-work-media-state-label">IMAGE INCOMING</span>
+            <span class="home-work-media-state-detail">Forums & gatherings</span>
+            <span class="home-work-media-state-track" aria-hidden="true"><i></i></span>
+          </span></div>
         <div class="home-work-gallery-caption">
           <div>
             <p class="home-work-gallery-kicker">FORUMS &amp; EVENTS</p>
@@ -90,7 +124,12 @@ import Button from '../ui/Button.astro';
       </article>
 
       <article class="home-work-gallery-item home-work-gallery-item--wide">
-        <div class="home-work-gallery-image home-work-gallery-image--four" role="img" aria-label="work in the field image area"></div>
+        <div class="home-work-gallery-image home-work-gallery-image--four" role="img" aria-label="Fieldwork image placeholder, awaiting documentary photography"><span class="home-work-media-state">
+            <span class="home-work-media-state-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="home-work-media-state-label">IMAGE INCOMING</span>
+            <span class="home-work-media-state-detail">Fieldwork & impact</span>
+            <span class="home-work-media-state-track" aria-hidden="true"><i></i></span>
+          </span></div>
         <div class="home-work-gallery-caption">
           <div>
             <p class="home-work-gallery-kicker">IN THE FIELD</p>
