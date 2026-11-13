@@ -1798,36 +1798,3 @@
 }
 
 
-/* Wider artwork footprint: use the available half-column with deliberate side breathing room. */
-.home-work-build-visual {
-  width: 100%;
-  padding-inline: 5%;
-  box-sizing: border-box;
-}
-
-.home-work-build-art {
-  width: 140%;
-  margin-inline: -20%;
-}
-
-@media (max-width: 48rem) {
-  .home-work-build-visual {
-    padding-inline: 3%;
-  }
-
-  .home-work-build-art {
-    width: 124%;
-    margin-inline: -12%;
-  }
-}
-
-@media (max-width: 36rem) {
-  .home-work-build-visual {
-    padding-inline: 0;
-  }
-
-  .home-work-build-art {
-    width: 116%;
-    margin-inline: -8%;
-  }
-}
