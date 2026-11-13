@@ -1306,9 +1306,9 @@
 
 .home-work-heading {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.58fr);
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   align-items: center;
-  gap: clamp(var(--space-6), 5vw, var(--space-12));
+  gap: clamp(var(--space-5), 3vw, var(--space-9));
 }
 
 .home-work-copy {
@@ -1643,8 +1643,8 @@
 
 @media (max-width: 62rem) {
   .home-work-heading {
-    grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.56fr);
-    gap: var(--space-6);
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: var(--space-5);
   }
 }
 
