@@ -1731,3 +1731,68 @@
     animation: none;
   }
 }
+
+
+/* Our Work — give the morphic idea-to-intelligence artwork the full editorial canvas. */
+.home-work-heading {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(var(--space-6), 3vw, var(--space-10));
+}
+
+.home-work-copy {
+  max-width: 100%;
+}
+
+.home-work-build-visual {
+  width: 100%;
+  min-height: clamp(19rem, 27vw, 24rem);
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.home-work-build-art {
+  width: 124%;
+  max-width: none;
+  margin-inline: -12%;
+}
+
+@media (max-width: 62rem) {
+  .home-work-heading {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-5);
+  }
+
+  .home-work-build-visual {
+    min-height: clamp(17rem, 27vw, 21rem);
+  }
+}
+
+@media (max-width: 48rem) {
+  .home-work-heading {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .home-work-build-visual {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 2 / 1;
+    justify-self: stretch;
+  }
+
+  .home-work-build-art {
+    width: 116%;
+    margin-inline: -8%;
+  }
+}
+
+@media (max-width: 36rem) {
+  .home-work-build-visual {
+    aspect-ratio: 1.65 / 1;
+  }
+}
