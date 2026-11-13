@@ -1295,3 +1295,139 @@
     transition: none;
   }
 }
+
+
+/* Our Work refinement: keep photography wells clean; give the morphic object its own stage. */
+.home-work-image-placeholder,
+.home-work-gallery-image {
+  background: #0A1A27;
+  border-color: rgba(175, 222, 236, 0.2);
+}
+
+.home-work-image-placeholder::before,
+.home-work-image-placeholder::after,
+.home-work-gallery-image::before,
+.home-work-gallery-image::after {
+  display: none;
+}
+
+.home-work-feature-media {
+  padding: clamp(var(--space-3), 1.5vw, var(--space-5));
+}
+
+.home-work-gallery-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-work-gallery-heading {
+  align-items: center;
+}
+
+.home-work-morphic-lens {
+  position: relative;
+  display: grid;
+  width: clamp(7.5rem, 13vw, 11rem);
+  aspect-ratio: 1.7 / 1;
+  flex: 0 0 auto;
+  place-items: center;
+  isolation: isolate;
+  filter: drop-shadow(0 0 1.5rem rgba(90, 185, 180, 0.12));
+}
+
+.home-work-morphic-lens::before {
+  position: absolute;
+  inset: 12% 8%;
+  border: 1px solid rgba(166, 237, 226, 0.4);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 34% 28%, rgba(211, 255, 247, 0.7), transparent 13%),
+    radial-gradient(ellipse at 50% 50%, rgba(90, 185, 180, 0.25), transparent 55%),
+    linear-gradient(125deg, rgba(182, 246, 235, 0.1), rgba(3, 130, 189, 0.05) 48%, transparent 72%);
+  box-shadow:
+    inset 0 0 1.5rem rgba(174, 255, 240, 0.12),
+    0 0 2rem rgba(90, 185, 180, 0.12);
+  content: "";
+  transform: rotate(-12deg) skewX(-12deg);
+  backdrop-filter: blur(5px);
+}
+
+.home-work-morphic-lens-core {
+  position: relative;
+  z-index: 1;
+  width: 38%;
+  aspect-ratio: 1.5 / 1;
+  border: 1px solid rgba(207, 255, 247, 0.58);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 32% 24%, rgba(238, 255, 251, 0.88), transparent 16%),
+    radial-gradient(ellipse at 48% 45%, rgba(90, 185, 180, 0.55), transparent 68%),
+    rgba(5, 35, 48, 0.22);
+  box-shadow:
+    0 0 1.8rem rgba(90, 185, 180, 0.3),
+    inset 0 0 1rem rgba(206, 255, 248, 0.22);
+  transform: rotate(-24deg);
+  backdrop-filter: blur(8px);
+}
+
+.home-work-morphic-lens-orbit {
+  position: absolute;
+  inset: 3% 2%;
+  border: 1px solid rgba(177, 227, 235, 0.3);
+  border-radius: 50%;
+  transform: rotate(24deg) scaleY(0.56);
+}
+
+.home-work-morphic-lens-orbit--two {
+  inset: 0 16%;
+  border-color: rgba(90, 185, 180, 0.46);
+  transform: rotate(-38deg) scaleY(0.68);
+}
+
+.home-work-morphic-lens-glint {
+  position: absolute;
+  z-index: 2;
+  top: 22%;
+  right: 24%;
+  width: 0.35rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #C7FFF2;
+  box-shadow: 0 0 1rem rgba(151, 255, 231, 0.9);
+}
+
+.home-work-morphic-lens:hover {
+  filter: drop-shadow(0 0 2rem rgba(90, 185, 180, 0.2));
+}
+
+.home-work-morphic-lens:hover::before {
+  transform: rotate(-4deg) skewX(-6deg) scale(1.04);
+}
+
+@media (max-width: 48rem) {
+  .home-work-gallery-heading {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .home-work-morphic-lens {
+    width: clamp(6rem, 22vw, 8rem);
+  }
+}
+
+@media (max-width: 36rem) {
+  .home-work-gallery-heading {
+    align-items: flex-start;
+  }
+
+  .home-work-morphic-lens {
+    width: 5.5rem;
+    margin-block-start: -0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-work-morphic-lens::before {
+    transition: none;
+  }
+}
