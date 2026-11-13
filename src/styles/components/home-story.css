@@ -1160,7 +1160,7 @@
   line-height: var(--leading-body);
 }
 
-.home-work-gallery-caption > span {
+.home-work-gallery-caption > .home-work-gallery-link {
   flex: 0 0 auto;
   color: var(--brand-teal-light);
   font-size: 1.1rem;
@@ -1178,7 +1178,7 @@
   transform: rotate(18deg) scaleX(0.7);
 }
 
-.home-work-gallery-item:hover .home-work-gallery-caption > span {
+.home-work-gallery-item:hover .home-work-gallery-caption > .home-work-gallery-link {
   transform: translate(0.2rem, -0.2rem);
 }
 
@@ -1258,7 +1258,40 @@
   .home-work-image-placeholder::after,
   .home-work-gallery-image::before,
   .home-work-gallery-image::after,
-  .home-work-gallery-caption > span {
+  .home-work-gallery-caption > .home-work-gallery-link {
+    transition: none;
+  }
+}
+
+.home-work-gallery-link {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--color-border-inverse-strong);
+  border-radius: 50%;
+  color: var(--brand-teal-light);
+  font-size: 1.1rem;
+  line-height: 1;
+  text-decoration: none;
+  transition: color var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
+}
+
+.home-work-gallery-link:hover,
+.home-work-gallery-link:focus-visible {
+  border-color: var(--brand-teal-light);
+  background: rgba(90, 185, 180, 0.12);
+  color: var(--color-white);
+}
+
+.home-work-gallery-link:focus-visible {
+  outline: 2px solid var(--color-focus-inverse);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-work-gallery-link {
     transition: none;
   }
 }
