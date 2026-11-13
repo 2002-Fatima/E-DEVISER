@@ -5,28 +5,27 @@
   overflow: hidden;
   border-block: 1px solid var(--color-border);
   background:
-    radial-gradient(ellipse at 78% 48%, rgba(3, 130, 189, 0.09), transparent 38%),
-    linear-gradient(135deg, var(--color-surface) 0%, #F3F8FA 58%, #EDF5F7 100%);
+    radial-gradient(ellipse at 78% 48%, rgba(3, 130, 189, 0.065), transparent 42%),
+    linear-gradient(135deg, #FAFCFD 0%, #F3F8FA 56%, #EEF5F6 100%);
 }
 
 .home-mission-layout {
   display: grid;
-  justify-items: stretch;
-  text-align: start;
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
   align-items: center;
-  gap: clamp(var(--space-8), 5.5vw, var(--space-16));
+  gap: clamp(var(--space-8), 4.8vw, var(--space-16));
+  text-align: start;
 }
 
 .home-mission-copy {
   position: relative;
   z-index: 2;
-  max-width: 35rem;
+  max-width: 36rem;
   text-align: start;
 }
 
 .home-mission-copy > .eyebrow {
-  margin-block-end: clamp(var(--space-6), 4vw, var(--space-10));
+  margin-block-end: clamp(var(--space-5), 3vw, var(--space-8));
   color: var(--color-primary-strong);
   font-family: var(--font-body);
   font-size: var(--text-xs);
@@ -37,14 +36,14 @@
 
 .home-mission-copy h2 {
   max-width: 15ch;
-  -webkit-text-fill-color: currentColor;
   color: var(--color-navy);
   font-family: var(--font-display);
-  font-size: clamp(2.45rem, 4.1vw, 4.15rem);
+  font-size: clamp(2.55rem, 4.15vw, 4.2rem);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-tight);
-  line-height: var(--leading-tight);
+  line-height: 1.04;
   text-wrap: balance;
+  -webkit-text-fill-color: currentColor;
 }
 
 .home-mission-number {
@@ -66,7 +65,7 @@
 }
 
 .home-mission-supporting {
-  max-width: 28rem;
+  max-width: 29rem;
   margin-block-start: var(--space-6);
   color: var(--color-text-muted);
   font-size: var(--text-lg);
@@ -74,10 +73,10 @@
 }
 
 .home-mission-visual {
-  position: relative;
-  width: 100%;
+  display: grid;
   min-width: 0;
   align-self: stretch;
+  align-items: center;
 }
 
 .mission-globe-field {
@@ -85,7 +84,7 @@
   display: block;
   width: 100%;
   min-width: 0;
-  min-height: clamp(35rem, 49vw, 45rem);
+  min-height: clamp(34rem, 45vw, 42rem);
   overflow: visible;
   isolation: isolate;
   background: transparent;
@@ -94,64 +93,71 @@
 .mission-globe-field::before {
   position: absolute;
   z-index: 0;
-  inset: -8% -5%;
+  inset: 5% -2%;
   border-radius: 50%;
   background:
-    radial-gradient(ellipse at 52% 49%, rgba(3, 130, 189, 0.19), transparent 43%),
-    radial-gradient(ellipse at 50% 50%, rgba(90, 185, 180, 0.12), transparent 68%);
+    radial-gradient(ellipse at 51% 48%, rgba(3, 130, 189, 0.16), transparent 43%),
+    radial-gradient(ellipse at 53% 58%, rgba(90, 185, 180, 0.095), transparent 68%);
   content: "";
   pointer-events: none;
 }
 
 .mission-globe-field::after {
+  display: none;
+}
+
+.mission-globe-art,
+.mission-globe-canvas {
   position: absolute;
-  z-index: 0;
-  inset: 2% 4%;
-  border: 1px solid rgba(3, 130, 189, 0.11);
-  border-radius: 50%;
-  content: "";
-  pointer-events: none;
-  transform: rotate(-18deg) scaleY(0.78);
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .mission-globe-art {
-  position: absolute;
   z-index: 1;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
   overflow: visible;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 420ms ease, visibility 420ms ease;
+}
+
+/* WebGL is promoted only after its first successful frame. This prevents
+   the SVG fallback and shader sphere from drawing two competing planets. */
+.mission-globe-field.has-webgl-globe .mission-globe-art {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .mission-globe-canvas {
-  position: absolute;
   z-index: 2;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
+  opacity: 1;
+  mix-blend-mode: normal;
+  filter:
+    drop-shadow(0 18px 28px rgba(7, 44, 63, 0.14))
+    drop-shadow(0 0 22px rgba(31, 139, 158, 0.08));
 }
 
 .mission-globe-heading {
   position: absolute;
   z-index: 4;
-  inset-block-start: 2%;
+  inset-block-start: 1.8%;
   left: 50%;
   margin: 0;
   color: var(--color-primary-strong);
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.59rem;
   font-weight: var(--weight-bold);
-  letter-spacing: 0.17em;
+  letter-spacing: 0.19em;
   text-align: center;
   white-space: nowrap;
   transform: translateX(-50%);
 }
 
 .mission-globe-heading span {
-  color: var(--brand-teal);
   padding-inline: 0.25rem;
+  color: var(--brand-teal);
 }
 
 .mission-globe-country-controls {
@@ -164,33 +170,65 @@
 .mission-globe-country-controls button {
   position: absolute;
   display: grid;
-  width: 2.15rem;
-  height: 2.15rem;
+  width: 2.1rem;
+  height: 2.1rem;
   place-items: center;
   padding: 0;
-  border: 1px solid rgba(147, 245, 226, 0.78);
+  border: 1px solid rgba(147, 232, 218, 0.82);
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 28%, rgba(31, 100, 113, 0.98), rgba(5, 29, 43, 0.98) 76%);
+  isolation: isolate;
+  background: radial-gradient(circle at 35% 28%, #1C6572 0%, #0A3044 78%);
   color: #D7FFF5;
   font-family: var(--font-mono);
-  font-size: 0.54rem;
+  font-size: 0.53rem;
   font-weight: var(--weight-bold);
   letter-spacing: 0.02em;
-  box-shadow: 0 0 0 5px rgba(73, 226, 207, 0.075), 0 0 26px rgba(73, 226, 207, 0.38), inset 0 0 8px rgba(125, 255, 230, 0.12);
+  box-shadow:
+    0 0 0 4px rgba(3, 130, 189, 0.065),
+    0 5px 16px rgba(5, 35, 52, 0.17),
+    inset 0 0 8px rgba(125, 255, 230, 0.11);
   cursor: pointer;
   pointer-events: auto;
   transform: translate(-50%, -50%);
-  transition: background var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), scale var(--motion-fast) var(--ease-standard);
+  transition:
+    background var(--motion-fast) var(--ease-standard),
+    border-color var(--motion-fast) var(--ease-standard),
+    box-shadow var(--motion-fast) var(--ease-standard),
+    opacity var(--motion-slow) var(--ease-enter),
+    scale var(--motion-fast) var(--ease-standard);
+}
+
+.mission-globe-country-controls button::after {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: var(--country-leader-length, 0px);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(92, 218, 197, 0.82), rgba(92, 218, 197, 0.06));
+  content: "";
+  opacity: 0.72;
+  pointer-events: none;
+  transform: translateY(-50%) rotate(var(--country-leader-angle, 0rad));
+  transform-origin: left center;
+}
+
+.mission-globe-country-controls button span {
+  position: relative;
+  z-index: 1;
 }
 
 .mission-globe-country-controls button:hover,
 .mission-globe-country-controls button:focus-visible,
 .mission-globe-country-controls button[aria-pressed="true"] {
+  opacity: 1 !important;
   border-color: #D5FFF4;
   outline: none;
-  background: var(--brand-blue);
-  box-shadow: 0 0 0 7px rgba(73, 226, 207, 0.14), 0 0 30px rgba(73, 226, 207, 0.72);
-  scale: 1.16;
+  background: linear-gradient(135deg, var(--brand-blue), #176C83);
+  box-shadow:
+    0 0 0 6px rgba(3, 130, 189, 0.12),
+    0 0 24px rgba(90, 185, 180, 0.48);
+  scale: 1.14;
 }
 
 .mission-globe-country-controls button:focus-visible {
@@ -208,60 +246,75 @@
   top: 51%;
   left: 50%;
   display: flex;
-  width: 5.1rem;
-  height: 5.1rem;
+  width: 4.15rem;
+  height: 4.15rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.15rem;
+  gap: 0.1rem;
   padding: 0;
-  border: 1px solid rgba(177, 255, 239, 0.62);
+  border: 1px solid rgba(203, 255, 245, 0.76);
   border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 24%, rgba(94, 196, 178, 0.96), rgba(16, 91, 108, 0.97) 48%, rgba(5, 39, 58, 0.98) 82%);
+  backdrop-filter: blur(5px);
   color: inherit;
   cursor: pointer;
-  background: radial-gradient(circle at 38% 30%, rgba(56, 168, 161, 0.9), rgba(7, 32, 46, 0.96) 72%);
-  box-shadow: 0 0 0 8px rgba(72, 228, 207, 0.075), 0 0 38px rgba(82, 240, 216, 0.42), inset 0 0 20px rgba(119, 255, 229, 0.2);
+  box-shadow:
+    0 0 0 4px rgba(3, 130, 189, 0.075),
+    0 0 26px rgba(42, 207, 190, 0.28),
+    0 5px 16px rgba(3, 31, 48, 0.18),
+    inset 0 1px 0 rgba(235, 255, 249, 0.26),
+    inset 0 -8px 16px rgba(2, 23, 38, 0.22);
   transform: translate(-50%, -50%);
-  transition: box-shadow var(--motion-base) var(--ease-standard), border-color var(--motion-base) var(--ease-standard), scale var(--motion-base) var(--ease-standard);
+  transition:
+    box-shadow var(--motion-base) var(--ease-standard),
+    border-color var(--motion-base) var(--ease-standard),
+    scale var(--motion-base) var(--ease-standard);
 }
 
 .mission-globe-core:hover,
 .mission-globe-core:focus-visible {
+  opacity: 1 !important;
   border-color: rgba(209, 255, 246, 0.96);
   outline: 2px solid rgba(3, 130, 189, 0.5);
-  outline-offset: 7px;
-  box-shadow: 0 0 0 11px rgba(72, 228, 207, 0.12), 0 0 52px rgba(82, 240, 216, 0.64), inset 0 0 24px rgba(119, 255, 229, 0.28);
-  scale: 1.06;
+  outline-offset: 6px;
+  box-shadow:
+    0 0 0 10px rgba(72, 228, 207, 0.10),
+    0 0 42px rgba(82, 240, 216, 0.48),
+    inset 0 0 22px rgba(119, 255, 229, 0.22);
+  scale: 1.05;
 }
 
 .mission-globe-core__halo {
   position: absolute;
-  inset: -0.72rem;
-  border: 1px solid rgba(117, 245, 223, 0.34);
+  inset: -0.62rem;
+  border: 1px solid rgba(117, 245, 223, 0.27);
   border-radius: 50%;
-  animation: mission-core-pulse var(--motion-ambient) var(--ease-enter) infinite;
+  animation: mission-core-pulse var(--motion-ambient-long) var(--ease-enter) infinite;
 }
 
 .mission-globe-core img {
   display: block;
-  width: 1.9rem;
-  height: 1.9rem;
+  width: 1.62rem;
+  height: 1.62rem;
   object-fit: contain;
-  filter: drop-shadow(0 0 9px rgba(151, 255, 232, 0.78));
+  filter: drop-shadow(0 0 7px rgba(151, 255, 232, 0.62));
 }
 
 .mission-globe-core__wordmark {
-  color: rgba(226, 255, 247, 0.96);
+  color: rgba(235, 255, 250, 0.98);
   font-family: var(--font-mono);
-  font-size: 0.39rem;
+  font-size: 0.34rem;
   font-weight: var(--weight-bold);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
+  text-shadow: 0 1px 5px rgba(0, 20, 32, 0.42);
 }
 
 .mission-globe-interaction {
   position: absolute;
   z-index: 6;
-  inset-block-end: 2.6rem;
+  inset-block-end: 2.45rem;
   left: 50%;
   display: inline-flex;
   min-height: 2rem;
@@ -269,47 +322,44 @@
   gap: 0.55rem;
   max-width: calc(100% - 2rem);
   padding: 0.42rem 0.9rem;
-  border: 1px solid rgba(132, 223, 214, 0.24);
+  border: 1px solid rgba(90, 185, 180, 0.28);
   border-radius: var(--radius-pill);
-  background: rgba(6, 25, 39, 0.86);
-  color: rgba(230, 250, 246, 0.9);
+  background: rgba(5, 29, 43, 0.91);
+  color: rgba(230, 250, 246, 0.92);
   font-family: var(--font-mono);
-  font-size: 0.5rem;
-  letter-spacing: 0.1em;
+  font-size: 0.49rem;
+  letter-spacing: 0.095em;
   text-align: center;
   white-space: nowrap;
+  box-shadow: 0 10px 26px rgba(4, 32, 47, 0.10);
   transform: translateX(-50%);
   pointer-events: none;
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(12px);
 }
 
 .mission-globe-interaction__pulse {
-  width: 0.36rem;
-  height: 0.36rem;
+  width: 0.34rem;
+  height: 0.34rem;
   flex: 0 0 auto;
   border-radius: 50%;
   background: #8CFFE4;
-  box-shadow: 0 0 10px rgba(140, 255, 228, 0.95);
+  box-shadow: 0 0 8px rgba(140, 255, 228, 0.8);
 }
 
 .mission-globe-caption {
   position: absolute;
   z-index: 4;
-  inset-block-end: 1%;
+  inset-block-end: 0.9%;
   left: 50%;
+  max-width: calc(100% - 1.5rem);
   margin: 0;
-  color: var(--color-text-subtle);
+  color: #5E7C87;
   font-family: var(--font-mono);
-  font-size: 0.49rem;
-  letter-spacing: 0.08em;
+  font-size: 0.48rem;
+  letter-spacing: 0.075em;
   text-align: center;
   white-space: nowrap;
   transform: translateX(-50%);
-}
-
-@keyframes mission-core-pulse {
-  0% { opacity: 0.72; transform: scale(0.88); }
-  70%, 100% { opacity: 0; transform: scale(1.36); }
 }
 
 .mission-globe-atmosphere {
@@ -322,18 +372,12 @@
 
 .mission-globe-atmosphere::before {
   position: absolute;
-  inset: 13% 10%;
-  border: 1px solid rgba(112, 226, 225, 0.16);
+  inset: 12% 10%;
+  border: 1px solid rgba(112, 226, 225, 0.11);
   border-radius: 50%;
-  background: radial-gradient(ellipse at 50% 52%, rgba(3, 130, 189, 0.12), transparent 60%);
+  background: radial-gradient(ellipse at 50% 52%, rgba(3, 130, 189, 0.08), transparent 62%);
   content: "";
-  transform: scale(0.96);
   animation: mission-aura-breathe var(--motion-ambient-long) var(--ease-standard) infinite;
-}
-
-@keyframes mission-aura-breathe {
-  0%, 100% { opacity: 0.5; transform: scale(0.96); }
-  50% { opacity: 0.95; transform: scale(1.025); }
 }
 
 .home-mission-sr-only {
@@ -348,92 +392,123 @@
   border: 0;
 }
 
-@media (max-width: 62rem) {
+@keyframes mission-core-pulse {
+  0% { opacity: 0.62; transform: scale(0.9); }
+  70%, 100% { opacity: 0; transform: scale(1.32); }
+}
+
+@keyframes mission-aura-breathe {
+  0%, 100% { opacity: 0.48; transform: scale(0.985); }
+  50% { opacity: 0.78; transform: scale(1.015); }
+}
+
+/* Keep the two-column composition for wide screens only.
+   Mid-size laptops and tablets get a deliberate stacked layout. */
+@media (max-width: 68rem) {
   .home-mission-layout {
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-    gap: var(--space-8);
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .home-mission-copy {
+    max-width: 44rem;
+  }
+
+  .home-mission-copy > .eyebrow {
+    margin-block-end: var(--space-5);
   }
 
   .home-mission-copy h2 {
-    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+    max-width: 19ch;
+    font-size: clamp(2.5rem, 5.4vw, 3.65rem);
+  }
+
+  .home-mission-supporting {
+    max-width: 38rem;
+    margin-block-start: var(--space-4);
+    font-size: var(--text-base);
+  }
+
+  .home-mission-visual {
+    width: min(100%, 49rem);
+    margin-inline: auto;
   }
 
   .mission-globe-field {
-    min-height: 34rem;
-  }
-
-  .mission-globe-country-controls button {
-    width: 1.9rem;
-    height: 1.9rem;
+    min-height: clamp(30rem, 76vw, 42rem);
   }
 }
 
 @media (max-width: 48rem) {
   .home-mission-layout {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-
-  .home-mission-copy {
-    max-width: 40rem;
-  }
-
-  .home-mission-copy > .eyebrow {
-    margin-block-end: var(--space-6);
+    gap: var(--space-4);
   }
 
   .home-mission-copy h2 {
-    max-width: 16ch;
-    font-size: clamp(2.65rem, 9vw, 4rem);
+    max-width: 21ch;
+    font-size: clamp(2.35rem, 8.2vw, 3.35rem);
+    line-height: 1.06;
   }
 
   .home-mission-supporting {
-    margin-block-start: var(--space-4);
+    max-width: 34rem;
     font-size: var(--text-base);
   }
 
   .mission-globe-field {
-    min-height: min(112vw, 39rem);
+    min-height: min(94vw, 36rem);
   }
 
   .mission-globe-heading {
     inset-block-start: 1%;
     font-size: 0.52rem;
+    letter-spacing: 0.14em;
+  }
+
+  .mission-globe-country-controls button {
+    width: 1.9rem;
+    height: 1.9rem;
+    font-size: 0.48rem;
   }
 }
 
 @media (max-width: 30rem) {
+  .home-mission-copy h2 {
+    max-width: 19ch;
+    font-size: clamp(2.2rem, 9vw, 2.8rem);
+  }
+
   .mission-globe-field {
-    min-height: 28rem;
+    min-height: 27rem;
   }
 
   .mission-globe-core {
-    width: 4.25rem;
-    height: 4.25rem;
+    width: 3.55rem;
+    height: 3.55rem;
   }
 
   .mission-globe-core img {
-    width: 1.55rem;
-    height: 1.55rem;
+    width: 1.35rem;
+    height: 1.35rem;
   }
 
   .mission-globe-interaction {
-    inset-block-end: 2.1rem;
-    font-size: 0.4rem;
-    letter-spacing: 0.055em;
+    inset-block-end: 2.05rem;
+    gap: 0.4rem;
     padding-inline: 0.6rem;
+    font-size: 0.39rem;
+    letter-spacing: 0.045em;
   }
 
   .mission-globe-caption {
-    max-width: calc(100% - 1.25rem);
-    font-size: 0.39rem;
+    font-size: 0.37rem;
     letter-spacing: 0.025em;
   }
 
   .mission-globe-country-controls button {
     width: 1.7rem;
     height: 1.7rem;
-    font-size: 0.46rem;
+    font-size: 0.43rem;
   }
 }
 
@@ -446,7 +521,7 @@
   }
 
   .mission-globe-atmosphere::before {
-    opacity: 0.7;
+    opacity: 0.62;
     transform: none;
   }
 
