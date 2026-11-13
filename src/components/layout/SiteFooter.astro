@@ -4,43 +4,57 @@ import Button from '../ui/Button.astro';
 ---
 
 <footer class="site-footer">
-  <div class="container footer-layout">
-    <section class="footer-brand" aria-label="E Deviser">
-      <a class="brand brand-footer" href="/">
-        <img class="brand-logo" src="/brand/edeviser-mark.png" alt="E Deviser mark" width="837" height="420" />
-        <span class="brand-word">E Deviser</span>
-      </a>
-      <p>{site.footerText}</p>
+  <div class="container footer-shell">
+    <section class="footer-invitation" aria-labelledby="footer-invitation-title">
+      <div class="footer-invitation-copy">
+        <p class="footer-eyebrow">Have something in mind?</p>
+        <h2 id="footer-invitation-title">Let’s turn the complex into the possible.</h2>
+      </div>
+      <div class="footer-invitation-action">
+        <p>Bring us the challenge. We’ll help shape what comes next.</p>
+        <Button href="/company/careers-contact/" label="Start a conversation" variant="secondary" size="sm" />
+      </div>
     </section>
 
-    <nav class="footer-nav" aria-label="Footer navigation">
-      <h2>Explore</h2>
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/what-we-build/">What We Build</a></li>
-        <li><a href="/our-work/">Our Work</a></li>
-        <li><a href="https://cuovo.tech" target="_blank" rel="noopener noreferrer">CUOVO</a></li>
-      </ul>
-    </nav>
+    <div class="footer-main">
+      <section class="footer-brand" aria-label="E Deviser">
+        <a class="brand brand-footer" href="/" aria-label="E Deviser home">
+          <img class="brand-logo" src="/brand/edeviser-mark.png" alt="" width="837" height="420" />
+          <span class="brand-word">E Deviser</span>
+        </a>
+        <p>{site.footerText}</p>
+      </section>
 
-    <nav class="footer-nav footer-company" aria-label="Company navigation">
-      <h2>Company</h2>
-      <ul class="footer-links">
-        <li><a href="/company/">Overview</a></li>
-        <li><a href="/company/story/">Story</a></li>
-        <li><a href="/company/team/">Team</a></li>
-        <li><a href="/company/philosophy/">Philosophy</a></li>
-        <li><a href="/company/careers-contact/">Careers &amp; Contact</a></li>
-      </ul>
-    </nav>
+      <nav class="footer-nav" aria-label="Explore">
+        <h2>Explore</h2>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/what-we-build/">What We Build</a></li>
+          <li><a href="/our-work/">Our Work</a></li>
+          <li><a href="https://cuovo.tech" target="_blank" rel="noopener noreferrer">CUOVO <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
 
-    <section class="footer-contact">
-      <h2>Let’s talk</h2>
-      <Button href="/company/careers-contact/" label="Contact E Deviser" variant="secondary" size="sm" />
-      <p>Contact details and career information are not yet published.</p>
-    </section>
-  </div>
-  <div class="container footer-bottom">
-    <p>© {new Date().getFullYear()} E Deviser. All rights reserved.</p>
+      <nav class="footer-nav footer-company" aria-label="Company">
+        <h2>Company</h2>
+        <ul class="footer-links">
+          <li><a href="/company/">Overview</a></li>
+          <li><a href="/company/story/">Story</a></li>
+          <li><a href="/company/team/">Team</a></li>
+          <li><a href="/company/philosophy/">Philosophy</a></li>
+          <li><a href="/company/careers-contact/">Careers &amp; Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-note">
+        <span class="footer-note-mark" aria-hidden="true"></span>
+        <p>Intelligence with intention.<br />Built for what matters.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© {new Date().getFullYear()} E Deviser. All rights reserved.</p>
+      <a href="#top" class="footer-back-top">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
   </div>
 </footer>
