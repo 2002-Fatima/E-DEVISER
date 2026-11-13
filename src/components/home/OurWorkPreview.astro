@@ -403,11 +403,11 @@ import Button from '../ui/Button.astro';
     }
   }
 
-  /* Natural horizontal composition: let the artwork breathe without distorting its geometry. */
+  /* Extend the morphic artwork into the open right side without changing its proportions. */
   .home-work-build-visual {
     width: 100%;
-    min-height: clamp(17rem, 23vw, 21rem);
-    padding-inline: 2%;
+    min-height: clamp(18rem, 25vw, 23rem);
+    padding-inline: 0;
     box-sizing: border-box;
     overflow: visible;
     border: 0;
@@ -418,13 +418,14 @@ import Button from '../ui/Button.astro';
 
   .home-work-build-art {
     display: block;
-    width: 116%;
+    width: 128%;
     max-width: none;
     height: auto;
-    margin-inline: -8%;
+    margin-inline-start: -1%;
+    margin-inline-end: -27%;
     overflow: visible;
     transform: none;
-    filter: drop-shadow(0 0 1.1rem rgba(36, 181, 190, 0.09));
+    filter: drop-shadow(0 0 1.15rem rgba(36, 181, 190, 0.1));
   }
 
   .work-art-label {
@@ -449,22 +450,23 @@ import Button from '../ui/Button.astro';
   @media (max-width: 62rem) {
     .home-work-build-visual {
       min-height: clamp(16rem, 24vw, 19rem);
-      padding-inline: 1%;
     }
     .home-work-build-art {
-      width: 112%;
-      margin-inline: -6%;
+      width: 116%;
+      margin-inline-start: 0;
+      margin-inline-end: -16%;
     }
   }
 
   @media (max-width: 48rem) {
     .home-work-build-visual {
       min-height: 0;
-      aspect-ratio: 2.25 / 1;
+      aspect-ratio: 2.15 / 1;
     }
     .home-work-build-art {
       width: 108%;
-      margin-inline: -4%;
+      margin-inline-start: 0;
+      margin-inline-end: -8%;
     }
   }
 
@@ -474,42 +476,9 @@ import Button from '../ui/Button.astro';
     }
     .home-work-build-art {
       width: 104%;
-      margin-inline: -2%;
+      margin-inline-start: 0;
+      margin-inline-end: -4%;
     }
   }
 
-  @media (max-width: 48rem) {
-    .home-work-build-visual {
-      min-height: 0;
-      aspect-ratio: 2 / 1;
-      padding-inline: 3%;
-    }
-    .home-work-build-art {
-      width: 124%;
-      margin-inline: -12%;
-      transform: scaleX(1.2);
-    }
-  }
-
-  @media (max-width: 36rem) {
-    .home-work-build-visual {
-      aspect-ratio: 1.65 / 1;
-      padding-inline: 0;
-    }
-    .home-work-build-art {
-      width: 116%;
-      margin-inline: -8%;
-      transform: scaleX(1.08);
-    }
-    .work-art-label {
-      font-size: 7px;
-      letter-spacing: 1.8px;
-    }
-  }
-
-  @media (max-width: 36rem) {
-    .home-work-build-visual {
-      aspect-ratio: 1.65 / 1;
-    }
-  }
-\n</style>
+</style>
