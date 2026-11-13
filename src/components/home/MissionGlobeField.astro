@@ -1,0 +1,595 @@
+<div class="mission-globe-field" data-mission-globe role="group" aria-label="Interactive globe showing EDEviser connecting the six GCC countries through a shared learning mission">
+  <svg class="mission-globe-art" viewBox="0 0 640 640" aria-hidden="true" focusable="false">
+    <defs>
+      <radialGradient id="mission-ocean" cx="34%" cy="27%" r="78%">
+        <stop offset="0" stop-color="#28647C"/>
+        <stop offset=".42" stop-color="#123D57"/>
+        <stop offset=".78" stop-color="#0A293F"/>
+        <stop offset="1" stop-color="#061725"/>
+      </radialGradient>
+      <linearGradient id="mission-land" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#A4D5C4"/>
+        <stop offset=".52" stop-color="#5B9D99"/>
+        <stop offset="1" stop-color="#2D667A"/>
+      </linearGradient>
+      <radialGradient id="mission-atmosphere">
+        <stop offset=".78" stop-color="#50E3D4" stop-opacity="0"/>
+        <stop offset=".91" stop-color="#50E3D4" stop-opacity=".08"/>
+        <stop offset="1" stop-color="#7DEBEE" stop-opacity=".48"/>
+      </radialGradient>
+      <radialGradient id="mission-gulf-glow">
+        <stop offset="0" stop-color="#B7FFF0" stop-opacity=".9"/>
+        <stop offset=".22" stop-color="#54E6D4" stop-opacity=".42"/>
+        <stop offset="1" stop-color="#54E6D4" stop-opacity="0"/>
+      </radialGradient>
+      <clipPath id="mission-globe-clip"><circle cx="320" cy="320" r="214"/></clipPath>
+      <filter id="mission-soft-glow" x="-100%" y="-100%" width="300%" height="300%">
+        <feGaussianBlur stdDeviation="5" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <circle cx="320" cy="320" r="237" fill="#39C8D0" opacity=".045"/>
+    <circle cx="320" cy="320" r="226" fill="url(#mission-atmosphere)"/>
+    <g clip-path="url(#mission-globe-clip)">
+      <circle cx="320" cy="320" r="214" fill="url(#mission-ocean)"/>
+      <g fill="none" stroke="#9AD9DB" stroke-opacity=".17" stroke-width="1">
+        <ellipse cx="320" cy="320" rx="214" ry="65"/>
+        <ellipse cx="320" cy="320" rx="214" ry="125"/>
+        <ellipse cx="320" cy="320" rx="214" ry="177"/>
+        <ellipse cx="320" cy="320" rx="72" ry="214"/>
+        <ellipse cx="320" cy="320" rx="139" ry="214"/>
+        <path d="M106 320h428M122 240h396M122 400h396"/>
+      </g>
+      <g fill="url(#mission-land)" stroke="#B8E9D8" stroke-opacity=".54" stroke-width="1.5">
+        <path d="M122 130 151 101 190 92 224 110 245 145 231 174 247 197 230 224 204 229 185 211 159 218 141 195 117 184 105 157Z"/>
+        <path d="M191 240 221 223 252 232 267 260 253 288 266 316 250 345 235 374 210 392 195 369 181 337 167 310 173 276Z"/>
+        <path d="M257 190 284 169 315 176 341 196 370 190 395 210 421 213 449 240 469 266 459 294 436 306 421 330 394 342 378 324 355 319 338 295 315 285 294 260 272 248Z"/>
+        <path d="M276 304 298 294 316 302 331 320 349 326 363 344 355 364 337 376 318 369 302 351 286 342 271 326Z"/>
+        <path d="M372 344 389 337 404 346 410 361 401 374 384 371Z"/>
+        <path d="M411 376 429 369 445 378 449 395 435 405 419 398Z"/>
+      </g>
+      <path d="M340 307c19-13 39-16 59-7 12 6 19 17 21 30-13 16-30 24-50 23-18-1-30-13-37-28Z" fill="url(#mission-gulf-glow)" filter="url(#mission-soft-glow)"/>
+      <g fill="none" stroke="#75F3DF" stroke-linecap="round" filter="url(#mission-soft-glow)">
+        <path d="M348 327Q355 301 384 313" stroke-width="2.1" opacity=".9"/>
+        <path d="M369 315Q383 300 395 317" stroke-width="1.8" opacity=".9"/>
+        <path d="M389 321Q399 310 410 326" stroke-width="1.8" opacity=".85"/>
+        <path d="M354 337Q378 353 398 337" stroke-width="1.7" opacity=".82"/>
+        <path d="M384 313Q405 298 419 318" stroke-width="1.5" opacity=".8"/>
+        <path d="M363 344Q385 369 416 348" stroke-width="1.4" opacity=".76"/>
+      </g>
+      <g fill="#D7FFF5" stroke="#65F5DE" stroke-width="2" filter="url(#mission-soft-glow)">
+        <circle cx="348" cy="327" r="4"/><circle cx="369" cy="315" r="3.4"/>
+        <circle cx="389" cy="321" r="3.2"/><circle cx="401" cy="343" r="3.5"/>
+        <circle cx="414" cy="330" r="3.2"/><circle cx="384" cy="344" r="3.1"/>
+      </g>
+    </g>
+    <circle cx="320" cy="320" r="214" fill="none" stroke="#A0F5EB" stroke-opacity=".78" stroke-width="1.5"/>
+    <circle cx="320" cy="320" r="222" fill="none" stroke="#62DCE0" stroke-opacity=".28" stroke-width="1"/>
+    <circle cx="551" cy="225" r="3.5" fill="#C9FFF4" filter="url(#mission-soft-glow)"/>
+  </svg>
+  <div class="mission-globe-atmosphere" aria-hidden="true"></div>
+  <p class="mission-globe-heading" aria-hidden="true">ONE REGION <span>·</span> ONE SHARED FUTURE</p>
+  <canvas class="mission-globe-canvas" data-mission-globe-canvas aria-hidden="true"></canvas>
+  <div class="mission-globe-country-controls" data-mission-globe-controls aria-label="Explore GCC countries">
+    <button type="button" data-gcc-index="0" aria-pressed="false" aria-label="Saudi Arabia"><span>SA</span></button>
+    <button type="button" data-gcc-index="1" aria-pressed="false" aria-label="Kuwait"><span>KW</span></button>
+    <button type="button" data-gcc-index="2" aria-pressed="false" aria-label="Bahrain"><span>BH</span></button>
+    <button type="button" data-gcc-index="3" aria-pressed="false" aria-label="Qatar"><span>QA</span></button>
+    <button type="button" data-gcc-index="4" aria-pressed="false" aria-label="United Arab Emirates"><span>AE</span></button>
+    <button type="button" data-gcc-index="5" aria-pressed="false" aria-label="Oman"><span>OM</span></button>
+  </div>
+  <button class="mission-globe-core" type="button" data-gcc-core aria-label="Show the shared GCC learning mission">
+    <span class="mission-globe-core__halo" aria-hidden="true"></span>
+    <img src="/brand/edeviser-mark.png" alt="" />
+    <span class="mission-globe-core__wordmark">EDEVISER</span>
+  </button>
+  <div class="mission-globe-interaction" aria-live="polite" aria-atomic="true">
+    <span class="mission-globe-interaction__pulse"></span>
+    <span data-mission-globe-label>SIX GCC COUNTRIES · ONE SHARED LEARNING MISSION</span>
+  </div>
+  <p class="mission-globe-caption" aria-hidden="true">SAUDI ARABIA · KUWAIT · BAHRAIN · QATAR · UAE · OMAN</p>
+</div>
+
+<script>
+  import { missionRegionPolygons } from '../../data/mission-region-geography';
+
+  document.querySelectorAll('[data-mission-globe]').forEach((field) => {
+    const canvas = field.querySelector('[data-mission-globe-canvas]');
+    const gl = canvas && canvas.getContext('webgl', {
+      alpha: true,
+      antialias: true,
+      depth: false,
+      stencil: false,
+      powerPreference: 'high-performance',
+      premultipliedAlpha: false,
+    });
+    if (!canvas || !gl) return;
+
+    const countries = [
+      { code: 'SA', label: 'SAUDI ARABIA', lat: 24.7, lon: 46.7 },
+      { code: 'KW', label: 'KUWAIT', lat: 29.3, lon: 47.5 },
+      { code: 'BH', label: 'BAHRAIN', lat: 26.1, lon: 50.6 },
+      { code: 'QA', label: 'QATAR', lat: 25.3, lon: 51.5 },
+      { code: 'AE', label: 'UNITED ARAB EMIRATES', lat: 24.4, lon: 54.4 },
+      { code: 'OM', label: 'OMAN', lat: 23.6, lon: 58.5 },
+    ];
+    const countryVectors = new Float32Array(countries.flatMap(({ lat, lon }) => {
+      const phi = lat * Math.PI / 180;
+      const lambda = lon * Math.PI / 180;
+      return [Math.cos(phi) * Math.sin(lambda), Math.sin(phi), Math.cos(phi) * Math.cos(lambda)];
+    }));
+    const targetVector = new Float32Array([
+      Math.cos(25.4 * Math.PI / 180) * Math.sin(51.2 * Math.PI / 180),
+      Math.sin(25.4 * Math.PI / 180),
+      Math.cos(25.4 * Math.PI / 180) * Math.cos(51.2 * Math.PI / 180),
+    ]);
+
+    const vertexSource = [
+      'attribute vec2 aPosition;',
+      'varying vec2 vUv;',
+      'void main(){ vUv = aPosition * 0.5 + 0.5; gl_Position = vec4(aPosition, 0.0, 1.0); }',
+    ].join('\n');
+
+    const fragmentSource = [
+      'precision highp float;',
+      'varying vec2 vUv;',
+      'uniform vec2 uResolution;',
+      'uniform float uTime;',
+      'uniform float uRotation;',
+      'uniform float uReveal;',
+      'uniform sampler2D uMap;',
+      'uniform vec3 uCountries[6];',
+      'uniform vec3 uTarget;',
+      'uniform int uFocus;',
+      'const float PI = 3.14159265359;',
+      'vec3 rotateY(vec3 p, float a){ float c=cos(a), s=sin(a); return vec3(c*p.x-s*p.z,p.y,s*p.x+c*p.z); }',
+      'vec3 geoFromScreen(vec3 p, float rotation){ float c=cos(25.0*PI/180.0), s=sin(25.0*PI/180.0); vec3 untilted=vec3(p.x,c*p.y+s*p.z,-s*p.y+c*p.z); return rotateY(untilted,rotation); }',
+      'vec3 geo(float lat, float lon){ float p=lat*PI/180.0; float l=lon*PI/180.0; return vec3(cos(p)*sin(l),sin(p),cos(p)*cos(l)); }',
+      'vec3 sphericalMix(vec3 a, vec3 b, float t){ float d=acos(clamp(dot(a,b),-1.0,1.0)); if(d<0.001) return normalize(mix(a,b,t)); return normalize((sin((1.0-t)*d)*a+sin(t*d)*b)/sin(d)); }',
+      'float routeDistance(vec3 n, vec3 a, vec3 b){ vec3 axis=normalize(cross(a,b)); float arc=acos(clamp(dot(a,b),-1.0,1.0)); float split=acos(clamp(dot(a,n),-1.0,1.0))+acos(clamp(dot(n,b),-1.0,1.0)); if(split>arc+0.018) return min(acos(clamp(dot(n,a),-1.0,1.0)),acos(clamp(dot(n,b),-1.0,1.0))); return abs(asin(clamp(dot(n,axis),-1.0,1.0))); }',
+      'void main(){',
+      '  vec2 p=(gl_FragCoord.xy-0.5*uResolution)/min(uResolution.x,uResolution.y);',
+      '  vec3 ro=vec3(0.0,0.0,2.4); vec3 rd=normalize(vec3(p,-1.0));',
+      '  float b=dot(ro,rd); float h=b*b-(dot(ro,ro)-1.0);',
+      '  if(h<0.0){',
+      '    float outerB=dot(ro,rd); float outerH=outerB*outerB-(dot(ro,ro)-1.085*1.085);',
+      '    if(outerH>0.0){ vec3 q=ro+rd*(-outerB-sqrt(outerH)); float rim=pow(1.0-abs(dot(normalize(q),-rd)),2.2); float glow= smoothstep(0.0,0.18,rim); gl_FragColor=vec4(vec3(0.12,0.58,0.68),glow*0.105); }',
+      '    else gl_FragColor=vec4(0.0); return;',
+      '  }',
+      '  float t=-b-sqrt(h); vec3 point=ro+rd*t; vec3 normal=normalize(point);',
+      '  vec3 world=normalize(geoFromScreen(normal,uRotation));',
+      '  vec2 mapUv=vec2(atan(world.x,world.z)/(2.0*PI)+0.5,asin(clamp(world.y,-1.0,1.0))/PI+0.5);',
+      '  vec4 tex=texture2D(uMap,mapUv);',
+      '  vec3 light=normalize(vec3(-0.48,0.62,0.94));',
+      '  float diffuse=max(dot(normal,light),0.0);',
+      '  float fresnel=pow(1.0-max(dot(normal,-rd),0.0),3.0);',
+      '  float shade=smoothstep(-0.82,0.62,dot(normal,light));',
+      '  float grain=sin(world.x*410.0+world.y*270.0)*sin(world.z*360.0-world.y*190.0)*0.012;',
+      '  vec3 ocean=tex.rgb;',
+      '  float ambient=0.56+0.08*max(normal.y,0.0);',
+      '  vec3 color=ocean*(ambient+diffuse*0.58)+grain;',
+      '  color+=vec3(0.10,0.38,0.46)*fresnel*0.34;',
+      '  color*=mix(0.90,1.10,shade);',
+      '  vec2 texel=vec2(1.0/1024.0,1.0/512.0);',
+      '  float landMask=step(0.34,dot(tex.rgb,vec3(0.333)));',
+      '  float landEast=step(0.34,dot(texture2D(uMap,mapUv+vec2(texel.x,0.0)).rgb,vec3(0.333)));',
+      '  float landWest=step(0.34,dot(texture2D(uMap,mapUv-vec2(texel.x,0.0)).rgb,vec3(0.333)));',
+      '  float landNorth=step(0.34,dot(texture2D(uMap,mapUv+vec2(0.0,texel.y)).rgb,vec3(0.333)));',
+      '  float landSouth=step(0.34,dot(texture2D(uMap,mapUv-vec2(0.0,texel.y)).rgb,vec3(0.333)));',
+      '  float coastline=abs(landMask-landEast)+abs(landMask-landWest)+abs(landMask-landNorth)+abs(landMask-landSouth);',
+      '  color+=vec3(0.28,0.72,0.68)*min(coastline,1.0)*0.12;',
+      '  float spec=pow(max(dot(reflect(-light,normal),-rd),0.0),42.0);',
+      '  color+=vec3(0.42,0.86,0.84)*spec*0.22;',
+      '  float routeLight=0.0; float countryLight=0.0; float pulseLight=0.0;',
+      '  vec3 target=uTarget;',
+      '  for(int i=0;i<6;i++){',
+      '    vec3 origin=uCountries[i];',
+      '    float d=routeDistance(world,origin,target);',
+      '    float focus=(uFocus<0)?1.0:((uFocus==i)?1.55:0.22);',
+      '    float signalReveal=smoothstep(0.035+float(i)*0.045,0.24+float(i)*0.045,uReveal);',
+      '    float routeReveal=smoothstep(0.22+float(i)*0.055,0.52+float(i)*0.055,uReveal);',
+      '    routeLight=max(routeLight,(1.0-smoothstep(0.0045,0.012,d))*focus*routeReveal);',
+      '    float cd=acos(clamp(dot(world,origin),-1.0,1.0));',
+      '    countryLight=max(countryLight,(1.0-smoothstep(0.010,0.036,cd))*focus*signalReveal);',
+      '    float pulseT=mod(uTime*0.13+float(i)/6.0,1.0);',
+      '    vec3 pulsePoint=sphericalMix(origin,target,pulseT);',
+      '    float pd=acos(clamp(dot(world,pulsePoint),-1.0,1.0));',
+      '    pulseLight=max(pulseLight,(1.0-smoothstep(0.006,0.020,pd))*routeReveal);',
+      '  }',
+      '  float signalReveal=smoothstep(0.06,0.34,uReveal);',
+      '  color+=vec3(0.08,0.62,0.66)*routeLight*0.72;',
+      '  color+=vec3(0.40,0.94,0.84)*countryLight*signalReveal*0.72;',
+      '  color+=vec3(0.72,1.0,0.92)*pulseLight*0.62;',
+      '  vec3 gulf=uTarget;',
+      '  float gulfDistance=acos(clamp(dot(world,gulf),-1.0,1.0));',
+      '  float convergence=(1.0-smoothstep(0.012,0.085,gulfDistance))*smoothstep(0.78,0.98,uReveal);',
+      '  float convergenceBreath=0.94+0.06*sin(uTime*1.1);',
+      '  float convergenceHalo=(1.0-smoothstep(0.07,0.22,gulfDistance))*convergence;',
+      '  color+=vec3(0.10,0.82,0.76)*convergence*convergenceBreath*0.42;',
+      '  color+=vec3(0.08,0.50,0.58)*convergenceHalo*0.10;',
+      '  float edge=pow(1.0-max(dot(normal,-rd),0.0),2.4);',
+      '  color+=vec3(0.12,0.58,0.68)*edge*0.15;',
+      '  gl_FragColor=vec4(color,1.0);',
+      '}',
+    ].join('\n');
+
+    const compile = (type, source) => {
+      const shader = gl.createShader(type);
+      if (!shader) return null;
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        console.warn('Mission globe shader error:', gl.getShaderInfoLog(shader));
+        gl.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    };
+
+    const vertexShader = compile(gl.VERTEX_SHADER, vertexSource);
+    const fragmentShader = compile(gl.FRAGMENT_SHADER, fragmentSource);
+    if (!vertexShader || !fragmentShader) return;
+    const program = gl.createProgram();
+    if (!program) return;
+    gl.attachShader(program, vertexShader);
+    gl.attachShader(program, fragmentShader);
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      console.warn('Mission globe program error:', gl.getProgramInfoLog(program));
+      return;
+    }
+    gl.useProgram(program);
+
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]), gl.STATIC_DRAW);
+    const position = gl.getAttribLocation(program, 'aPosition');
+    gl.enableVertexAttribArray(position);
+    gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+
+    const makeSurfaceMap = () => {
+      const map = document.createElement('canvas');
+      map.width = 1024;
+      map.height = 512;
+      const context = map.getContext('2d');
+      if (!context) return map;
+      const w = map.width;
+      const h = map.height;
+      const ocean = context.createLinearGradient(0, 0, w, h);
+      ocean.addColorStop(0, '#286B7D');
+      ocean.addColorStop(0.42, '#174B63');
+      ocean.addColorStop(1, '#0D3047');
+      context.fillStyle = ocean;
+      context.fillRect(0, 0, w, h);
+
+      const px = (lon) => (lon + 180) / 360 * w;
+      const py = (lat) => (90 - lat) / 180 * h;
+
+      // Low-contrast bathymetric bands create depth in the Gulf and Arabian Sea
+      // without adding dashboard-like graticules to the finished planet.
+      context.save();
+      context.globalAlpha = 0.12;
+      context.strokeStyle = '#8ACCC6';
+      context.lineWidth = 1;
+      for (let band = 0; band < 9; band += 1) {
+        const y = py(34 - band * 8);
+        context.beginPath();
+        context.moveTo(px(35), y);
+        context.bezierCurveTo(px(43), y + 9, px(55), y - 12, px(67), y + 3);
+        context.bezierCurveTo(px(77), y + 14, px(83), y - 8, px(91), y + 2);
+        context.stroke();
+      }
+      context.restore();
+
+      // Natural Earth-derived WGS84 country outlines replace the previous
+      // hand-drawn Arabian landmass. GCC countries are highlighted separately
+      // from their neighbours so the geography reads clearly at globe scale.
+      const drawPolygon = (polygon) => {
+        context.beginPath();
+        polygon.coordinates.forEach(([lon, lat], index) => {
+          const x = px(lon);
+          const y = py(lat);
+          if (index === 0) context.moveTo(x, y);
+          else context.lineTo(x, y);
+        });
+        context.closePath();
+
+        const gcc = polygon.role === 'gcc';
+        const land = context.createLinearGradient(px(42), py(38), px(60), py(12));
+        if (gcc) {
+          land.addColorStop(0, '#C9DED0');
+          land.addColorStop(0.48, '#8FB8A9');
+          land.addColorStop(1, '#5B8E8B');
+        } else {
+          land.addColorStop(0, '#8BAEA7');
+          land.addColorStop(0.55, '#557E7F');
+          land.addColorStop(1, '#315967');
+        }
+        context.fillStyle = land;
+        context.shadowColor = gcc ? 'rgba(103, 232, 205, 0.20)' : 'rgba(65, 160, 165, 0.10)';
+        context.shadowBlur = gcc ? 7 : 3;
+        context.fill();
+        context.shadowBlur = 0;
+        context.strokeStyle = gcc ? 'rgba(218, 250, 231, 0.74)' : 'rgba(179, 220, 213, 0.30)';
+        context.lineWidth = gcc ? 1.5 : 0.9;
+        context.stroke();
+
+        // Fine relief lines are clipped to each land polygon, suggesting
+        // terrain without inventing borders or political subdivisions.
+        context.save();
+        context.clip();
+        context.strokeStyle = gcc ? 'rgba(235, 255, 239, 0.14)' : 'rgba(209, 239, 228, 0.075)';
+        context.lineWidth = 0.85;
+        for (let band = 0; band < 5; band += 1) {
+          const y = py(37 - band * 5.5);
+          context.beginPath();
+          context.moveTo(px(34), y);
+          context.bezierCurveTo(px(41), y - 5, px(49), y + 5, px(57), y - 2);
+          context.bezierCurveTo(px(64), y - 7, px(71), y + 5, px(79), y - 1);
+          context.stroke();
+        }
+        context.restore();
+      };
+
+      missionRegionPolygons
+        .filter((polygon) => polygon.role === 'region')
+        .forEach(drawPolygon);
+      missionRegionPolygons
+        .filter((polygon) => polygon.role === 'gcc')
+        .forEach(drawPolygon);
+
+      // Bahrain is geographically tiny at this scale. Its true location is
+      // retained by the interactive marker; this restrained island glint keeps
+      // the island nation legible on the rendered surface.
+      context.save();
+      context.fillStyle = '#B8D9C9';
+      context.shadowColor = 'rgba(115, 255, 222, 0.72)';
+      context.shadowBlur = 5;
+      context.beginPath();
+      context.ellipse(px(50.55), py(26.07), 2.1, 3.2, -0.18, 0, Math.PI * 2);
+      context.fill();
+      context.restore();
+
+      // Fine deterministic surface grain keeps the ocean and land from feeling
+      // like flat vector fills. This is generated locally and uploaded once.
+      const pixels = context.getImageData(0, 0, w, h);
+      for (let y = 0; y < h; y += 1) {
+        for (let x = 0; x < w; x += 1) {
+          const offset = (y * w + x) * 4;
+          if (pixels.data[offset + 3] === 0) continue;
+          const grain = Math.sin(x * 0.071 + y * 0.037) * Math.sin(y * 0.113 - x * 0.019) * 2.2;
+          pixels.data[offset] = Math.max(0, Math.min(255, pixels.data[offset] + grain));
+          pixels.data[offset + 1] = Math.max(0, Math.min(255, pixels.data[offset + 1] + grain));
+          pixels.data[offset + 2] = Math.max(0, Math.min(255, pixels.data[offset + 2] + grain));
+        }
+      }
+      context.putImageData(pixels, 0, 0);
+
+      return map;
+    };
+
+    const texture = gl.createTexture();
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, makeSurfaceMap());
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    const textureError = gl.getError();
+    if (textureError !== gl.NO_ERROR) {
+      console.warn('Mission globe texture upload failed:', textureError);
+      gl.deleteTexture(texture);
+      return;
+    }
+
+    const uniform = (name) => gl.getUniformLocation(program, name);
+    const uniforms = {
+      resolution: uniform('uResolution'),
+      time: uniform('uTime'),
+      rotation: uniform('uRotation'),
+      reveal: uniform('uReveal'),
+      map: uniform('uMap'),
+      countries: uniform('uCountries[0]'),
+      target: uniform('uTarget'),
+      focus: uniform('uFocus'),
+    };
+    gl.uniform1i(uniforms.map, 0);
+    gl.uniform3fv(uniforms.countries, countryVectors);
+    gl.uniform3fv(uniforms.target, targetVector);
+    gl.clearColor(0, 0, 0, 0);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const controls = Array.from(field.querySelectorAll('[data-gcc-index]'));
+    const label = field.querySelector('[data-mission-globe-label]');
+    const core = field.querySelector('[data-gcc-core]');
+    const abort = new AbortController();
+    const listeners = { signal: abort.signal };
+    const labelOffsets = [[-0.20,-0.12],[-0.09,-0.21],[0.10,-0.20],[0.22,-0.08],[0.19,0.15],[-0.12,0.22]];
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+    let elapsed = 0;
+    let rotation = -50 * Math.PI / 180;
+    let raf = 0;
+    let last = 0;
+    let visible = true;
+    let disposed = false;
+    let active = -1;
+    let firstFramePresented = false;
+
+    const project = (lat, lon, cx, cy, radius, angle) => {
+      const phi = lat * Math.PI / 180;
+      const lambda = (lon * Math.PI / 180) + angle;
+      const x = Math.cos(phi) * Math.sin(lambda);
+      const y = -(Math.cos(25 * Math.PI / 180) * Math.sin(phi) - Math.sin(25 * Math.PI / 180) * Math.cos(phi) * Math.cos(lambda));
+      const z = Math.sin(25 * Math.PI / 180) * Math.sin(phi) + Math.cos(25 * Math.PI / 180) * Math.cos(phi) * Math.cos(lambda);
+      return { x: cx + x * radius, y: cy + y * radius, z };
+    };
+
+    const setActive = (index) => {
+      active = index;
+      field.dataset.activeCountry = index >= 0 ? countries[index].code : 'all';
+      if (label) label.textContent = index >= 0
+        ? countries[index].label + ' · CONNECTED TO THE GCC'
+        : 'SIX GCC COUNTRIES · ONE SHARED LEARNING MISSION';
+      controls.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+      render();
+    };
+
+    const layoutSignals = () => {
+      const radius = Math.min(width, height) * 0.455;
+      const cx = width * 0.5;
+      const cy = height * 0.49;
+      countries.forEach((country, index) => {
+        const point = project(country.lat, country.lon, cx, cy, radius, rotation);
+        const button = controls[index];
+        const offset = labelOffsets[index];
+        const x = point.x + offset[0] * radius;
+        const y = point.y + offset[1] * radius;
+        button.style.left = (x / width * 100) + '%';
+        button.style.top = (y / height * 100) + '%';
+        button.style.setProperty('--country-leader-length', Math.hypot(point.x - x, point.y - y) + 'px');
+        button.style.setProperty('--country-leader-angle', Math.atan2(point.y - y, point.x - x) + 'rad');
+        const signalReveal = reducedMotion.matches ? 1 : Math.max(0, Math.min(1, (elapsed - index * 0.16) / 0.72));
+        button.style.opacity = String(signalReveal);
+        button.hidden = point.z <= 0.01;
+      });
+      const target = project(25.4, 51.2, cx, cy, radius, rotation);
+      if (core) {
+        core.style.left = (target.x / width * 100) + '%';
+        core.style.top = (target.y / height * 100) + '%';
+        const convergenceReveal = reducedMotion.matches ? 1 : Math.max(0, Math.min(1, (elapsed - 2.8) / 1.1));
+        core.style.opacity = String(convergenceReveal);
+      }
+    };
+
+    const render = () => {
+      if (!width || !height || disposed) return;
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.useProgram(program);
+      gl.uniform2f(uniforms.resolution, canvas.width, canvas.height);
+      gl.uniform1f(uniforms.time, elapsed);
+      gl.uniform1f(uniforms.rotation, rotation);
+      gl.uniform1f(uniforms.reveal, reducedMotion.matches ? 1 : Math.min(1, elapsed / 4.5));
+      gl.uniform1i(uniforms.focus, active);
+      gl.drawArrays(gl.TRIANGLES, 0, 6);
+      layoutSignals();
+
+      // Keep the SVG artwork as a true fallback until WebGL has completed
+      // its first valid frame. Once it has, remove the duplicate sphere so
+      // the page has one coherent silhouette, one atmosphere and one light model.
+      if (!firstFramePresented) {
+        const frameError = gl.getError();
+        if (frameError === gl.NO_ERROR) {
+          firstFramePresented = true;
+          field.classList.add('has-webgl-globe');
+        } else {
+          console.warn('Mission globe first frame failed:', frameError);
+        }
+      }
+    };
+
+    const resize = () => {
+      const rect = field.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      width = rect.width;
+      height = rect.height;
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      render();
+    };
+
+    const tick = (time) => {
+      raf = 0;
+      if (disposed || !visible || document.hidden || reducedMotion.matches) return;
+      if (!last) last = time;
+      const delta = Math.min(48, time - last);
+      last = time;
+      elapsed += delta / 1000;
+      rotation = -50 * Math.PI / 180 + Math.sin(elapsed * 0.12) * 0.012;
+      render();
+      raf = requestAnimationFrame(tick);
+    };
+
+    const start = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0;
+      last = 0;
+      if (disposed) return;
+      if (reducedMotion.matches || document.hidden || !visible) {
+        render();
+        return;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+
+    controls.forEach((button, index) => {
+      button.addEventListener('pointerenter', () => setActive(index), listeners);
+      button.addEventListener('focus', () => setActive(index), listeners);
+      button.addEventListener('click', () => setActive(index), listeners);
+      button.addEventListener('pointerleave', () => {
+        if (document.activeElement !== button) setActive(-1);
+      }, listeners);
+      button.addEventListener('blur', () => setActive(-1), listeners);
+    });
+    core?.addEventListener('click', () => setActive(-1), listeners);
+    core?.addEventListener('focus', () => setActive(-1), listeners);
+
+    field.addEventListener('pointermove', (event) => {
+      const rect = field.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const radius = Math.min(width, height) * 0.455;
+      let nearest = -1;
+      let distance = Infinity;
+      countries.forEach((country, index) => {
+        const point = project(country.lat, country.lon, width * 0.5, height * 0.49, radius, rotation);
+        const d = Math.hypot(point.x - x, point.y - y);
+        if (point.z > 0 && d < distance) { distance = d; nearest = index; }
+      });
+      const next = distance < Math.max(18, radius * 0.055) ? nearest : -1;
+      if (next !== active) setActive(next);
+    }, listeners);
+    field.addEventListener('pointerleave', () => {
+      if (!field.contains(document.activeElement)) setActive(-1);
+    }, listeners);
+
+    canvas.addEventListener('webglcontextlost', (event) => {
+      event.preventDefault();
+      disposed = true;
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0;
+      field.classList.remove('has-webgl-globe');
+    }, listeners);
+
+    const resizeObserver = new ResizeObserver(resize);
+    const intersectionObserver = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      start();
+    });
+    resizeObserver.observe(field);
+    intersectionObserver.observe(field);
+    document.addEventListener('visibilitychange', start, listeners);
+    reducedMotion.addEventListener('change', start, listeners);
+
+    const cleanup = () => {
+      disposed = true;
+      if (raf) cancelAnimationFrame(raf);
+      resizeObserver.disconnect();
+      intersectionObserver.disconnect();
+      abort.abort();
+      gl.deleteTexture(texture);
+      gl.deleteBuffer(buffer);
+      gl.deleteProgram(program);
+      gl.deleteShader(vertexShader);
+      gl.deleteShader(fragmentShader);
+      document.removeEventListener('astro:before-swap', cleanup);
+    };
+    document.addEventListener('astro:before-swap', cleanup, { once: true });
+    resize();
+    start();
+  });
+</script>

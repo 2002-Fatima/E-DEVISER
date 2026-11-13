@@ -1,4 +1,4 @@
-<div class="home-hero-visual" aria-label="Animated abstract particle field converging into a luminous intelligence focal point">
+<div class="home-hero-visual" aria-label="Animated cyan and turquoise light particles flowing into a luminous orbital nucleus">
   <canvas class="intelligence-field-canvas" id="intelligence-field-canvas" data-intelligence-field aria-hidden="true"></canvas>
   <div class="home-hero-stages" role="group" aria-label="Intelligence visualization states">
     <button class="stage-item" type="button" data-field-state="understand" aria-pressed="true" aria-controls="intelligence-field-canvas">
@@ -17,25 +17,19 @@
 </div>
 
 <script>
-  const canvases = document.querySelectorAll<HTMLCanvasElement>('[data-intelligence-field]');
-
-  canvases.forEach((canvas) => {
+  document.querySelectorAll<HTMLCanvasElement>('[data-intelligence-field]').forEach((canvas) => {
     const visual = canvas.parentElement;
     const context = canvas.getContext('2d');
     if (!visual || !context) return;
 
-    type Particle = {
-      startX: number;
-      lane: number;
-      phase: number;
-      speed: number;
-      size: number;
-      color: string;
-      square: boolean;
+    type StreamParticle = {
+      startX: number; lane: number; phase: number; speed: number;
+      size: number; color: string; square: boolean;
     };
+    type OrbitParticle = { angle: number; orbit: number; speed: number; size: number; color: string };
     type FieldState = 'understand' | 'decide' | 'act' | 'measure';
 
-    const colors = ['#0382BD', '#00A8E8', '#12D4E5', '#38DFC9', '#D6FFF7'];
+    const colors = ['#0382BD', '#2F9EAD', '#5AB9B4', '#C0E2FD', '#CDFCF4'];
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const controls = visual.querySelectorAll<HTMLButtonElement>('[data-field-state]');
     const random = (() => {
@@ -49,48 +43,37 @@
     let width = 0;
     let height = 0;
     let pixelRatio = 1;
-    let particles: Particle[] = [];
+    let streamParticles: StreamParticle[] = [];
+    let orbitParticles: OrbitParticle[] = [];
     let frameId = 0;
     let previousFrame = 0;
     let elapsed = 0;
     let visible = true;
     let disposed = false;
     let activeState: FieldState = 'understand';
-    let glowSprite: HTMLCanvasElement | undefined;
-
-    const makeGlowSprite = () => {
-      const sprite = document.createElement('canvas');
-      sprite.width = 64;
-      sprite.height = 64;
-      const spriteContext = sprite.getContext('2d');
-      if (!spriteContext) return undefined;
-      const gradient = spriteContext.createRadialGradient(32, 32, 0, 32, 32, 32);
-      gradient.addColorStop(0, 'rgba(225, 255, 247, 0.96)');
-      gradient.addColorStop(0.13, 'rgba(76, 255, 231, 0.66)');
-      gradient.addColorStop(0.42, 'rgba(0, 190, 245, 0.2)');
-      gradient.addColorStop(1, 'rgba(0, 153, 222, 0)');
-      spriteContext.fillStyle = gradient;
-      spriteContext.fillRect(0, 0, 64, 64);
-      return sprite;
-    };
 
     const buildParticles = () => {
-      particles = [];
-      const count = Math.round(Math.min(2100, Math.max(1000, width * height / 100)));
-      for (let index = 0; index < count; index += 1) {
-        const startX = -0.06 + random() * 0.73;
-        const spread = 0.18 + (1 - startX / 0.73) * 0.3;
-        const lane = (random() + random() + random() - 1.5) * spread;
-        const colorRoll = random();
-        const colorIndex = colorRoll > 0.985 ? 4 : colorRoll > 0.75 ? 3 : colorRoll > 0.3 ? 2 : colorRoll > 0.08 ? 1 : 0;
-        particles.push({
-          startX,
-          lane,
-          phase: random(),
-          speed: 0.055 + random() * 0.075,
-          size: random() > 0.94 ? 1.6 + random() * 1.2 : 0.8 + random() * 1,
-          color: colors[colorIndex],
-          square: random() > 0.92,
+      streamParticles = [];
+      orbitParticles = [];
+      const count = Math.round(Math.min(1800, Math.max(850, width * height / 125)));
+      for (let i = 0; i < count; i += 1) {
+        const startX = -0.025 + random() * 0.66;
+        const lane = (random() + random() + random() - 1.5) * (0.22 + (1 - startX / 0.66) * 0.38);
+        const roll = random();
+        const color = colors[roll > 0.985 ? 4 : roll > 0.75 ? 3 : roll > 0.3 ? 2 : roll > 0.08 ? 1 : 0];
+        streamParticles.push({
+          startX, lane, phase: random(), speed: 0.035 + random() * 0.065,
+          size: random() > 0.94 ? 1.5 + random() * 1.2 : 0.55 + random() * 1.05,
+          color, square: random() > 0.94,
+        });
+      }
+      for (let i = 0; i < 150; i += 1) {
+        orbitParticles.push({
+          angle: random() * Math.PI * 2,
+          orbit: 0.48 + random() * 1.5,
+          speed: (random() > 0.5 ? 1 : -1) * (0.12 + random() * 0.34),
+          size: 0.55 + random() * 1.25,
+          color: colors[random() > 0.72 ? 3 : random() > 0.5 ? 2 : 1],
         });
       }
     };
@@ -100,199 +83,176 @@
       if (!bounds.width || !bounds.height) return;
       width = bounds.width;
       height = bounds.height;
-      pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+      pixelRatio = Math.min(window.devicePixelRatio || 1, 1.6);
       canvas.width = Math.round(width * pixelRatio);
       canvas.height = Math.round(height * pixelRatio);
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-      glowSprite = makeGlowSprite();
       buildParticles();
       draw();
     };
 
-    const drawContours = (centerX: number, centerY: number, time: number, contourScale: number) => {
-      const left = -width * 0.04;
-      const focalX = centerX;
-      const lineCount = Math.max(34, Math.round(height / 5.8));
-
+    const drawFlowLines = (cx: number, cy: number, time: number, compression: number) => {
+      const lineCount = Math.max(38, Math.round(height / 4.7));
+      const focalRadiusX = height * 0.25;
       context.save();
       context.globalCompositeOperation = 'lighter';
-      context.lineWidth = Math.max(0.7, width / 760);
-
-      for (let index = 0; index < lineCount; index += 1) {
-        const lane = (index / (lineCount - 1)) * 2 - 1;
-        const offset = lane * height * 0.43 * contourScale;
-        const sway = Math.sin(time * 0.24 + index * 0.52) * height * 0.018;
-        const gradient = context.createLinearGradient(left, centerY + offset, width, centerY);
-        gradient.addColorStop(0, 'rgba(0, 150, 223, 0.14)');
-        gradient.addColorStop(0.38, 'rgba(0, 182, 232, 0.46)');
-        gradient.addColorStop(0.67, index % 4 === 0 ? 'rgba(105, 255, 231, 0.92)' : 'rgba(34, 218, 227, 0.72)');
-        gradient.addColorStop(0.84, 'rgba(79, 245, 220, 0.46)');
-        gradient.addColorStop(1, 'rgba(0, 157, 212, 0.03)');
+      for (let i = 0; i < lineCount; i += 1) {
+        const lane = (i / (lineCount - 1)) * 2 - 1;
+        const spread = lane * height * 0.47 * compression;
+        const drift = Math.sin(time * 0.22 + i * 0.41) * height * 0.018;
+        const alpha = 0.14 + (1 - Math.abs(lane)) * 0.32;
+        context.beginPath();
+        context.moveTo(-width * 0.035, cy + spread + drift);
+        context.bezierCurveTo(
+          width * 0.18, cy + spread * 1.04 - drift,
+          cx - focalRadiusX * 1.65, cy + spread * 0.76 + drift,
+          cx - focalRadiusX * 0.56, cy + spread * 0.18,
+        );
+        context.bezierCurveTo(
+          cx - focalRadiusX * 0.12, cy + spread * 0.035 - drift * 0.35,
+          cx - focalRadiusX * 0.03, cy + spread * 0.012,
+          cx + focalRadiusX * 0.1, cy + spread * 0.045,
+        );
+        const gradient = context.createLinearGradient(-width * 0.03, cy + spread, cx, cy);
+        gradient.addColorStop(0, 'rgba(0, 145, 220, 0.02)');
+        gradient.addColorStop(0.38, `rgba(3, 130, 189, ${alpha})`);
+        gradient.addColorStop(0.76, i % 5 === 0 ? 'rgba(205, 252, 244, 0.82)' : 'rgba(90, 185, 180, 0.55)');
+        gradient.addColorStop(1, 'rgba(185, 255, 245, 0.12)');
         context.strokeStyle = gradient;
+        context.lineWidth = i % 7 === 0 ? 1.05 : 0.62;
+        context.stroke();
+      }
+      context.restore();
+    };
+
+    const drawOrbit = (cx: number, cy: number, time: number) => {
+      context.save();
+      context.translate(cx, cy);
+      context.globalCompositeOperation = 'lighter';
+
+      // Fine, elliptical orbital contours around the focal nucleus.
+      for (let i = 0; i < 13; i += 1) {
+        const progress = i / 12;
+        const rx = height * (0.105 + progress * 0.22);
+        const ry = height * (0.13 + progress * 0.24);
+        const wobble = Math.sin(time * 0.28 + i * 0.7) * 1.8;
         context.beginPath();
-        context.moveTo(left, centerY + offset * 0.92 + sway);
-        context.bezierCurveTo(
-          width * 0.2,
-          centerY + offset * 1.02 - sway,
-          width * 0.36,
-          centerY + offset * 0.7 + sway,
-          focalX - width * 0.13,
-          centerY + offset * 0.27,
-        );
-        context.bezierCurveTo(
-          focalX - width * 0.055,
-          centerY + offset * 0.1 - sway * 0.3,
-          focalX - width * 0.02,
-          centerY + offset * 0.035,
-          focalX,
-          centerY + offset * 0.025,
-        );
-        context.bezierCurveTo(
-          focalX + width * 0.055,
-          centerY + offset * 0.05 + sway * 0.25,
-          focalX + width * 0.095,
-          centerY + offset * 0.32,
-          focalX + width * 0.16,
-          centerY + offset * 0.49 + sway * 0.5,
-        );
+        context.ellipse(0, 0, rx + wobble, ry - wobble * 0.45, Math.sin(time * 0.12) * 0.025, 0, Math.PI * 2);
+        context.strokeStyle = i % 4 === 0
+          ? `rgba(90, 185, 180, ${0.24 + progress * 0.12})`
+          : `rgba(3, 130, 189, ${0.12 + progress * 0.13})`;
+        context.lineWidth = i % 4 === 0 ? 0.95 : 0.58;
         context.stroke();
       }
 
-      for (let index = 0; index < 9; index += 1) {
-        const rx = width * (0.045 + index * 0.014);
-        const ry = height * (0.12 + index * 0.033);
-        const shift = Math.sin(time * 0.18 + index) * height * 0.008;
+      // Small points orbit at different radii and directions, giving the rings life.
+      for (const particle of orbitParticles) {
+        const angle = particle.angle + time * particle.speed;
+        const rx = height * (0.12 + particle.orbit * 0.105);
+        const ry = height * (0.15 + particle.orbit * 0.115);
+        const x = Math.cos(angle) * rx;
+        const y = Math.sin(angle) * ry;
+        context.globalAlpha = 0.38 + (Math.sin(angle * 2.4 + time) + 1) * 0.22;
+        context.fillStyle = particle.color;
         context.beginPath();
-        context.moveTo(focalX - rx * 1.2, centerY + ry * (index % 2 ? 0.28 : -0.3) + shift);
-        context.bezierCurveTo(
-          focalX - rx * 0.65,
-          centerY - ry * (index % 2 ? 0.58 : 1.12),
-          focalX + rx * 0.12,
-          centerY - ry * (index % 2 ? 1.18 : 0.72),
-          focalX + rx,
-          centerY - ry * 0.12 + shift,
-        );
-        context.bezierCurveTo(
-          focalX + rx * 1.08,
-          centerY + ry * 0.14,
-          focalX + rx * 0.74,
-          centerY + ry * (index % 2 ? 0.76 : 0.52),
-          focalX + rx * 0.22,
-          centerY + ry * (index % 2 ? 0.58 : 0.92),
-        );
-        context.strokeStyle = `rgba(${index % 2 ? '40, 211, 221' : '67, 241, 214'}, ${0.16 + index * 0.014})`;
-        context.lineWidth = 0.65;
-        context.stroke();
+        context.arc(x, y, particle.size, 0, Math.PI * 2);
+        context.fill();
       }
+      context.restore();
+    };
+
+    const drawCore = (cx: number, cy: number, time: number) => {
+      context.save();
+      context.globalCompositeOperation = 'lighter';
+      const pulse = 1 + Math.sin(time * 1.45) * 0.055;
+
+      const halo = context.createRadialGradient(cx, cy, 0, cx, cy, height * 0.31 * pulse);
+      halo.addColorStop(0, 'rgba(255, 255, 241, 0.98)');
+      halo.addColorStop(0.035, 'rgba(220, 255, 244, 0.94)');
+      halo.addColorStop(0.12, 'rgba(101, 255, 231, 0.48)');
+      halo.addColorStop(0.32, 'rgba(14, 208, 229, 0.17)');
+      halo.addColorStop(0.68, 'rgba(0, 151, 221, 0.055)');
+      halo.addColorStop(1, 'rgba(0, 151, 221, 0)');
+      context.fillStyle = halo;
+      context.beginPath();
+      context.arc(cx, cy, height * 0.31 * pulse, 0, Math.PI * 2);
+      context.fill();
+
+      const nucleus = context.createRadialGradient(cx, cy, 0, cx, cy, height * 0.045);
+      nucleus.addColorStop(0, 'rgba(255, 255, 246, 1)');
+      nucleus.addColorStop(0.28, 'rgba(238, 255, 244, 1)');
+      nucleus.addColorStop(0.56, 'rgba(183, 255, 237, 0.92)');
+      nucleus.addColorStop(1, 'rgba(83, 255, 226, 0)');
+      context.fillStyle = nucleus;
+      context.beginPath();
+      context.arc(cx, cy, height * 0.045, 0, Math.PI * 2);
+      context.fill();
+
+      context.fillStyle = 'rgba(255, 255, 238, 0.98)';
+      context.shadowColor = 'rgba(207, 255, 243, 0.95)';
+      context.shadowBlur = 16;
+      context.beginPath();
+      context.arc(cx, cy, Math.max(2.8, height * 0.012), 0, Math.PI * 2);
+      context.fill();
       context.restore();
     };
 
     const draw = () => {
       if (!width || !height) return;
-      const centerX = width * (width < 700 ? 0.52 : 0.66);
-      const centerY = height * 0.51;
-      const isDeciding = activeState === 'decide';
+      const cx = width * (width < 700 ? 0.54 : 0.65);
+      const cy = height * 0.51;
+      const compress = activeState === 'decide' ? 0.72 : 1;
       context.clearRect(0, 0, width, height);
 
-      const beam = context.createLinearGradient(width * 0.08, centerY, centerX, centerY);
-      beam.addColorStop(0, 'rgba(0, 159, 226, 0)');
-      beam.addColorStop(0.55, 'rgba(0, 177, 235, 0.07)');
-      beam.addColorStop(0.9, 'rgba(32, 225, 231, 0.32)');
-      beam.addColorStop(1, 'rgba(174, 255, 243, 0.72)');
-      context.save();
-      context.globalCompositeOperation = 'lighter';
-      context.fillStyle = beam;
-      context.fillRect(width * 0.08, centerY - height * 0.045, centerX - width * 0.08, height * 0.09);
-      context.restore();
-
-      drawContours(centerX, centerY, elapsed, isDeciding ? 0.62 : 1);
+      drawFlowLines(cx, cy, elapsed, compress);
 
       context.save();
       context.globalCompositeOperation = 'lighter';
-      for (const particle of particles) {
+      for (const particle of streamParticles) {
         const life = (particle.phase + elapsed * particle.speed) % 1;
-        const easedLife = life * life * (3 - 2 * life);
-        const directionalLife = activeState === 'act' ? 1 - easedLife : easedLife;
-        const travel = isDeciding ? 1 - Math.pow(1 - directionalLife, 2.2) : directionalLife;
-        const x = particle.startX * width + (centerX - particle.startX * width) * travel;
-        const startSpread = particle.lane * height * (0.3 + Math.max(0, 0.68 - particle.startX) * 0.55);
-        const targetOffset = particle.lane * height * 0.015;
-        const spreadScale = isDeciding ? 0.55 : 1;
-        const y = centerY + (startSpread * (1 - travel) + targetOffset * travel) * spreadScale;
-        const intensity = 0.27 + travel * 0.72;
-        context.globalAlpha = intensity;
+        const eased = life * life * (3 - 2 * life);
+        const progress = activeState === 'act' ? 1 - eased : eased;
+        const x0 = particle.startX * width;
+        const x = x0 + (cx - x0) * progress;
+        const spread = particle.lane * height * (0.34 + Math.max(0, 0.64 - particle.startX) * 0.58);
+        const curved = Math.sin(progress * Math.PI) * particle.lane * height * 0.085;
+        const y = cy + (spread * (1 - progress) + particle.lane * height * 0.012 * progress + curved) * compress;
+        context.globalAlpha = 0.22 + progress * 0.72;
         context.fillStyle = particle.color;
         context.beginPath();
-        if (particle.square) {
-          context.rect(x - particle.size * 0.5, y - particle.size * 0.5, particle.size, particle.size);
-        } else {
-          context.arc(x, y, particle.size, 0, Math.PI * 2);
-        }
+        if (particle.square) context.rect(x - particle.size * 0.5, y - particle.size * 0.5, particle.size, particle.size);
+        else context.arc(x, y, particle.size, 0, Math.PI * 2);
         context.fill();
       }
+      context.restore();
 
       if (activeState === 'act') {
-        const pulse = (elapsed * 0.7) % 1;
-        context.lineWidth = 1.1;
-        for (let index = 0; index < 8; index += 1) {
-          const progress = (pulse + index / 8) % 1;
-          const distance = width * (0.08 + progress * 0.24);
-          const offset = Math.sin(index * 2.1) * height * progress * 0.12;
-          context.globalAlpha = (1 - progress) * 0.78;
-          context.strokeStyle = index % 2 ? '#36ead7' : '#50dfff';
+        for (let i = 0; i < 7; i += 1) {
+          const progress = (elapsed * 0.38 + i / 7) % 1;
           context.beginPath();
-          context.moveTo(centerX, centerY);
-          context.quadraticCurveTo(centerX + distance * 0.55, centerY + offset * 0.4, centerX + distance, centerY + offset);
+          context.arc(cx, cy, height * (0.12 + progress * 0.24), 0, Math.PI * 2);
+          context.strokeStyle = `rgba(90, 185, 180, ${(1 - progress) * 0.42})`;
+          context.lineWidth = 0.9;
           context.stroke();
         }
       }
 
       if (activeState === 'measure') {
-        const scanX = centerX + Math.sin(elapsed * 0.65) * width * 0.18;
-        const scan = context.createLinearGradient(scanX, centerY - height * 0.33, scanX, centerY + height * 0.33);
-        scan.addColorStop(0, 'rgba(80, 223, 255, 0)');
-        scan.addColorStop(0.5, 'rgba(185, 255, 248, 0.9)');
-        scan.addColorStop(1, 'rgba(80, 223, 255, 0)');
-        context.globalAlpha = 0.8;
+        const scanX = cx + Math.sin(elapsed * 0.55) * width * 0.11;
+        const scan = context.createLinearGradient(scanX, cy - height * 0.28, scanX, cy + height * 0.28);
+        scan.addColorStop(0, 'rgba(192, 226, 253, 0)');
+        scan.addColorStop(0.5, 'rgba(205, 252, 244, 0.65)');
+        scan.addColorStop(1, 'rgba(192, 226, 253, 0)');
         context.strokeStyle = scan;
-        context.lineWidth = 1;
+        context.lineWidth = 0.8;
         context.beginPath();
-        context.moveTo(scanX, centerY - height * 0.33);
-        context.lineTo(scanX, centerY + height * 0.33);
+        context.moveTo(scanX, cy - height * 0.28);
+        context.lineTo(scanX, cy + height * 0.28);
         context.stroke();
-        context.globalAlpha = 0.7;
-        context.fillStyle = '#b9fff8';
-        for (let index = -3; index <= 3; index += 1) {
-          const y = centerY + index * height * 0.075;
-          context.fillRect(scanX - (index === 0 ? 4 : 2), y, index === 0 ? 8 : 4, 1);
-        }
       }
 
-      if (glowSprite) {
-        context.globalAlpha = 0.72;
-        context.drawImage(glowSprite, centerX - 31, centerY - 31, 62, 62);
-        context.globalAlpha = 0.46;
-        context.drawImage(glowSprite, centerX - 70, centerY - 70, 140, 140);
-        context.globalAlpha = 0.18;
-        context.drawImage(glowSprite, centerX - 125, centerY - 105, 250, 210);
-      }
-
-      const core = context.createRadialGradient(centerX, centerY, 0, centerX, centerY, width * 0.065);
-      core.addColorStop(0, 'rgba(255, 255, 239, 1)');
-      core.addColorStop(0.055, 'rgba(216, 255, 242, 0.98)');
-      core.addColorStop(0.12, 'rgba(107, 255, 237, 0.88)');
-      core.addColorStop(0.3, 'rgba(19, 215, 227, 0.45)');
-      core.addColorStop(1, 'rgba(0, 164, 222, 0)');
-      context.globalAlpha = (isDeciding ? 1 : 0.95) + Math.sin(elapsed * 1.7) * (isDeciding ? 0 : 0.05);
-      context.fillStyle = core;
-      context.beginPath();
-      context.arc(centerX, centerY, width * 0.065, 0, Math.PI * 2);
-      context.fill();
-      context.fillStyle = 'rgba(255, 255, 235, 0.98)';
-      context.beginPath();
-      context.arc(centerX, centerY, Math.max(3.2, width * 0.009), 0, Math.PI * 2);
-      context.fill();
-      context.restore();
+      drawOrbit(cx, cy, elapsed);
+      drawCore(cx, cy, elapsed);
     };
 
     const animate = (time: number) => {
@@ -317,16 +277,17 @@
       frameId = window.requestAnimationFrame(animate);
     };
 
+    const listenerController = new AbortController();
+    const listenerOptions = { signal: listenerController.signal };
+
     controls.forEach((button) => {
       button.addEventListener('click', () => {
         const state = button.dataset.fieldState;
         if (state !== 'understand' && state !== 'decide' && state !== 'act' && state !== 'measure') return;
         activeState = state;
-        controls.forEach((control) => {
-          control.setAttribute('aria-pressed', String(control === button));
-        });
+        controls.forEach((control) => control.setAttribute('aria-pressed', String(control === button)));
         draw();
-      });
+      }, listenerOptions);
     });
 
     const resizeObserver = new ResizeObserver(resize);
@@ -336,9 +297,9 @@
       syncAnimation();
     });
     intersectionObserver.observe(visual);
-    window.addEventListener('resize', resize, { passive: true });
-    document.addEventListener('visibilitychange', syncAnimation);
-    reducedMotion.addEventListener('change', syncAnimation);
+    window.addEventListener('resize', resize, { passive: true, ...listenerOptions });
+    document.addEventListener('visibilitychange', syncAnimation, listenerOptions);
+    reducedMotion.addEventListener('change', syncAnimation, listenerOptions);
 
     resize();
     syncAnimation();
@@ -348,9 +309,7 @@
       if (frameId) window.cancelAnimationFrame(frameId);
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
-      window.removeEventListener('resize', resize);
-      document.removeEventListener('visibilitychange', syncAnimation);
-      reducedMotion.removeEventListener('change', syncAnimation);
+      listenerController.abort();
       document.removeEventListener('astro:before-swap', cleanup);
     };
     document.addEventListener('astro:before-swap', cleanup, { once: true });

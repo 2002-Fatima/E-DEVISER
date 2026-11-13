@@ -3,21 +3,48 @@ import SectionWrapper from '../ui/SectionWrapper.astro';
 import Button from '../ui/Button.astro';
 ---
 
-<SectionWrapper background="light" class="home-cuevo-section">
+<SectionWrapper background="pattern" class="home-cuevo-section">
   <section class="container container-wide home-cuevo-layout" aria-labelledby="home-cuevo-title">
-    <div class="home-cuevo-mark-wrap">
-      <img src="/brand/cuevo-mark.png" alt="CUOVO product mark" width="300" height="300" loading="lazy" />
-      <span class="home-cuevo-mark-caption">BUILT BY E DEVISER</span>
+    <div class="home-cuevo-visual" aria-label="CUOVO platform model">
+      <div class="home-cuevo-mark-wrap">
+        <span class="home-cuevo-visual-kicker">THE LEARNING INTELLIGENCE PLATFORM</span>
+        <img src="/brand/cuevo-mark.png" alt="CUOVO product mark" width="300" height="300" loading="lazy" />
+        <span class="home-cuevo-mark-caption">BUILT BY E DEVISER</span>
+      </div>
+      <div class="home-cuevo-capabilities" aria-label="CUOVO foundations">
+        <div>
+          <span>01</span>
+          <strong>Outcome-based education</strong>
+        </div>
+        <div>
+          <span>02</span>
+          <strong>Meaningful gamification</strong>
+        </div>
+        <div>
+          <span>03</span>
+          <strong>Agentic AI</strong>
+        </div>
+      </div>
     </div>
 
     <div class="home-cuevo-copy">
       <p class="eyebrow">WHAT WE&apos;RE BUILDING TODAY</p>
-      <h2 id="home-cuevo-title">Our first deep dive: learning.</h2>
+      <h2 id="home-cuevo-title">Make learning visible. Make progress actionable.</h2>
       <p>
-        CUOVO is E Deviser&apos;s learning-intelligence platform, built to help education understand
-        learning more deeply and act on what it learns.
+        CUOVO is E Deviser&apos;s learning-intelligence platform. It brings outcome-based education,
+        meaningful gamification, and agentic AI into a more connected way to understand learning
+        and act on what matters.
       </p>
-      <p class="home-cuevo-support">Built by E Deviser. Designed for the complexity of learning.</p>
+      <p class="home-cuevo-support">
+        Designed around the people who make learning happen.
+      </p>
+      <ul class="home-cuevo-roles" aria-label="People CUOVO is designed to support">
+        <li>Admin</li>
+        <li>Coordinator</li>
+        <li>Teacher</li>
+        <li>Student</li>
+        <li>Parent</li>
+      </ul>
       <Button href="https://cuovo.tech/" external label="Explore CUOVO" />
     </div>
   </section>

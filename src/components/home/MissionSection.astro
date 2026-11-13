@@ -1,5 +1,6 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
+import MissionGlobeField from './MissionGlobeField.astro';
 import { site } from '../../content/site';
 ---
 
@@ -7,7 +8,19 @@ import { site } from '../../content/site';
   <section class="container container-wide home-mission-layout" aria-labelledby="home-mission-title">
     <div class="home-mission-copy">
       <p class="eyebrow">OUR MISSION</p>
-      <h2 id="home-mission-title">{site.missionStatement}</h2>
+      <h2 id="home-mission-title">
+        To improve learning outcomes for
+        <span class="home-mission-number">10 million</span>
+        learners across the <span class="home-mission-highlight">GCC</span> by
+        <span class="home-mission-year">2030.</span>
+      </h2>
+      <p class="home-mission-supporting">
+        Better learning, connected across six nations, built for the future of the GCC.
+      </p>
+      <span class="home-mission-sr-only">{site.missionStatement}</span>
+    </div>
+    <div class="home-mission-visual">
+      <MissionGlobeField />
     </div>
   </section>
 </SectionWrapper>
