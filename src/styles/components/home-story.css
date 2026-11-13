@@ -1349,6 +1349,7 @@
     0 0 2rem rgba(90, 185, 180, 0.12);
   content: "";
   transform: rotate(-12deg) skewX(-12deg);
+  transition: transform 700ms var(--ease-emphasized);
   backdrop-filter: blur(5px);
 }
 
