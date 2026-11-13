@@ -1714,6 +1714,10 @@
   }
 }
 
+.home-work-feature-copy {
+  padding: clamp(var(--space-8), 5.5vw, var(--space-12));
+}
+
 @media (max-width: 48rem) {
   .home-work-heading {
     grid-template-columns: 1fr;
@@ -1727,7 +1731,7 @@
   }
 
   .home-work-feature-copy {
-    padding: clamp(var(--space-7), 6vw, var(--space-10));
+    padding: clamp(var(--space-8), 6vw, var(--space-10));
   }
 }
 
