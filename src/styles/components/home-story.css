@@ -1798,3 +1798,21 @@
 }
 
 
+
+
+/* Final spacing pass from the Our Work browser review. */
+.home-work-feature > .home-work-feature-copy {
+  padding: clamp(2.5rem, 4.5vw, 4.5rem);
+}
+
+@media (max-width: 62rem) {
+  .home-work-feature > .home-work-feature-copy {
+    padding: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+@media (max-width: 48rem) {
+  .home-work-feature > .home-work-feature-copy {
+    padding: clamp(1.75rem, 5vw, 2.5rem);
+  }
+}
