@@ -284,3 +284,47 @@
     stroke-dashoffset: 0;
   }
 }
+
+
+/* Media art direction: photographs fill their frames; editorial scans retain their full page. */
+.our-work-image-card img,
+.our-work-forum-image img {
+  object-fit: cover;
+  object-position: center;
+  padding: 0;
+  background: transparent;
+}
+.our-work-image-card--document {
+  padding: clamp(.45rem, 1.1vw, .85rem);
+  background: #F7FAFC;
+}
+.our-work-image-card--document img {
+  object-fit: contain;
+  object-position: center;
+  padding: 0;
+  background: #F7FAFC;
+}
+.our-work-forum-image--document {
+  padding: clamp(.75rem, 2vw, 1.5rem);
+  background: #F7FAFC;
+}
+.our-work-forum-image--document img {
+  object-fit: contain;
+  object-position: center;
+  background: #F7FAFC;
+}
+.our-work-image-card,
+.our-work-forum-image {
+  isolation: isolate;
+}
+.our-work-image-card img {
+  transition: transform var(--transition-interactive), opacity var(--transition-interactive);
+}
+.our-work-image-card:hover img {
+  opacity: 1;
+  transform: scale(1.025);
+}
+@media (prefers-reduced-motion: reduce) {
+  .our-work-image-card img { transition: none; }
+  .our-work-image-card:hover img { transform: none; }
+}
