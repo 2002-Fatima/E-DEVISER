@@ -53,7 +53,14 @@
 .our-work-signature .work-art-flow path:nth-child(3) { stroke-dasharray: 280; stroke-dashoffset: 280; animation: work-ribbon-draw 7s .7s cubic-bezier(.65,0,.25,1) infinite; }
 .our-work-signature .work-art-flow path:nth-child(4) { stroke-dasharray: 320; stroke-dashoffset: 320; animation: work-ribbon-draw 7s 1s cubic-bezier(.65,0,.25,1) infinite; }
 .our-work-signature .work-art-flow path:nth-child(5) { stroke-dasharray: 260; stroke-dashoffset: 260; animation: work-ribbon-draw 7s 1.3s cubic-bezier(.65,0,.25,1) infinite; }
-.our-work-signature .work-art-structure { transform-box: fill-box; transform-origin: 50% 50%; animation: work-structure-arrive 7s cubic-bezier(.2,.75,.2,1) infinite; }
+.our-work-signature .work-art-structure { opacity: 1; }
+.our-work-signature .build-foundation { animation: build-foundation 8.8s ease-in-out infinite; }
+.our-work-signature .build-columns { stroke-dasharray: 520; stroke-dashoffset: 520; animation: build-columns 8.8s ease-in-out infinite; }
+.our-work-signature .build-floor-plates { opacity: 0; animation: build-floors 8.8s ease-in-out infinite; }
+.our-work-signature .build-facade { stroke-dasharray: 620; stroke-dashoffset: 620; animation: build-facade 8.8s ease-in-out infinite; }
+.our-work-signature .build-windows { opacity: 0; animation: build-windows 8.8s ease-in-out infinite; }
+.our-work-signature .build-crown { stroke-dasharray: 180; stroke-dashoffset: 180; animation: build-crown 8.8s ease-in-out infinite; }
+.our-work-signature .building-construction-glints { opacity: 0; animation: build-glints 8.8s ease-in-out infinite; }
 .our-work-signature .work-art-sparkles { animation: work-sparkle-breathe 4s ease-in-out infinite alternate; }
 .our-work-signature .work-art-orbit { transform-box: fill-box; transform-origin: center; animation: work-orbit-turn 22s linear infinite; }
 .our-work-signature .work-art-label {
@@ -78,10 +85,40 @@
   38%,78% { stroke-dashoffset: 0; opacity: 1; }
   100% { stroke-dashoffset: -420; opacity: .16; }
 }
-@keyframes work-structure-arrive {
-  0%,12% { opacity: .12; transform: translate3d(0,14px,0) scale(.9); }
-  42%,82% { opacity: 1; transform: translate3d(0,0,0) scale(1.04); }
-  100% { opacity: .28; transform: translate3d(0,-4px,0) scale(1.06); }
+@keyframes build-foundation {
+  0%, 8% { opacity: 0; transform: translateY(8px); }
+  18%, 92% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(4px); }
+}
+@keyframes build-columns {
+  0%, 14% { stroke-dashoffset: 520; opacity: .2; }
+  38%, 92% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: -520; opacity: .15; }
+}
+@keyframes build-floors {
+  0%, 34% { opacity: 0; }
+  48%, 92% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes build-facade {
+  0%, 44% { stroke-dashoffset: 620; opacity: .1; }
+  68%, 92% { stroke-dashoffset: 0; opacity: .9; }
+  100% { stroke-dashoffset: -620; opacity: .1; }
+}
+@keyframes build-windows {
+  0%, 63% { opacity: 0; }
+  78%, 92% { opacity: .88; }
+  100% { opacity: 0; }
+}
+@keyframes build-crown {
+  0%, 68% { stroke-dashoffset: 180; opacity: .1; }
+  84%, 92% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: -180; opacity: .1; }
+}
+@keyframes build-glints {
+  0%, 80% { opacity: 0; }
+  86%, 92% { opacity: .9; }
+  100% { opacity: 0; }
 }
 @keyframes work-sparkle-breathe { from { opacity: .35; } to { opacity: 1; } }
 @keyframes work-orbit-turn { to { transform: rotate(360deg); } }
@@ -119,16 +156,20 @@
 }
 .our-work-image-card {
   position: relative;
+  display: grid;
+  place-items: center;
   grid-column: span 4;
   min-width: 0;
   margin: 0;
+  padding: clamp(.35rem, .9vw, .7rem);
   overflow: hidden;
+  box-sizing: border-box;
   aspect-ratio: 1.42 / 1;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  background: var(--color-surface-raised);
+  background: var(--color-surface-night-raised);
 }
- .our-work-image-grid--initiatives { grid-template-rows: repeat(2, minmax(12rem, 1fr)); }
+.our-work-image-grid--initiatives { grid-template-rows: repeat(2, minmax(12rem, 1fr)); }
 .our-work-image-grid--initiatives .our-work-image-card:first-child { grid-column: span 7; grid-row: span 2; aspect-ratio: auto; }
 .our-work-image-grid--initiatives .our-work-image-card:not(:first-child) { grid-column: span 5; aspect-ratio: 1.8 / 1; }
 .our-work-image-card img,
@@ -137,10 +178,20 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
-.our-work-image-card img { transition: transform var(--transition-interactive); }
-.our-work-image-card:hover img { transform: scale(1.035); }
+.our-work-image-card img,
+.our-work-forum-image img {
+  object-fit: contain;
+  object-position: center;
+}
+.our-work-forum-image {
+  display: grid;
+  place-items: center;
+  padding: clamp(.35rem, .9vw, .7rem);
+  background: var(--color-surface-night-raised);
+}
+.our-work-image-card img { transition: opacity var(--transition-interactive); }
+.our-work-image-card:hover img { opacity: .92; }
 .our-work-image-grid--four .our-work-image-card { grid-column: span 3; aspect-ratio: .92 / 1; }
 .our-work-image-grid--compact .our-work-image-card { aspect-ratio: 1.58 / 1; }
 .our-work-image-grid--compact .our-work-image-card:nth-child(1),
@@ -213,9 +264,22 @@
 @media (prefers-reduced-motion: reduce) {
   .our-work-signature .work-art-idea,
   .our-work-signature .work-art-flow path,
-  .our-work-signature .work-art-structure,\n  .our-work-signature .build-foundation,\n  .our-work-signature .build-columns,\n  .our-work-signature .build-floor-plates,\n  .our-work-signature .build-facade,\n  .our-work-signature .build-windows,\n  .our-work-signature .build-crown,\n  .our-work-signature .building-construction-glints,
   .our-work-signature .work-art-sparkles,
   .our-work-signature .work-art-orbit,
-  .our-work-image-card img { animation: none; transition: none; }
-  .our-work-signature .work-art-flow path,\n  .our-work-signature .build-columns,\n  .our-work-signature .build-facade,\n  .our-work-signature .build-crown { stroke-dashoffset: 0; }\n  .our-work-signature .build-foundation,\n  .our-work-signature .build-columns,\n  .our-work-signature .build-floor-plates,\n  .our-work-signature .build-facade,\n  .our-work-signature .build-windows,\n  .our-work-signature .build-crown { opacity: 1; }
+  .our-work-image-card img {
+    animation: none;
+    transition: none;
+  }
+  .our-work-signature .build-foundation,
+  .our-work-signature .build-columns,
+  .our-work-signature .build-floor-plates,
+  .our-work-signature .build-facade,
+  .our-work-signature .build-windows,
+  .our-work-signature .build-crown,
+  .our-work-signature .building-construction-glints {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    stroke-dashoffset: 0;
+  }
 }
