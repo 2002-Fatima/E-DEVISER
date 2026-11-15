@@ -2,14 +2,20 @@
 import SectionWrapper from '../ui/SectionWrapper.astro';
 ---
 
-<SectionWrapper>
-  <section id="partnerships" class="container content-section">
-    <div class="section-heading">
-      <p class="eyebrow">PARTNERSHIPS</p>
-      <h2>Collaboration and ecosystem alignment</h2>
-    </div>
-    <div class="empty-state">
-      <p>Partner details will be added only when verified and approved.</p>
+<SectionWrapper background="atmosphere" class="our-work-section">
+  <section id="partnerships" class="container container-wide content-section our-work-content" aria-labelledby="partnerships-title">
+    <header class="our-work-section-heading our-work-section-heading--inverse">
+      <div>
+        <p class="eyebrow">PARTNERSHIPS</p>
+        <h2 id="partnerships-title">Collaboration and ecosystem alignment</h2>
+      </div>
+      <p>Collaborations with institutions, governments, universities, and organizations that amplify impact.</p>
+    </header>
+    <div class="our-work-image-grid our-work-image-grid--four">
+      <figure class="our-work-image-card"><img src="/media/baykar-conversation.webp" alt="Baykar conversation" loading="lazy" decoding="async" /></figure>
+      <figure class="our-work-image-card"><img src="/media/investor-group-nicat.webp" alt="NICAT investor group" loading="lazy" decoding="async" /></figure>
+      <figure class="our-work-image-card"><img src="/media/nutech-leadership.webp" alt="NUtech leadership engagement" loading="lazy" decoding="async" /></figure>
+      <figure class="our-work-image-card"><img src="/media/prime-ministers-house.webp" alt="Engagement at the Prime Minister's House" loading="lazy" decoding="async" /></figure>
     </div>
   </section>
 </SectionWrapper>
