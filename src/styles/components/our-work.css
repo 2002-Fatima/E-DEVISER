@@ -53,7 +53,7 @@
 .our-work-signature .work-art-flow path:nth-child(3) { stroke-dasharray: 280; stroke-dashoffset: 280; animation: work-ribbon-draw 7s .7s cubic-bezier(.65,0,.25,1) infinite; }
 .our-work-signature .work-art-flow path:nth-child(4) { stroke-dasharray: 320; stroke-dashoffset: 320; animation: work-ribbon-draw 7s 1s cubic-bezier(.65,0,.25,1) infinite; }
 .our-work-signature .work-art-flow path:nth-child(5) { stroke-dasharray: 260; stroke-dashoffset: 260; animation: work-ribbon-draw 7s 1.3s cubic-bezier(.65,0,.25,1) infinite; }
-.our-work-signature .work-art-structure { opacity: 1; }
+.our-work-signature .work-art-structure { opacity: 1; animation: none; transform: none; }
 .our-work-signature .build-foundation { animation: build-foundation 8.8s ease-in-out infinite; }
 .our-work-signature .build-columns { stroke-dasharray: 520; stroke-dashoffset: 520; animation: build-columns 8.8s ease-in-out infinite; }
 .our-work-signature .build-floor-plates { opacity: 0; animation: build-floors 8.8s ease-in-out infinite; }
@@ -270,6 +270,7 @@
     animation: none;
     transition: none;
   }
+  .our-work-signature .work-art-flow path { stroke-dashoffset: 0; }
   .our-work-signature .build-foundation,
   .our-work-signature .build-columns,
   .our-work-signature .build-floor-plates,
