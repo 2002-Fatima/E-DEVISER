@@ -201,7 +201,8 @@
   .our-work-image-grid--three .our-work-image-card,
   .our-work-image-grid--four .our-work-image-card,
   .our-work-image-grid--compact .our-work-image-card,
-  .our-work-image-grid--compact .our-work-image-card:nth-child(n) { grid-column: span 1; aspect-ratio: 1.05 / 1; }
+  .our-work-image-grid--compact .our-work-image-card:nth-child(n),
+  .our-work-image-grid--initiatives .our-work-image-card { grid-column: span 1; aspect-ratio: 1.05 / 1; }
   .our-work-image-grid--three .our-work-image-card:first-child,
   .our-work-image-grid--initiatives .our-work-image-card:first-child { grid-column: 1 / -1; aspect-ratio: 1.55 / 1; }
   .our-work-field-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
