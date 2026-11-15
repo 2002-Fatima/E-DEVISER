@@ -30,7 +30,7 @@ import Button from '../ui/Button.astro';
         </a>
       </div>
       <figure class="home-work-feature-media">
-        <div class="home-work-image-placeholder home-work-image-placeholder--feature">
+        <div class="home-work-image-placeholder home-work-image-placeholder--feature home-work-image-placeholder--document">
           <img src="/media/the-patriot-ai-future-summit.webp" alt="AI Future Summit event coverage" loading="lazy" decoding="async" />
         </div>
       </figure>
@@ -121,8 +121,8 @@ import Button from '../ui/Button.astro';
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    padding: clamp(.35rem, 1vw, .8rem);
+    object-fit: cover;
+    padding: 0;
     box-sizing: border-box;
     object-position: center;
   }
@@ -130,6 +130,14 @@ import Button from '../ui/Button.astro';
   .home-work-gallery-image::before {
     pointer-events: none;
   }
-  .home-work-feature-media img { border-radius: inherit; background: rgba(7, 22, 35, .72); }
-  .home-work-gallery-image img { border-radius: inherit; background: rgba(7, 22, 35, .62); }
+  .home-work-feature-media img { border-radius: inherit; background: #F7FAFC; }
+  .home-work-image-placeholder--document img { object-fit: contain; padding: clamp(.45rem, 1vw, .8rem); }
+  .home-work-gallery-image img { border-radius: inherit; background: transparent; }
+  .home-work-gallery-image { overflow: hidden; }
+  .home-work-gallery-image img { transition: transform var(--transition-interactive); }
+  .home-work-gallery-item:hover .home-work-gallery-image img { transform: scale(1.025); }
+  @media (prefers-reduced-motion: reduce) {
+    .home-work-gallery-image img { transition: none; }
+    .home-work-gallery-item:hover .home-work-gallery-image img { transform: none; }
+  }
 </style>
