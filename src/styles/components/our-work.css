@@ -164,7 +164,7 @@
 .our-work-forum-copy > p:not(.eyebrow,.our-work-forum-kicker) { max-width: 48ch; margin-block-start: var(--space-4); color: var(--color-text-muted); line-height: 1.7; }
 .our-work-topic-list { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-block-start: var(--space-5); }
 .our-work-topic-list span { padding: .4rem .65rem; border: 1px solid var(--color-border); border-radius: var(--radius-pill); color: var(--color-text-muted); font-size: var(--text-xs); }
-.our-work-forum-image { min-width: 0; min-height: 24rem; margin: 0; overflow: hidden; }
+.our-work-forum-image { min-width: 0; min-height: 24rem; margin: 0; overflow: hidden; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
 
 .our-work-field-grid { display: grid; grid-template-columns: 1.25fr .75fr; grid-template-rows: repeat(2,minmax(12rem,1fr)); gap: var(--space-4); }
 .our-work-field-grid .our-work-image-card { grid-column: auto; aspect-ratio: auto; min-height: 13rem; }
@@ -213,9 +213,9 @@
 @media (prefers-reduced-motion: reduce) {
   .our-work-signature .work-art-idea,
   .our-work-signature .work-art-flow path,
-  .our-work-signature .work-art-structure,
+  .our-work-signature .work-art-structure,\n  .our-work-signature .build-foundation,\n  .our-work-signature .build-columns,\n  .our-work-signature .build-floor-plates,\n  .our-work-signature .build-facade,\n  .our-work-signature .build-windows,\n  .our-work-signature .build-crown,\n  .our-work-signature .building-construction-glints,
   .our-work-signature .work-art-sparkles,
   .our-work-signature .work-art-orbit,
   .our-work-image-card img { animation: none; transition: none; }
-  .our-work-signature .work-art-flow path { stroke-dashoffset: 0; }
+  .our-work-signature .work-art-flow path,\n  .our-work-signature .build-columns,\n  .our-work-signature .build-facade,\n  .our-work-signature .build-crown { stroke-dashoffset: 0; }\n  .our-work-signature .build-foundation,\n  .our-work-signature .build-columns,\n  .our-work-signature .build-floor-plates,\n  .our-work-signature .build-facade,\n  .our-work-signature .build-windows,\n  .our-work-signature .build-crown { opacity: 1; }
 }
