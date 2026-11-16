@@ -2,14 +2,33 @@
 import SectionWrapper from '../ui/SectionWrapper.astro';
 ---
 
-<SectionWrapper>
-  <section id="in-the-field" class="container content-section">
-    <div class="section-heading">
-      <p class="eyebrow">IN THE FIELD</p>
-      <h2>Practical learning and applied implementation</h2>
+<SectionWrapper background="dark" class="our-work-section">
+  <section id="in-the-field" class="container container-wide content-section our-work-content our-work-content--field" aria-labelledby="field-title">
+    <header class="our-work-section-heading our-work-section-heading--inverse">
+      <div>
+        <p class="eyebrow">IN THE FIELD</p>
+        <h2 id="field-title">Practical learning and applied implementation</h2>
+      </div>
+      <p>Workshops, visits, research, and engagements that keep us close to the problems we solve.</p>
+    </header>
+    <div class="our-work-field-grid our-work-field-gallery">
+      <figure class="our-work-image-card our-work-image-card--wide"><img src="/media/university-speaking.webp" alt="University speaking engagement" loading="lazy" decoding="async" /></figure>
+      <figure class="our-work-image-card"><img src="/media/leap-showcase.webp" alt="LEAP showcase" loading="lazy" decoding="async" /></figure>
+      <figure class="our-work-image-card"><img src="/media/roze-news-meeting.webp" alt="Roze News meeting" loading="lazy" decoding="async" /></figure>
     </div>
-    <div class="empty-state">
-      <p>Field work details will appear here when the underlying context and outcomes are verified.</p>
+    <div class="our-work-video-grid our-work-filmstrip">
+      <figure class="our-work-video-card">
+        <video controls preload="none" poster="/media/classroom-poster.webp">
+          <source src="/media/classroom-walkthrough-720p.mp4" type="video/mp4" />
+        </video>
+        <figcaption>Classroom walkthrough</figcaption>
+      </figure>
+      <figure class="our-work-video-card">
+        <video controls preload="none" poster="/media/library-poster.webp">
+          <source src="/media/library-excerpt-720p.mp4" type="video/mp4" />
+        </video>
+        <figcaption>Library excerpt</figcaption>
+      </figure>
     </div>
   </section>
 </SectionWrapper>

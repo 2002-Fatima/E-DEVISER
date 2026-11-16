@@ -2,14 +2,25 @@
 import SectionWrapper from '../ui/SectionWrapper.astro';
 ---
 
-<SectionWrapper>
-  <section id="initiatives" class="container content-section">
-    <div class="section-heading">
-      <p class="eyebrow">INITIATIVES</p>
-      <h2>Current lines of work</h2>
-    </div>
-    <div class="empty-state">
-      <p>Verified initiatives will be added here as the program portfolio becomes clear.</p>
+<SectionWrapper background="light" class="our-work-section">
+  <section id="initiatives" class="container container-wide content-section our-work-content our-work-content--initiatives" aria-labelledby="initiatives-title">
+    <header class="our-work-section-heading">
+      <div>
+        <p class="eyebrow">INITIATIVES</p>
+        <h2 id="initiatives-title">Current lines of work</h2>
+      </div>
+      <p>Initiatives and programs we create to solve real problems and drive lasting change.</p>
+    </header>
+    <div class="our-work-image-grid our-work-image-grid--initiatives our-work-initiatives-gallery">
+      <figure class="our-work-image-card">
+        <img src="/media/classroom-poster.webp" alt="Classroom learning environment" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="our-work-image-card">
+        <img src="/media/library-poster.webp" alt="Library learning environment" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="our-work-image-card">
+        <img src="/media/classroom-entrance.webp" alt="Classroom entrance and learning space" loading="lazy" decoding="async" />
+      </figure>
     </div>
   </section>
 </SectionWrapper>

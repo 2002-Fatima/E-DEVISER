@@ -1,11 +1,140 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
+import '../../styles/components/our-work.css';
 ---
 
-<SectionWrapper>
-  <div class="container hero-subpage">
-    <p class="eyebrow">OUR WORK</p>
-    <h1>Applied work across initiatives, field learning, and collaboration.</h1>
-    <p>This page structure is intentionally adaptable as verified initiatives, programs, and publications are confirmed.</p>
-  </div>
+<SectionWrapper background="atmosphere" spacing="compact" class="our-work-hero">
+  <section class="container container-wide our-work-hero-layout" aria-labelledby="our-work-title">
+    <div class="our-work-hero-copy">
+      <p class="eyebrow">OUR WORK</p>
+      <h1 id="our-work-title">Applied work across initiatives, field learning, and collaboration.</h1>
+      <p>From initiatives and partnerships to forums and fieldwork, everything we do is driven by one purpose: to turn conviction into real impact.</p>
+    </div>
+    <div class="our-work-signature" role="img" aria-label="Idea transforms through E Deviser into building">
+      <svg class="our-work-signature-art" viewBox="0 0 620 270" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="work-ribbon" x1="90" y1="80" x2="430" y2="160" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8AF0D9" stop-opacity=".12"/>
+              <stop offset=".46" stop-color="#43C9C0" stop-opacity=".9"/>
+              <stop offset="1" stop-color="#48A9E8" stop-opacity=".82"/>
+            </linearGradient>
+            <linearGradient id="work-face-a" x1="360" y1="70" x2="500" y2="215" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#B9FFF0" stop-opacity=".28"/>
+              <stop offset="1" stop-color="#078FC0" stop-opacity=".035"/>
+            </linearGradient>
+            <linearGradient id="work-face-b" x1="430" y1="95" x2="550" y2="215" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#43C9C0" stop-opacity=".22"/>
+              <stop offset="1" stop-color="#0C5D86" stop-opacity=".04"/>
+            </linearGradient>
+            <radialGradient id="work-core" cx="0" cy="0" r="1" gradientTransform="translate(462 139) rotate(90) scale(94 112)" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6CE6D1" stop-opacity=".2"/>
+              <stop offset="1" stop-color="#6CE6D1" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="work-glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="5"/>
+            </filter>
+            <path id="work-label-idea" d="M34 52 Q140 12 248 52"/>
+            <path id="work-label-brand" d="M242 62 Q330 24 418 62"/>
+            <path id="work-label-building" d="M397 48 Q486 10 575 48"/>
+          </defs>
+
+          <g class="work-art-grid" stroke="#9AD9E2" stroke-opacity=".09" stroke-width=".7">
+            <path d="M24 44H596M24 88H596M24 132H596M24 176H596M24 220H596"/>
+            <path d="M68 24V246M112 24V246M156 24V246M200 24V246M244 24V246M288 24V246M332 24V246M376 24V246M420 24V246M464 24V246M508 24V246M552 24V246"/>
+          </g>
+
+          <ellipse cx="462" cy="143" rx="124" ry="105" fill="url(#work-core)"/>
+
+          <g class="work-art-idea">
+            <path d="M48 145C78 85 113 74 145 107C176 140 126 185 98 153C70 122 126 54 176 87C216 114 180 177 148 190" stroke="#9BF3DF" stroke-opacity=".76" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M42 170C82 207 120 212 151 178C181 146 205 81 240 98C267 111 247 152 222 164" stroke="#39BDB7" stroke-opacity=".8" stroke-width="1.1" stroke-linecap="round"/>
+            <path d="M75 67C104 41 148 47 173 70C200 94 190 124 169 134" stroke="#6CBDEB" stroke-opacity=".68" stroke-width="1.1" stroke-linecap="round"/>
+            <path d="M52 119C78 104 99 105 116 121M123 211C156 224 190 203 206 180" stroke="#D0FFF2" stroke-opacity=".42" stroke-width=".8" stroke-linecap="round"/>
+            <path d="M30 93C65 132 22 178 69 198C105 214 122 171 151 154C183 135 208 150 232 127" stroke="#8CEBDD" stroke-opacity=".62" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="2 4"/>
+            <path d="M63 54C96 82 118 23 162 51C203 77 162 111 192 129C215 143 237 120 253 99" stroke="#64BDE4" stroke-opacity=".58" stroke-width="1" stroke-linecap="round"/>
+            <path d="M38 185C72 151 86 225 132 205C170 188 163 164 198 168C220 171 231 194 249 181" stroke="#B8FFF0" stroke-opacity=".48" stroke-width=".9" stroke-linecap="round"/>
+            <path d="M87 36C113 62 126 85 111 103C94 124 63 110 57 135M155 47C184 63 203 87 188 107" stroke="#7ED8EA" stroke-opacity=".52" stroke-width=".85" stroke-linecap="round"/>
+            <circle cx="31" cy="93" r="1.8" fill="#B8FFF0"/><circle cx="69" cy="198" r="2" fill="#79D9E5"/>
+            <circle cx="232" cy="127" r="1.8" fill="#B8FFF0"/><circle cx="253" cy="99" r="1.4" fill="#8CEBDD"/>
+            <circle cx="87" cy="36" r="1.5" fill="#C8FFF2"/><circle cx="249" cy="181" r="1.7" fill="#C8FFF2"/>
+            <circle cx="52" cy="145" r="2.2" fill="#C7FFF1"/>
+            <circle cx="145" cy="107" r="2.4" fill="#A5F4E1"/>
+            <circle cx="176" cy="87" r="1.8" fill="#6CC6E8"/>
+            <circle cx="222" cy="164" r="2" fill="#C7FFF1"/>
+            <circle cx="98" cy="153" r="1.6" fill="#A5F4E1"/>
+            <circle cx="206" cy="180" r="1.6" fill="#6CC6E8"/>
+          </g>
+
+          <g class="work-art-flow">
+            <path d="M160 136C222 63 252 220 313 142C354 90 355 69 395 90C424 106 419 151 451 151" stroke="url(#work-ribbon)" stroke-width="20" stroke-linecap="round" opacity=".36" filter="url(#work-glow)"/>
+            <path d="M160 136C222 63 252 220 313 142C354 90 355 69 395 90C424 106 419 151 451 151" stroke="url(#work-ribbon)" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M177 176C234 224 260 86 316 129C357 160 364 194 405 174C426 164 436 144 457 137" stroke="#8BEAD9" stroke-opacity=".9" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M187 91C235 57 267 193 326 151C366 122 363 89 411 107C438 117 434 151 464 156" stroke="#4CCFC5" stroke-opacity=".72" stroke-width="1.15" stroke-linecap="round"/>
+            <path d="M204 199C246 160 269 112 300 119C344 128 352 211 401 188" stroke="#A4F6E7" stroke-opacity=".55" stroke-width=".9" stroke-linecap="round"/>
+            <path d="M190 103C233 118 256 175 292 163C329 151 346 104 379 113" stroke="#56BCE1" stroke-opacity=".65" stroke-width=".9" stroke-linecap="round"/>
+            <circle cx="313" cy="142" r="4" fill="#B8FFF0"/>
+            <circle cx="313" cy="142" r="12" stroke="#6CE6D1" stroke-opacity=".32"/>
+          </g>
+
+          <g class="work-art-structure">
+            <ellipse class="building-halo" cx="470" cy="157" rx="108" ry="94" fill="url(#work-core)"/>
+            <g class="build-foundation" fill="none" stroke="#9CF2E3" stroke-linejoin="round">
+              <path d="M365 211L464 245L575 203L475 170Z" fill="#0B6A83" fill-opacity=".13" stroke-width="1.35"/>
+              <path d="M365 211L365 218L464 252L575 210L575 203" stroke-opacity=".6" stroke-width="1"/>
+              <path d="M382 211L465 239L557 204M405 201L487 229L550 205" stroke-opacity=".35" stroke-width=".8"/>
+            </g>
+            <g class="build-columns" fill="none" stroke="#9BF3DF" stroke-width="1.35" stroke-linecap="round">
+              <path d="M401 186V119L466 83V171"/>
+              <path d="M466 171V83L539 104V193"/>
+              <path d="M401 119L466 141L539 104"/>
+              <path d="M401 143L466 165L539 128"/>
+              <path d="M401 165L466 188L539 151"/>
+              <path d="M423 126V193M444 134V201M489 90V179M513 98V187"/>
+            </g>
+            <g class="build-floor-plates" fill="#0B7790" fill-opacity=".16" stroke="#B7FFF0" stroke-width="1.15" stroke-linejoin="round">
+              <path d="M401 119L466 83L539 104L474 140Z"/>
+              <path d="M401 143L466 107L539 128L474 164Z"/>
+              <path d="M401 165L466 129L539 151L474 187Z"/>
+              <path d="M401 186L466 150L539 172L474 208Z"/>
+            </g>
+            <g class="build-facade" fill="none" stroke="#69D8D1" stroke-width=".85" stroke-linecap="round">
+              <path d="M410 121L410 181M420 116L420 185M431 110L431 190M442 104L442 194M453 97L453 199"/>
+              <path d="M479 88L479 203M492 92L492 199M505 96L505 195M518 100L518 190M531 103L531 185"/>
+              <path d="M401 130L466 153L539 116M401 153L466 176L539 139M401 176L466 199L539 162"/>
+            </g>
+            <g class="build-windows" fill="#A8FFF0">
+              <path d="M414 127L418 129V139L414 137Z M425 131L429 133V143L425 141Z M436 135L440 137V147L436 145Z M447 139L451 141V151L447 149Z"/>
+              <path d="M414 151L418 153V163L414 161Z M425 155L429 157V167L425 165Z M436 159L440 161V171L436 169Z M447 163L451 165V175L447 173Z"/>
+              <path d="M484 105L488 106V116L484 115Z M497 109L501 110V120L497 119Z M510 113L514 114V124L510 123Z M523 117L527 118V128L523 127Z"/>
+              <path d="M484 129L488 130V140L484 139Z M497 133L501 134V144L497 143Z M510 137L514 138V148L510 147Z M523 141L527 142V152L523 151Z"/>
+              <path d="M484 153L488 154V164L484 163Z M497 157L501 158V168L497 167Z M510 161L514 162V172L510 171Z M523 165L527 166V176L523 175Z"/>
+            </g>
+            <g class="build-crown" fill="none" stroke="#C7FFF1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M401 119L466 83L539 104" stroke-width="2.1"/>
+              <path d="M466 83V65M459 69L466 65L473 69" stroke-width="1.2"/>
+              <path d="M395 111L466 72L546 96" stroke-opacity=".52" stroke-width=".85"/>
+            </g>
+            <g class="building-construction-glints" fill="#C7FFF1">
+              <circle cx="401" cy="119" r="2.2"/><circle cx="466" cy="83" r="2.6"/><circle cx="539" cy="104" r="2.2"/>
+              <circle cx="474" cy="140" r="1.8"/><circle cx="474" cy="187" r="1.8"/><circle cx="464" cy="245" r="2"/>
+            </g>
+          </g>
+
+          <g class="work-art-sparkles" fill="#C8FFF2">
+            <circle cx="265" cy="74" r="1.6"/>
+            <circle cx="342" cy="206" r="1.3"/>
+            <circle cx="574" cy="71" r="1.5"/>
+            <circle cx="565" cy="218" r="1.2"/>
+            <circle cx="287" cy="222" r="1"/>
+          </g>
+          <path class="work-art-orbit" d="M342 143C376 24 525 23 574 127C610 204 507 257 430 239" stroke="#65D6D0" stroke-opacity=".26" stroke-width=".8" stroke-dasharray="2 7"/>
+          <g class="work-art-labels" aria-hidden="true">
+            <text class="work-art-label"><textPath href="#work-label-idea" startOffset="50%" text-anchor="middle">IDEA</textPath></text>
+            <text class="work-art-label work-art-label--brand"><textPath href="#work-label-brand" startOffset="50%" text-anchor="middle">E DEVISER</textPath></text>
+            <text class="work-art-label"><textPath href="#work-label-building" startOffset="50%" text-anchor="middle">BUILDING</textPath></text>
+          </g>
+
+        </svg>
+    </div>
+  </section>
 </SectionWrapper>
