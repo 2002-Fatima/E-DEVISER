@@ -2487,3 +2487,57 @@
 @media (prefers-reduced-motion: reduce) {
   .cuovo-story-copy .home-cuevo-roles li { transition: none; }
 }
+
+/* Subtle learning-world doodles: editorial texture, not a busy classroom wallpaper. */
+.home-cuevo-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.home-cuevo-section > .cuovo-learning-pattern {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: .52;
+}
+.cuovo-learning-pattern svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cuovo-doodle {
+  fill: none;
+  stroke: rgba(3, 130, 189, .25);
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cuovo-doodle--book { stroke: rgba(3, 130, 189, .23); }
+.cuovo-doodle--pencil { stroke: rgba(9, 155, 139, .25); }
+.cuovo-doodle--atom { stroke: rgba(3, 130, 189, .19); }
+.cuovo-doodle--star { stroke: rgba(9, 155, 139, .25); }
+.cuovo-doodle--abc {
+  stroke: rgba(29, 53, 87, .15);
+  stroke-width: 1.6;
+}
+.cuovo-doodle--abc text {
+  fill: rgba(3, 130, 189, .22);
+  stroke: none;
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+}
+.home-cuevo-layout {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 48rem) {
+  .home-cuevo-section > .cuovo-learning-pattern { opacity: .32; }
+  .cuovo-doodle--abc, .cuovo-doodle--atom { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-cuevo-section > .cuovo-learning-pattern { scroll-behavior: auto; }
+}
