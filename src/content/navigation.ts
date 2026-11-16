@@ -20,7 +20,7 @@ export const primaryNavigation: NavItem[] = [
       { label: 'Careers & Contact', href: '/company/careers-contact/' },
     ],
   },
-  { label: 'CUOVO', href: 'https://cuovo.tech', external: true },
+  { label: 'CUEVO', href: 'https://cuevo.tech', external: true },
 ];
 
 export const companyNavigation = [
