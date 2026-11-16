@@ -1898,3 +1898,10 @@
   .home-work-gallery-image img { transition: none; }
   .home-work-gallery-item:hover .home-work-gallery-image img { transform: none; }
 }
+
+
+/* Keep the full upper composition visible in the two portrait-led homepage photographs. */
+.home-work-gallery-image--two img,
+.home-work-gallery-image--four img {
+  object-position: center top;
+}
