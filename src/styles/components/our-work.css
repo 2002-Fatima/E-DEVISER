@@ -693,7 +693,7 @@
   grid-column: 1 / -1;
   grid-row: auto;
   min-height: 0;
-  aspect-ratio: 2.05 / 1;
+  aspect-ratio: 1.6 / 1;
   padding: clamp(.6rem, 1.2vw, 1rem);
   background:
     radial-gradient(ellipse at 50% 50%, rgba(90,185,180,.13), transparent 68%),
