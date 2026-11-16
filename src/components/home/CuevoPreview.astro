@@ -3,7 +3,31 @@ import SectionWrapper from '../ui/SectionWrapper.astro';
 import Button from '../ui/Button.astro';
 ---
 
-<SectionWrapper background="pattern" class="home-cuevo-section">
+<SectionWrapper background="pattern" class="home-cuevo-section">\n  <div class="cuovo-learning-pattern" aria-hidden="true">
+    <svg viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid slice" focusable="false">
+      <g class="cuovo-doodle cuovo-doodle--book" transform="translate(82 130)">
+        <path d="M0 10c26-12 49-10 68 2v78C48 78 25 76 0 88zM68 12c20-12 43-14 68-2v78c-25-12-48-10-68 2zM68 12v78" />
+        <path d="M13 28c15-5 28-4 41 1M13 43c15-5 28-4 41 1M82 29c14-5 27-6 41-2M82 44c14-5 27-6 41-2" />
+      </g>
+      <g class="cuovo-doodle cuovo-doodle--pencil" transform="translate(1010 115) rotate(28)">
+        <path d="M8 92 20 18 38 5 56 18 44 92 26 108zM20 18l24 0M8 92l36 0M26 108l-1 17 13-17" />
+        <path d="m20 31 23 0M17 50l23 0M14 69l23 0" />
+      </g>
+      <g class="cuovo-doodle cuovo-doodle--atom" transform="translate(1010 515)">
+        <ellipse cx="0" cy="0" rx="62" ry="24" transform="rotate(32)" />
+        <ellipse cx="0" cy="0" rx="62" ry="24" transform="rotate(-32)" />
+        <ellipse cx="0" cy="0" rx="62" ry="24" transform="rotate(90)" />
+        <circle r="7" />
+      </g>
+      <g class="cuovo-doodle cuovo-doodle--star" transform="translate(180 575)">
+        <path d="m0-35 10 24 26 2-20 16 6 26L0 18l-22 15 6-26-20-16 26-2z" />
+      </g>
+      <g class="cuovo-doodle cuovo-doodle--abc" transform="translate(555 78)">
+        <path d="M0 0h90M0 20h65M0 40h78" />
+        <text x="0" y="88">A B C</text>
+      </g>
+    </svg>
+  </div>
   <section class="container container-wide home-cuevo-layout" aria-labelledby="home-cuevo-title">
     <div class="home-cuevo-visual" aria-label="CUOVO student learning platform preview">
       <div class="cuovo-product-stage">
