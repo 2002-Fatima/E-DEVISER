@@ -130,9 +130,20 @@ import Button from '../ui/Button.astro';
   .home-work-gallery-image::before {
     pointer-events: none;
   }
-  .home-work-feature-media img { border-radius: inherit; background: #F7FAFC; }
+  .home-work-feature-media img {
+    object-fit: contain;
+    object-position: center;
+    border-radius: inherit;
+    background: #0A1A28;
+  }
   .home-work-image-placeholder--document img { object-fit: contain; padding: clamp(.45rem, 1vw, .8rem); }
-  .home-work-gallery-image img { border-radius: inherit; background: transparent; }
+  .home-work-gallery-image img { border-radius: inherit; background: #0A1A28; }
+  .home-work-gallery-image--two img,
+  .home-work-gallery-image--four img {
+    object-fit: contain;
+    object-position: center;
+    background: #0A1A28;
+  }
   .home-work-gallery-image { overflow: hidden; }
   .home-work-gallery-image img { transition: transform var(--transition-interactive); }
   .home-work-gallery-item:hover .home-work-gallery-image img { transform: scale(1.025); }
