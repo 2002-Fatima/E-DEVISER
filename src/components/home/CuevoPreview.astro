@@ -5,39 +5,83 @@ import Button from '../ui/Button.astro';
 
 <SectionWrapper background="pattern" class="home-cuevo-section">
   <section class="container container-wide home-cuevo-layout" aria-labelledby="home-cuevo-title">
-    <div class="home-cuevo-visual" aria-label="CUOVO platform model">
-      <div class="home-cuevo-mark-wrap">
-        <span class="home-cuevo-visual-kicker">THE LEARNING INTELLIGENCE PLATFORM</span>
-        <img src="/brand/cuevo-mark.png" alt="CUOVO product mark" width="300" height="300" loading="lazy" />
-        <span class="home-cuevo-mark-caption">BUILT BY E DEVISER</span>
+    <div class="home-cuevo-visual" aria-label="CUOVO student learning platform preview">
+      <div class="cuovo-product-stage">
+        <div class="cuovo-stage-grid" aria-hidden="true"></div>
+        <div class="cuovo-stage-orbit cuovo-stage-orbit--one" aria-hidden="true"></div>
+        <div class="cuovo-stage-orbit cuovo-stage-orbit--two" aria-hidden="true"></div>
+        <span class="cuovo-stage-spark cuovo-stage-spark--one" aria-hidden="true"></span>
+        <span class="cuovo-stage-spark cuovo-stage-spark--two" aria-hidden="true"></span>
+        <span class="cuovo-stage-spark cuovo-stage-spark--three" aria-hidden="true"></span>
+
+        <div class="cuovo-stage-heading">
+          <span>CUOVO / LEARNING INTELLIGENCE</span>
+          <span class="cuovo-live-indicator"><i aria-hidden="true"></i> PRODUCT EXPERIENCE</span>
+        </div>
+
+        <figure class="cuovo-dashboard">
+          <div class="cuovo-window-bar" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <small>STUDENT DASHBOARD</small>
+          </div>
+          <img
+            src="/product/cuevo/student-dashboard.webp"
+            alt="CUOVO student dashboard showing the learning experience"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+
+        <figure class="cuovo-device cuovo-device--tablet">
+          <img
+            src="/product/cuevo/student-tablet.webp"
+            alt="CUOVO learning experience on a tablet"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+
+        <figure class="cuovo-device cuovo-device--phone">
+          <img
+            src="/product/cuevo/student-phone.webp"
+            alt="CUOVO learning experience on a mobile phone"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+
+        <div class="cuovo-stage-note cuovo-stage-note--top">
+          <span>01 / UNDERSTAND</span>
+          <strong>Learning, in context.</strong>
+        </div>
+        <div class="cuovo-stage-note cuovo-stage-note--bottom">
+          <span>02 / MOVE FORWARD</span>
+          <strong>Progress made actionable.</strong>
+        </div>
+
+        <div class="cuovo-stage-footer">
+          <span>ONE CONNECTED LEARNING EXPERIENCE</span>
+          <span>BUILT BY E DEVISER</span>
+        </div>
       </div>
-      <div class="home-cuevo-capabilities" aria-label="CUOVO foundations">
-        <div>
-          <span>01</span>
-          <strong>Outcome-based education</strong>
-        </div>
-        <div>
-          <span>02</span>
-          <strong>Meaningful gamification</strong>
-        </div>
-        <div>
-          <span>03</span>
-          <strong>Agentic AI</strong>
-        </div>
+
+      <div class="cuovo-foundations" aria-label="CUOVO foundations">
+        <div><span>01</span><strong>Outcome-based education</strong></div>
+        <div><span>02</span><strong>Meaningful gamification</strong></div>
+        <div><span>03</span><strong>Agentic AI</strong></div>
       </div>
     </div>
 
-    <div class="home-cuevo-copy">
-      <p class="eyebrow">WHAT WE&apos;RE BUILDING TODAY</p>
-      <h2 id="home-cuevo-title">Make learning visible. Make progress actionable.</h2>
-      <p>
-        CUOVO is E Deviser&apos;s learning-intelligence platform. It brings outcome-based education,
-        meaningful gamification, and agentic AI into a more connected way to understand learning
-        and act on what matters.
+    <div class="home-cuevo-copy cuovo-story-copy">
+      <p class="eyebrow">WHAT WE&apos;RE BUILDING TODAY <span class="cuovo-section-index">/ 04</span></p>
+      <p class="cuovo-overline">A NEW WAY TO UNDERSTAND LEARNING</p>
+      <h2 id="home-cuevo-title">Make learning visible. <span>Make progress actionable.</span></h2>
+      <p class="cuovo-story-lede">
+        CUOVO is E Deviser&apos;s learning-intelligence platform — bringing outcome-based education,
+        meaningful gamification, and agentic AI into one connected experience.
       </p>
-      <p class="home-cuevo-support">
-        Designed around the people who make learning happen.
-      </p>
+      <div class="cuovo-story-divider" aria-hidden="true"></div>
+      <p class="home-cuevo-support">Designed around the people who make learning happen.</p>
       <ul class="home-cuevo-roles" aria-label="People CUOVO is designed to support">
         <li>Admin</li>
         <li>Coordinator</li>
@@ -45,7 +89,10 @@ import Button from '../ui/Button.astro';
         <li>Student</li>
         <li>Parent</li>
       </ul>
-      <Button href="https://cuovo.tech/" external label="Explore CUOVO" />
+      <div class="cuovo-story-action">
+        <Button href="https://cuovo.tech/" external label="Explore CUOVO" />
+        <span>LEARNING, UNDERSTOOD BETTER.</span>
+      </div>
     </div>
   </section>
 </SectionWrapper>
