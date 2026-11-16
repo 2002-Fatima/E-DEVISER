@@ -1905,3 +1905,16 @@
 .home-work-gallery-image--four img {
   object-position: center top;
 }
+
+
+/* Preserve the complete subject in the featured summit and fieldwork photographs. */
+.home-work-feature-media .home-work-image-placeholder img {
+  object-fit: contain;
+  object-position: center;
+  background: #0A1A28;
+}
+.home-work-gallery-image--four img {
+  object-fit: contain;
+  object-position: center;
+  background: #0A1A28;
+}
