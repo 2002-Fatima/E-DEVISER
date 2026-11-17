@@ -124,15 +124,15 @@ import '../../styles/components/our-work-volume.css';
 </SectionWrapper>
 
 <script>
-  document.querySelectorAll('[data-work-volume]').forEach((volume) => {
-    const openButton = volume.querySelector('[data-volume-open]');
-    const closeButton = volume.querySelector('[data-volume-close]');
-    const content = volume.querySelector('[data-volume-content]');
-    const pages = Array.from(volume.querySelectorAll('[data-volume-page]'));
-    const counter = volume.querySelector('[data-volume-counter]');
-    const previous = volume.querySelector('[data-volume-prev]');
-    const next = volume.querySelector('[data-volume-next]');
-    const progressButtons = Array.from(volume.querySelectorAll('[data-volume-go]'));
+  document.querySelectorAll<HTMLElement>('[data-work-volume]').forEach((volume) => {
+    const openButton = volume.querySelector<HTMLButtonElement>('[data-volume-open]')!;
+    const closeButton = volume.querySelector<HTMLButtonElement>('[data-volume-close]')!;
+    const content = volume.querySelector<HTMLElement>('[data-volume-content]')!;
+    const pages = Array.from(volume.querySelectorAll<HTMLElement>('[data-volume-page]'));
+    const counter = volume.querySelector<HTMLElement>('[data-volume-counter]')!;
+    const previous = volume.querySelector<HTMLButtonElement>('[data-volume-prev]')!;
+    const next = volume.querySelector<HTMLButtonElement>('[data-volume-next]')!;
+    const progressButtons = Array.from(volume.querySelectorAll<HTMLButtonElement>('[data-volume-go]'));
     let current = 0;
 
     const showPage = (index, direction = 'next') => {
@@ -145,7 +145,7 @@ import '../../styles/components/our-work-volume.css';
       nextPage.hidden = false;
       nextPage.dataset.direction = direction;
       nextPage.classList.remove('is-active');
-      requestAnimationFrame(() => nextPage.classList.add('is-active'));
+      window.requestAnimationFrame(() => nextPage.classList.add('is-active'));
       nextPage.setAttribute('aria-hidden', 'false');
       current = index;
       counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(pages.length).padStart(2, '0')}`;
@@ -171,7 +171,7 @@ import '../../styles/components/our-work-volume.css';
       content.hidden = true;
       openButton.setAttribute('aria-expanded', 'false');
       openButton.focus();
-      volume.querySelectorAll('video').forEach((video) => video.pause());
+      volume.querySelectorAll<HTMLVideoElement>('video').forEach((video) => video.pause());
     });
 
     previous.addEventListener('click', () => showPage(current - 1, 'previous'));
