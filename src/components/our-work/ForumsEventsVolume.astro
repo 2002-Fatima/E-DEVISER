@@ -13,7 +13,7 @@ import '../../styles/components/our-work-volume.css';
       <p>Ideas move forward when people meet, challenge assumptions, and exchange perspectives. This volume documents forums and public conversations around the future of learning, technology, and society.</p>
     </header>
 
-    <div class="work-volume" data-work-volume>
+    <div class="work-volume" data-work-volume="forums-events">
       <div class="work-volume-cover" data-volume-cover>
         <div class="work-volume-cover-art" aria-hidden="true">
           <img src="/media/the-patriot-ai-future-summit.webp" alt="" loading="lazy" decoding="async" />
@@ -122,7 +122,7 @@ import '../../styles/components/our-work-volume.css';
 </SectionWrapper>
 
 <script>
-  document.querySelectorAll<HTMLElement>('[data-work-volume]').forEach((volume) => {
+  document.querySelectorAll<HTMLElement>('[data-work-volume="forums-events"]').forEach((volume) => {
     const openButton = volume.querySelector<HTMLButtonElement>('[data-volume-open]')!;
     const closeButton = volume.querySelector<HTMLButtonElement>('[data-volume-close]')!;
     const content = volume.querySelector<HTMLElement>('[data-volume-content]')!;
