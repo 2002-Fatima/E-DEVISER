@@ -840,3 +840,303 @@
   .our-work-archive-row,
   .our-work-closing-link span { transition: none; }
 }
+
+
+/* ---------------------------------------------------------------
+   Editorial image system
+   One consistent treatment across chapters: quiet frames, deliberate
+   crops, captions in the reading flow, and a restrained grid rhythm.
+---------------------------------------------------------------- */
+.our-work-image-grid,
+.our-work-partnerships-gallery,
+.our-work-field-gallery,
+.our-work-forum-gallery {
+  align-items: start;
+  column-gap: clamp(var(--space-3), 1.8vw, var(--space-5));
+  row-gap: clamp(var(--space-5), 2.5vw, var(--space-8));
+}
+
+.our-work-image-card {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: var(--space-3);
+  overflow: visible;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  aspect-ratio: auto;
+}
+
+.our-work-image-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-interactive), border-color var(--transition-interactive);
+}
+
+.our-work-image-card:hover img {
+  transform: translateY(-3px);
+  border-color: var(--color-border-strong);
+  opacity: 1;
+}
+
+.our-work-image-caption {
+  position: static;
+  display: flex;
+  min-height: 2.7rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 0;
+  color: var(--color-text);
+  background: transparent;
+  pointer-events: auto;
+}
+
+.our-work-image-caption span {
+  max-width: 28ch;
+  color: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  line-height: 1.4;
+  letter-spacing: -.015em;
+}
+
+.our-work-image-caption small {
+  flex: 0 0 auto;
+  padding-block-start: .15rem;
+  color: var(--color-text-subtle);
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: .08em;
+  text-align: end;
+  text-transform: uppercase;
+}
+
+.background-dark .our-work-image-caption span,
+.background-atmosphere .our-work-image-caption span {
+  color: var(--color-text-inverse);
+}
+.background-dark .our-work-image-caption small,
+.background-atmosphere .our-work-image-caption small {
+  color: var(--color-text-inverse-subtle);
+}
+
+/* Initiatives: a three-column opening composition, one anchor image. */
+.our-work-initiatives-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto;
+  gap: clamp(var(--space-4), 2vw, var(--space-6));
+}
+.our-work-initiatives-gallery .our-work-image-card:first-child {
+  grid-column: span 2;
+  grid-row: auto;
+  min-height: 0;
+}
+.our-work-initiatives-gallery .our-work-image-card:first-child img {
+  aspect-ratio: 1.42 / 1;
+}
+.our-work-initiatives-gallery .our-work-image-card:not(:first-child) {
+  grid-column: auto;
+  min-height: 0;
+}
+.our-work-initiatives-gallery .our-work-image-card:not(:first-child) img {
+  aspect-ratio: 1 / 1;
+}
+
+/* Partnerships: four equal documentary frames, a calm and legible grid. */
+.our-work-partnerships-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: auto;
+  gap: clamp(var(--space-4), 2vw, var(--space-6));
+}
+.our-work-partnership-image:first-child,
+.our-work-partnership-image:nth-child(2),
+.our-work-partnership-image:nth-child(3),
+.our-work-partnership-image:nth-child(4) {
+  grid-column: auto;
+  grid-row: auto;
+  aspect-ratio: auto;
+}
+.our-work-partnership-image img { aspect-ratio: 1 / 1; }
+.our-work-partnership-image:first-child img,
+.our-work-partnership-image:nth-child(2) img {
+  object-position: center;
+}
+
+/* Forums: the featured forum is the visual anchor; supporting moments
+   sit in a measured three-column row beneath it. */
+.our-work-forum-feature {
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+}
+.our-work-forum-image {
+  min-height: 0;
+  aspect-ratio: 1.35 / 1;
+}
+.our-work-forum-image img {
+  aspect-ratio: 1.35 / 1;
+  border-radius: var(--radius-sm);
+}
+.our-work-forum-gallery {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(var(--space-4), 2vw, var(--space-6));
+}
+.our-work-forum-gallery .our-work-image-card,
+.our-work-forum-gallery .our-work-image-card:nth-child(n) {
+  grid-column: span 2;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+.our-work-forum-gallery .our-work-image-card:first-child,
+.our-work-forum-gallery .our-work-image-card:nth-child(2) {
+  grid-column: span 3;
+}
+.our-work-forum-gallery .our-work-image-card img,
+.our-work-forum-gallery .our-work-image-card--document img {
+  aspect-ratio: 1.2 / 1;
+}
+.our-work-forum-gallery .our-work-image-card--document {
+  display: flex;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.our-work-forum-gallery .our-work-image-card--document img {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-subtle);
+  object-fit: contain;
+}
+
+/* Fieldwork: a square-led documentary grid followed by a separate film row. */
+.our-work-field-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto;
+  gap: clamp(var(--space-4), 2vw, var(--space-6));
+}
+.our-work-field-gallery .our-work-image-card,
+.our-work-field-gallery .our-work-image-card--wide,
+.our-work-field-gallery .our-work-image-card:not(.our-work-image-card--wide) {
+  grid-column: auto;
+  grid-row: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+.our-work-field-gallery .our-work-image-card img,
+.our-work-field-gallery .our-work-image-card--wide img {
+  aspect-ratio: 1 / 1;
+  object-position: center;
+}
+.our-work-filmstrip {
+  padding-block-start: var(--space-5);
+  border-block-start: 1px solid var(--color-border-inverse);
+}
+.our-work-video-card video {
+  border: 1px solid var(--color-border-inverse);
+  border-radius: var(--radius-md);
+}
+
+/* Recognition: preserve the document itself, but give all three entries
+   the same frame, baseline, and caption hierarchy. */
+.our-work-recognition-grid {
+  gap: clamp(var(--space-4), 2vw, var(--space-6));
+}
+.our-work-recognition-item {
+  border: 1px solid var(--color-border-inverse);
+  border-radius: var(--radius-md);
+  background: transparent;
+}
+.our-work-recognition-media {
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+  padding: var(--space-4);
+  background: var(--color-surface-subtle);
+}
+.our-work-recognition-media img {
+  max-height: none;
+  object-fit: contain;
+}
+.our-work-recognition-item figcaption {
+  min-height: 5rem;
+  padding: var(--space-4);
+}
+.our-work-recognition-item figcaption span {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+}
+.our-work-recognition-item figcaption small {
+  color: var(--color-text-inverse-subtle);
+  font-family: var(--font-mono);
+  font-size: .65rem;
+}
+
+/* Responsive rhythm: keep a real grid on tablets and two columns on phones. */
+@media (max-width: 62rem) {
+  .our-work-partnerships-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .our-work-partnership-image:first-child,
+  .our-work-partnership-image:nth-child(2),
+  .our-work-partnership-image:nth-child(3),
+  .our-work-partnership-image:nth-child(4) { grid-column: auto; }
+  .our-work-forum-gallery { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .our-work-field-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 48rem) {
+  .our-work-content { gap: var(--space-8); padding-block: var(--space-12); }
+  .our-work-section-heading {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding-block-end: var(--space-4);
+  }
+  .our-work-initiatives-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .our-work-initiatives-gallery .our-work-image-card:first-child { grid-column: 1 / -1; }
+  .our-work-partnerships-gallery,
+  .our-work-field-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .our-work-forum-feature { grid-template-columns: 1fr; }
+  .our-work-forum-copy { padding: var(--space-6); }
+  .our-work-forum-image { aspect-ratio: 16 / 10; }
+  .our-work-forum-image img { aspect-ratio: 16 / 10; }
+  .our-work-forum-gallery .our-work-image-card,
+  .our-work-forum-gallery .our-work-image-card:nth-child(n) { grid-column: span 3; }
+  .our-work-forum-gallery .our-work-image-card:first-child { grid-column: 1 / -1; }
+  .our-work-filmstrip { grid-template-columns: 1fr; }
+  .our-work-recognition-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .our-work-recognition-item:last-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 36rem) {
+  .our-work-initiatives-gallery,
+  .our-work-partnerships-gallery,
+  .our-work-field-gallery,
+  .our-work-forum-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .our-work-initiatives-gallery .our-work-image-card:first-child,
+  .our-work-forum-gallery .our-work-image-card:first-child { grid-column: 1 / -1; }
+  .our-work-image-caption { min-height: 3.1rem; flex-direction: column; gap: .2rem; }
+  .our-work-image-caption small { text-align: start; }
+  .our-work-recognition-grid { grid-template-columns: 1fr 1fr; }
+  .our-work-recognition-item:last-child { grid-column: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .our-work-image-card img { transition: none; }
+  .our-work-image-card:hover img { transform: none; }
+}
