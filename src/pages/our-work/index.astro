@@ -6,24 +6,32 @@ import InitiativesSection from '../../components/our-work/InitiativesSection.ast
 import PartnershipsSection from '../../components/our-work/PartnershipsSection.astro';
 import ForumsEventsSection from '../../components/our-work/ForumsEventsSection.astro';
 import InTheFieldSection from '../../components/our-work/InTheFieldSection.astro';
-import NewsFeaturesSection from '../../components/our-work/NewsFeaturesSection.astro';
+import StoriesSection from '../../components/our-work/StoriesSection.astro';
+import RecognitionSection from '../../components/our-work/RecognitionSection.astro';
+import ArchiveSection from '../../components/our-work/ArchiveSection.astro';
+import WorkClosingSection from '../../components/our-work/WorkClosingSection.astro';
 
 const navItems = [
   { label: 'Initiatives', href: '#initiatives' },
   { label: 'Partnerships', href: '#partnerships' },
   { label: 'Forums & Events', href: '#forums-events' },
   { label: 'In the Field', href: '#in-the-field' },
-  { label: 'News / Features', href: '#news-features' },
+  { label: 'Stories', href: '#stories' },
+  { label: 'Recognition', href: '#recognition' },
+  { label: 'Archive', href: '#archive' },
 ];
 const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Our Work' }];
 ---
 
-<MainLayout title="Our Work" description="Explore E Deviser initiatives, partnerships, events, field work, and updates." breadcrumbs={breadcrumbs}>
+<MainLayout title="Our Work" description="A closer look at E Deviser's initiatives, partnerships, forums, field work, stories, and recognition." breadcrumbs={breadcrumbs}>
   <OurWorkHero />
   <SectionNavigation items={navItems} />
   <InitiativesSection />
   <PartnershipsSection />
   <ForumsEventsSection />
   <InTheFieldSection />
-  <NewsFeaturesSection />
+  <StoriesSection />
+  <RecognitionSection />
+  <ArchiveSection />
+  <WorkClosingSection />
 </MainLayout>
