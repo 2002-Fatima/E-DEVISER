@@ -5,113 +5,116 @@ import Button from '../ui/Button.astro';
 
 <SectionWrapper background="atmosphere" class="home-work-section">
   <section class="container container-wide home-work-content" aria-labelledby="home-work-title">
-    <header class="home-work-heading">
-      <div class="home-work-copy">
-        <p class="eyebrow">OUR WORK · A FIELD RECORD</p>
-        <h2 id="home-work-title">Ideas are easy. Building is the work.</h2>
-      </div>
-      <p class="home-work-intro">
-        A closer look at the initiatives, partnerships, conversations, and moments through which
-        we put ideas into practice.
-      </p>
-    </header>
-
     <div class="home-work-editorial">
-      <article class="home-work-feature" aria-labelledby="home-work-feature-title">
-        <a class="home-work-feature-image" href="/our-work/#forums-events" aria-label="Explore the Forums and Events volume">
-          <img
-            src="/media/the-patriot-ai-future-summit.webp"
-            alt="The Patriot AI Future Summit"
-            loading="lazy"
-            decoding="async"
-          />
-          <span class="home-work-feature-image-index">03 / 05</span>
-          <span class="home-work-feature-image-mark" aria-hidden="true">E / D</span>
-        </a>
-        <div class="home-work-feature-copy">
-          <div class="home-work-feature-meta">
-            <span>FEATURED RECORD</span>
-            <span>VOL. 03 — FORUMS &amp; EVENTS</span>
-          </div>
-          <h3 id="home-work-feature-title">Shaping what&apos;s next.</h3>
-          <p>
-            Public conversations create room to question, exchange perspectives, and explore
-            what emerging technologies could mean for learning and society.
+      <article class="home-work-cover" aria-labelledby="home-work-title">
+        <img
+          class="home-work-cover-image"
+          src="/media/the-patriot-ai-future-summit.webp"
+          alt="A moment from The Patriot AI Future Summit, featured on the Our Work editorial cover"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="home-work-cover-shade" aria-hidden="true"></div>
+        <div class="home-work-cover-glow" aria-hidden="true"></div>
+
+        <div class="home-work-cover-topline">
+          <span class="home-work-cover-masthead">E / DEVISER</span>
+          <span class="home-work-cover-issue">FIELD RECORD · 2026</span>
+        </div>
+
+        <div class="home-work-cover-kicker">
+          <span>THE WORK, IN MOTION</span>
+          <span class="home-work-cover-rule" aria-hidden="true"></span>
+          <span>VOL. 01—05</span>
+        </div>
+
+        <div class="home-work-cover-main">
+          <p class="home-work-cover-overline">OUR WORK</p>
+          <h2 id="home-work-title">Ideas are easy.<br />Building is the work.</h2>
+          <p class="home-work-cover-deck">
+            A field record of the initiatives, partnerships, conversations, and moments turning
+            conviction into progress.
           </p>
-          <a class="home-work-text-link" href="/our-work/#forums-events">
-            Explore this volume <span aria-hidden="true">↗</span>
+          <a class="home-work-cover-link" href="/our-work/" aria-label="Open the full Our Work collection">
+            <span>OPEN THE COLLECTION</span>
+            <span aria-hidden="true">↗</span>
           </a>
+        </div>
+
+        <div class="home-work-cover-bottom">
+          <span>INITIATIVES · PEOPLE · PROGRESS</span>
+          <span>AN ONGOING RECORD</span>
         </div>
       </article>
 
-      <nav class="home-work-index" aria-label="Explore the five volumes of Our Work">
-        <div class="home-work-index-heading">
+      <aside class="home-work-contents" aria-label="Inside the Our Work collection">
+        <div class="home-work-contents-heading">
           <p class="eyebrow">INSIDE THE COLLECTION</p>
-          <p>Five volumes. One evolving record.</p>
+          <h3>Five volumes.<br />One evolving story.</h3>
+          <p>Explore the work by chapter. Each volume opens a closer look at the people, places, and ideas behind it.</p>
         </div>
-        <ol>
-          <li>
-            <a href="/our-work/#initiatives">
-              <span class="home-work-index-number">01</span>
-              <span class="home-work-index-copy">
-                <strong>Initiatives</strong>
-                <small>Creating spaces for what comes next</small>
-              </span>
-              <span class="home-work-index-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li>
-            <a href="/our-work/#partnerships">
-              <span class="home-work-index-number">02</span>
-              <span class="home-work-index-copy">
-                <strong>Partnerships</strong>
-                <small>Connecting people and possibility</small>
-              </span>
-              <span class="home-work-index-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li class="is-featured">
-            <a href="/our-work/#forums-events">
-              <span class="home-work-index-number">03</span>
-              <span class="home-work-index-copy">
-                <strong>Forums &amp; Events</strong>
-                <small>Making room for important conversations</small>
-              </span>
-              <span class="home-work-index-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li>
-            <a href="/our-work/#in-the-field">
-              <span class="home-work-index-number">04</span>
-              <span class="home-work-index-copy">
-                <strong>In the Field</strong>
-                <small>Learning through presence and practice</small>
-              </span>
-              <span class="home-work-index-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li>
-            <a href="/our-work/#recognition">
-              <span class="home-work-index-number">05</span>
-              <span class="home-work-index-copy">
-                <strong>Recognition &amp; Features</strong>
-                <small>Selected records and public recognition</small>
-              </span>
-              <span class="home-work-index-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-        </ol>
-        <p class="home-work-index-note">A selection from the wider work, documented as it develops.</p>
-      </nav>
-    </div>
 
-    <footer class="home-work-footer">
-      <div>
-        <p class="home-work-footer-title">The work is still unfolding.</p>
-        <p>Explore the full collection, from the first initiative to the latest field notes.</p>
-      </div>
-      <Button href="/our-work/" label="Explore Our Work" variant="primary" />
-    </footer>
+        <nav class="home-work-index" aria-label="Explore the five volumes of Our Work">
+          <ol>
+            <li>
+              <a href="/our-work/#initiatives">
+                <span class="home-work-index-number">01</span>
+                <span class="home-work-index-copy">
+                  <strong>Initiatives</strong>
+                  <small>Creating spaces for what comes next</small>
+                </span>
+                <span class="home-work-index-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="/our-work/#partnerships">
+                <span class="home-work-index-number">02</span>
+                <span class="home-work-index-copy">
+                  <strong>Partnerships</strong>
+                  <small>Connecting people and possibility</small>
+                </span>
+                <span class="home-work-index-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="/our-work/#forums-events">
+                <span class="home-work-index-number">03</span>
+                <span class="home-work-index-copy">
+                  <strong>Forums &amp; Events</strong>
+                  <small>Making room for important conversations</small>
+                </span>
+                <span class="home-work-index-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="/our-work/#in-the-field">
+                <span class="home-work-index-number">04</span>
+                <span class="home-work-index-copy">
+                  <strong>In the Field</strong>
+                  <small>Learning through presence and practice</small>
+                </span>
+                <span class="home-work-index-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="/our-work/#recognition">
+                <span class="home-work-index-number">05</span>
+                <span class="home-work-index-copy">
+                  <strong>Recognition &amp; Features</strong>
+                  <small>Selected records and public recognition</small>
+                </span>
+                <span class="home-work-index-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          </ol>
+        </nav>
+
+        <div class="home-work-contents-foot">
+          <span>THE FULL EDITION</span>
+          <Button href="/our-work/" label="Explore Our Work" variant="primary" />
+        </div>
+      </aside>
+    </div>
   </section>
 </SectionWrapper>
 
@@ -122,178 +125,207 @@ import Button from '../ui/Button.astro';
   }
 
   .home-work-content {
-    display: grid;
-    gap: clamp(2.5rem, 5.5vw, 5rem);
     padding-block: clamp(4.5rem, 8vw, 7rem);
-  }
-
-  .home-work-heading {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(16rem, .65fr);
-    align-items: end;
-    gap: clamp(2rem, 6vw, 6rem);
-  }
-
-  .home-work-copy {
-    max-width: 58rem;
-  }
-
-  .home-work-copy h2 {
-    max-width: 13ch;
-    margin-block-start: .75rem;
-    color: var(--color-white);
-    font-family: var(--font-display);
-    font-size: clamp(2.7rem, 5.4vw, 5.3rem);
-    font-weight: var(--weight-semibold);
-    letter-spacing: -.065em;
-    line-height: .98;
-  }
-
-  .home-work-intro {
-    max-width: 39ch;
-    padding-block-end: .35rem;
-    color: var(--color-text-inverse-muted);
-    font-size: var(--text-lg);
-    line-height: 1.75;
   }
 
   .home-work-editorial {
     display: grid;
-    grid-template-columns: minmax(0, 1.12fr) minmax(19rem, .88fr);
+    grid-template-columns: minmax(0, 1.02fr) minmax(19rem, .78fr);
     align-items: stretch;
-    border: 1px solid rgba(220, 248, 246, .2);
-    background: rgba(5, 21, 34, .34);
+    gap: clamp(1.5rem, 4vw, 4.5rem);
+    max-width: 76rem;
+    margin-inline: auto;
   }
 
-  .home-work-feature {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    min-width: 0;
-    padding: clamp(1rem, 2vw, 1.5rem);
-    border-inline-end: 1px solid rgba(220, 248, 246, .2);
-  }
-
-  .home-work-feature-image {
+  .home-work-cover {
     position: relative;
-    display: block;
+    display: flex;
     min-width: 0;
+    min-height: 42rem;
+    flex-direction: column;
+    justify-content: space-between;
+    isolation: isolate;
     overflow: hidden;
-    aspect-ratio: 1.45 / 1;
+    padding: clamp(1.35rem, 3vw, 2.5rem);
+    border: 1px solid rgba(198, 255, 246, .5);
     background: var(--color-surface-night);
+    box-shadow:
+      0 0 0 1px rgba(115, 231, 215, .12),
+      0 24px 80px rgba(1, 12, 23, .3),
+      0 0 55px rgba(89, 221, 206, .12);
   }
 
-  .home-work-feature-image::after {
+  .home-work-cover-image,
+  .home-work-cover-shade,
+  .home-work-cover-glow {
     position: absolute;
+    z-index: -1;
     inset: 0;
-    background: linear-gradient(180deg, rgba(4, 17, 28, .32), transparent 34%, rgba(4, 17, 28, .22));
-    content: "";
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-work-cover-image {
+    object-fit: cover;
+    object-position: center 36%;
+    transform: scale(1.015);
+  }
+
+  .home-work-cover-shade {
+    background:
+      linear-gradient(180deg, rgba(3, 17, 29, .48) 0%, rgba(3, 17, 29, .08) 26%, rgba(3, 17, 29, .18) 45%, rgba(3, 17, 29, .94) 100%),
+      linear-gradient(90deg, rgba(3, 17, 29, .48), transparent 76%);
+  }
+
+  .home-work-cover-glow {
+    background:
+      radial-gradient(ellipse at 78% 24%, rgba(103, 239, 218, .28), transparent 34%),
+      radial-gradient(ellipse at 12% 88%, rgba(69, 153, 196, .18), transparent 42%);
+    mix-blend-mode: screen;
     pointer-events: none;
   }
 
-  .home-work-feature-image img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform var(--transition-interactive);
-  }
-
-  .home-work-feature-image:hover img {
-    transform: scale(1.025);
-  }
-
-  .home-work-feature-image-index,
-  .home-work-feature-image-mark {
-    position: absolute;
-    z-index: 1;
-    top: 1rem;
-    color: rgba(255, 255, 255, .9);
-    font-family: var(--font-mono);
-    font-size: .66rem;
-    letter-spacing: .14em;
-  }
-
-  .home-work-feature-image-index { left: 1rem; }
-  .home-work-feature-image-mark { right: 1rem; }
-
-  .home-work-feature-copy {
+  .home-work-cover-topline,
+  .home-work-cover-bottom {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(.2rem, .8vw, .75rem) .5rem;
-  }
-
-  .home-work-feature-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .6rem 1.25rem;
-    color: var(--brand-teal-light);
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: rgba(255, 255, 255, .92);
     font-family: var(--font-mono);
     font-size: .62rem;
-    letter-spacing: .12em;
-    line-height: 1.6;
+    letter-spacing: .13em;
+    line-height: 1.5;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, .35);
   }
 
-  .home-work-feature-copy h3 {
-    margin-block: 1rem .75rem;
+  .home-work-cover-masthead {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.5vw, 2rem);
+    font-weight: var(--weight-bold);
+    letter-spacing: -.075em;
+  }
+
+  .home-work-cover-issue,
+  .home-work-cover-bottom span:last-child {
+    text-align: end;
+  }
+
+  .home-work-cover-kicker {
+    position: absolute;
+    top: 27%;
+    inset-inline: clamp(1.35rem, 3vw, 2.5rem);
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    color: rgba(255, 255, 255, .92);
+    font-family: var(--font-mono);
+    font-size: .58rem;
+    letter-spacing: .15em;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, .5);
+  }
+
+  .home-work-cover-rule {
+    width: clamp(1.5rem, 5vw, 4rem);
+    height: 1px;
+    background: var(--brand-teal-light);
+    box-shadow: 0 0 12px rgba(143, 233, 220, .8);
+  }
+
+  .home-work-cover-main {
+    max-width: 36rem;
+    margin-block-start: auto;
+    padding-block: 7rem 2.25rem;
+    color: var(--color-white);
+  }
+
+  .home-work-cover-overline {
+    margin-block-end: .8rem;
+    color: var(--brand-teal-light);
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    letter-spacing: .2em;
+  }
+
+  .home-work-cover-main h2 {
+    max-width: 11ch;
     color: var(--color-white);
     font-family: var(--font-display);
-    font-size: clamp(2rem, 3.2vw, 3.25rem);
+    font-size: clamp(2.8rem, 5.3vw, 5.2rem);
     font-weight: var(--weight-semibold);
-    letter-spacing: -.055em;
-    line-height: 1;
+    letter-spacing: -.075em;
+    line-height: .94;
+    text-wrap: balance;
+    text-shadow: 0 3px 28px rgba(0, 0, 0, .3);
   }
 
-  .home-work-feature-copy > p:not(.home-work-feature-meta) {
-    max-width: 48ch;
-    color: var(--color-text-inverse-muted);
+  .home-work-cover-deck {
+    max-width: 36ch;
+    margin-block-start: 1.2rem;
+    color: rgba(255, 255, 255, .84);
     font-size: var(--text-sm);
-    line-height: 1.8;
+    line-height: 1.75;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, .5);
   }
 
-  .home-work-text-link {
+  .home-work-cover-link {
     display: inline-flex;
     align-items: center;
-    gap: .8rem;
-    margin-block-start: 1.35rem;
-    padding-block-end: .3rem;
-    border-block-end: 1px solid rgba(143, 233, 220, .45);
+    gap: 1rem;
+    margin-block-start: 1.5rem;
+    padding-block-end: .45rem;
+    border-block-end: 1px solid rgba(143, 233, 220, .72);
     color: var(--color-white);
-    font-size: .82rem;
-    font-weight: var(--weight-semibold);
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    letter-spacing: .12em;
     text-decoration: none;
-    transition: color var(--transition-interactive), border-color var(--transition-interactive);
+    transition: color var(--transition-interactive), gap var(--transition-interactive);
   }
 
-  .home-work-text-link span {
+  .home-work-cover-link span:last-child {
     color: var(--brand-teal-light);
-    transition: transform var(--transition-interactive);
+    font-size: 1rem;
   }
 
-  .home-work-text-link:hover { color: var(--brand-teal-light); border-color: var(--brand-teal-light); }
-  .home-work-text-link:hover span { transform: translate(2px, -2px); }
+  .home-work-cover-link:hover {
+    gap: 1.35rem;
+    color: var(--brand-teal-light);
+  }
 
-  .home-work-index {
+  .home-work-contents {
     display: flex;
     min-width: 0;
     flex-direction: column;
-    padding: clamp(1.4rem, 3vw, 2.5rem);
+    justify-content: center;
+    padding-block: clamp(1rem, 2vw, 2rem);
   }
 
-  .home-work-index-heading {
-    padding-block-end: 1.35rem;
-    border-block-end: 1px solid rgba(220, 248, 246, .2);
+  .home-work-contents-heading {
+    padding-block-end: 1.5rem;
+    border-block-end: 1px solid rgba(220, 248, 246, .22);
   }
 
-  .home-work-index-heading .eyebrow {
+  .home-work-contents-heading .eyebrow {
     color: var(--brand-teal-light);
   }
 
-  .home-work-index-heading > p:last-child {
-    margin-block-start: .55rem;
+  .home-work-contents-heading h3 {
+    margin-block-start: .9rem;
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.2vw, 3rem);
+    font-weight: var(--weight-semibold);
+    letter-spacing: -.06em;
+    line-height: 1.02;
+  }
+
+  .home-work-contents-heading > p:last-child {
+    max-width: 39ch;
+    margin-block-start: .9rem;
     color: var(--color-text-inverse-muted);
     font-size: var(--text-sm);
+    line-height: 1.75;
   }
 
   .home-work-index ol {
@@ -312,8 +344,8 @@ import Button from '../ui/Button.astro';
     grid-template-columns: 2rem minmax(0, 1fr) auto;
     align-items: center;
     gap: .8rem;
-    min-height: 5.1rem;
-    padding-block: .85rem;
+    min-height: 5rem;
+    padding-block: .8rem;
     color: inherit;
     text-decoration: none;
     transition: background var(--transition-interactive), padding var(--transition-interactive);
@@ -364,43 +396,21 @@ import Button from '../ui/Button.astro';
     transform: translate(2px, -2px);
   }
 
-  .home-work-index li.is-featured {
-    margin-inline: -.55rem;
-    padding-inline: .55rem;
-    border-inline-start: 2px solid var(--brand-teal);
-    background: rgba(143, 233, 220, .055);
-  }
-
-  .home-work-index-note {
-    margin-block-start: auto;
-    padding-block-start: 1.25rem;
-    color: var(--color-text-inverse-subtle);
-    font-size: .72rem;
-    line-height: 1.6;
-  }
-
-  .home-work-footer {
+  .home-work-contents-foot {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
-    padding-block-start: clamp(1.5rem, 3vw, 2.25rem);
-    border-block-start: 1px solid rgba(220, 248, 246, .2);
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-block-start: auto;
+    padding-block-start: 1.5rem;
   }
 
-  .home-work-footer-title {
-    color: var(--color-white);
-    font-family: var(--font-display);
-    font-size: clamp(1.25rem, 2vw, 1.65rem);
-    font-weight: var(--weight-semibold);
-    letter-spacing: -.03em;
-  }
-
-  .home-work-footer > div > p:last-child {
-    margin-block-start: .35rem;
-    color: var(--color-text-inverse-muted);
-    font-size: var(--text-sm);
-    line-height: 1.65;
+  .home-work-contents-foot > span {
+    color: var(--color-text-inverse-subtle);
+    font-family: var(--font-mono);
+    font-size: .6rem;
+    letter-spacing: .12em;
   }
 
   .home-work-section a:focus-visible {
@@ -408,47 +418,47 @@ import Button from '../ui/Button.astro';
     outline-offset: 4px;
   }
 
-  @media (max-width: 62rem) {
-    .home-work-heading {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
+  @media (max-width: 64rem) {
+    .home-work-editorial {
+      grid-template-columns: minmax(0, 1fr) minmax(17rem, .82fr);
+      gap: 1.5rem;
     }
 
-    .home-work-copy h2 { max-width: 16ch; }
-    .home-work-editorial { grid-template-columns: minmax(0, 1fr) minmax(17rem, .9fr); }
-    .home-work-feature-meta { gap: .45rem .8rem; }
+    .home-work-cover { min-height: 39rem; }
+    .home-work-cover-main h2 { font-size: clamp(2.65rem, 5vw, 4.25rem); }
   }
 
   @media (max-width: 48rem) {
-    .home-work-content { gap: 2rem; }
+    .home-work-content { padding-block: 3.75rem; }
     .home-work-editorial { grid-template-columns: 1fr; }
-    .home-work-feature { border-inline-end: 0; border-block-end: 1px solid rgba(220, 248, 246, .2); }
-    .home-work-feature-image { aspect-ratio: 1.5 / 1; }
-    .home-work-index { padding: 1.35rem 1.2rem 1.5rem; }
-    .home-work-index li a { min-height: 4.7rem; }
-    .home-work-footer { align-items: flex-start; flex-direction: column; }
+    .home-work-cover {
+      min-height: min(42rem, 145vw);
+      aspect-ratio: 4 / 5;
+    }
+    .home-work-cover-main { padding-block: 6rem 1.75rem; }
+    .home-work-cover-kicker { top: 24%; }
+    .home-work-contents { padding-block: 1.5rem 0; }
+    .home-work-contents-foot { margin-block-start: 1.5rem; }
   }
 
   @media (max-width: 36rem) {
-    .home-work-content { padding-block: 3.5rem; }
-    .home-work-copy h2 { font-size: clamp(2.45rem, 11vw, 3.6rem); }
-    .home-work-intro { font-size: var(--text-base); }
-    .home-work-feature { padding: .7rem; }
-    .home-work-feature-image { aspect-ratio: 1.2 / 1; }
-    .home-work-feature-copy { padding: 1.25rem .35rem .35rem; }
-    .home-work-feature-meta { flex-direction: column; gap: .25rem; }
-    .home-work-index { padding-inline: 1rem; }
+    .home-work-cover { min-height: 36rem; padding: 1.15rem; }
+    .home-work-cover-topline,
+    .home-work-cover-bottom { font-size: .54rem; }
+    .home-work-cover-masthead { font-size: 1.35rem; }
+    .home-work-cover-kicker { inset-inline: 1.15rem; gap: .5rem; font-size: .5rem; }
+    .home-work-cover-main { padding-block: 5.5rem 1.5rem; }
+    .home-work-cover-main h2 { font-size: clamp(2.65rem, 12vw, 3.6rem); }
+    .home-work-cover-deck { font-size: .82rem; }
+    .home-work-contents-heading h3 { font-size: 2.35rem; }
     .home-work-index li a { grid-template-columns: 1.65rem minmax(0, 1fr) auto; gap: .6rem; }
     .home-work-index-copy small { font-size: .72rem; }
-    .home-work-footer { gap: 1.25rem; }
+    .home-work-contents-foot { align-items: flex-start; flex-direction: column; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .home-work-feature-image img,
-    .home-work-text-link,
-    .home-work-text-link span,
+    .home-work-cover-link,
     .home-work-index li a,
     .home-work-index-arrow { transition: none; }
-    .home-work-feature-image:hover img { transform: none; }
   }
 </style>
