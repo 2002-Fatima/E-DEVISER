@@ -2,11 +2,20 @@
 import SectionWrapper from '../ui/SectionWrapper.astro';
 ---
 
-<SectionWrapper background="dark" class="our-work-section our-work-closing-section">
+<SectionWrapper background="luminous" class="our-work-section our-work-closing-section">
   <section class="container container-wide our-work-closing" aria-labelledby="work-closing-title">
-    <p class="eyebrow">THE WORK CONTINUES</p>
-    <h2 id="work-closing-title">The next meaningful thing is built together.</h2>
-    <p>Have a problem worth working on, an idea to test, or a partnership to explore?</p>
-    <a class="our-work-closing-link" href="/company/careers-contact/">Start a conversation <span aria-hidden="true">↗</span></a>
+    <div class="our-work-closing-visual" aria-hidden="true">
+      <span class="our-work-closing-orbit our-work-closing-orbit--outer"></span>
+      <span class="our-work-closing-orbit our-work-closing-orbit--middle"></span>
+      <span class="our-work-closing-orbit our-work-closing-orbit--inner"></span>
+      <span class="our-work-closing-core"></span>
+      <span class="our-work-closing-axis"></span>
+    </div>
+    <div class="our-work-closing-copy">
+      <p class="eyebrow">THE WORK CONTINUES</p>
+      <h2 id="work-closing-title">The next meaningful thing starts with a problem worth solving.</h2>
+      <p>Bring us the question, the challenge, or the ambition. We’ll work with you to understand what it takes to move it forward.</p>
+      <a class="our-work-closing-link" href="/company/careers-contact/">Start a conversation <span aria-hidden="true">↗</span></a>
+    </div>
   </section>
 </SectionWrapper>
