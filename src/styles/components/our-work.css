@@ -1513,3 +1513,40 @@
     animation: none !important;
   }
 }
+
+
+/* Our Work page: keep the chapter navigation usable without consuming
+   multiple sticky rows on narrow screens. */
+.our-work-section-nav {
+  min-width: 0;
+}
+.our-work-section-nav .section-nav {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+.our-work-section-nav .section-nav::-webkit-scrollbar {
+  display: none;
+}
+.our-work-section-nav .section-nav-list {
+  width: max-content;
+  min-width: 100%;
+  flex-wrap: nowrap;
+}
+.our-work-section-nav .section-nav a {
+  white-space: nowrap;
+}
+.our-work-volume[id],
+.our-work-content[id] {
+  scroll-margin-top: 10rem;
+}
+@media (max-width: 36rem) {
+  .our-work-section-nav .section-nav {
+    padding-block: .45rem;
+  }
+  .our-work-section-nav .section-nav a {
+    min-height: 2.5rem;
+    padding-inline: .75rem;
+    font-size: .78rem;
+  }
+}
