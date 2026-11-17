@@ -1255,3 +1255,178 @@
   .our-work-closing-core,
   .our-work-closing-axis { animation: none; }
 }
+
+
+/* ------------------------------------------------------------------
+   Bordered editorial grid
+   A shared exhibition-wall language for the documentary image groups.
+   The one-pixel internal rules create a continuous grid rather than
+   a collection of unrelated rounded cards.
+------------------------------------------------------------------- */
+.our-work-bordered-grid {
+  --work-grid-rule: rgba(29, 53, 87, .18);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 1px;
+  padding: 1px;
+  overflow: hidden;
+  border: 1px solid var(--work-grid-rule);
+  background: var(--work-grid-rule);
+}
+
+.our-work-bordered-grid .our-work-image-card,
+.our-work-bordered-grid .our-work-image-card:nth-child(n) {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  grid-column: span 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0;
+  padding: clamp(.65rem, 1.2vw, 1rem);
+  border: 0;
+  border-radius: 0;
+  background: var(--color-white);
+  box-shadow: none;
+  aspect-ratio: auto;
+}
+
+.our-work-bordered-grid .our-work-image-card img,
+.our-work-bordered-grid .our-work-image-card:nth-child(n) img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.22 / 1;
+  border: 0;
+  border-radius: 0;
+  background: var(--color-surface-soft);
+  object-fit: cover;
+  transition: transform var(--transition-interactive), opacity var(--transition-interactive);
+}
+
+.our-work-bordered-grid .our-work-image-card:hover img {
+  transform: scale(1.018);
+  opacity: .94;
+}
+
+.our-work-bordered-grid .our-work-image-caption {
+  display: flex;
+  min-height: 4.25rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .65rem;
+  padding: 1rem .15rem .15rem;
+  color: var(--color-navy);
+  background: transparent;
+}
+
+.our-work-bordered-grid .our-work-image-caption span {
+  max-width: 24ch;
+  color: inherit;
+  font-size: clamp(.82rem, .95vw, .96rem);
+  font-weight: var(--weight-semibold);
+  line-height: 1.35;
+}
+
+.our-work-bordered-grid .our-work-image-caption small {
+  padding-block-start: .1rem;
+  color: var(--color-text-subtle);
+  font-size: .59rem;
+  letter-spacing: .1em;
+  line-height: 1.4;
+}
+
+/* Deliberate asymmetry: the first image anchors each chapter. */
+.our-work-initiatives-gallery .our-work-image-card:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.our-work-initiatives-gallery .our-work-image-card:first-child img {
+  flex: 1;
+  min-height: 20rem;
+  aspect-ratio: 1.02 / 1;
+}
+.our-work-initiatives-gallery .our-work-image-card:not(:first-child) img {
+  aspect-ratio: 1.22 / 1;
+}
+
+.our-work-partnerships-gallery .our-work-image-card img {
+  aspect-ratio: 1.15 / 1;
+}
+
+.our-work-forum-gallery .our-work-image-card:first-child {
+  grid-column: span 2;
+}
+.our-work-forum-gallery .our-work-image-card:first-child img {
+  aspect-ratio: 1.45 / 1;
+}
+.our-work-forum-gallery .our-work-image-card:nth-child(2) img {
+  aspect-ratio: 1.45 / 1;
+}
+.our-work-forum-gallery .our-work-image-card--document img {
+  padding: .45rem;
+  background: var(--color-surface-soft);
+  object-fit: contain;
+}
+
+.our-work-field-gallery .our-work-image-card:first-child {
+  grid-column: span 2;
+}
+.our-work-field-gallery .our-work-image-card:first-child img {
+  aspect-ratio: 1.45 / 1;
+}
+
+.background-atmosphere .our-work-bordered-grid,
+.background-dark .our-work-bordered-grid,
+.background-luminous .our-work-bordered-grid {
+  --work-grid-rule: rgba(220, 248, 246, .18);
+}
+.background-atmosphere .our-work-bordered-grid .our-work-image-card,
+.background-dark .our-work-bordered-grid .our-work-image-card,
+.background-luminous .our-work-bordered-grid .our-work-image-card {
+  background: rgba(7, 25, 39, .88);
+}
+.background-atmosphere .our-work-bordered-grid .our-work-image-caption,
+.background-dark .our-work-bordered-grid .our-work-image-caption,
+.background-luminous .our-work-bordered-grid .our-work-image-caption {
+  color: var(--color-text-inverse);
+}
+.background-atmosphere .our-work-bordered-grid .our-work-image-caption small,
+.background-dark .our-work-bordered-grid .our-work-image-caption small,
+.background-luminous .our-work-bordered-grid .our-work-image-caption small {
+  color: var(--color-text-inverse-subtle);
+}
+
+@media (max-width: 62rem) {
+  .our-work-bordered-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .our-work-initiatives-gallery .our-work-image-card:first-child {
+    grid-row: span 2;
+  }
+  .our-work-partnerships-gallery .our-work-image-card:nth-child(n) { grid-column: span 1; }
+  .our-work-forum-gallery .our-work-image-card:first-child { grid-column: span 2; }
+}
+
+@media (max-width: 36rem) {
+  .our-work-bordered-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .our-work-bordered-grid .our-work-image-card,
+  .our-work-bordered-grid .our-work-image-card:nth-child(n) { padding: .55rem; }
+  .our-work-initiatives-gallery .our-work-image-card:first-child {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .our-work-initiatives-gallery .our-work-image-card:first-child img { min-height: 0; aspect-ratio: 1.4 / 1; }
+  .our-work-forum-gallery .our-work-image-card:first-child,
+  .our-work-field-gallery .our-work-image-card:first-child { grid-column: 1 / -1; }
+  .our-work-bordered-grid .our-work-image-caption {
+    min-height: 4.1rem;
+    flex-direction: column;
+    gap: .25rem;
+    padding-block-start: .7rem;
+  }
+  .our-work-bordered-grid .our-work-image-caption small { text-align: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .our-work-bordered-grid .our-work-image-card img { transition: none; }
+  .our-work-bordered-grid .our-work-image-card:hover img { transform: none; }
+}
