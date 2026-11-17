@@ -137,6 +137,7 @@ import '../../styles/components/our-work-volume.css';
 
     const showPage = (index, direction = 'next') => {
       if (index < 0 || index >= pages.length || index === current) return;
+      volume.querySelectorAll<HTMLVideoElement>('video').forEach((video) => video.pause());
       const previousPage = pages[current];
       const nextPage = pages[index];
       previousPage.classList.remove('is-active');
@@ -178,6 +179,9 @@ import '../../styles/components/our-work-volume.css';
     next.addEventListener('click', () => showPage(current + 1, 'next'));
     progressButtons.forEach((button) => {
       button.addEventListener('click', () => showPage(Number(button.dataset.volumeGo), Number(button.dataset.volumeGo) < current ? 'previous' : 'next'));
+    });
+    volume.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !content.hidden) closeButton.click();
     });
   });
 </script>
