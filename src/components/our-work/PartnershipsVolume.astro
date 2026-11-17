@@ -13,7 +13,7 @@ import '../../styles/components/our-work-volume.css';
       <p>Progress rarely happens in isolation. This volume brings together documented engagements across industry, investment, education, and the wider institutional ecosystem.</p>
     </header>
 
-    <div class="work-volume" data-work-volume>
+    <div class="work-volume" data-work-volume="partnerships">
       <div class="work-volume-cover" data-volume-cover>
         <div class="work-volume-cover-art" aria-hidden="true">
           <img src="/media/baykar-conversation.webp" alt="" loading="lazy" decoding="async" />
@@ -113,7 +113,7 @@ import '../../styles/components/our-work-volume.css';
 </SectionWrapper>
 
 <script>
-  document.querySelectorAll<HTMLElement>('[data-work-volume]').forEach((volume) => {
+  document.querySelectorAll<HTMLElement>('[data-work-volume="partnerships"]').forEach((volume) => {
     const openButton = volume.querySelector<HTMLButtonElement>('[data-volume-open]')!;
     const closeButton = volume.querySelector<HTMLButtonElement>('[data-volume-close]')!;
     const content = volume.querySelector<HTMLElement>('[data-volume-content]')!;
