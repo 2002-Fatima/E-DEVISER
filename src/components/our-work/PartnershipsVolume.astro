@@ -1,0 +1,174 @@
+---
+import SectionWrapper from '../ui/SectionWrapper.astro';
+import '../../styles/components/our-work-volume.css';
+---
+
+<SectionWrapper background="light" class="our-work-section our-work-volume-section">
+  <section id="partnerships" class="container container-wide our-work-volume" aria-labelledby="partnerships-title">
+    <header class="our-work-volume-heading">
+      <div>
+        <p class="eyebrow">THE COLLECTION · VOL. 02</p>
+        <h2 id="partnerships-title">Partnerships</h2>
+      </div>
+      <p>Progress rarely happens in isolation. This volume brings together documented engagements across industry, investment, education, and the wider institutional ecosystem.</p>
+    </header>
+
+    <div class="work-volume" data-work-volume>
+      <div class="work-volume-cover" data-volume-cover>
+        <div class="work-volume-cover-art" aria-hidden="true">
+          <img src="/media/baykar-conversation.webp" alt="" loading="lazy" decoding="async" />
+          <span class="work-volume-cover-wash"></span>
+          <span class="work-volume-cover-index">02</span>
+          <span class="work-volume-cover-rule"></span>
+          <span class="work-volume-cover-mark">E / D</span>
+        </div>
+        <div class="work-volume-cover-copy">
+          <p class="work-volume-kicker">E DEVISER · FIELD NOTES</p>
+          <h3>Progress is built together.</h3>
+          <p class="work-volume-cover-description">A record of conversations and institutional engagements that connect ideas with people and possibility.</p>
+          <div class="work-volume-cover-meta">
+            <span>VOLUME 02</span>
+            <span>PARTNERSHIPS</span>
+          </div>
+          <button class="work-volume-open" type="button" data-volume-open aria-expanded="false" aria-controls="partnerships-book-content">
+            <span>Open volume</span><span aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <span class="work-volume-spine" aria-hidden="true"></span>
+      </div>
+
+      <div class="work-volume-content" id="partnerships-book-content" data-volume-content hidden>
+        <div class="work-volume-toolbar">
+          <div class="work-volume-location">
+            <span class="work-volume-kicker">THE COLLECTION / 02</span>
+            <span data-volume-counter>01 / 03</span>
+          </div>
+          <button class="work-volume-close" type="button" data-volume-close>
+            <span>Close volume</span><span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="work-volume-pages" aria-live="polite">
+          <article class="work-volume-spread is-active" data-volume-page="0" aria-hidden="false">
+            <div class="work-volume-page-copy">
+              <p class="work-volume-page-label">01 / INDUSTRY DIALOGUE</p>
+              <h3>Conversations beyond the familiar.</h3>
+              <p>Engagement with industry creates room to exchange perspectives, understand emerging priorities, and explore where expertise and ambition may meet.</p>
+              <p>This documented conversation with Baykar is presented as a moment of industry engagement—not as a claim of a formal partnership or outcome.</p>
+              <span class="work-volume-page-foot">PARTNERSHIPS · INDUSTRY ENGAGEMENT</span>
+            </div>
+            <figure class="work-volume-page-media work-volume-page-media--hero">
+              <img src="/media/baykar-conversation.webp" alt="Documented conversation with Baykar representatives" loading="lazy" decoding="async" />
+              <figcaption><span>02.01</span> Baykar conversation</figcaption>
+            </figure>
+          </article>
+
+          <article class="work-volume-spread" data-volume-page="1" aria-hidden="true" hidden>
+            <div class="work-volume-page-copy">
+              <p class="work-volume-page-label">02 / INVESTMENT ECOSYSTEM</p>
+              <h3>Connecting people and possibility.</h3>
+              <p>Investor and ecosystem conversations are part of the wider work of understanding the landscape around innovation and enterprise.</p>
+              <p>This volume records an engagement with the NICAT investor group as part of that broader ecosystem dialogue.</p>
+              <span class="work-volume-page-foot">PARTNERSHIPS · ECOSYSTEM ENGAGEMENT</span>
+            </div>
+            <figure class="work-volume-page-media">
+              <img src="/media/investor-group-nicat.webp" alt="NICAT investor group engagement" loading="lazy" decoding="async" />
+              <figcaption><span>02.02</span> NICAT investor group</figcaption>
+            </figure>
+          </article>
+
+          <article class="work-volume-spread" data-volume-page="2" aria-hidden="true" hidden>
+            <div class="work-volume-page-copy">
+              <p class="work-volume-page-label">03 / INSTITUTIONAL EXCHANGE</p>
+              <h3>Building dialogue across institutions.</h3>
+              <p>Institutional engagement brings different perspectives into the same conversation. These records capture moments with NUtech leadership and at the Prime Minister's House.</p>
+              <p>They are documented engagements, presented with their context rather than overstated as formal agreements.</p>
+              <span class="work-volume-page-foot">PARTNERSHIPS · INSTITUTIONAL DIALOGUE</span>
+            </div>
+            <div class="work-volume-page-gallery">
+              <figure>
+                <img src="/media/nutech-leadership.webp" alt="NUtech leadership engagement" loading="lazy" decoding="async" />
+                <figcaption><span>02.03</span> NUtech leadership</figcaption>
+              </figure>
+              <figure>
+                <img src="/media/prime-ministers-house.webp" alt="Documented engagement at the Prime Minister's House" loading="lazy" decoding="async" />
+                <figcaption><span>02.04</span> Prime Minister's House</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+
+        <div class="work-volume-navigation">
+          <button type="button" data-volume-prev disabled aria-label="Previous spread"><span aria-hidden="true">←</span><span>Previous</span></button>
+          <div class="work-volume-progress" role="group" aria-label="Choose a spread">
+            <button type="button" data-volume-go="0" class="is-active" aria-label="Go to spread 1" aria-current="step"></button>
+            <button type="button" data-volume-go="1" aria-label="Go to spread 2"></button>
+            <button type="button" data-volume-go="2" aria-label="Go to spread 3"></button>
+          </div>
+          <button type="button" data-volume-next><span>Next</span><span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+</SectionWrapper>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-work-volume]').forEach((volume) => {
+    const openButton = volume.querySelector<HTMLButtonElement>('[data-volume-open]')!;
+    const closeButton = volume.querySelector<HTMLButtonElement>('[data-volume-close]')!;
+    const content = volume.querySelector<HTMLElement>('[data-volume-content]')!;
+    const pages = Array.from(volume.querySelectorAll<HTMLElement>('[data-volume-page]'));
+    const counter = volume.querySelector<HTMLElement>('[data-volume-counter]')!;
+    const previous = volume.querySelector<HTMLButtonElement>('[data-volume-prev]')!;
+    const next = volume.querySelector<HTMLButtonElement>('[data-volume-next]')!;
+    const progressButtons = Array.from(volume.querySelectorAll<HTMLButtonElement>('[data-volume-go]'));
+    let current = 0;
+
+    const showPage = (index, direction = 'next') => {
+      if (index < 0 || index >= pages.length || index === current) return;
+      volume.querySelectorAll<HTMLVideoElement>('video').forEach((video) => video.pause());
+      const previousPage = pages[current];
+      const nextPage = pages[index];
+      previousPage.classList.remove('is-active');
+      previousPage.setAttribute('aria-hidden', 'true');
+      previousPage.hidden = true;
+      nextPage.hidden = false;
+      nextPage.dataset.direction = direction;
+      nextPage.classList.remove('is-active');
+      window.requestAnimationFrame(() => nextPage.classList.add('is-active'));
+      nextPage.setAttribute('aria-hidden', 'false');
+      current = index;
+      counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(pages.length).padStart(2, '0')}`;
+      previous.disabled = current === 0;
+      next.disabled = current === pages.length - 1;
+      progressButtons.forEach((button, buttonIndex) => {
+        const active = buttonIndex === current;
+        button.classList.toggle('is-active', active);
+        if (active) button.setAttribute('aria-current', 'step');
+        else button.removeAttribute('aria-current');
+      });
+    };
+
+    openButton.addEventListener('click', () => {
+      content.hidden = false;
+      openButton.setAttribute('aria-expanded', 'true');
+      volume.classList.add('is-open');
+      closeButton.focus();
+    });
+    closeButton.addEventListener('click', () => {
+      volume.classList.remove('is-open');
+      content.hidden = true;
+      openButton.setAttribute('aria-expanded', 'false');
+      openButton.focus();
+      volume.querySelectorAll<HTMLVideoElement>('video').forEach((video) => video.pause());
+    });
+    previous.addEventListener('click', () => showPage(current - 1, 'previous'));
+    next.addEventListener('click', () => showPage(current + 1, 'next'));
+    progressButtons.forEach((button) => {
+      button.addEventListener('click', () => showPage(Number(button.dataset.volumeGo), Number(button.dataset.volumeGo) < current ? 'previous' : 'next'));
+    });
+    volume.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !content.hidden) closeButton.click();
+    });
+  });
+</script>
