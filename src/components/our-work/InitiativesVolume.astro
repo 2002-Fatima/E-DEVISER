@@ -1,0 +1,183 @@
+---
+import SectionWrapper from '../ui/SectionWrapper.astro';
+import '../../styles/components/our-work-volume.css';
+---
+
+<SectionWrapper background="light" class="our-work-section our-work-volume-section">
+  <section id="initiatives" class="container container-wide our-work-volume" aria-labelledby="initiatives-title">
+    <header class="our-work-volume-heading">
+      <div>
+        <p class="eyebrow">THE COLLECTION · VOL. 01</p>
+        <h2 id="initiatives-title">Initiatives</h2>
+      </div>
+      <p>Work takes shape in the environments we create. This volume documents learning spaces designed to invite participation, support discovery, and bring ideas into everyday experience.</p>
+    </header>
+
+    <div class="work-volume" data-work-volume>
+      <div class="work-volume-cover" data-volume-cover>
+        <div class="work-volume-cover-art" aria-hidden="true">
+          <img src="/media/classroom-poster.webp" alt="" loading="lazy" decoding="async" />
+          <span class="work-volume-cover-wash"></span>
+          <span class="work-volume-cover-index">01</span>
+          <span class="work-volume-cover-rule"></span>
+          <span class="work-volume-cover-mark">E / D</span>
+        </div>
+        <div class="work-volume-cover-copy">
+          <p class="work-volume-kicker">E DEVISER · FIELD NOTES</p>
+          <h3>Spaces for<br />what comes next.</h3>
+          <p class="work-volume-cover-description">A closer look at the learning environments taking shape through our initiatives.</p>
+          <div class="work-volume-cover-meta">
+            <span>VOLUME 01</span>
+            <span>INITIATIVES</span>
+          </div>
+          <button class="work-volume-open" type="button" data-volume-open aria-expanded="false" aria-controls="initiatives-book-content">
+            <span>Open volume</span><span aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <span class="work-volume-spine" aria-hidden="true"></span>
+      </div>
+
+      <div class="work-volume-content" id="initiatives-book-content" data-volume-content hidden>
+        <div class="work-volume-toolbar">
+          <div class="work-volume-location">
+            <span class="work-volume-kicker">THE COLLECTION / 01</span>
+            <span data-volume-counter>01 / 03</span>
+          </div>
+          <button class="work-volume-close" type="button" data-volume-close>
+            <span>Close volume</span><span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="work-volume-pages" aria-live="polite">
+          <article class="work-volume-spread is-active" data-volume-page="0" aria-hidden="false">
+            <div class="work-volume-page-copy">
+              <p class="work-volume-page-label">01 / THE ENVIRONMENT</p>
+              <h3>Learning, made tangible.</h3>
+              <p>Learning environments are more than rooms. They shape how people gather, participate, ask questions, and engage with new ideas.</p>
+              <p>This classroom is one of the spaces documented in our initiatives—a real setting, presented as part of the work rather than as a concept rendering.</p>
+              <span class="work-volume-page-foot">INITIATIVES · FIELD DOCUMENTATION</span>
+            </div>
+            <figure class="work-volume-page-media work-volume-page-media--hero">
+              <img src="/media/classroom-poster.webp" alt="Documented classroom learning environment" loading="lazy" decoding="async" />
+              <figcaption><span>01.01</span> A classroom learning environment</figcaption>
+            </figure>
+          </article>
+
+          <article class="work-volume-spread" data-volume-page="1" aria-hidden="true" hidden>
+            <div class="work-volume-page-copy">
+              <p class="work-volume-page-label">02 / ROOM TO DISCOVER</p>
+              <h3>Different spaces. Different possibilities.</h3>
+              <p>A library creates a different rhythm: a place to explore, focus, and follow a question further.</p>
+              <p>Seen alongside the classroom, it adds another perspective to the learning environments represented in this volume.</p>
+              <span class="work-volume-page-foot">INITIATIVES · LEARNING SPACES</span>
+            </div>
+            <div class="work-volume-page-gallery">
+              <figure>
+                <img src="/media/library-poster.webp" alt="Documented library learning environment" loading="lazy" decoding="async" />
+                <figcaption><span>01.02</span> A space for discovery</figcaption>
+              </figure>
+              <figure>
+                <img src="/media/classroom-entrance.webp" alt="Entrance to a classroom learning space" loading="lazy" decoding="async" />
+                <figcaption><span>01.03</span> Designed for participation</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="work-volume-spread" data-volume-page="2" aria-hidden="true" hidden>
+            <div class="work-volume-page-copy">
+              <p class="work-volume-page-label">03 / INSIDE THE SPACE</p>
+              <h3>See the environment in use.</h3>
+              <p>Still images offer a view. A walkthrough gives the space its context—its layout, details, and the way its parts come together.</p>
+              <span class="work-volume-page-foot">INITIATIVES · VIDEO DOCUMENTATION</span>
+            </div>
+            <div class="work-volume-video-pair">
+              <figure>
+                <video controls preload="none" poster="/media/classroom-poster.webp" playsinline>
+                  <source src="/media/classroom-walkthrough-720p.mp4" type="video/mp4" />
+                  Your browser does not support the video element.
+                </video>
+                <figcaption><span>01.04</span> Classroom walkthrough</figcaption>
+              </figure>
+              <figure>
+                <video controls preload="none" poster="/media/library-poster.webp" playsinline>
+                  <source src="/media/library-excerpt-720p.mp4" type="video/mp4" />
+                  Your browser does not support the video element.
+                </video>
+                <figcaption><span>01.05</span> Library excerpt</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+
+        <div class="work-volume-navigation">
+          <button type="button" data-volume-prev disabled aria-label="Previous spread"><span aria-hidden="true">←</span><span>Previous</span></button>
+          <div class="work-volume-progress" role="group" aria-label="Choose a spread">
+            <button type="button" data-volume-go="0" class="is-active" aria-label="Go to spread 1" aria-current="step"></button>
+            <button type="button" data-volume-go="1" aria-label="Go to spread 2"></button>
+            <button type="button" data-volume-go="2" aria-label="Go to spread 3"></button>
+          </div>
+          <button type="button" data-volume-next><span>Next</span><span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+</SectionWrapper>
+
+<script>
+  document.querySelectorAll('[data-work-volume]').forEach((volume) => {
+    const openButton = volume.querySelector('[data-volume-open]');
+    const closeButton = volume.querySelector('[data-volume-close]');
+    const content = volume.querySelector('[data-volume-content]');
+    const pages = Array.from(volume.querySelectorAll('[data-volume-page]'));
+    const counter = volume.querySelector('[data-volume-counter]');
+    const previous = volume.querySelector('[data-volume-prev]');
+    const next = volume.querySelector('[data-volume-next]');
+    const progressButtons = Array.from(volume.querySelectorAll('[data-volume-go]'));
+    let current = 0;
+
+    const showPage = (index, direction = 'next') => {
+      if (index < 0 || index >= pages.length || index === current) return;
+      const previousPage = pages[current];
+      const nextPage = pages[index];
+      previousPage.classList.remove('is-active');
+      previousPage.setAttribute('aria-hidden', 'true');
+      previousPage.hidden = true;
+      nextPage.hidden = false;
+      nextPage.dataset.direction = direction;
+      nextPage.classList.remove('is-active');
+      requestAnimationFrame(() => nextPage.classList.add('is-active'));
+      nextPage.setAttribute('aria-hidden', 'false');
+      current = index;
+      counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(pages.length).padStart(2, '0')}`;
+      previous.disabled = current === 0;
+      next.disabled = current === pages.length - 1;
+      progressButtons.forEach((button, buttonIndex) => {
+        const active = buttonIndex === current;
+        button.classList.toggle('is-active', active);
+        if (active) button.setAttribute('aria-current', 'step');
+        else button.removeAttribute('aria-current');
+      });
+    };
+
+    openButton.addEventListener('click', () => {
+      content.hidden = false;
+      openButton.setAttribute('aria-expanded', 'true');
+      volume.classList.add('is-open');
+      closeButton.focus();
+    });
+
+    closeButton.addEventListener('click', () => {
+      volume.classList.remove('is-open');
+      content.hidden = true;
+      openButton.setAttribute('aria-expanded', 'false');
+      openButton.focus();
+      volume.querySelectorAll('video').forEach((video) => video.pause());
+    });
+
+    previous.addEventListener('click', () => showPage(current - 1, 'previous'));
+    next.addEventListener('click', () => showPage(current + 1, 'next'));
+    progressButtons.forEach((button) => {
+      button.addEventListener('click', () => showPage(Number(button.dataset.volumeGo), Number(button.dataset.volumeGo) < current ? 'previous' : 'next'));
+    });
+  });
+</script>
