@@ -928,11 +928,13 @@
 }
 
 .background-dark .our-work-image-caption span,
-.background-atmosphere .our-work-image-caption span {
+.background-atmosphere .our-work-image-caption span,
+.background-luminous .our-work-image-caption span {
   color: var(--color-text-inverse);
 }
 .background-dark .our-work-image-caption small,
-.background-atmosphere .our-work-image-caption small {
+.background-atmosphere .our-work-image-caption small,
+.background-luminous .our-work-image-caption small {
   color: var(--color-text-inverse-subtle);
 }
 
@@ -1161,6 +1163,7 @@
   min-height: 35rem;
   padding-block: clamp(5rem, 9vw, 8rem);
 }
+.our-work-closing::after { content: none; }
 .our-work-closing-visual {
   position: relative;
   display: grid;
