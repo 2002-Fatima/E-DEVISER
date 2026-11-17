@@ -13,7 +13,7 @@ import '../../styles/components/our-work-volume.css';
       <p>Work takes shape in the environments we create. This volume documents learning spaces designed to invite participation, support discovery, and bring ideas into everyday experience.</p>
     </header>
 
-    <div class="work-volume" data-work-volume>
+    <div class="work-volume" data-work-volume="initiatives">
       <div class="work-volume-cover" data-volume-cover>
         <div class="work-volume-cover-art" aria-hidden="true">
           <img src="/media/classroom-poster.webp" alt="" loading="lazy" decoding="async" />
@@ -124,7 +124,7 @@ import '../../styles/components/our-work-volume.css';
 </SectionWrapper>
 
 <script>
-  document.querySelectorAll<HTMLElement>('[data-work-volume]').forEach((volume) => {
+  document.querySelectorAll<HTMLElement>('[data-work-volume="initiatives"]').forEach((volume) => {
     const openButton = volume.querySelector<HTMLButtonElement>('[data-volume-open]')!;
     const closeButton = volume.querySelector<HTMLButtonElement>('[data-volume-close]')!;
     const content = volume.querySelector<HTMLElement>('[data-volume-content]')!;
