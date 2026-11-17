@@ -12,11 +12,11 @@ import ArchiveSection from '../../components/our-work/ArchiveSection.astro';
 import WorkClosingSection from '../../components/our-work/WorkClosingSection.astro';
 
 const navItems = [
+  { label: 'Explore', href: '#stories' },
   { label: 'Initiatives', href: '#initiatives' },
   { label: 'Partnerships', href: '#partnerships' },
   { label: 'Forums & Events', href: '#forums-events' },
   { label: 'In the Field', href: '#in-the-field' },
-  { label: 'Explore', href: '#stories' },
   { label: 'Recognition', href: '#recognition' },
   { label: 'Archive', href: '#archive' },
 ];
@@ -25,12 +25,12 @@ const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Our Work' }];
 
 <MainLayout title="Our Work" description="A closer look at E Deviser's initiatives, partnerships, forums, field work, stories, and recognition." breadcrumbs={breadcrumbs}>
   <OurWorkHero />
-  <SectionNavigation items={navItems} />
+  <SectionNavigation items={navItems} class="our-work-section-nav" />
+  <StoriesSection />
   <InitiativesVolume />
   <PartnershipsVolume />
   <ForumsEventsVolume />
   <InTheFieldVolume />
-  <StoriesSection />
   <RecognitionVolume />
   <ArchiveSection />
   <WorkClosingSection />
