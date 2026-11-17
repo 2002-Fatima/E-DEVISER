@@ -7,14 +7,14 @@ import Button from '../ui/Button.astro';
   <section class="container container-wide home-work-content" aria-labelledby="home-work-title">
     <div class="home-work-editorial">
       <article class="home-work-cover" aria-labelledby="home-work-title">
-        <img
-          class="home-work-cover-image"
-          src="/media/the-patriot-ai-future-summit.webp"
-          alt="A moment from The Patriot AI Future Summit, featured on the Our Work editorial cover"
-          loading="lazy"
-          decoding="async"
-        />
-        <div class="home-work-cover-shade" aria-hidden="true"></div>
+        <div class="home-work-cover-art" aria-hidden="true">
+          <span class="home-work-cover-orbit home-work-cover-orbit-one"></span>
+          <span class="home-work-cover-orbit home-work-cover-orbit-two"></span>
+          <span class="home-work-cover-orbit home-work-cover-orbit-three"></span>
+          <span class="home-work-cover-art-core"></span>
+          <span class="home-work-cover-art-line"></span>
+          <span class="home-work-cover-art-mark">E</span>
+        </div>
         <div class="home-work-cover-glow" aria-hidden="true"></div>
 
         <div class="home-work-cover-topline">
@@ -155,34 +155,113 @@ import Button from '../ui/Button.astro';
       0 0 55px rgba(89, 221, 206, .12);
   }
 
-  .home-work-cover-image,
-  .home-work-cover-shade,
+  .home-work-cover-art,
   .home-work-cover-glow {
     position: absolute;
     z-index: -1;
     inset: 0;
     width: 100%;
     height: 100%;
+    pointer-events: none;
   }
 
-  .home-work-cover-image {
-    object-fit: cover;
-    object-position: center 36%;
-    transform: scale(1.015);
-  }
-
-  .home-work-cover-shade {
+  .home-work-cover-art {
+    overflow: hidden;
     background:
-      linear-gradient(180deg, rgba(3, 17, 29, .48) 0%, rgba(3, 17, 29, .08) 26%, rgba(3, 17, 29, .18) 45%, rgba(3, 17, 29, .94) 100%),
-      linear-gradient(90deg, rgba(3, 17, 29, .48), transparent 76%);
+      radial-gradient(ellipse at 72% 34%, rgba(79, 218, 207, .19), transparent 29%),
+      radial-gradient(ellipse at 25% 72%, rgba(53, 131, 177, .2), transparent 38%),
+      linear-gradient(145deg, #071b2b 0%, #0b2b3b 47%, #061522 100%);
+  }
+
+  .home-work-cover-art::before {
+    position: absolute;
+    inset: 8% -20% 18% 24%;
+    border: 1px solid rgba(163, 247, 231, .22);
+    border-radius: 50%;
+    content: "";
+    transform: rotate(-28deg);
+    box-shadow: 0 0 42px rgba(95, 229, 213, .1), inset 0 0 42px rgba(95, 229, 213, .06);
+  }
+
+  .home-work-cover-art::after {
+    position: absolute;
+    inset: 18% -8% 28% 37%;
+    border: 1px solid rgba(163, 247, 231, .16);
+    border-radius: 50%;
+    content: "";
+    transform: rotate(34deg);
+  }
+
+  .home-work-cover-orbit {
+    position: absolute;
+    top: 34%;
+    left: 69%;
+    display: block;
+    width: min(24rem, 58%);
+    aspect-ratio: 1;
+    border: 1px solid rgba(160, 245, 230, .34);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .home-work-cover-orbit-one {
+    box-shadow: 0 0 32px rgba(91, 232, 213, .12), inset 0 0 32px rgba(91, 232, 213, .08);
+  }
+
+  .home-work-cover-orbit-two {
+    width: min(18rem, 44%);
+    border-color: rgba(160, 245, 230, .22);
+    transform: translate(-50%, -50%) rotate(54deg) scaleX(1.45);
+  }
+
+  .home-work-cover-orbit-three {
+    width: min(12rem, 30%);
+    border-color: rgba(160, 245, 230, .18);
+    transform: translate(-50%, -50%) rotate(-42deg) scaleX(1.7);
+  }
+
+  .home-work-cover-art-core {
+    position: absolute;
+    top: 34%;
+    left: 69%;
+    width: clamp(2.5rem, 7vw, 5.5rem);
+    aspect-ratio: 1;
+    border: 1px solid rgba(194, 255, 245, .72);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(188, 255, 244, .92) 0%, rgba(91, 224, 209, .34) 22%, rgba(91, 224, 209, .05) 68%, transparent 72%);
+    box-shadow: 0 0 24px rgba(114, 245, 222, .48), 0 0 90px rgba(77, 210, 207, .2);
+    transform: translate(-50%, -50%);
+  }
+
+  .home-work-cover-art-line {
+    position: absolute;
+    top: 8%;
+    right: 17%;
+    width: 1px;
+    height: 58%;
+    background: linear-gradient(transparent, rgba(165, 247, 231, .42), transparent);
+    transform: rotate(29deg);
+  }
+
+  .home-work-cover-art-mark {
+    position: absolute;
+    top: 34%;
+    left: 69%;
+    color: rgba(226, 255, 249, .12);
+    font-family: var(--font-display);
+    font-size: clamp(8rem, 19vw, 17rem);
+    font-weight: var(--weight-bold);
+    letter-spacing: -.12em;
+    line-height: 1;
+    text-shadow: 0 0 70px rgba(106, 240, 220, .18);
+    transform: translate(-54%, -54%);
   }
 
   .home-work-cover-glow {
     background:
-      radial-gradient(ellipse at 78% 24%, rgba(103, 239, 218, .28), transparent 34%),
-      radial-gradient(ellipse at 12% 88%, rgba(69, 153, 196, .18), transparent 42%);
+      linear-gradient(180deg, rgba(3, 17, 29, .05) 0%, rgba(3, 17, 29, .04) 24%, rgba(3, 17, 29, .34) 48%, rgba(3, 17, 29, .97) 100%),
+      radial-gradient(ellipse at 76% 32%, rgba(103, 239, 218, .1), transparent 38%);
     mix-blend-mode: screen;
-    pointer-events: none;
   }
 
   .home-work-cover-topline,
