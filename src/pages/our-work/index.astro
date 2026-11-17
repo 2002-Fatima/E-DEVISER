@@ -2,7 +2,7 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import OurWorkHero from '../../components/our-work/OurWorkHero.astro';
 import SectionNavigation from '../../components/layout/SectionNavigation.astro';
-import InitiativesSection from '../../components/our-work/InitiativesSection.astro';
+import InitiativesVolume from '../../components/our-work/InitiativesVolume.astro';
 import PartnershipsSection from '../../components/our-work/PartnershipsSection.astro';
 import ForumsEventsSection from '../../components/our-work/ForumsEventsSection.astro';
 import InTheFieldSection from '../../components/our-work/InTheFieldSection.astro';
@@ -26,7 +26,7 @@ const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Our Work' }];
 <MainLayout title="Our Work" description="A closer look at E Deviser's initiatives, partnerships, forums, field work, stories, and recognition." breadcrumbs={breadcrumbs}>
   <OurWorkHero />
   <SectionNavigation items={navItems} />
-  <InitiativesSection />
+  <InitiativesVolume />
   <PartnershipsSection />
   <ForumsEventsSection />
   <InTheFieldSection />
