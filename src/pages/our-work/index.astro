@@ -25,7 +25,7 @@ const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Our Work' }];
 
 <MainLayout title="Our Work" description="A closer look at E Deviser's initiatives, partnerships, forums, field work, stories, and recognition." breadcrumbs={breadcrumbs}>
   <OurWorkHero />
-  <SectionNavigation items={navItems} class="our-work-section-nav" />
+  <SectionNavigation items={navItems} class="our-work-section-nav" trackActive={true} />
   <StoriesSection />
   <InitiativesVolume />
   <PartnershipsVolume />
