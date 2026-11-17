@@ -59,7 +59,7 @@
 .work-volume-pages { position: relative; min-height: clamp(27rem, 45vw, 39rem); padding-block: clamp(1.5rem, 3vw, 2.75rem); }
 .work-volume-spread { display: grid; grid-template-columns: minmax(15rem, .78fr) minmax(0, 1.22fr); align-items: stretch; gap: clamp(1.5rem, 4vw, 4rem); min-height: inherit; opacity: 0; transform: translateX(22px); transition: opacity .42s var(--ease-standard), transform .55s var(--ease-enter); }
 .work-volume-spread.is-active { opacity: 1; transform: translateX(0); }
-.work-volume-spread[data-direction="previous"] { transform: translateX(-22px); }
+.work-volume-spread[data-direction="previous"]:not(.is-active) { transform: translateX(-22px); }
 .work-volume-page-copy { display: flex; flex-direction: column; align-items: flex-start; padding: clamp(.5rem, 2vw, 1.5rem) 0; }
 .work-volume-page-copy h3 { max-width: 11ch; margin-block: 1.25rem; color: var(--color-navy); font-size: clamp(2.2rem, 4vw, 3.8rem); line-height: 1; letter-spacing: -.055em; }
 .work-volume-page-copy > p:not(.work-volume-page-label) { max-width: 43ch; margin-block-start: .85rem; color: var(--color-text-muted); font-size: var(--text-sm); line-height: 1.8; }
