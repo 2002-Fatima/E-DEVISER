@@ -1,0 +1,8 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import CareersContactExperience from '../../../components/company/CareersContactExperience.astro';
+const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Company', href: '/company/' }, { label: 'Careers & Contact' }];
+---
+<MainLayout title="Careers & Contact" description="Start a conversation with E Deviser about collaboration, ideas, and future opportunities." breadcrumbs={breadcrumbs}>
+  <CareersContactExperience />
+</MainLayout>

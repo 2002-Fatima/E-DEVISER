@@ -1,0 +1,8 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import TeamExperience from '../../../components/company/TeamExperience.astro';
+const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Company', href: '/company/' }, { label: 'Team' }];
+---
+<MainLayout title="Team" description="The people, shared principles, and working culture behind E Deviser." breadcrumbs={breadcrumbs}>
+  <TeamExperience />
+</MainLayout>
