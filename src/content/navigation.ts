@@ -14,9 +14,7 @@ export const primaryNavigation: NavItem[] = [
     href: '/company/',
     children: [
       { label: 'Overview', href: '/company/' },
-      { label: 'Story', href: '/company/story/' },
       { label: 'Team', href: '/company/team/' },
-      { label: 'Philosophy', href: '/company/philosophy/' },
       { label: 'Careers & Contact', href: '/company/careers-contact/' },
     ],
   },
@@ -25,8 +23,6 @@ export const primaryNavigation: NavItem[] = [
 
 export const companyNavigation = [
   { label: 'Overview', href: '/company/' },
-  { label: 'Story', href: '/company/story/' },
   { label: 'Team', href: '/company/team/' },
-  { label: 'Philosophy', href: '/company/philosophy/' },
   { label: 'Careers & Contact', href: '/company/careers-contact/' },
 ];
