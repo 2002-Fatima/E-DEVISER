@@ -1,5 +1,40 @@
+/* Shared motion primitives. Component-specific choreography stays local. */
 @keyframes spin {
+  to { transform: rotate(1turn); }
+}
+
+@keyframes motion-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--motion-distance-md), 0);
+  }
   to {
-    transform: rotate(1turn);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes motion-soft-pulse {
+  0%, 100% { opacity: 0.58; }
+  50% { opacity: 1; }
+}
+
+.motion-enter {
+  animation: motion-fade-up var(--motion-slow) var(--ease-enter) both;
+}
+
+.motion-ambient-pulse {
+  animation: motion-soft-pulse var(--motion-ambient) var(--ease-standard) infinite;
+}
+
+/* One global accessibility contract for CSS-driven motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

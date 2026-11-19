@@ -2,14 +2,18 @@
 import SectionWrapper from '../ui/SectionWrapper.astro';
 ---
 
-<SectionWrapper>
-  <section id="news-features" class="container content-section">
-    <div class="section-heading">
-      <p class="eyebrow">NEWS / FEATURES</p>
-      <h2>Updates and commentary</h2>
-    </div>
-    <div class="empty-state">
-      <p>No unverified publications, feature stories, or press references are included here.</p>
+<SectionWrapper background="light" class="our-work-section">
+  <section id="news-features" class="container container-wide content-section our-work-content our-work-content--news" aria-labelledby="news-title">
+    <header class="our-work-section-heading">
+      <div>
+        <p class="eyebrow">NEWS / FEATURES</p>
+        <h2 id="news-title">Updates and commentary</h2>
+      </div>
+    </header>
+    <div class="our-work-image-grid our-work-image-grid--three our-work-news-gallery">
+      <figure class="our-work-image-card our-work-image-card--document"><img src="/media/dfdi-2025.webp" alt="DFDI 2025" loading="lazy" decoding="async" /></figure>
+      <figure class="our-work-image-card our-work-image-card--document"><img src="/media/the-patriot-summit-series.webp" alt="The Patriot Summit Series" loading="lazy" decoding="async" /></figure>
+      <figure class="our-work-image-card our-work-image-card--document"><img src="/media/edtech-forum-certificate.webp" alt="EdTech forum certificate" loading="lazy" decoding="async" /></figure>
     </div>
   </section>
 </SectionWrapper>

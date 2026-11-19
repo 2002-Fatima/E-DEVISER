@@ -14,19 +14,15 @@ export const primaryNavigation: NavItem[] = [
     href: '/company/',
     children: [
       { label: 'Overview', href: '/company/' },
-      { label: 'Story', href: '/company/story/' },
       { label: 'Team', href: '/company/team/' },
-      { label: 'Philosophy', href: '/company/philosophy/' },
       { label: 'Careers & Contact', href: '/company/careers-contact/' },
     ],
   },
-  { label: 'CUOVO', href: 'https://cuovo.tech', external: true },
+  { label: 'CUEVO', href: 'https://cuovo.tech', external: true },
 ];
 
 export const companyNavigation = [
   { label: 'Overview', href: '/company/' },
-  { label: 'Story', href: '/company/story/' },
   { label: 'Team', href: '/company/team/' },
-  { label: 'Philosophy', href: '/company/philosophy/' },
   { label: 'Careers & Contact', href: '/company/careers-contact/' },
 ];

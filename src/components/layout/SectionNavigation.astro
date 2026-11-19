@@ -1,8 +1,8 @@
 ---
-const { items = [] } = Astro.props;
+const { items = [], class: className = '' } = Astro.props;
 ---
 {items.length > 0 && (
-  <div class="section-nav-wrap">
+  <div class:list={["section-nav-wrap", className]}>
     <nav class="section-nav" aria-label="Section navigation">
       <ul class="section-nav-list">
         {items.map((item) => (
@@ -12,3 +12,6 @@ const { items = [] } = Astro.props;
     </nav>
   </div>
 )}
+<script>
+  import '../../scripts/section-navigation';
+</script>

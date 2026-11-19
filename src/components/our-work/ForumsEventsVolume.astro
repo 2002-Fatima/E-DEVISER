@@ -1,0 +1,123 @@
+---
+import SectionWrapper from '../ui/SectionWrapper.astro';
+import '../../styles/components/our-work-volume.css';
+---
+
+<SectionWrapper background="light" class="our-work-section our-work-volume-section">
+  <section id="forums-events" class="container container-wide our-work-volume" aria-labelledby="forums-events-title">
+    <header class="our-work-volume-heading">
+      <div>
+        <p class="eyebrow">THE COLLECTION · VOL. 03</p>
+        <h2 id="forums-events-title">Forums &amp; Events</h2>
+      </div>
+      <p>Ideas move forward when people meet, challenge assumptions, and exchange perspectives. This volume documents forums and public conversations around the future of learning, technology, and society.</p>
+    </header>
+
+    <div class="work-volume" data-work-volume="forums-events">
+      <div class="work-volume-cover" data-volume-cover>
+        <div class="work-volume-cover-art" aria-hidden="true">
+          <img src="/media/the-patriot-ai-future-summit.webp" alt="" loading="lazy" decoding="async" />
+          <span class="work-volume-cover-wash"></span>
+          <span class="work-volume-cover-index">03</span>
+          <span class="work-volume-cover-rule"></span>
+          <span class="work-volume-cover-mark">E / D</span>
+        </div>
+        <div class="work-volume-cover-copy">
+          <p class="work-volume-kicker">E DEVISER · FIELD NOTES</p>
+          <h3>Ideas are stronger in the room.</h3>
+          <p class="work-volume-cover-description">A record of forums, shared questions, and conversations shaping how we think about what comes next.</p>
+          <div class="work-volume-cover-meta">
+            <span>VOLUME 03</span>
+            <span>FORUMS &amp; EVENTS</span>
+          </div>
+          <button class="work-volume-open" type="button" data-volume-open aria-expanded="false" aria-controls="forums-events-book-content">
+            <span>Open volume</span><span aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <span class="work-volume-spine" aria-hidden="true"></span>
+      </div>
+
+      <div class="work-volume-content" id="forums-events-book-content" data-volume-content hidden>
+        <div class="work-volume-toolbar">
+          <div class="work-volume-location">
+            <span class="work-volume-kicker">THE COLLECTION / 03</span>
+            <span data-volume-counter aria-live="polite" aria-atomic="true">01 / 03</span>
+          </div>
+          <button class="work-volume-close" type="button" data-volume-close>
+            <span>Close volume</span><span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="work-volume-pages">
+          <article class="work-volume-spread is-active" data-volume-page="0" aria-hidden="false">
+            <div class="work-volume-page-copy">
+              <p class="work-volume-page-label">01 / AI × FUTURE FORUM</p>
+              <h3>Shaping what's next.</h3>
+              <p>Artificial intelligence is changing the questions facing education, work, and society. The AI × Future Forum created a setting to bring those questions into a shared conversation.</p>
+              <p>The Patriot AI Future Summit is documented here as a gathering around emerging possibilities, global perspectives, and the future of learning.</p>
+              <span class="work-volume-page-foot">FORUMS &amp; EVENTS · FEATURED FORUM</span>
+            </div>
+            <figure class="work-volume-page-media work-volume-page-media--hero">
+              <img src="/media/the-patriot-ai-future-summit.webp" alt="The Patriot AI Future Summit" loading="lazy" decoding="async" />
+              <figcaption><span>03.01</span> The Patriot AI Future Summit</figcaption>
+            </figure>
+          </article>
+
+          <article class="work-volume-spread" data-volume-page="1" aria-hidden="true" hidden>
+            <div class="work-volume-page-copy">
+              <p class="work-volume-page-label">02 / THE EDTECH FORUM</p>
+              <h3>Making space for better questions.</h3>
+              <p>Education technology deserves more than a conversation about tools. It calls for considered discussion about learning, access, implementation, and the people affected by change.</p>
+              <p>The Patriot EdTech Forum and its media coverage form the second chapter in this record of public dialogue.</p>
+              <span class="work-volume-page-foot">FORUMS &amp; EVENTS · EDUCATION &amp; TECHNOLOGY</span>
+            </div>
+            <div class="work-volume-page-gallery">
+              <figure>
+                <img src="/media/the-patriot-edtech-forum.webp" alt="The Patriot EdTech Forum" loading="lazy" decoding="async" />
+                <figcaption><span>03.02</span> The Patriot EdTech Forum</figcaption>
+              </figure>
+              <figure>
+                <img src="/media/daily-pakistan-edtech-forum.webp" alt="Daily Pakistan coverage of the EdTech Forum" loading="lazy" decoding="async" />
+                <figcaption><span>03.03</span> Daily Pakistan coverage</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="work-volume-spread" data-volume-page="2" aria-hidden="true" hidden>
+            <div class="work-volume-page-copy">
+              <p class="work-volume-page-label">03 / MOMENTS FROM THE ROOM</p>
+              <h3>A conversation is made of many voices.</h3>
+              <p>Beyond the stage, a forum is shaped by the people who contribute, listen, question, and connect. These photographs preserve a few perspectives from the EdTech Forum.</p>
+              <span class="work-volume-page-foot">FORUMS &amp; EVENTS · EVENT DOCUMENTATION</span>
+            </div>
+            <div class="work-volume-page-gallery work-volume-page-gallery--trio">
+              <figure>
+                <img src="/media/edtech-forum-panel.webp" alt="Panel discussion at the EdTech Forum" loading="lazy" decoding="async" />
+                <figcaption><span>03.04</span> Panel discussion</figcaption>
+              </figure>
+              <figure>
+                <img src="/media/edtech-forum-guest.webp" alt="Guest perspective at the EdTech Forum" loading="lazy" decoding="async" />
+                <figcaption><span>03.05</span> Guest perspective</figcaption>
+              </figure>
+              <figure>
+                <img src="/media/edtech-forum-group.webp" alt="Participants gathered at the EdTech Forum" loading="lazy" decoding="async" />
+                <figcaption><span>03.06</span> People in the room</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+
+        <div class="work-volume-navigation">
+          <button type="button" data-volume-prev disabled aria-label="Previous spread"><span aria-hidden="true">←</span><span>Previous</span></button>
+          <div class="work-volume-progress" role="group" aria-label="Choose a spread">
+            <button type="button" data-volume-go="0" class="is-active" aria-label="Go to spread 1" aria-current="step"></button>
+            <button type="button" data-volume-go="1" aria-label="Go to spread 2"></button>
+            <button type="button" data-volume-go="2" aria-label="Go to spread 3"></button>
+          </div>
+          <button type="button" data-volume-next><span>Next</span><span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+</SectionWrapper>
+

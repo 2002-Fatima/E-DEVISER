@@ -5,51 +5,539 @@ import Button from '../ui/Button.astro';
 
 <SectionWrapper background="atmosphere" class="home-work-section">
   <section class="container container-wide home-work-content" aria-labelledby="home-work-title">
-    <div class="home-work-heading">
-      <div class="home-work-copy">
-        <p class="eyebrow">OUR WORK</p>
-        <h2 id="home-work-title">Ideas are easy. Building is the work.</h2>
-        <p>
-          From initiatives and partnerships to forums and fieldwork, everything we do is driven by
-          one purpose: to turn conviction into real impact.
-        </p>
-      </div>
-      <Button href="/our-work/" label="Explore Our Work" />
-    </div>
+    <div class="home-work-editorial">
+      <article class="home-work-cover" aria-labelledby="home-work-title">
+        <div class="home-work-cover-art" aria-hidden="true">
+          <span class="home-work-cover-orbit home-work-cover-orbit-one"></span>
+          <span class="home-work-cover-orbit home-work-cover-orbit-two"></span>
+          <span class="home-work-cover-orbit home-work-cover-orbit-three"></span>
+          <span class="home-work-cover-art-core"></span>
+          <span class="home-work-cover-art-line"></span>
+          <span class="home-work-cover-art-mark">E</span>
+        </div>
+        <div class="home-work-cover-glow" aria-hidden="true"></div>
 
-    <ol class="home-work-categories" aria-label="Areas of work">
-      <li>
-        <span class="home-work-category-number">01</span>
-        <div>
-          <h3>Initiatives</h3>
-          <p class="home-work-category-lead">We start what matters.</p>
-          <p>Initiatives and programs we create to solve real problems and drive lasting change.</p>
+        <div class="home-work-cover-topline">
+          <span class="home-work-cover-masthead">E / DEVISER</span>
+          <span class="home-work-cover-issue">FIELD RECORD · 2026</span>
         </div>
-      </li>
-      <li>
-        <span class="home-work-category-number">02</span>
-        <div>
-          <h3>Partnerships</h3>
-          <p class="home-work-category-lead">Stronger together.</p>
-          <p>Collaborations with institutions, governments, universities, and organizations that amplify impact.</p>
+
+        <div class="home-work-cover-kicker">
+          <span>THE WORK, IN MOTION</span>
+          <span class="home-work-cover-rule" aria-hidden="true"></span>
+          <span>VOL. 01—05</span>
         </div>
-      </li>
-      <li>
-        <span class="home-work-category-number">03</span>
-        <div>
-          <h3>Forums &amp; Events</h3>
-          <p class="home-work-category-lead">Conversations that build the future.</p>
-          <p>Forums, summits, and events that spark dialogue, share knowledge, and shape the ecosystem.</p>
+
+        <div class="home-work-cover-main">
+          <p class="home-work-cover-overline">OUR WORK</p>
+          <h2 id="home-work-title">Ideas are easy.<br />Building is the work.</h2>
+          <p class="home-work-cover-deck">
+            A field record of the initiatives, partnerships, conversations, and moments turning
+            conviction into progress.
+          </p>
+          <a class="home-work-cover-link" href="/our-work/" aria-label="Open the full Our Work collection">
+            <span>OPEN THE COLLECTION</span>
+            <span aria-hidden="true">↗</span>
+          </a>
         </div>
-      </li>
-      <li>
-        <span class="home-work-category-number">04</span>
-        <div>
-          <h3>In the Field</h3>
-          <p class="home-work-category-lead">On the ground. In the real world.</p>
-          <p>Workshops, visits, research, and engagements that keep us close to the problems we solve.</p>
+
+        <div class="home-work-cover-bottom">
+          <span>INITIATIVES · PEOPLE · PROGRESS</span>
+          <span>AN ONGOING RECORD</span>
         </div>
-      </li>
-    </ol>
+      </article>
+
+      <aside class="home-work-contents" aria-label="Inside the Our Work collection">
+        <div class="home-work-contents-heading">
+          <p class="eyebrow">INSIDE THE COLLECTION</p>
+          <h3>Five volumes.<br />One evolving story.</h3>
+          <p>Explore the work by chapter. Each volume opens a closer look at the people, places, and ideas behind it.</p>
+        </div>
+
+        <nav class="home-work-index" aria-label="Explore the five volumes of Our Work">
+          <ol>
+            <li>
+              <a href="/our-work/#initiatives">
+                <span class="home-work-index-number">01</span>
+                <span class="home-work-index-copy">
+                  <strong>Initiatives</strong>
+                  <small>Creating spaces for what comes next</small>
+                </span>
+                <span class="home-work-index-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="/our-work/#partnerships">
+                <span class="home-work-index-number">02</span>
+                <span class="home-work-index-copy">
+                  <strong>Partnerships</strong>
+                  <small>Connecting people and possibility</small>
+                </span>
+                <span class="home-work-index-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="/our-work/#forums-events">
+                <span class="home-work-index-number">03</span>
+                <span class="home-work-index-copy">
+                  <strong>Forums &amp; Events</strong>
+                  <small>Making room for important conversations</small>
+                </span>
+                <span class="home-work-index-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="/our-work/#in-the-field">
+                <span class="home-work-index-number">04</span>
+                <span class="home-work-index-copy">
+                  <strong>In the Field</strong>
+                  <small>Learning through presence and practice</small>
+                </span>
+                <span class="home-work-index-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="/our-work/#recognition">
+                <span class="home-work-index-number">05</span>
+                <span class="home-work-index-copy">
+                  <strong>Recognition &amp; Features</strong>
+                  <small>Selected records and public recognition</small>
+                </span>
+                <span class="home-work-index-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          </ol>
+        </nav>
+
+        <div class="home-work-contents-foot">
+          <span>THE FULL EDITION</span>
+          <Button href="/our-work/" label="Explore Our Work" variant="primary" />
+        </div>
+      </aside>
+    </div>
   </section>
 </SectionWrapper>
+
+<style>
+  .home-work-section {
+    border-block: 1px solid var(--color-border-inverse);
+    overflow: clip;
+  }
+
+  .home-work-content {
+    padding-block: clamp(4.5rem, 8vw, 7rem);
+  }
+
+  .home-work-editorial {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(19rem, .78fr);
+    align-items: stretch;
+    gap: clamp(1.5rem, 4vw, 4.5rem);
+    max-width: 76rem;
+    margin-inline: auto;
+  }
+
+  .home-work-cover {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 42rem;
+    flex-direction: column;
+    justify-content: space-between;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(1.35rem, 3vw, 2.5rem);
+    border: 1px solid rgba(198, 255, 246, .5);
+    background: var(--color-surface-night);
+    box-shadow:
+      0 0 0 1px rgba(115, 231, 215, .12),
+      0 24px 80px rgba(1, 12, 23, .3),
+      0 0 55px rgba(89, 221, 206, .12);
+  }
+
+  .home-work-cover-art,
+  .home-work-cover-glow {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .home-work-cover-art {
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 72% 34%, rgba(79, 218, 207, .19), transparent 29%),
+      radial-gradient(ellipse at 25% 72%, rgba(53, 131, 177, .2), transparent 38%),
+      linear-gradient(145deg, #071b2b 0%, #0b2b3b 47%, #061522 100%);
+  }
+
+  .home-work-cover-art::before {
+    position: absolute;
+    inset: 8% -20% 18% 24%;
+    border: 1px solid rgba(163, 247, 231, .22);
+    border-radius: 50%;
+    content: "";
+    transform: rotate(-28deg);
+    box-shadow: 0 0 42px rgba(95, 229, 213, .1), inset 0 0 42px rgba(95, 229, 213, .06);
+  }
+
+  .home-work-cover-art::after {
+    position: absolute;
+    inset: 18% -8% 28% 37%;
+    border: 1px solid rgba(163, 247, 231, .16);
+    border-radius: 50%;
+    content: "";
+    transform: rotate(34deg);
+  }
+
+  .home-work-cover-orbit {
+    position: absolute;
+    top: 34%;
+    left: 69%;
+    display: block;
+    width: min(24rem, 58%);
+    aspect-ratio: 1;
+    border: 1px solid rgba(160, 245, 230, .34);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .home-work-cover-orbit-one {
+    box-shadow: 0 0 32px rgba(91, 232, 213, .12), inset 0 0 32px rgba(91, 232, 213, .08);
+  }
+
+  .home-work-cover-orbit-two {
+    width: min(18rem, 44%);
+    border-color: rgba(160, 245, 230, .22);
+    transform: translate(-50%, -50%) rotate(54deg) scaleX(1.45);
+  }
+
+  .home-work-cover-orbit-three {
+    width: min(12rem, 30%);
+    border-color: rgba(160, 245, 230, .18);
+    transform: translate(-50%, -50%) rotate(-42deg) scaleX(1.7);
+  }
+
+  .home-work-cover-art-core {
+    position: absolute;
+    top: 34%;
+    left: 69%;
+    width: clamp(2.5rem, 7vw, 5.5rem);
+    aspect-ratio: 1;
+    border: 1px solid rgba(194, 255, 245, .72);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(188, 255, 244, .92) 0%, rgba(91, 224, 209, .34) 22%, rgba(91, 224, 209, .05) 68%, transparent 72%);
+    box-shadow: 0 0 24px rgba(114, 245, 222, .48), 0 0 90px rgba(77, 210, 207, .2);
+    transform: translate(-50%, -50%);
+  }
+
+  .home-work-cover-art-line {
+    position: absolute;
+    top: 8%;
+    right: 17%;
+    width: 1px;
+    height: 58%;
+    background: linear-gradient(transparent, rgba(165, 247, 231, .42), transparent);
+    transform: rotate(29deg);
+  }
+
+  .home-work-cover-art-mark {
+    position: absolute;
+    top: 34%;
+    left: 69%;
+    color: rgba(226, 255, 249, .12);
+    font-family: var(--font-display);
+    font-size: clamp(8rem, 19vw, 17rem);
+    font-weight: var(--weight-bold);
+    letter-spacing: -.12em;
+    line-height: 1;
+    text-shadow: 0 0 70px rgba(106, 240, 220, .18);
+    transform: translate(-54%, -54%);
+  }
+
+  .home-work-cover-glow {
+    background:
+      linear-gradient(180deg, rgba(3, 17, 29, .05) 0%, rgba(3, 17, 29, .04) 24%, rgba(3, 17, 29, .34) 48%, rgba(3, 17, 29, .97) 100%),
+      radial-gradient(ellipse at 76% 32%, rgba(103, 239, 218, .1), transparent 38%);
+    mix-blend-mode: screen;
+  }
+
+  .home-work-cover-topline,
+  .home-work-cover-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: rgba(255, 255, 255, .92);
+    font-family: var(--font-mono);
+    font-size: .62rem;
+    letter-spacing: .13em;
+    line-height: 1.5;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, .35);
+  }
+
+  .home-work-cover-masthead {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.5vw, 2rem);
+    font-weight: var(--weight-bold);
+    letter-spacing: -.075em;
+  }
+
+  .home-work-cover-issue,
+  .home-work-cover-bottom span:last-child {
+    text-align: end;
+  }
+
+  .home-work-cover-kicker {
+    position: absolute;
+    top: 27%;
+    inset-inline: clamp(1.35rem, 3vw, 2.5rem);
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    color: rgba(255, 255, 255, .92);
+    font-family: var(--font-mono);
+    font-size: .58rem;
+    letter-spacing: .15em;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, .5);
+  }
+
+  .home-work-cover-rule {
+    width: clamp(1.5rem, 5vw, 4rem);
+    height: 1px;
+    background: var(--brand-teal-light);
+    box-shadow: 0 0 12px rgba(143, 233, 220, .8);
+  }
+
+  .home-work-cover-main {
+    max-width: 36rem;
+    margin-block-start: auto;
+    padding-block: 7rem 2.25rem;
+    color: var(--color-white);
+  }
+
+  .home-work-cover-overline {
+    margin-block-end: .8rem;
+    color: var(--brand-teal-light);
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    letter-spacing: .2em;
+  }
+
+  .home-work-cover-main h2 {
+    max-width: 11ch;
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 5.3vw, 5.2rem);
+    font-weight: var(--weight-semibold);
+    letter-spacing: -.075em;
+    line-height: .94;
+    text-wrap: balance;
+    text-shadow: 0 3px 28px rgba(0, 0, 0, .3);
+  }
+
+  .home-work-cover-deck {
+    max-width: 36ch;
+    margin-block-start: 1.2rem;
+    color: rgba(255, 255, 255, .84);
+    font-size: var(--text-sm);
+    line-height: 1.75;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, .5);
+  }
+
+  .home-work-cover-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    margin-block-start: 1.5rem;
+    padding-block-end: .45rem;
+    border-block-end: 1px solid rgba(143, 233, 220, .72);
+    color: var(--color-white);
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    letter-spacing: .12em;
+    text-decoration: none;
+    transition: color var(--transition-interactive), gap var(--transition-interactive);
+  }
+
+  .home-work-cover-link span:last-child {
+    color: var(--brand-teal-light);
+    font-size: 1rem;
+  }
+
+  .home-work-cover-link:hover {
+    gap: 1.35rem;
+    color: var(--brand-teal-light);
+  }
+
+  .home-work-contents {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: clamp(1rem, 2vw, 2rem);
+  }
+
+  .home-work-contents-heading {
+    padding-block-end: 1.5rem;
+    border-block-end: 1px solid rgba(220, 248, 246, .22);
+  }
+
+  .home-work-contents-heading .eyebrow {
+    color: var(--brand-teal-light);
+  }
+
+  .home-work-contents-heading h3 {
+    margin-block-start: .9rem;
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.2vw, 3rem);
+    font-weight: var(--weight-semibold);
+    letter-spacing: -.06em;
+    line-height: 1.02;
+  }
+
+  .home-work-contents-heading > p:last-child {
+    max-width: 39ch;
+    margin-block-start: .9rem;
+    color: var(--color-text-inverse-muted);
+    font-size: var(--text-sm);
+    line-height: 1.75;
+  }
+
+  .home-work-index ol {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .home-work-index li {
+    border-block-end: 1px solid rgba(220, 248, 246, .16);
+  }
+
+  .home-work-index li a {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: .8rem;
+    min-height: 5rem;
+    padding-block: .8rem;
+    color: inherit;
+    text-decoration: none;
+    transition: background var(--transition-interactive), padding var(--transition-interactive);
+  }
+
+  .home-work-index li a:hover {
+    padding-inline: .55rem;
+    background: rgba(143, 233, 220, .055);
+  }
+
+  .home-work-index-number {
+    align-self: start;
+    padding-block-start: .2rem;
+    color: var(--brand-teal-light);
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    letter-spacing: .08em;
+  }
+
+  .home-work-index-copy {
+    display: grid;
+    gap: .28rem;
+    min-width: 0;
+  }
+
+  .home-work-index-copy strong {
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: clamp(.95rem, 1.25vw, 1.08rem);
+    font-weight: var(--weight-semibold);
+    line-height: 1.3;
+  }
+
+  .home-work-index-copy small {
+    color: var(--color-text-inverse-subtle);
+    font-size: .76rem;
+    line-height: 1.45;
+  }
+
+  .home-work-index-arrow {
+    color: var(--color-text-inverse-subtle);
+    font-size: 1rem;
+    transition: color var(--transition-interactive), transform var(--transition-interactive);
+  }
+
+  .home-work-index li a:hover .home-work-index-arrow {
+    color: var(--brand-teal-light);
+    transform: translate(2px, -2px);
+  }
+
+  .home-work-contents-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-block-start: auto;
+    padding-block-start: 1.5rem;
+  }
+
+  .home-work-contents-foot > span {
+    color: var(--color-text-inverse-subtle);
+    font-family: var(--font-mono);
+    font-size: .6rem;
+    letter-spacing: .12em;
+  }
+
+  .home-work-section a:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 64rem) {
+    .home-work-editorial {
+      grid-template-columns: minmax(0, 1fr) minmax(17rem, .82fr);
+      gap: 1.5rem;
+    }
+
+    .home-work-cover { min-height: 39rem; }
+    .home-work-cover-main h2 { font-size: clamp(2.65rem, 5vw, 4.25rem); }
+  }
+
+  @media (max-width: 48rem) {
+    .home-work-content { padding-block: 3.75rem; }
+    .home-work-editorial { grid-template-columns: 1fr; }
+    .home-work-cover {
+      min-height: min(42rem, 145vw);
+      aspect-ratio: 4 / 5;
+    }
+    .home-work-cover-main { padding-block: 6rem 1.75rem; }
+    .home-work-cover-kicker { top: 24%; }
+    .home-work-contents { padding-block: 1.5rem 0; }
+    .home-work-contents-foot { margin-block-start: 1.5rem; }
+  }
+
+  @media (max-width: 36rem) {
+    .home-work-cover { min-height: 36rem; padding: 1.15rem; }
+    .home-work-cover-topline,
+    .home-work-cover-bottom { font-size: .54rem; }
+    .home-work-cover-masthead { font-size: 1.35rem; }
+    .home-work-cover-kicker { inset-inline: 1.15rem; gap: .5rem; font-size: .5rem; }
+    .home-work-cover-main { padding-block: 5.5rem 1.5rem; }
+    .home-work-cover-main h2 { font-size: clamp(2.65rem, 12vw, 3.6rem); }
+    .home-work-cover-deck { font-size: .82rem; }
+    .home-work-contents-heading h3 { font-size: 2.35rem; }
+    .home-work-index li a { grid-template-columns: 1.65rem minmax(0, 1fr) auto; gap: .6rem; }
+    .home-work-index-copy small { font-size: .72rem; }
+    .home-work-contents-foot { align-items: flex-start; flex-direction: column; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-work-cover-link,
+    .home-work-index li a,
+    .home-work-index-arrow { transition: none; }
+  }
+</style>

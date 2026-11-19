@@ -6,6 +6,25 @@ body {
   font-size: var(--text-base);
   line-height: var(--leading-body);
   text-rendering: optimizeLegibility;
+  font-synthesis: none;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-heading);
+  text-wrap: balance;
+}
+
+:where(p, li) {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--brand-blue-light);
+  color: var(--brand-navy);
 }
 
 body * {

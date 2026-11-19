@@ -12,15 +12,16 @@
   --brand-gray: #504E4E;
   --brand-white: #FFFFFF;
 
+  /* Approved brand palette: keep these values as the source of truth. */
   --color-primary: var(--brand-blue);
-  --color-primary-strong: #026b9b;
-  --color-primary-hover: #014f73;
+  --color-primary-strong: var(--primary-700);
+  --color-primary-hover: var(--primary-800);
   --color-secondary: var(--brand-teal);
-  --color-brand-cyan: #20B7CF;
-  --color-brand-start: #0393F2;
-  --color-brand-middle: #02B6E0;
-  --color-brand-end: #00E5C7;
-  --color-brand-button-text: var(--brand-ink);
+  --color-brand-cyan: var(--brand-blue);
+  --color-brand-start: var(--brand-blue);
+  --color-brand-middle: #2F9EAD;
+  --color-brand-end: var(--brand-teal);
+  --color-brand-button-text: var(--brand-white);
   --color-brand-focus: var(--brand-blue-light);
   --color-navy: var(--brand-navy);
   --color-ink: var(--brand-ink);
@@ -29,14 +30,42 @@
   --color-gray: var(--brand-gray);
   --color-white: var(--brand-white);
 
+  /* Primary scale derived from the approved #0382BD brand blue. */
+  --primary-50: #F0F9FD;
+  --primary-100: #D9EFF9;
+  --primary-200: #C0E2FD;
+  --primary-300: #8CC9E8;
+  --primary-400: #55AED5;
+  --primary-500: #218FC4;
+  --primary-600: #0382BD;
+  --primary-700: #026B9B;
+  --primary-800: #075779;
+  --primary-900: #0B4058;
+  --primary-950: #062638;
+
+  /* Semantic colors: brand-independent status meaning. */
+  --semantic-success: #10B981;
+  --semantic-success-subtle: #ECFDF5;
+  --semantic-warning: #F59E0B;
+  --semantic-warning-subtle: #FFFBEB;
+  --semantic-error: #E53E3E;
+  --semantic-error-subtle: #FEF2F2;
+  --semantic-info: #3B82F6;
+  --semantic-info-subtle: #EFF6FF;
+
   --color-text: var(--brand-navy);
-  --color-text-muted: #595f69;
+  --color-text-strong: #142A45;
+  --color-text-muted: #596779;
+  --color-text-subtle: #718096;
   --color-text-inverse: var(--brand-white);
   --color-text-inverse-muted: rgba(255, 255, 255, 0.78);
   --color-text-inverse-subtle: rgba(255, 255, 255, 0.62);
+
+  /* Surfaces: page, raised content, soft grouping and dark atmosphere. */
   --color-surface: #F7FAFC;
   --color-surface-raised: var(--brand-white);
   --color-surface-soft: #EAF4F7;
+  --color-surface-subtle: #F1F7FA;
   --color-surface-patterned: #F3F8FC;
   --color-surface-dark: var(--brand-navy);
   --color-surface-night: var(--brand-ink);
@@ -44,14 +73,21 @@
   --color-surface-night-hover: #142A40;
   --color-border: rgba(29, 53, 87, 0.14);
   --color-border-strong: rgba(29, 53, 87, 0.28);
+  --color-border-subtle: rgba(29, 53, 87, 0.08);
   --color-border-inverse: rgba(255, 255, 255, 0.14);
   --color-border-inverse-strong: rgba(192, 226, 253, 0.34);
-  --color-focus: #006a9c;
+  --color-focus: var(--primary-700);
   --color-focus-inverse: var(--brand-teal-light);
-  --color-success: #176b52;
-  --color-warning: #835300;
-  --color-danger: #a83232;
-  --color-danger-soft: #fff1f0;
+
+  /* Backward-compatible semantic aliases used by existing components. */
+  --color-success: var(--semantic-success);
+  --color-success-soft: var(--semantic-success-subtle);
+  --color-warning: var(--semantic-warning);
+  --color-warning-soft: var(--semantic-warning-subtle);
+  --color-danger: var(--semantic-error);
+  --color-danger-soft: var(--semantic-error-subtle);
+  --color-info: var(--semantic-info);
+  --color-info-soft: var(--semantic-info-subtle);
 
   --font-display: "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
   --font-body: "Inter", "Segoe UI", Arial, sans-serif;
@@ -122,21 +158,12 @@
   --shadow-lg: 0 24px 60px rgba(12, 39, 67, 0.16);
   --shadow-soft: var(--shadow-md);
 
+  /* Official brand gradient: blue to teal. */
   --gradient-brand:
-    linear-gradient(
-      110deg,
-      var(--color-brand-start) 0%,
-      var(--color-brand-middle) 48%,
-      var(--color-brand-end) 100%
-    );
+    linear-gradient(110deg, var(--brand-blue) 0%, #2F9EAD 52%, var(--brand-teal) 100%);
   --gradient-brand-action: var(--gradient-brand);
   --gradient-brand-action-hover:
-    linear-gradient(
-      110deg,
-      var(--color-brand-end) 0%,
-      var(--color-brand-middle) 52%,
-      var(--color-brand-start) 100%
-    );
+    linear-gradient(110deg, var(--brand-teal) 0%, #2F9EAD 52%, var(--brand-blue) 100%);
   --gradient-brand-text:
     linear-gradient(
       100deg,
@@ -174,13 +201,34 @@
     var(--pattern-grid),
     var(--color-surface-patterned);
 
-  --motion-fast: 140ms;
-  --motion-base: 220ms;
-  --motion-slow: 500ms;
+  /* Shared motion system: consistent interaction, transition and ambient timing. */
+  --motion-instant: 120ms;
+  --motion-fast: 180ms;
+  --motion-base: 280ms;
+  --motion-slow: 560ms;
+  --motion-slower: 900ms;
+  --motion-ambient: 8s;
+  --motion-ambient-long: 16s;
+  --motion-orbit: 32s;
+  --motion-orbit-short: 22s;
+  --motion-sweep: 5s;
+  --motion-draw: 4.8s;
+  --motion-drift: 7s;
+  --motion-signal: 1.2s;
+  --motion-stagger-step: 70ms;
+  --motion-distance-sm: 4px;
+  --motion-distance-md: 8px;
+  --motion-distance-lg: 14px;
+  --motion-blur-soft: 8px;
+
   --ease-standard: cubic-bezier(0.2, 0.75, 0.25, 1);
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-linear: linear;
   --ease: var(--ease-standard);
   --transition-base: var(--motion-base) var(--ease-standard);
+  --transition-interactive: var(--motion-fast) var(--ease-standard);
+  --transition-enter: var(--motion-slow) var(--ease-enter);
 
   --z-base: 0;
   --z-sticky: 20;

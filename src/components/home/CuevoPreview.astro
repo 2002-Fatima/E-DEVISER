@@ -3,22 +3,120 @@ import SectionWrapper from '../ui/SectionWrapper.astro';
 import Button from '../ui/Button.astro';
 ---
 
-<SectionWrapper background="light" class="home-cuevo-section">
+<SectionWrapper background="pattern" class="home-cuevo-section">\n  <div class="cuevo-learning-pattern" aria-hidden="true">
+    <svg viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid slice" focusable="false">
+      <g class="cuevo-doodle cuevo-doodle--book" transform="translate(82 130)">
+        <path d="M0 10c26-12 49-10 68 2v78C48 78 25 76 0 88zM68 12c20-12 43-14 68-2v78c-25-12-48-10-68 2zM68 12v78" />
+        <path d="M13 28c15-5 28-4 41 1M13 43c15-5 28-4 41 1M82 29c14-5 27-6 41-2M82 44c14-5 27-6 41-2" />
+      </g>
+      <g class="cuevo-doodle cuevo-doodle--pencil" transform="translate(1010 115) rotate(28)">
+        <path d="M8 92 20 18 38 5 56 18 44 92 26 108zM20 18l24 0M8 92l36 0M26 108l-1 17 13-17" />
+        <path d="m20 31 23 0M17 50l23 0M14 69l23 0" />
+      </g>
+      <g class="cuevo-doodle cuevo-doodle--atom" transform="translate(1010 515)">
+        <ellipse cx="0" cy="0" rx="62" ry="24" transform="rotate(32)" />
+        <ellipse cx="0" cy="0" rx="62" ry="24" transform="rotate(-32)" />
+        <ellipse cx="0" cy="0" rx="62" ry="24" transform="rotate(90)" />
+        <circle r="7" />
+      </g>
+      <g class="cuevo-doodle cuevo-doodle--star" transform="translate(180 575)">
+        <path d="m0-35 10 24 26 2-20 16 6 26L0 18l-22 15 6-26-20-16 26-2z" />
+      </g>
+      <g class="cuevo-doodle cuevo-doodle--abc" transform="translate(555 78)">
+        <path d="M0 0h90M0 20h65M0 40h78" />
+        <text x="0" y="88">A B C</text>
+      </g>
+    </svg>
+  </div>
   <section class="container container-wide home-cuevo-layout" aria-labelledby="home-cuevo-title">
-    <div class="home-cuevo-mark-wrap">
-      <img src="/brand/cuevo-mark.png" alt="CUOVO product mark" width="300" height="300" loading="lazy" />
-      <span class="home-cuevo-mark-caption">BUILT BY E DEVISER</span>
+    <div class="home-cuevo-visual" aria-label="CUEVO student learning platform preview">
+      <div class="cuevo-product-stage">
+        <div class="cuevo-stage-grid" aria-hidden="true"></div>
+        <div class="cuevo-stage-orbit cuevo-stage-orbit--one" aria-hidden="true"></div>
+        <div class="cuevo-stage-orbit cuevo-stage-orbit--two" aria-hidden="true"></div>
+        <span class="cuevo-stage-spark cuevo-stage-spark--one" aria-hidden="true"></span>
+        <span class="cuevo-stage-spark cuevo-stage-spark--two" aria-hidden="true"></span>
+        <span class="cuevo-stage-spark cuevo-stage-spark--three" aria-hidden="true"></span>
+
+        <div class="cuevo-stage-heading">
+          <span>CUEVO / LEARNING INTELLIGENCE</span>
+          <span class="cuevo-live-indicator"><i aria-hidden="true"></i> PRODUCT EXPERIENCE</span>
+        </div>
+
+        <figure class="cuevo-dashboard">
+          <div class="cuevo-window-bar" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <small>STUDENT DASHBOARD</small>
+          </div>
+          <img
+            src="/product/cuevo/student-dashboard.webp"
+            alt="CUEVO student dashboard showing the learning experience"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+
+        <figure class="cuevo-device cuevo-device--tablet">
+          <img
+            src="/product/cuevo/student-tablet.webp"
+            alt="CUEVO learning experience on a tablet"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+
+        <figure class="cuevo-device cuevo-device--phone">
+          <img
+            src="/product/cuevo/student-phone.webp"
+            alt="CUEVO learning experience on a mobile phone"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+
+        <div class="cuevo-stage-note cuevo-stage-note--top">
+          <span>01 / UNDERSTAND</span>
+          <strong>Learning, in context.</strong>
+        </div>
+        <div class="cuevo-stage-note cuevo-stage-note--bottom">
+          <span>02 / MOVE FORWARD</span>
+          <strong>Progress made actionable.</strong>
+        </div>
+
+        <div class="cuevo-stage-footer">
+          <span>ONE CONNECTED LEARNING EXPERIENCE</span>
+          <span>BUILT BY E DEVISER</span>
+        </div>
+      </div>
+
+      <div class="cuevo-foundations" aria-label="CUEVO foundations">
+        <div><span>01</span><strong>Outcome-based education</strong></div>
+        <div><span>02</span><strong>Meaningful gamification</strong></div>
+        <div><span>03</span><strong>Agentic AI</strong></div>
+      </div>
     </div>
 
-    <div class="home-cuevo-copy">
+    <div class="home-cuevo-copy cuevo-story-copy">
       <p class="eyebrow">WHAT WE&apos;RE BUILDING TODAY</p>
-      <h2 id="home-cuevo-title">Our first deep dive: learning.</h2>
-      <p>
-        CUOVO is E Deviser&apos;s learning-intelligence platform, built to help education understand
-        learning more deeply and act on what it learns.
+      <p class="cuevo-overline">A NEW WAY TO UNDERSTAND LEARNING</p>
+      <h2 id="home-cuevo-title">Make learning visible. <span>Make progress actionable.</span></h2>
+      <p class="cuevo-story-lede">
+        CUEVO is E Deviser&apos;s learning-intelligence platform — bringing outcome-based education,
+        meaningful gamification, and agentic AI into one connected experience.
       </p>
-      <p class="home-cuevo-support">Built by E Deviser. Designed for the complexity of learning.</p>
-      <Button href="https://cuovo.tech/" external label="Explore CUOVO" />
+      <div class="cuevo-story-divider" aria-hidden="true"></div>
+      <p class="home-cuevo-support">Designed around the people who make learning happen.</p>
+      <ul class="home-cuevo-roles" aria-label="People CUEVO is designed to support">
+        <li>Admin</li>
+        <li>Coordinator</li>
+        <li>Teacher</li>
+        <li>Student</li>
+        <li>Parent</li>
+      </ul>
+      <div class="cuevo-story-action">
+        <Button href="https://cuevo.tech/" external label="Explore CUEVO" />
+        <span>LEARNING, UNDERSTOOD BETTER.</span>
+      </div>
     </div>
   </section>
 </SectionWrapper>
