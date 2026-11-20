@@ -49,7 +49,8 @@ const steps=[['01','Understand','Gather and synthesize the context needed to und
 </div>
 <p>Different forces. One problem worth understanding in full.</p>
 </div></section>
-<section class="wb-section wb-alt" id="way"><div class="wb-wrap"><p class="wb-kicker">OUR WAY OF BUILDING</p><div class="wb-head"><h2>Understand first.<br/><em>Build second.</em></h2><p>We go deep into a problem—its people, incentives, systems, constraints, evidence, and desired outcomes—before deciding what needs to exist.</p></div><div class="wb-methodology-track" aria-label="Six stages of our building methodology">
+<section class="wb-section wb-alt" id="education"><div class="wb-wrap"><p class="wb-kicker">WHY EDUCATION, NOW?</p><div class="wb-head"><h2>Because learning is one of the most consequential—and complex—<em>systems we can work on.</em></h2><p>Education sits at the intersection of people, knowledge, behavior, institutions, technology, and systems. That's what makes it so difficult—and so important.</p></div><div class="wb-cards"><article><small>01 / COMPLEXITY</small><h3>Many forces, deeply connected.</h3><p>Learning is shaped by people, knowledge, behavior, institutions, curriculum, technology, and context.</p></article><article><small>02 / MEASUREMENT</small><h3>Outcomes over activity.</h3><p>What matters isn't simply activity or information. It's whether learning outcomes actually improve.</p></article><article><small>03 / SCALE</small><h3>Progress that can reach millions.</h3><p>Better ways of understanding and supporting learning can affect millions of learners across the region.</p></article></div><p class="wb-conclusion">That combination makes education a problem worth going deep on.</p></div></section>
+<section class="wb-section" id="way"><div class="wb-wrap"><p class="wb-kicker">OUR WAY OF BUILDING</p><div class="wb-head"><h2>Understand first.<br/><em>Build second.</em></h2><p>We go deep into a problem—its people, incentives, systems, constraints, evidence, and desired outcomes—before deciding what needs to exist.</p></div><div class="wb-methodology-track" aria-label="Six stages of our building methodology">
   <div class="wb-methodology-rail" aria-hidden="true"><i></i></div>
   {[
     ['The Problem','A complex, messy real-world problem.','THE START'],
@@ -118,7 +119,6 @@ const steps=[['01','Understand','Gather and synthesize the context needed to und
     </div>
   </div>
 </section>
-<section class="wb-section wb-alt" id="education"><div class="wb-wrap"><p class="wb-kicker">WHY EDUCATION, NOW?</p><div class="wb-head"><h2>Because learning is one of the most consequential—and complex—<em>systems we can work on.</em></h2><p>Education sits at the intersection of people, knowledge, behavior, institutions, technology, and systems. That's what makes it so difficult—and so important.</p></div><div class="wb-cards"><article><small>01 / COMPLEXITY</small><h3>Many forces, deeply connected.</h3><p>Learning is shaped by people, knowledge, behavior, institutions, curriculum, technology, and context.</p></article><article><small>02 / MEASUREMENT</small><h3>Outcomes over activity.</h3><p>What matters isn't simply activity or information. It's whether learning outcomes actually improve.</p></article><article><small>03 / SCALE</small><h3>Progress that can reach millions.</h3><p>Better ways of understanding and supporting learning can affect millions of learners across the region.</p></article></div><p class="wb-conclusion">That combination makes education a problem worth going deep on.</p></div></section>
 <section class="wb-section wb-intelligence" id="intelligence"><div class="wb-wrap"><p class="wb-kicker">OUR INTELLIGENCE CAPABILITY</p><div class="wb-head"><h2>We build systems that think,<br/><em>so they can keep getting better.</em></h2><p>Our intelligence loop is at the core of everything we build. It allows our systems to understand deeply, reason clearly, act effectively, and learn continuously. That's how we create lasting impact.</p></div><div class="wb-intel-system" role="img" aria-label="A continuous intelligence cycle: understand, reason, act, and learn, feeding back into continuous improvement.">
   <div class="wb-intel-orbit wb-intel-orbit-outer"></div><div class="wb-intel-orbit wb-intel-orbit-inner"></div>
   <div class="wb-intel-sweep" aria-hidden="true"></div>
@@ -573,5 +573,94 @@ const steps=[['01','Understand','Gather and synthesize the context needed to und
  #toolkit .wb-toolkit-system-foot{font-size:.45rem;letter-spacing:.09em}
 }
 @media(prefers-reduced-motion:reduce){#toolkit .wb-toolkit-capability{transition:none}}
+
+
+/* Page-wide art direction and section rhythm */
+.wb{background:#07121d;color:#f2f7fa}
+.wb-wrap{width:min(84rem,calc(100% - clamp(2rem,6vw,6rem)))}
+.wb-section{position:relative;padding:clamp(5.25rem,8vw,7.75rem) 0;border-bottom:1px solid #29404d66}
+.wb-section:last-child{border-bottom:0}
+.wb-kicker{display:flex;align-items:center;gap:.7rem;margin-bottom:1.15rem;color:#8bd3ce;font-size:.66rem;letter-spacing:.17em}
+.wb-kicker:before{content:"";width:1.35rem;height:1px;background:linear-gradient(90deg,#0382bd,#5ab9b4)}
+.wb h1,.wb h2{font-size:clamp(2.45rem,4.8vw,4.9rem);line-height:1.04;letter-spacing:-.058em}
+.wb h1 em,.wb h2 em{color:#83d2cd}
+.wb .wb-head{gap:clamp(2rem,6vw,6rem);align-items:end}
+.wb .wb-head h2{max-width:15ch;margin:0}
+.wb .wb-head>p{max-width:37rem;margin:0 0 .25rem;font-size:.96rem;line-height:1.85}
+.wb .wb-split{gap:clamp(2rem,7vw,7rem);align-items:end}
+.wb .wb-split h2{max-width:13ch;margin:0}
+.wb .wb-copy{max-width:36rem;font-size:.96rem;line-height:1.85}
+.wb .wb-link{position:relative;padding-bottom:.4rem;border-bottom:1px solid #5ab9b477;transition:color .2s ease,border-color .2s ease}
+.wb .wb-link:hover{color:#cdfcf4;border-color:#cdfcf4}
+#why{background:radial-gradient(ellipse at 83% 54%,#0382bd0d,transparent 38%),#07121d}
+#why .wb-problem-map{margin-top:3.2rem;padding:clamp(1rem,2.5vw,2rem) 0;border:0;border-top:1px solid #5ab9b426;border-bottom:1px solid #5ab9b426;background:radial-gradient(ellipse at 50% 45%,#0382bd16,transparent 62%);overflow:visible}
+#why .wb-dimension-stage{max-width:72rem;margin:auto}
+#why .wb-dimension-card{background:linear-gradient(145deg,#102534d9,#0a1a27d9);border-color:#42606c77;box-shadow:0 16px 38px #020a1230}
+#why .wb-dimension-card:hover{border-color:#74c9c0;transform:translateY(-3px)}
+#why .wb-intersection-core{box-shadow:0 0 0 7px #5ab9b408,0 0 36px #0382bd16}
+#why .wb-problem-map>p{margin:1.2rem 0 0;text-align:center;color:#8faab5;font-size:.78rem;letter-spacing:.02em}
+#education{background:linear-gradient(180deg,#0a1926 0%,#0a1926 72%,#091722 100%)}
+#education .wb-head{margin-bottom:2.5rem}
+#education .wb-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:2.6rem}
+#education .wb-cards article{position:relative;isolation:isolate;min-height:17rem;overflow:hidden;padding:1.6rem 1.5rem 1.45rem;border:1px solid #3c596777;background:linear-gradient(145deg,#102636e8,#0b1d2ae8);box-shadow:0 14px 34px #020a1228;transition:transform .3s ease,border-color .3s ease,background .3s ease}
+#education .wb-cards article:hover{transform:translateY(-4px);border-color:#6bbdb6;background:linear-gradient(145deg,#143244,#0b1d2a)}
+#education .wb-cards article:before{content:"";position:absolute;z-index:-1;right:1.4rem;top:1.2rem;width:3.3rem;height:3.3rem;border:1px solid #5ab9b45c;border-radius:38% 62% 48% 52%;background:radial-gradient(circle at 40% 40%,#5ab9b42b,transparent 68%);animation:wb-education-morph 12s ease-in-out infinite alternate}
+#education .wb-cards article:after{content:"";position:absolute;z-index:-1;right:2.45rem;top:2.25rem;width:1.1rem;height:1.1rem;border:1px solid #c0e2fd7a;transform:rotate(45deg)}
+#education .wb-cards article:nth-child(2):before{border-radius:50%;transform:scaleX(.72) rotate(35deg);animation-delay:-4s}
+#education .wb-cards article:nth-child(2):after{width:1.8rem;height:1px;border:0;background:#8bd3ce;transform:rotate(-35deg)}
+#education .wb-cards article:nth-child(3):before{border-radius:12% 70% 18% 65%;transform:rotate(25deg);animation-delay:-8s}
+#education .wb-cards article:nth-child(3):after{border-radius:50%;transform:none;width:.45rem;height:.45rem;background:#cdfcf4;border:0;box-shadow:0 0 12px #5ab9b4}
+#education .wb-cards small{display:block;color:#85cfc9;font:600 .58rem var(--font-mono);letter-spacing:.14em}
+#education .wb-cards h3{max-width:14ch;margin:3rem 0 .7rem;color:#f1f7f8;font-size:1.2rem;line-height:1.25;letter-spacing:-.035em}
+#education .wb-cards p{max-width:29rem;margin:0;color:#a9bac4;font-size:.78rem;line-height:1.75}
+#education .wb-conclusion{max-width:46rem;margin:1.8rem 0 0;padding-left:1rem;border-left:1px solid #5ab9b4;color:#d0e2e5;font-size:.88rem}
+#way{background:#07121d}
+#way .wb-methodology-track{margin-top:3rem}
+#way .wb-quote{max-width:62rem;margin:2.6rem auto 0;padding:1.25rem 1.5rem;border-left:2px solid #5ab9b4;background:linear-gradient(90deg,#102a38a8,transparent 82%);color:#b7c9d0;font-size:.94rem;line-height:1.85}
+#toolkit{background:radial-gradient(ellipse at 50% 58%,#0382bd0b,transparent 55%),#0a1926}
+#toolkit .wb-toolkit-system{background:linear-gradient(110deg,#0b1c28a6,#102b393d 50%,#0b1c28a6)}
+#intelligence{background:radial-gradient(ellipse at 50% 58%,#0382bd14,transparent 55%),#07121d}
+#intelligence .wb-intel-system{border-color:#42606c88;box-shadow:0 22px 58px #020a1238}
+#intelligence .wb-intel-node{border-color:#426674;background:linear-gradient(145deg,#112b3beF,#0a1b29f5);box-shadow:0 12px 30px #020a125c}
+#intelligence .wb-loop-foot{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:1rem;margin:1.8rem auto 0;max-width:76rem}
+#intelligence .wb-loop-foot>p{margin:0;padding:1rem 1.1rem;border-top:1px solid #5ab9b447;color:#9eb4bd;font-size:.78rem;line-height:1.75}
+#intelligence .wb-loop-foot>p:first-child,#intelligence .wb-loop-foot>p:last-child{color:#d5e6e8}
+#intelligence .wb-loop-foot b{color:#eef8f7}
+#future{background:linear-gradient(180deg,#0a1926 0%,#091722 100%)}
+#future .wb-future-visual{border-color:#42606c88;box-shadow:inset 0 0 60px #0382bd12,0 20px 54px #020a1238}
+@keyframes wb-education-morph{0%{border-radius:38% 62% 48% 52%;transform:rotate(-8deg) scale(.96)}100%{border-radius:62% 38% 56% 44%;transform:rotate(9deg) scale(1.04)}}
+@media(max-width:900px){
+ .wb-wrap{width:calc(100% - 2.5rem)}
+ #education .wb-cards{gap:.7rem}
+ #education .wb-cards article{padding:1.3rem 1.1rem;min-height:18rem}
+ #education .wb-cards h3{font-size:1.05rem}
+ #intelligence .wb-loop-foot{grid-template-columns:1fr 1fr}
+ #intelligence .wb-loop-foot>p:nth-child(2){grid-column:1/-1;grid-row:1}
+}
+@media(max-width:700px){
+ .wb-section{padding:4.6rem 0}
+ .wb .wb-head,.wb .wb-split{display:block}
+ .wb .wb-head h2,.wb .wb-split h2{margin:0 0 1.2rem}
+ .wb .wb-head>p,.wb .wb-copy{max-width:42rem}
+ #education .wb-cards{grid-template-columns:1fr;gap:.8rem}
+ #education .wb-cards article{min-height:0;padding:1.25rem 1.2rem 1.35rem}
+ #education .wb-cards h3{max-width:19ch;margin:2.5rem 0 .55rem}
+ #education .wb-cards p{max-width:38rem}
+ #intelligence .wb-loop-foot{grid-template-columns:1fr}
+ #intelligence .wb-loop-foot>p:nth-child(2){grid-column:auto;grid-row:auto}
+ #intelligence .wb-loop-foot>p{padding:.8rem 0}
+ #why .wb-problem-map{margin-top:2.2rem}
+}
+@media(max-width:480px){
+ .wb-wrap{width:calc(100% - 2rem)}
+ .wb h1,.wb h2{font-size:clamp(2.25rem,10.5vw,3.15rem)}
+ .wb-kicker{font-size:.6rem}
+ #education .wb-cards article:before{width:2.8rem;height:2.8rem}
+ #education .wb-cards article:after{right:2.35rem;top:2.15rem}
+}
+@media(prefers-reduced-motion:reduce){
+ #education .wb-cards article:before{animation:none!important}
+ #education .wb-cards article,#why .wb-dimension-card{transition:none!important}
+}
 
 </style>
