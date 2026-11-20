@@ -61,20 +61,21 @@ const steps=[['01','Understand','Gather and synthesize the context needed to und
   </article>)}
 </div><p class="wb-quote">We don't start by asking, <i>“What can this technology do?”</i><br/>We start by asking, <strong>“What would actually solve this?”</strong></p></div></section>
 <section class="wb-section" id="toolkit"><div class="wb-wrap"><p class="wb-kicker">OUR TOOLKIT</p><div class="wb-head"><h2>Technology is a means.<br/><em>We use whatever the problem demands.</em></h2><p>We don't begin with a technology and search for somewhere to use it. We begin with a problem and assemble the capabilities required to solve it.</p></div><div class="wb-toolkit-board">
-  <div class="wb-toolkit-origin">
-    <div class="wb-toolkit-orbit wb-toolkit-orbit-a"></div><div class="wb-toolkit-orbit wb-toolkit-orbit-b"></div>
-    <div class="wb-toolkit-signal"><i></i><i></i><i></i></div>
-    <div class="wb-toolkit-core"><span>START WITH</span><b>THE<br/>PROBLEM</b><small>Not the technology.</small></div>
-    <div class="wb-toolkit-origin-foot"><span>UNDERSTAND</span><i></i><span>ASSEMBLE</span><i></i><span>BUILD</span></div>
+  <div class="wb-toolkit-principle" aria-label="Problem-led capability assembly">
+    <div class="wb-toolkit-principle-top"><span>THE APPROACH</span><i></i><span>PROBLEM-LED</span></div>
+    <div class="wb-toolkit-principle-main"><b>SELECT</b><i></i><b>COMBINE</b><i></i><b>ADAPT</b></div>
+    <p>Capabilities are brought together around the need—not chosen from a fixed stack.</p>
+    <div class="wb-toolkit-principle-trace" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
   <div class="wb-toolkit-grid">
     {tools.map((t,i)=><article class="wb-toolkit-card">
       <div class="wb-toolkit-card-top"><small>0{i+1} / CAPABILITY</small><span class="wb-toolkit-glyph" aria-hidden="true"><i></i><i></i><i></i></span></div>
       <h3>{t[0]}</h3><p>{t[1]}</p>
+      <div class="wb-toolkit-form" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
       <span class="wb-toolkit-card-line"></span>
     </article>)}
   </div>
-</div><p class="wb-quote"><strong>There is no fixed stack.</strong> Only the right combination for the problem in front of us.</p></div></section>
+</div><p class="wb-quote"><strong>There is no fixed stack.</strong> Only the right combination for the problem in front of us.</p><p class="wb-quote"><strong>There is no fixed stack.</strong> Only the right combination for the problem in front of us.</p></div></section>
 <section class="wb-section wb-alt" id="education"><div class="wb-wrap"><p class="wb-kicker">WHY EDUCATION, NOW?</p><div class="wb-head"><h2>Because learning is one of the most consequential—and complex—<em>systems we can work on.</em></h2><p>Education sits at the intersection of people, knowledge, behavior, institutions, technology, and systems. That's what makes it so difficult—and so important.</p></div><div class="wb-cards"><article><small>01 / COMPLEXITY</small><h3>Many forces, deeply connected.</h3><p>Learning is shaped by people, knowledge, behavior, institutions, curriculum, technology, and context.</p></article><article><small>02 / MEASUREMENT</small><h3>Outcomes over activity.</h3><p>What matters isn't simply activity or information. It's whether learning outcomes actually improve.</p></article><article><small>03 / SCALE</small><h3>Progress that can reach millions.</h3><p>Better ways of understanding and supporting learning can affect millions of learners across the region.</p></article></div><p class="wb-conclusion">That combination makes education a problem worth going deep on.</p></div></section>
 <section class="wb-section wb-intelligence" id="intelligence"><div class="wb-wrap"><p class="wb-kicker">OUR INTELLIGENCE CAPABILITY</p><div class="wb-head"><h2>We build systems that think,<br/><em>so they can keep getting better.</em></h2><p>Our intelligence loop is at the core of everything we build. It allows our systems to understand deeply, reason clearly, act effectively, and learn continuously. That's how we create lasting impact.</p></div><div class="wb-intel-system" role="img" aria-label="A continuous intelligence cycle: understand, reason, act, and learn, feeding back into continuous improvement.">
   <div class="wb-intel-orbit wb-intel-orbit-outer"></div><div class="wb-intel-orbit wb-intel-orbit-inner"></div>
@@ -258,4 +259,53 @@ const steps=[['01','Understand','Gather and synthesize the context needed to und
 @media(max-width:900px){#way .wb-methodology-track{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:2rem}#way .wb-methodology-rail{display:none}#way .wb-method-step{min-height:12rem}#way .wb-method-step:nth-of-type(3){border-right:0}#way .wb-method-step:nth-of-type(4){grid-column:1/2}}
 @media(max-width:600px){#way .wb-methodology-track{grid-template-columns:1fr;gap:0;margin:2.7rem 0 2rem;padding-left:.2rem}#way .wb-method-step{min-height:0;padding:0 0 1.7rem 3.6rem;border:0;border-left:1px solid #376071}#way .wb-method-step:last-of-type{border-left-color:transparent;padding-bottom:.2rem}#way .wb-method-step-head{position:absolute;left:-.2rem;top:0;width:2.4rem;height:auto;justify-content:center}#way .wb-method-number{font-size:.62rem}#way .wb-method-phase{display:none}#way .wb-method-node{position:absolute;left:-1.13rem;top:1.65rem;width:2.15rem;height:2.15rem;margin:0}#way .wb-method-step-body{min-height:0;padding:1.55rem 0 .3rem}#way .wb-method-step h3{margin-bottom:.35rem;font-size:1.05rem}#way .wb-method-step p{max-width:22rem;font-size:.74rem}#way .wb-method-step-index{right:.4rem;bottom:0;font-size:3rem}#way .wb-quote{margin-top:1.5rem;padding:1.2rem 1rem 1.2rem 1.2rem;font-size:.86rem}}
 @media(prefers-reduced-motion:reduce){#way .wb-methodology-rail:after{animation:none!important;transform:translateX(0)}#way .wb-method-step,#way .wb-method-node{transition:none!important}}
+
+/* Our toolkit: a modular capability field with individually morphing light forms. */
+#toolkit .wb-toolkit-board{display:grid;grid-template-columns:minmax(13rem,.62fr) minmax(0,1.9fr);gap:1rem;margin:3.5rem 0 2rem;align-items:stretch}
+#toolkit .wb-toolkit-principle{position:relative;min-height:100%;padding:1.35rem 1.25rem;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;border:1px solid #315364;background:linear-gradient(155deg,#102c3b 0%,#0a1c29 68%,#091722 100%);box-shadow:inset 0 1px 0 #c0e2fd12}
+#toolkit .wb-toolkit-principle:before{content:"";position:absolute;width:16rem;height:16rem;right:-8rem;bottom:-8rem;border-radius:43% 57% 61% 39% / 45% 42% 58% 55%;background:radial-gradient(ellipse,#5ab9b42b,transparent 68%);filter:blur(8px);animation:wb-toolkit-aura 13s ease-in-out infinite alternate}
+#toolkit .wb-toolkit-principle-top{display:flex;align-items:center;gap:.55rem;font:600 .46rem var(--font-mono);letter-spacing:.13em;color:#8db9c2}
+#toolkit .wb-toolkit-principle-top i{height:1px;flex:1;background:linear-gradient(90deg,#5ab9b477,transparent)}
+#toolkit .wb-toolkit-principle-main{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;margin:2.5rem 0}
+#toolkit .wb-toolkit-principle-main b{font:650 clamp(1.05rem,1.6vw,1.45rem) var(--font-mono);letter-spacing:.06em;color:#e9fbf8}
+#toolkit .wb-toolkit-principle-main i{width:1px;height:1.15rem;margin-left:.45rem;background:linear-gradient(#5ab9b4,#c0e2fd);box-shadow:0 0 8px #5ab9b455}
+#toolkit .wb-toolkit-principle-main b:nth-of-type(2){color:#a9e2dc}#toolkit .wb-toolkit-principle-main b:nth-of-type(3){color:#c0e2fd}
+#toolkit .wb-toolkit-principle>p{position:relative;z-index:1;max-width:17rem;margin:0;color:#9fb8c2;font-size:.72rem;line-height:1.7}
+#toolkit .wb-toolkit-principle-trace{position:relative;z-index:1;display:flex;align-items:center;gap:.4rem;margin-top:2rem}
+#toolkit .wb-toolkit-principle-trace i{height:3px;flex:1;background:#294b5a;border-radius:3px}
+#toolkit .wb-toolkit-principle-trace i:nth-child(2),#toolkit .wb-toolkit-principle-trace i:nth-child(4),#toolkit .wb-toolkit-principle-trace i:nth-child(6){background:#5ab9b4;box-shadow:0 0 8px #5ab9b477}
+#toolkit .wb-toolkit-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem}
+#toolkit .wb-toolkit-card{position:relative;min-width:0;min-height:16.2rem;padding:1rem .95rem .85rem;display:flex;flex-direction:column;overflow:hidden;border:1px solid #294653;background:linear-gradient(155deg,#102635 0%,#0b1b28 72%);box-shadow:inset 0 1px 0 #c0e2fd0a;transition:transform .35s ease,border-color .35s ease,background .35s ease}
+#toolkit .wb-toolkit-card:before{content:"";position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,#5ab9b477,transparent);opacity:.65}
+#toolkit .wb-toolkit-card:hover{transform:translateY(-4px);border-color:#5ab9b488;background:linear-gradient(155deg,#123345,#0b1b28 75%)}
+#toolkit .wb-toolkit-card-top{display:flex;align-items:center;justify-content:space-between;gap:.3rem}
+#toolkit .wb-toolkit-card-top small{font:500 .42rem var(--font-mono);letter-spacing:.09em;color:#6f9aa8}
+#toolkit .wb-toolkit-glyph{display:flex;gap:3px;align-items:center}
+#toolkit .wb-toolkit-glyph i{width:3px;height:3px;border-radius:50%;background:#5ab9b4;box-shadow:0 0 6px #5ab9b4}
+#toolkit .wb-toolkit-card h3{position:relative;z-index:1;margin:1.1rem 0 .35rem;font-size:clamp(.78rem,1vw,.95rem);line-height:1.25;letter-spacing:-.02em;color:#effaf8}
+#toolkit .wb-toolkit-card p{position:relative;z-index:1;min-height:2.65rem;margin:0;color:#9eb5bf;font-size:.64rem;line-height:1.55}
+#toolkit .wb-toolkit-form{position:relative;isolation:isolate;display:grid;place-items:center;flex:1;min-height:5.1rem;margin:.45rem -.2rem -.1rem;overflow:hidden}
+#toolkit .wb-toolkit-form:before,#toolkit .wb-toolkit-form:after{content:"";position:absolute;width:4.3rem;height:3.25rem;border:1px solid #5ab9b45c;border-radius:46% 54% 61% 39% / 48% 43% 57% 52%;background:linear-gradient(135deg,#5ab9b418,#0382bd0a);box-shadow:inset 0 0 18px #5ab9b411,0 0 22px #0382bd12;animation:wb-toolkit-shape-a 9s ease-in-out infinite alternate}
+#toolkit .wb-toolkit-form:after{width:3.3rem;height:4rem;border-color:#c0e2fd55;border-radius:55% 45% 43% 57% / 42% 58% 42% 58%;transform:rotate(38deg);animation:wb-toolkit-shape-b 12s ease-in-out infinite alternate}
+#toolkit .wb-toolkit-form i{position:absolute;z-index:1;width:2.4rem;height:2.4rem;border:1px solid #0382bd66;border-radius:50%;box-shadow:0 0 16px #0382bd25;animation:wb-toolkit-orbitless 8s ease-in-out infinite alternate}
+#toolkit .wb-toolkit-form i:nth-child(1){transform:translate(-1.15rem,.25rem) scale(.7);border-color:#5ab9b4}
+#toolkit .wb-toolkit-form i:nth-child(2){transform:translate(1.15rem,-.25rem) scale(.55);border-color:#c0e2fd}
+#toolkit .wb-toolkit-form i:nth-child(3){width:.4rem;height:.4rem;border:0;background:#cdfcf4;box-shadow:0 0 12px 3px #5ab9b477}
+#toolkit .wb-toolkit-form b{position:absolute;z-index:2;width:1.1rem;height:1.1rem;border:1px solid #cdfcf477;transform:rotate(45deg);background:#5ab9b414;box-shadow:0 0 12px #5ab9b422}
+#toolkit .wb-toolkit-card:nth-child(2) .wb-toolkit-form:before{width:3.7rem;height:3.7rem;border-radius:50% 50% 44% 56%}
+#toolkit .wb-toolkit-card:nth-child(3) .wb-toolkit-form:before{width:4.5rem;height:2.5rem;border-radius:12% 88% 18% 82% / 55% 35% 65% 45%;rotate:-24deg}
+#toolkit .wb-toolkit-card:nth-child(4) .wb-toolkit-form:before{width:3.3rem;height:3.3rem;border-radius:18%;rotate:45deg}
+#toolkit .wb-toolkit-card:nth-child(5) .wb-toolkit-form:before{width:4.2rem;height:2.8rem;border-radius:50%;filter:blur(.2px)}
+#toolkit .wb-toolkit-card:nth-child(6) .wb-toolkit-form:before{width:3.8rem;height:3.8rem;border-radius:50% 20% 50% 20%;rotate:45deg}
+#toolkit .wb-toolkit-card:nth-child(7) .wb-toolkit-form:before{width:4.5rem;height:2.4rem;border-radius:65% 35% 65% 35%;rotate:18deg}
+#toolkit .wb-toolkit-card-line{position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,#5ab9b455,transparent)}
+@keyframes wb-toolkit-shape-a{0%{border-radius:46% 54% 61% 39% / 48% 43% 57% 52%;transform:rotate(-12deg) scale(.94)}100%{border-radius:62% 38% 43% 57% / 55% 61% 39% 45%;transform:rotate(12deg) scale(1.06)}}
+@keyframes wb-toolkit-shape-b{0%{transform:rotate(25deg) scale(.92) translateX(0)}100%{transform:rotate(65deg) scale(1.08) translateX(5px)}}
+@keyframes wb-toolkit-orbitless{0%{border-radius:42% 58% 50% 50%;translate:-2px 1px}100%{border-radius:58% 42% 45% 55%;translate:2px -2px}}
+@keyframes wb-toolkit-aura{from{transform:scale(.8) rotate(-8deg);opacity:.55}to{transform:scale(1.12) rotate(12deg);opacity:1}}
+@media(max-width:1050px){#toolkit .wb-toolkit-board{grid-template-columns:1fr}#toolkit .wb-toolkit-principle{min-height:12rem;gap:1rem}#toolkit .wb-toolkit-principle-main{flex-direction:row;align-items:center;gap:.65rem;margin:1.3rem 0 .6rem}#toolkit .wb-toolkit-principle-main i{width:1.1rem;height:1px;margin:0}#toolkit .wb-toolkit-principle-trace{margin-top:.7rem}#toolkit .wb-toolkit-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:700px){#toolkit .wb-toolkit-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}#toolkit .wb-toolkit-card{min-height:14.5rem;padding:.85rem .75rem .65rem}#toolkit .wb-toolkit-card h3{font-size:.85rem;margin-top:.9rem}#toolkit .wb-toolkit-card p{font-size:.65rem;min-height:3rem}#toolkit .wb-toolkit-form{min-height:4.5rem}#toolkit .wb-toolkit-principle{padding:1rem}#toolkit .wb-toolkit-principle-main b{font-size:1rem}}
+@media(max-width:370px){#toolkit .wb-toolkit-grid{grid-template-columns:1fr}#toolkit .wb-toolkit-card{min-height:12rem}#toolkit .wb-toolkit-form{min-height:4rem}}
+@media(prefers-reduced-motion:reduce){#toolkit .wb-toolkit-principle:before,#toolkit .wb-toolkit-form:before,#toolkit .wb-toolkit-form:after,#toolkit .wb-toolkit-form i{animation:none!important}#toolkit .wb-toolkit-card{transition:none!important}}
+
 </style>
