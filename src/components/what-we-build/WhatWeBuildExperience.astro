@@ -420,55 +420,6 @@ const steps=[['01','Understand','Gather and synthesize the context needed to und
 
 
 
-/* Our Toolkit — open, responsive composition. */
-#toolkit{border-bottom:0;padding-top:clamp(6rem,10vw,10rem);padding-bottom:clamp(6rem,10vw,10rem)}
-#toolkit .wb-wrap{width:min(92rem,calc(100% - clamp(2rem,7vw,8rem)))}
-#toolkit .wb-head{max-width:64rem;margin-bottom:0}
-#toolkit .wb-head h2{max-width:13ch;margin-top:1.25rem}
-#toolkit .wb-toolkit-constellation{width:100%;max-width:88rem;height:clamp(35rem,58vw,48rem);margin:clamp(2.5rem,5vw,4.5rem) auto 0;overflow:visible;background:radial-gradient(ellipse at 50% 50%,#10314336 0%,#0a1b2910 34%,transparent 66%)}
-#toolkit .wb-toolkit-orbit--outer{width:70%;height:76%;border-style:solid;border-color:#5ab9b426}
-#toolkit .wb-toolkit-orbit--inner{width:45%;height:49%;border-color:#c0e2fd20;box-shadow:none}
-#toolkit .wb-toolkit-orbit--outer:before,#toolkit .wb-toolkit-orbit--outer:after{opacity:.65;box-shadow:0 0 8px #5ab9b477}
-#toolkit .wb-toolkit-core{width:clamp(10rem,17vw,13.5rem);border-color:#75c9c36b;background:radial-gradient(circle at 35% 28%,#153b4b 0%,#0b2231 65%,#091925 100%);box-shadow:0 0 0 8px #5ab9b408,0 0 38px #0382bd15}
-#toolkit .wb-toolkit-core:before,#toolkit .wb-toolkit-core:after{border-color:#5ab9b42b}
-#toolkit .wb-toolkit-orb{width:clamp(9rem,13vw,10.5rem);min-height:4.4rem;padding:.45rem .25rem;gap:.65rem;border:0;background:transparent;box-shadow:none;animation:wb-toolkit-float 8s ease-in-out infinite}
-#toolkit .wb-toolkit-orb:hover{border:0;background:transparent;box-shadow:none}
-#toolkit .wb-toolkit-orb strong{font-size:.82rem;font-weight:600;letter-spacing:-.015em}
-#toolkit .wb-toolkit-orb-icon{flex-basis:2rem;width:2rem;height:2rem;background:transparent;border-color:#5ab9b45c}
-#toolkit .wb-toolkit-connectors i{height:24%;opacity:.34;background:linear-gradient(180deg,#7bcac477,transparent)}
-#toolkit .wb-toolkit-annotation{bottom:.4rem;color:#70919d;font-size:.43rem}
-@media(max-width:800px){
- #toolkit .wb-toolkit-constellation{height:36rem;margin-top:2rem}
- #toolkit .wb-toolkit-orbit--outer{width:84%;height:72%}
- #toolkit .wb-toolkit-orbit--inner{width:57%;height:45%}
- #toolkit .wb-toolkit-core{width:9.25rem}
- #toolkit .wb-toolkit-orb{width:8.1rem;min-height:4rem;padding:.35rem}
- #toolkit .wb-toolkit-orb strong{font-size:.7rem}
- #toolkit .wb-toolkit-orb--2{--x:30%;--y:-24%}
- #toolkit .wb-toolkit-orb--3{--x:34%;--y:15%}
- #toolkit .wb-toolkit-orb--6{--x:-34%;--y:0%}
- #toolkit .wb-toolkit-orb--7{--x:-30%;--y:-26%}
-}
-@media(max-width:600px){
- #toolkit .wb-wrap{width:calc(100% - 2rem)}
- #toolkit .wb-toolkit-constellation{height:auto;min-height:0;margin:2rem auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.25rem;overflow:visible;background:none}
- #toolkit .wb-toolkit-orbit,#toolkit .wb-toolkit-connectors,#toolkit .wb-toolkit-annotation{display:none}
- #toolkit .wb-toolkit-core{position:relative;left:auto;top:auto;grid-column:1/-1;justify-self:center;transform:none;width:9.25rem;margin:0 auto 1rem}
- #toolkit .wb-toolkit-orb{position:relative;left:auto;top:auto;width:auto;min-height:3.6rem;transform:none;justify-content:flex-start;animation:none;padding:.3rem 0;gap:.55rem}
- #toolkit .wb-toolkit-orb strong{font-size:.7rem}
- #toolkit .wb-toolkit-orb-icon{flex-basis:1.85rem;width:1.85rem;height:1.85rem}
- #toolkit .wb-toolkit-orb--1,#toolkit .wb-toolkit-orb--2,#toolkit .wb-toolkit-orb--3,#toolkit .wb-toolkit-orb--4,#toolkit .wb-toolkit-orb--5,#toolkit .wb-toolkit-orb--6,#toolkit .wb-toolkit-orb--7{--x:0%;--y:0%}
- #toolkit .wb-toolkit-orb--7{grid-column:1/-1;justify-self:center;width:min(14rem,100%)}
-}
-@media(max-width:360px){
- #toolkit .wb-toolkit-constellation{column-gap:.5rem}
- #toolkit .wb-toolkit-orb{gap:.35rem}
- #toolkit .wb-toolkit-orb strong{font-size:.64rem}
-}
-@media(prefers-reduced-motion:reduce){
- #toolkit .wb-toolkit-orbit--outer,#toolkit .wb-toolkit-core:before,#toolkit .wb-toolkit-core:after,#toolkit .wb-toolkit-orb{animation:none!important}
-}
-
 /* Our Toolkit — a problem-centred capability constellation. */
 #toolkit .wb-head{max-width:58rem;margin-bottom:0}
 #toolkit .wb-toolkit-eyebrow{margin:0 0 .65rem;color:#83cfc9;font:600 .65rem var(--font-mono);letter-spacing:.16em}
@@ -537,5 +488,56 @@ const steps=[['01','Understand','Gather and synthesize the context needed to und
 @media(max-width:800px){#toolkit .wb-toolkit-constellation{height:38rem;margin-top:1.5rem}#toolkit .wb-toolkit-orbit--outer{width:94%;height:72%}#toolkit .wb-toolkit-orbit--inner{width:64%;height:46%}#toolkit .wb-toolkit-core{width:9.5rem}#toolkit .wb-toolkit-orb{width:8.7rem;min-height:4.5rem;padding:.55rem;gap:.5rem}#toolkit .wb-toolkit-orb strong{font-size:.68rem}#toolkit .wb-toolkit-orb-icon{flex-basis:1.8rem;width:1.8rem;height:1.8rem}#toolkit .wb-toolkit-orb--1{--x:0%;--y:-36%}#toolkit .wb-toolkit-orb--2{--x:31%;--y:-23%}#toolkit .wb-toolkit-orb--3{--x:38%;--y:15%}#toolkit .wb-toolkit-orb--4{--x:17%;--y:37%}#toolkit .wb-toolkit-orb--5{--x:-25%;--y:35%}#toolkit .wb-toolkit-orb--6{--x:-38%;--y:0%}#toolkit .wb-toolkit-orb--7{--x:-29%;--y:-26%}}
 @media(max-width:520px){#toolkit .wb-toolkit-constellation{height:34rem;margin-left:-.6rem;margin-right:-.6rem;width:calc(100% + 1.2rem)}#toolkit .wb-toolkit-orbit--outer{width:100%;height:66%}#toolkit .wb-toolkit-orbit--inner{width:67%;height:44%}#toolkit .wb-toolkit-core{width:7.7rem}#toolkit .wb-toolkit-core span{font-size:.39rem}#toolkit .wb-toolkit-core b{font-size:1.15rem}#toolkit .wb-toolkit-core small{font-size:.34rem}#toolkit .wb-toolkit-orb{width:7.2rem;min-height:3.7rem;padding:.42rem;gap:.4rem}#toolkit .wb-toolkit-orb strong{font-size:.59rem}#toolkit .wb-toolkit-orb-icon{flex-basis:1.5rem;width:1.5rem;height:1.5rem}#toolkit .wb-toolkit-orb--1{--x:0%;--y:-39%}#toolkit .wb-toolkit-orb--2{--x:33%;--y:-25%}#toolkit .wb-toolkit-orb--3{--x:33%;--y:15%}#toolkit .wb-toolkit-orb--4{--x:18%;--y:39%}#toolkit .wb-toolkit-orb--5{--x:-26%;--y:37%}#toolkit .wb-toolkit-orb--6{--x:-33%;--y:0%}#toolkit .wb-toolkit-orb--7{--x:-33%;--y:-27%}#toolkit .wb-toolkit-annotation{font-size:.35rem;bottom:.4rem}}
 @media(prefers-reduced-motion:reduce){#toolkit .wb-toolkit-orbit--outer,#toolkit .wb-toolkit-core:before,#toolkit .wb-toolkit-core:after,#toolkit .wb-toolkit-orb{animation:none!important}}
+
+
+
+/* Our Toolkit — open, responsive composition. */
+#toolkit{border-bottom:0;padding-top:clamp(6rem,10vw,10rem);padding-bottom:clamp(6rem,10vw,10rem)}
+#toolkit .wb-wrap{width:min(92rem,calc(100% - clamp(2rem,7vw,8rem)))}
+#toolkit .wb-head{max-width:64rem;margin-bottom:0}
+#toolkit .wb-head h2{max-width:13ch;margin-top:1.25rem}
+#toolkit .wb-toolkit-constellation{width:100%;max-width:88rem;height:clamp(35rem,58vw,48rem);margin:clamp(2.5rem,5vw,4.5rem) auto 0;overflow:visible;background:radial-gradient(ellipse at 50% 50%,#10314336 0%,#0a1b2910 34%,transparent 66%)}
+#toolkit .wb-toolkit-orbit--outer{width:70%;height:76%;border-style:solid;border-color:#5ab9b426}
+#toolkit .wb-toolkit-orbit--inner{width:45%;height:49%;border-color:#c0e2fd20;box-shadow:none}
+#toolkit .wb-toolkit-orbit--outer:before,#toolkit .wb-toolkit-orbit--outer:after{opacity:.65;box-shadow:0 0 8px #5ab9b477}
+#toolkit .wb-toolkit-core{width:clamp(10rem,17vw,13.5rem);border-color:#75c9c36b;background:radial-gradient(circle at 35% 28%,#153b4b 0%,#0b2231 65%,#091925 100%);box-shadow:0 0 0 8px #5ab9b408,0 0 38px #0382bd15}
+#toolkit .wb-toolkit-core:before,#toolkit .wb-toolkit-core:after{border-color:#5ab9b42b}
+#toolkit .wb-toolkit-orb{width:clamp(9rem,13vw,10.5rem);min-height:4.4rem;padding:.45rem .25rem;gap:.65rem;border:0;background:transparent;box-shadow:none;animation:wb-toolkit-float 8s ease-in-out infinite}
+#toolkit .wb-toolkit-orb:hover{border:0;background:transparent;box-shadow:none}
+#toolkit .wb-toolkit-orb strong{font-size:.82rem;font-weight:600;letter-spacing:-.015em}
+#toolkit .wb-toolkit-orb-icon{flex-basis:2rem;width:2rem;height:2rem;background:transparent;border-color:#5ab9b45c}
+#toolkit .wb-toolkit-connectors i{height:24%;opacity:.34;background:linear-gradient(180deg,#7bcac477,transparent)}
+#toolkit .wb-toolkit-annotation{bottom:.4rem;color:#70919d;font-size:.43rem}
+@media(max-width:800px){
+ #toolkit .wb-toolkit-constellation{height:36rem;margin-top:2rem}
+ #toolkit .wb-toolkit-orbit--outer{width:84%;height:72%}
+ #toolkit .wb-toolkit-orbit--inner{width:57%;height:45%}
+ #toolkit .wb-toolkit-core{width:9.25rem}
+ #toolkit .wb-toolkit-orb{width:8.1rem;min-height:4rem;padding:.35rem}
+ #toolkit .wb-toolkit-orb strong{font-size:.7rem}
+ #toolkit .wb-toolkit-orb--2{--x:30%;--y:-24%}
+ #toolkit .wb-toolkit-orb--3{--x:34%;--y:15%}
+ #toolkit .wb-toolkit-orb--6{--x:-34%;--y:0%}
+ #toolkit .wb-toolkit-orb--7{--x:-30%;--y:-26%}
+}
+@media(max-width:600px){
+ #toolkit .wb-wrap{width:calc(100% - 2rem)}
+ #toolkit .wb-toolkit-constellation{height:auto;min-height:0;margin:2rem auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.25rem;overflow:visible;background:none}
+ #toolkit .wb-toolkit-orbit,#toolkit .wb-toolkit-connectors,#toolkit .wb-toolkit-annotation{display:none}
+ #toolkit .wb-toolkit-core{position:relative;left:auto;top:auto;grid-column:1/-1;justify-self:center;transform:none;width:9.25rem;margin:0 auto 1rem}
+ #toolkit .wb-toolkit-orb{position:relative;left:auto;top:auto;width:auto;min-height:3.6rem;transform:none;justify-content:flex-start;animation:none;padding:.3rem 0;gap:.55rem}
+ #toolkit .wb-toolkit-orb strong{font-size:.7rem}
+ #toolkit .wb-toolkit-orb-icon{flex-basis:1.85rem;width:1.85rem;height:1.85rem}
+ #toolkit .wb-toolkit-orb--1,#toolkit .wb-toolkit-orb--2,#toolkit .wb-toolkit-orb--3,#toolkit .wb-toolkit-orb--4,#toolkit .wb-toolkit-orb--5,#toolkit .wb-toolkit-orb--6,#toolkit .wb-toolkit-orb--7{--x:0%;--y:0%}
+ #toolkit .wb-toolkit-orb--7{grid-column:1/-1;justify-self:center;width:min(14rem,100%)}
+}
+@media(max-width:360px){
+ #toolkit .wb-toolkit-constellation{column-gap:.5rem}
+ #toolkit .wb-toolkit-orb{gap:.35rem}
+ #toolkit .wb-toolkit-orb strong{font-size:.64rem}
+}
+@media(prefers-reduced-motion:reduce){
+ #toolkit .wb-toolkit-orbit--outer,#toolkit .wb-toolkit-core:before,#toolkit .wb-toolkit-core:after,#toolkit .wb-toolkit-orb{animation:none!important}
+}
 
 </style>
