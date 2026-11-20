@@ -255,9 +255,18 @@ const steps=[['01','Understand','Gather and synthesize the context needed to und
 #way .wb-method-step:nth-of-type(4) .wb-method-node{border-color:#c0e2fd;background:linear-gradient(145deg,#16465a,#0b2637);box-shadow:0 0 0 7px #0382bd12,0 0 28px #0382bd30}
 #way .wb-method-step:hover .wb-method-node{transform:scale(1.08);border-color:#cdfcf4;box-shadow:0 0 0 8px #5ab9b414,0 0 30px #5ab9b433}
 #way .wb-method-step-body{position:relative;min-height:9.3rem;padding:.1rem 0 .45rem}
-#way .wb-method-step h3{position:relative;z-index:1;margin:0 0 .65rem;font-size:clamp(.88rem,1.12vw,1.08rem);font-weight:650;letter-spacing:-.025em;color:#edf9f7}
+#way .wb-method-step h3{position:relative;z-index:1;margin:0 0 .65rem;font-size:clamp(.88rem,1.12vw,1.08rem);font-weight:700;letter-spacing:-.025em;color:#f4fffd!important;-webkit-text-fill-color:#f4fffd!important;text-shadow:0 1px 12px #5ab9b418}
 #way .wb-method-step p{position:relative;z-index:1;max-width:12rem;margin:0;font-size:.68rem;line-height:1.7;color:#9fb5bf}
 #way .wb-method-art{position:relative;isolation:isolate;display:grid;place-items:center;width:100%;height:6.2rem;margin:.25rem 0 .2rem;overflow:hidden}
+#way .wb-method-art{animation:wb-method-art-float 6.8s ease-in-out infinite;will-change:transform}
+#way .wb-method-step:nth-of-type(2) .wb-method-art{animation-delay:-1.1s}
+#way .wb-method-step:nth-of-type(3) .wb-method-art{animation-delay:-2.2s}
+#way .wb-method-step:nth-of-type(4) .wb-method-art{animation-delay:-3.3s}
+#way .wb-method-step:nth-of-type(5) .wb-method-art{animation-delay:-4.4s}
+#way .wb-method-step:nth-of-type(6) .wb-method-art{animation-delay:-5.5s}
+#way .wb-method-art i:nth-child(1){animation:wb-method-drift 6s ease-in-out infinite alternate,wb-method-orbit-a 11s ease-in-out infinite}
+#way .wb-method-art i:nth-child(2){animation:wb-method-drift 7.5s ease-in-out -2s infinite alternate,wb-method-orbit-b 13s ease-in-out infinite reverse}
+#way .wb-method-art b{animation:wb-method-diamond 8s ease-in-out infinite alternate}
 #way .wb-method-art:before,#way .wb-method-art:after{content:"";position:absolute;width:3.8rem;height:2.8rem;border:1px solid #5ab9b45c;border-radius:48% 52% 63% 37% / 47% 43% 57% 53%;background:linear-gradient(135deg,#5ab9b41b,#0382bd08);box-shadow:inset 0 0 18px #5ab9b411,0 0 24px #0382bd12;animation:wb-method-morph-a 9s ease-in-out infinite alternate}
 #way .wb-method-art:after{width:2.7rem;height:3.7rem;border-color:#c0e2fd55;border-radius:55% 45% 43% 57% / 42% 58% 42% 58%;animation:wb-method-morph-b 12s ease-in-out infinite alternate}
 #way .wb-method-art i{position:absolute;z-index:1;width:2.1rem;height:2.1rem;border:1px solid #0382bd66;border-radius:50%;box-shadow:0 0 16px #0382bd25;animation:wb-method-drift 7s ease-in-out infinite alternate}
@@ -286,12 +295,12 @@ const steps=[['01','Understand','Gather and synthesize the context needed to und
 @keyframes wb-method-rail{0%{transform:translateX(-110%)}55%,100%{transform:translateX(490%)}}
 @keyframes wb-method-morph-a{0%{border-radius:48% 52% 63% 37% / 47% 43% 57% 53%;transform:rotate(-12deg) scale(.94)}100%{border-radius:62% 38% 43% 57% / 55% 61% 39% 45%;transform:rotate(12deg) scale(1.06)}}
 @keyframes wb-method-morph-b{0%{transform:rotate(25deg) scale(.92) translateX(0)}100%{transform:rotate(65deg) scale(1.08) translateX(5px)}}
-@keyframes wb-method-drift{0%{border-radius:42% 58% 50% 50%;translate:-2px 1px}100%{border-radius:58% 42% 45% 55%;translate:2px -2px}}
+@keyframes wb-method-drift{0%{border-radius:42% 58% 50% 50%;translate:-2px 1px}100%{border-radius:58% 42% 45% 55%;translate:2px -2px}}@keyframes wb-method-art-float{0%,100%{translate:0 0}50%{translate:0 -5px}}@keyframes wb-method-orbit-a{0%,100%{margin-left:0;margin-top:0}50%{margin-left:5px;margin-top:-4px}}@keyframes wb-method-orbit-b{0%,100%{margin-left:0;margin-top:0}50%{margin-left:-5px;margin-top:4px}}@keyframes wb-method-diamond{0%,100%{rotate:0deg;scale:.92}50%{rotate:70deg;scale:1.12}}
 @media(max-width:1100px){#way .wb-methodology-track{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:2rem}#way .wb-methodology-rail{display:none}#way .wb-method-step{min-height:18rem;padding:0 1rem 1rem}#way .wb-method-step:nth-of-type(4){border-right:1px solid #294653}#way .wb-method-step:nth-of-type(3),#way .wb-method-step:nth-of-type(6){border-right:0}#way .wb-method-step-body{min-height:8rem}#way .wb-method-art{height:5.4rem}}
 @media(max-width:650px){#way .wb-methodology-track{grid-template-columns:1fr;gap:0;margin:2.7rem 0 2rem;padding-left:.2rem}#way .wb-methodology-rail{display:block;left:1rem;right:auto;top:1rem;bottom:1rem;width:1px;height:auto;background:linear-gradient(180deg,#0382bd70,#5ab9b4a8 48%,#c0e2fd88)}#way .wb-methodology-rail:after{inset:0;width:100%;height:24%;background:linear-gradient(180deg,transparent,#cdfcf4,transparent);animation:wb-method-rail-vertical 8s ease-in-out infinite}}
 @keyframes wb-method-rail-vertical{0%{transform:translateY(-110%)}55%,100%{transform:translateY(420%)}}
 @media(max-width:650px){#way .wb-method-step{min-height:0;padding:0 0 1.45rem 3.4rem;border:0;border-left:1px solid #376071}#way .wb-method-step:last-of-type{border-left-color:transparent;padding-bottom:.2rem}#way .wb-method-step-head{position:absolute;left:-.2rem;top:0;width:2.4rem;height:auto;justify-content:center}#way .wb-method-number{font-size:.62rem}#way .wb-method-phase{display:none}#way .wb-method-node{position:absolute;left:-1.13rem;top:1.65rem;width:2.15rem;height:2.15rem;margin:0}#way .wb-method-step-body{min-height:0;padding:1.55rem 0 .2rem}#way .wb-method-step h3{margin-bottom:.35rem;font-size:1.05rem}#way .wb-method-step p{max-width:25rem;font-size:.74rem}#way .wb-method-art{width:7.5rem;height:4.6rem;margin:.25rem 0 0}#way .wb-method-step-index{right:.4rem;bottom:.25rem;font-size:2.8rem}#way .wb-quote{margin-top:1.5rem;padding:1.2rem 1rem 1.2rem 1.2rem;font-size:.86rem}}
-@media(prefers-reduced-motion:reduce){#way .wb-methodology-rail:after,#way .wb-method-art:before,#way .wb-method-art:after,#way .wb-method-art i{animation:none!important}#way .wb-method-step,#way .wb-method-node{transition:none!important}}
+@media(prefers-reduced-motion:reduce){#way .wb-methodology-rail:after,#way .wb-method-art,#way .wb-method-art:before,#way .wb-method-art:after,#way .wb-method-art i,#way .wb-method-art b{animation:none!important}#way .wb-method-step,#way .wb-method-node{transition:none!important}}
 
 /* Our toolkit: a modular capability field with individually morphing light forms. */
 #toolkit .wb-toolkit-board{display:grid;grid-template-columns:minmax(13rem,.62fr) minmax(0,1.9fr);gap:1rem;margin:3.5rem 0 2rem;align-items:stretch}
