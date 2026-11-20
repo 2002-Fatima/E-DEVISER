@@ -540,4 +540,105 @@ const steps=[['01','Understand','Gather and synthesize the context needed to und
  #toolkit .wb-toolkit-orbit--outer,#toolkit .wb-toolkit-core:before,#toolkit .wb-toolkit-core:after,#toolkit .wb-toolkit-orb{animation:none!important}
 }
 
+
+/* Our Toolkit — one clear, balanced orbital composition. */
+#toolkit .wb-wrap{width:min(82rem,calc(100% - clamp(2rem,7vw,7rem)))}
+#toolkit .wb-head{max-width:57rem;margin:0 auto;text-align:center}
+#toolkit .wb-head h2{max-width:14ch;margin:1.1rem auto 1rem}
+#toolkit .wb-head>p:last-child{max-width:43rem;margin:0 auto}
+#toolkit .wb-toolkit-eyebrow{margin:0 0 .65rem}
+#toolkit .wb-toolkit-constellation{
+  width:min(100%,74rem);height:42rem;margin:2.8rem auto 0;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 49%,#1031432b 0%,#0a1b2910 35%,transparent 67%);
+}
+#toolkit .wb-toolkit-orbit{border-color:#5ab9b422}
+#toolkit .wb-toolkit-orbit--outer{width:65%;height:80%;border-style:solid}
+#toolkit .wb-toolkit-orbit--inner{width:42%;height:51%;border-color:#c0e2fd18}
+#toolkit .wb-toolkit-orbit--outer:before,#toolkit .wb-toolkit-orbit--outer:after{opacity:.55;box-shadow:0 0 7px #5ab9b466}
+#toolkit .wb-toolkit-connectors{display:none}
+#toolkit .wb-toolkit-core{
+  width:12.8rem;border-color:#75c9c36b;
+  background:radial-gradient(circle at 35% 28%,#153b4b 0%,#0b2231 66%,#091925 100%);
+  box-shadow:0 0 0 7px #5ab9b408,0 0 34px #0382bd13;
+}
+#toolkit .wb-toolkit-core:before{inset:9%;border-color:#5ab9b426}
+#toolkit .wb-toolkit-core:after{inset:17%;border-color:#c0e2fd20}
+#toolkit .wb-toolkit-core span{font-size:.53rem;letter-spacing:.18em}
+#toolkit .wb-toolkit-core b{font-size:1.75rem;margin:.65rem 0 .5rem}
+#toolkit .wb-toolkit-core small{font-size:.45rem}
+#toolkit .wb-toolkit-orb{
+  width:11.5rem;min-height:3.7rem;padding:.35rem .5rem;gap:.7rem;
+  border:0;background:transparent;box-shadow:none;animation:none;
+  transition:opacity .2s ease,transform .2s ease;
+}
+#toolkit .wb-toolkit-orb:hover{border:0;background:transparent;box-shadow:none;transform:translate(-50%,-50%) scale(1.035)}
+#toolkit .wb-toolkit-orb strong{font-size:.82rem;font-weight:600;letter-spacing:-.01em}
+#toolkit .wb-toolkit-orb-icon{
+  flex:0 0 2.1rem;width:2.1rem;height:2.1rem;
+  border-color:#5ab9b44d;background:#0b202d;
+}
+#toolkit .wb-toolkit-orb--1{left:50%;top:7%}
+#toolkit .wb-toolkit-orb--2{left:79%;top:23%}
+#toolkit .wb-toolkit-orb--3{left:82%;top:70%}
+#toolkit .wb-toolkit-orb--4{left:50%;top:92%}
+#toolkit .wb-toolkit-orb--5{left:18%;top:70%}
+#toolkit .wb-toolkit-orb--6{left:17%;top:43%}
+#toolkit .wb-toolkit-orb--7{left:21%;top:20%}
+#toolkit .wb-toolkit-annotation{bottom:.35rem;color:#668c98;font-size:.42rem}
+#toolkit .wb-toolkit-annotation--left{left:1.5rem}
+#toolkit .wb-toolkit-annotation--right{right:1.5rem}
+@media(max-width:900px){
+  #toolkit .wb-toolkit-constellation{height:38rem}
+  #toolkit .wb-toolkit-orbit--outer{width:70%;height:77%}
+  #toolkit .wb-toolkit-core{width:10.5rem}
+  #toolkit .wb-toolkit-core b{font-size:1.45rem}
+  #toolkit .wb-toolkit-orb{width:9.5rem;gap:.5rem}
+  #toolkit .wb-toolkit-orb strong{font-size:.73rem}
+  #toolkit .wb-toolkit-orb-icon{flex-basis:1.85rem;width:1.85rem;height:1.85rem}
+  #toolkit .wb-toolkit-orb--1{top:8%}
+  #toolkit .wb-toolkit-orb--2{left:82%;top:25%}
+  #toolkit .wb-toolkit-orb--3{left:82%;top:69%}
+  #toolkit .wb-toolkit-orb--4{top:91%}
+  #toolkit .wb-toolkit-orb--5{left:18%;top:69%}
+  #toolkit .wb-toolkit-orb--6{left:16%;top:43%}
+  #toolkit .wb-toolkit-orb--7{left:18%;top:21%}
+}
+@media(max-width:600px){
+  #toolkit .wb-wrap{width:calc(100% - 2rem)}
+  #toolkit .wb-head{text-align:left}
+  #toolkit .wb-head h2{margin:1.1rem 0 1rem}
+  #toolkit .wb-head>p:last-child{margin:0}
+  #toolkit .wb-toolkit-constellation{
+    height:auto;margin:2rem auto 0;padding:0 0 .25rem;overflow:visible;
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem 1rem;
+    background:none;
+  }
+  #toolkit .wb-toolkit-orbit,#toolkit .wb-toolkit-connectors,#toolkit .wb-toolkit-annotation{display:none}
+  #toolkit .wb-toolkit-core{
+    position:relative;left:auto;top:auto;grid-column:1/-1;justify-self:center;
+    transform:none;width:9.2rem;margin:0 auto 1rem;
+  }
+  #toolkit .wb-toolkit-core b{font-size:1.3rem}
+  #toolkit .wb-toolkit-orb{
+    position:relative;left:auto;top:auto;width:auto;min-height:3.2rem;
+    transform:none;justify-content:flex-start;gap:.55rem;padding:.2rem 0;
+  }
+  #toolkit .wb-toolkit-orb:hover{transform:none}
+  #toolkit .wb-toolkit-orb strong{font-size:.7rem}
+  #toolkit .wb-toolkit-orb-icon{flex-basis:1.8rem;width:1.8rem;height:1.8rem}
+  #toolkit .wb-toolkit-orb--1,#toolkit .wb-toolkit-orb--2,#toolkit .wb-toolkit-orb--3,
+  #toolkit .wb-toolkit-orb--4,#toolkit .wb-toolkit-orb--5,#toolkit .wb-toolkit-orb--6,
+  #toolkit .wb-toolkit-orb--7{left:auto;top:auto}
+  #toolkit .wb-toolkit-orb--7{grid-column:1/-1;justify-self:center;width:min(14rem,100%)}
+}
+@media(max-width:360px){
+  #toolkit .wb-toolkit-constellation{column-gap:.55rem}
+  #toolkit .wb-toolkit-orb{gap:.35rem}
+  #toolkit .wb-toolkit-orb strong{font-size:.65rem}
+}
+@media(prefers-reduced-motion:reduce){
+  #toolkit .wb-toolkit-orbit--outer,#toolkit .wb-toolkit-core:before,
+  #toolkit .wb-toolkit-core:after,#toolkit .wb-toolkit-orb{animation:none!important}
+}
+
 </style>
