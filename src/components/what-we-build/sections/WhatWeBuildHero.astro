@@ -1,6 +1,6 @@
 <section class="wwb-section wwb-hero" aria-labelledby="wwb-title">
   <div class="wwb-shell wwb-hero-layout">
-    <div class="wwb-copy">
+    <div class="wwb-copy wwb-hero-copy">
       <p class="wwb-eyebrow"><span>01</span> WHAT WE BUILD</p>
       <h1 id="wwb-title">
         We don’t build for an industry.
@@ -36,8 +36,19 @@
             />
           ))}
         </g>
-        <circle cx="640" cy="260" r="112" fill="url(#hero-core)" />
-        <circle cx="640" cy="260" r="7" fill="var(--brand-white)" />
+        <g class="wwb-hero-orbit-system">
+          <circle class="wwb-hero-orbit wwb-hero-orbit--outer" cx="640" cy="260" r="150" />
+          <circle class="wwb-hero-orbit wwb-hero-orbit--middle" cx="640" cy="260" r="112" />
+          <circle class="wwb-hero-orbit wwb-hero-orbit--inner" cx="640" cy="260" r="76" />
+          <ellipse class="wwb-hero-orbit wwb-hero-orbit--tilted" cx="640" cy="260" rx="176" ry="68" />
+          <path class="wwb-hero-crosshair" d="M640 78V442M458 260H760" />
+          <circle class="wwb-hero-core-halo" cx="640" cy="260" r="112" fill="url(#hero-core)" />
+          <circle class="wwb-hero-core-ring" cx="640" cy="260" r="31" />
+          <circle class="wwb-hero-core" cx="640" cy="260" r="7" />
+          <circle class="wwb-hero-satellite" cx="640" cy="110" r="4" />
+          <circle class="wwb-hero-satellite wwb-hero-satellite--two" cx="790" cy="260" r="3" />
+          <circle class="wwb-hero-satellite wwb-hero-satellite--three" cx="526" cy="342" r="3" />
+        </g>
       </svg>
       <div class="wwb-hero-labels">
         <span>FRAGMENTED INFORMATION</span>
@@ -46,7 +57,7 @@
         <span>HUMAN FACTORS</span>
         <span>UNCERTAIN OUTCOMES</span>
       </div>
-      <span class="wwb-hero-output">INTELLIGENT<br />SOLUTIONS</span>
+      <span class="wwb-hero-output"><i aria-hidden="true"></i> INTELLIGENT<br />SOLUTIONS</span>
     </div>
   </div>
 </section>
