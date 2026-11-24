@@ -471,3 +471,215 @@
   .what-we-build .wwb-hero-core-halo,
   .what-we-build .wwb-hero-satellite { animation: none !important; }
 }
+
+
+/* Methodology — five distinct visual languages inside one connected process. */
+.what-we-build .wwb-method {
+  background:
+    radial-gradient(ellipse at 50% 48%, color-mix(in srgb, var(--brand-blue) 8%, transparent), transparent 58%),
+    var(--color-surface-night);
+}
+.what-we-build .wwb-method .wwb-section-intro { margin-bottom: clamp(3.5rem, 6vw, 5.5rem); }
+.what-we-build .wwb-method-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(.8rem, 1.5vw, 1.35rem);
+  align-items: start;
+  padding-top: .1rem;
+}
+.what-we-build .wwb-method-rail {
+  position: absolute;
+  top: 1.28rem;
+  right: 8%;
+  left: 8%;
+  height: 1px;
+  overflow: hidden;
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--brand-blue) 18%, transparent),
+    color-mix(in srgb, var(--brand-teal) 48%, transparent) 50%,
+    color-mix(in srgb, var(--brand-blue) 18%, transparent));
+}
+.what-we-build .wwb-method-rail span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--brand-teal-light), transparent);
+  opacity: .7;
+  animation: wwb-method-current 7s ease-in-out infinite;
+}
+.what-we-build .wwb-method-step {
+  position: relative;
+  min-width: 0;
+  padding: 0 .1rem 0;
+}
+.what-we-build .wwb-method-node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  margin: 0 0 1.45rem;
+  border: 1px solid color-mix(in srgb, var(--brand-teal) 48%, var(--brand-blue));
+  border-radius: 50%;
+  background: var(--color-surface-night);
+  box-shadow: 0 0 0 .4rem var(--color-surface-night), 0 0 24px color-mix(in srgb, var(--brand-blue) 17%, transparent);
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.what-we-build .wwb-method-node span {
+  color: var(--color-text-inverse);
+  font: var(--weight-semibold) .62rem var(--font-mono);
+  letter-spacing: .04em;
+}
+.what-we-build .wwb-method-node i {
+  position: absolute;
+  inset: -.35rem;
+  border: 1px solid color-mix(in srgb, var(--brand-teal) 22%, transparent);
+  border-radius: 50%;
+  animation: wwb-method-node-pulse 4.5s ease-out infinite;
+}
+.what-we-build .wwb-method-step:hover .wwb-method-node {
+  transform: translateY(-3px);
+  border-color: var(--brand-teal-light);
+  box-shadow: 0 0 0 .4rem var(--color-surface-night), 0 0 30px color-mix(in srgb, var(--brand-teal) 25%, transparent);
+}
+.what-we-build .wwb-method-index {
+  margin: 0 0 .55rem;
+  color: var(--brand-teal-light);
+  font: var(--weight-medium) .55rem var(--font-mono);
+  letter-spacing: .16em;
+}
+.what-we-build .wwb-method-step h3 {
+  margin: 0 0 .65rem;
+  color: var(--color-text-inverse);
+  font-family: var(--font-display);
+  font-size: clamp(.88rem, 1.05vw, 1.05rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: .08em;
+}
+.what-we-build .wwb-method-step > p:last-of-type {
+  min-height: 6.3rem;
+  max-width: 17rem;
+  margin: 0;
+  color: var(--color-text-inverse-muted);
+  font-size: .78rem;
+  line-height: 1.7;
+}
+.what-we-build .wwb-method-visual {
+  position: relative;
+  height: 8.4rem;
+  margin-top: 1.35rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--brand-blue) 18%, transparent);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--color-surface-night-raised) 82%, transparent), color-mix(in srgb, var(--color-ink) 54%, transparent));
+  isolation: isolate;
+}
+.what-we-build .wwb-method-visual::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  opacity: .28;
+  background-image: linear-gradient(color-mix(in srgb, var(--brand-blue) 18%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--brand-blue) 18%, transparent) 1px, transparent 1px);
+  background-size: 17px 17px;
+  mask-image: linear-gradient(135deg, black, transparent 85%);
+}
+.what-we-build .wwb-method-visual b {
+  position: absolute;
+  right: .55rem;
+  bottom: .5rem;
+  color: var(--color-text-inverse-subtle);
+  font: var(--weight-medium) .43rem var(--font-mono);
+  letter-spacing: .12em;
+}
+
+/* 01 — Understand: overlapping lenses converge on one point of focus. */
+.what-we-build .method-lens {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4.5rem;
+  height: 2.4rem;
+  border: 1px solid color-mix(in srgb, var(--brand-teal-light) 70%, transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-34deg);
+}
+.what-we-build .method-lens--middle { width: 4.5rem; transform: translate(-50%, -50%) rotate(34deg); border-color: color-mix(in srgb, var(--brand-blue-light) 65%, transparent); }
+.what-we-build .method-lens--inner { width: 2rem; height: 2rem; border-color: var(--brand-teal); }
+.what-we-build .method-focus { position: absolute; top: 50%; left: 50%; width: .42rem; height: .42rem; border-radius: 50%; background: var(--brand-white); box-shadow: 0 0 0 .45rem color-mix(in srgb, var(--brand-teal) 14%, transparent), 0 0 18px var(--brand-teal); transform: translate(-50%, -50%); }
+.what-we-build .method-ray { position: absolute; top: 50%; left: 50%; width: 5.8rem; height: 1px; background: linear-gradient(90deg, transparent, var(--brand-teal-light), transparent); transform: translate(-50%, -50%) rotate(-34deg); }
+
+/* 02 — Design: a measured blueprint with an intentional central frame. */
+.what-we-build .method-blueprint { position: absolute; top: 50%; left: 50%; border: 1px solid color-mix(in srgb, var(--brand-blue-light) 65%, transparent); transform: translate(-50%, -50%); }
+.what-we-build .method-blueprint--frame { width: 4.2rem; height: 4.2rem; border-color: color-mix(in srgb, var(--brand-teal) 60%, transparent); }
+.what-we-build .method-blueprint--diamond { width: 3rem; height: 3rem; transform: translate(-50%, -50%) rotate(45deg); border-color: var(--brand-teal-light); }
+.what-we-build .method-blueprint--axis { width: 6.4rem; height: 1px; border: 0; background: color-mix(in srgb, var(--brand-blue-light) 60%, transparent); box-shadow: 0 -1.7rem 0 color-mix(in srgb, var(--brand-blue-light) 35%, transparent), 0 1.7rem 0 color-mix(in srgb, var(--brand-blue-light) 35%, transparent); }
+.what-we-build .method-blueprint-anchor { position: absolute; top: 50%; left: 50%; width: .48rem; height: .48rem; border: 1px solid var(--brand-white); background: var(--brand-teal); transform: translate(-50%, -50%) rotate(45deg); box-shadow: 0 0 15px var(--brand-teal); }
+
+/* 03 — Build: independent modules lock into one working assembly. */
+.what-we-build .method-module { position: absolute; width: 1.65rem; height: 1.65rem; border: 1px solid color-mix(in srgb, var(--brand-teal-light) 68%, transparent); background: color-mix(in srgb, var(--brand-teal) 8%, var(--color-surface-night-raised)); transform: skewY(-24deg) rotate(30deg); }
+.what-we-build .method-module--one { top: 27%; left: 28%; }
+.what-we-build .method-module--two { top: 27%; left: 49%; border-color: var(--brand-blue-light); }
+.what-we-build .method-module--three { top: 52%; left: 38.5%; border-color: var(--brand-teal); }
+.what-we-build .method-module--four { top: 52%; left: 59.5%; border-color: var(--brand-blue-light); }
+.what-we-build .method-module-joint { position: absolute; top: 50%; left: 50%; width: .38rem; height: .38rem; border-radius: 50%; background: var(--brand-white); box-shadow: 0 0 0 .5rem color-mix(in srgb, var(--brand-teal) 12%, transparent), 0 0 15px var(--brand-teal); transform: translate(-50%, -50%); }
+
+/* 04 — Solve: two sides meet through a stable, usable bridge. */
+.what-we-build .method-bridge { position: absolute; top: 50%; width: 2.5rem; height: 2.5rem; border: 1px solid color-mix(in srgb, var(--brand-blue-light) 70%, transparent); transform: translateY(-50%) rotate(45deg); }
+.what-we-build .method-bridge--left { left: 20%; border-right: 0; border-top: 0; }
+.what-we-build .method-bridge--right { right: 20%; border-left: 0; border-bottom: 0; border-color: var(--brand-teal-light); }
+.what-we-build .method-bridge--span { left: 50%; width: 4.1rem; height: 1.2rem; border-width: 1px 0; border-radius: 50%; transform: translate(-50%, -50%); }
+.what-we-build .method-bridge-point { position: absolute; top: 50%; left: 50%; width: .48rem; height: .48rem; border-radius: 50%; background: var(--brand-white); box-shadow: 0 0 16px var(--brand-teal); transform: translate(-50%, -50%); }
+
+/* 05 — Measure: a calibrated signal turns outcomes into a next move. */
+.what-we-build .method-signal--ring { position: absolute; top: 50%; left: 50%; width: 4.3rem; height: 4.3rem; border: 1px solid color-mix(in srgb, var(--brand-blue-light) 58%, transparent); border-radius: 50%; transform: translate(-50%, -50%); }
+.what-we-build .method-signal--arc { position: absolute; top: 50%; left: 50%; width: 3rem; height: 3rem; border: 1px solid var(--brand-teal-light); border-left-color: transparent; border-bottom-color: transparent; border-radius: 50%; transform: translate(-50%, -50%) rotate(25deg); }
+.what-we-build .method-signal--trace { position: absolute; top: 50%; left: 50%; width: 6.5rem; height: 1.5rem; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--brand-teal) 75%, transparent); clip-path: polygon(0 60%, 25% 60%, 36% 5%, 47% 95%, 59% 30%, 70% 60%, 100% 60%, 100% 66%, 72% 66%, 59% 39%, 47% 100%, 36% 12%, 27% 66%, 0 66%); background: var(--brand-teal-light); transform: translate(-50%, -50%); }
+.what-we-build .method-signal-point { position: absolute; top: 50%; left: 68%; width: .4rem; height: .4rem; border-radius: 50%; background: var(--brand-white); box-shadow: 0 0 13px var(--brand-teal); transform: translate(-50%, -50%); }
+
+.what-we-build .wwb-method-principles {
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding: clamp(1.3rem, 2.2vw, 1.9rem);
+  border: 1px solid color-mix(in srgb, var(--brand-teal) 18%, transparent);
+  background: linear-gradient(110deg, color-mix(in srgb, var(--brand-blue) 12%, var(--color-surface-night-raised)), color-mix(in srgb, var(--color-surface-night-raised) 72%, transparent));
+}
+.what-we-build .wwb-method-principles p { max-width: 34rem; font-size: clamp(.92rem, 1.2vw, 1.08rem); line-height: 1.75; }
+.what-we-build .wwb-method-principles em { color: var(--color-text-inverse-muted); }
+.what-we-build .wwb-method-principles strong { color: var(--brand-teal-light); }
+.what-we-build .wwb-method-principles div { gap: .65rem; }
+.what-we-build .wwb-method-principles div span { color: var(--brand-teal-light); font-size: .52rem; letter-spacing: .13em; }
+.what-we-build .wwb-method-principles small { display: block; margin-bottom: .25rem; }
+
+@keyframes wwb-method-current { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+@keyframes wwb-method-node-pulse { 0% { transform: scale(.84); opacity: .65; } 100% { transform: scale(1.35); opacity: 0; } }
+
+@media (max-width: 1050px) {
+  .what-we-build .wwb-method-track { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem 1.2rem; }
+  .what-we-build .wwb-method-rail { display: none; }
+  .what-we-build .wwb-method-step > p:last-of-type { min-height: 5.2rem; }
+}
+@media (max-width: 640px) {
+  .what-we-build .wwb-method-track { grid-template-columns: 1fr; gap: 1.8rem; }
+  .what-we-build .wwb-method-step {
+    display: grid;
+    grid-template-columns: 3.2rem minmax(0, 1fr);
+    column-gap: .9rem;
+    align-items: start;
+  }
+  .what-we-build .wwb-method-node { grid-column: 1; grid-row: 1 / span 4; margin: 0; }
+  .what-we-build .wwb-method-index,
+  .what-we-build .wwb-method-step h3,
+  .what-we-build .wwb-method-step > p:last-of-type,
+  .what-we-build .wwb-method-visual { grid-column: 2; }
+  .what-we-build .wwb-method-index { margin: .1rem 0 .45rem; }
+  .what-we-build .wwb-method-step h3 { font-size: .98rem; }
+  .what-we-build .wwb-method-step > p:last-of-type { min-height: 0; max-width: 32rem; }
+  .what-we-build .wwb-method-visual { height: 7rem; max-width: 22rem; margin-top: .9rem; }
+  .what-we-build .wwb-method-principles { align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .what-we-build .wwb-method-rail span,
+  .what-we-build .wwb-method-node i { animation: none !important; }
+}
