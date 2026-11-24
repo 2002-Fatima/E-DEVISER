@@ -325,6 +325,8 @@
 }
 .what-we-build .wwb-hero-orbit {
   fill: none;
+  transform-box: fill-box;
+  transform-origin: center;
   stroke: var(--brand-teal);
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
@@ -458,7 +460,7 @@
   .what-we-build .wwb-hero { padding-block: 5.5rem 2.5rem; }
   .what-we-build .wwb-hero h1 { max-width: 11ch; font-size: clamp(2.9rem, 13vw, 4.35rem); }
   .what-we-build .wwb-hero .wwb-lead { max-width: 35rem; margin-top: 1.35rem; font-size: .98rem; }
-  .what-we-build .wwb-hero-art { height: 21rem; margin: -.2rem -.6rem 0; }
+  .what-we-build .wwb-hero-art { height: 21rem; margin: -.2rem -.6rem 0; mask-image: linear-gradient(90deg, var(--color-ink), var(--color-ink)); }
   .what-we-build .wwb-hero-labels { top: 9%; bottom: 9%; gap: .45rem; }
   .what-we-build .wwb-hero-labels span { padding: .32rem .42rem .32rem .65rem; font-size: .43rem; letter-spacing: .06em; }
   .what-we-build .wwb-hero-output { right: .2rem; top: 48%; padding: .55rem .6rem; font-size: .48rem; }
