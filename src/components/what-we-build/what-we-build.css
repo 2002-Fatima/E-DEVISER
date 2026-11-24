@@ -232,3 +232,240 @@
     linear-gradient(0deg, transparent 45%, var(--brand-teal-light) 45% 55%, transparent 55%);
   box-shadow: 0 0 12px var(--brand-teal);
 }
+
+
+/* Hero refinement — calmer hierarchy, layered convergence artwork, restrained brand accents. */
+.what-we-build .wwb-hero {
+  min-height: min(48rem, calc(100svh - 5rem));
+  padding-block: clamp(6.5rem, 10vw, 9rem) clamp(4.5rem, 7vw, 6.5rem);
+  background:
+    radial-gradient(ellipse at 79% 48%, color-mix(in srgb, var(--brand-teal) 8%, transparent), transparent 36%),
+    radial-gradient(ellipse at 54% 84%, color-mix(in srgb, var(--brand-blue) 7%, transparent), transparent 42%),
+    var(--color-surface-night);
+}
+.what-we-build .wwb-hero-layout {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 4vw, 4.5rem);
+}
+.what-we-build .wwb-hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 39rem;
+  padding-block: 1.5rem;
+}
+.what-we-build .wwb-hero .wwb-eyebrow {
+  margin-bottom: clamp(1.7rem, 3vw, 2.6rem);
+}
+.what-we-build .wwb-hero h1 {
+  max-width: 10.5ch;
+  font-size: clamp(3.15rem, 5.8vw, 6.35rem);
+  line-height: .94;
+  letter-spacing: -.068em;
+  text-wrap: balance;
+}
+.what-we-build .wwb-hero h1 em {
+  display: block;
+  margin-top: .12em;
+  color: var(--brand-teal-light);
+  text-shadow: 0 12px 44px color-mix(in srgb, var(--brand-teal) 14%, transparent);
+}
+.what-we-build .wwb-hero .wwb-lead {
+  max-width: 34rem;
+  margin-top: clamp(1.5rem, 2.4vw, 2rem);
+  font-size: clamp(1rem, 1.15vw, 1.12rem);
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--color-text-inverse-muted) 92%, transparent);
+}
+.what-we-build .wwb-hero .wwb-next-link {
+  margin-top: clamp(1.8rem, 2.8vw, 2.5rem);
+}
+.what-we-build .wwb-hero-art {
+  height: clamp(27rem, 43vw, 37rem);
+  isolation: isolate;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0%, var(--color-ink) 9%, var(--color-ink) 100%);
+  background:
+    radial-gradient(ellipse at 76% 50%, color-mix(in srgb, var(--brand-blue) 9%, transparent), transparent 39%),
+    radial-gradient(ellipse at 73% 50%, color-mix(in srgb, var(--brand-teal) 5%, transparent), transparent 56%);
+}
+.what-we-build .wwb-hero-art::before {
+  position: absolute;
+  z-index: 0;
+  inset: 8% 3%;
+  content: "";
+  border: 1px solid color-mix(in srgb, var(--brand-blue) 10%, transparent);
+  border-radius: 48% 52% 44% 56% / 52% 44% 56% 48%;
+  transform: rotate(-8deg);
+  opacity: .55;
+  pointer-events: none;
+}
+.what-we-build .wwb-hero-art::after {
+  background:
+    radial-gradient(ellipse at 84% 50%, transparent 0 17%, color-mix(in srgb, var(--color-ink) 12%, transparent) 37%, var(--color-surface-night) 96%);
+}
+.what-we-build .wwb-hero-noise {
+  opacity: .045;
+  background-size: 26px 26px;
+  mask-image: radial-gradient(ellipse at 72% 50%, var(--color-ink), transparent 76%);
+}
+.what-we-build .wwb-hero-streams {
+  opacity: .64;
+  stroke-width: 1;
+}
+.what-we-build .wwb-hero-streams path {
+  stroke-dasharray: 2 10;
+  animation-duration: 19s;
+}
+.what-we-build .wwb-hero-streams path:nth-child(3n) { opacity: .28; }
+.what-we-build .wwb-hero-streams path:nth-child(4n) { stroke-width: 1.35; opacity: .78; }
+.what-we-build .wwb-hero-orbit-system {
+  transform-box: view-box;
+  transform-origin: 640px 260px;
+  animation: wwb-hero-system-breathe 9s ease-in-out infinite;
+}
+.what-we-build .wwb-hero-orbit {
+  fill: none;
+  stroke: var(--brand-teal);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+.what-we-build .wwb-hero-orbit--outer {
+  stroke: color-mix(in srgb, var(--brand-blue) 58%, transparent);
+  stroke-dasharray: 1 10;
+  opacity: .48;
+  animation: wwb-hero-orbit-spin 42s linear infinite;
+}
+.what-we-build .wwb-hero-orbit--middle {
+  stroke: color-mix(in srgb, var(--brand-teal) 52%, transparent);
+  stroke-dasharray: 3 8;
+  opacity: .52;
+  animation: wwb-hero-orbit-spin 30s linear infinite reverse;
+}
+.what-we-build .wwb-hero-orbit--inner {
+  stroke: color-mix(in srgb, var(--brand-blue-light) 58%, transparent);
+  stroke-dasharray: 1 6;
+  opacity: .38;
+}
+.what-we-build .wwb-hero-orbit--tilted {
+  stroke: color-mix(in srgb, var(--brand-teal-light) 48%, transparent);
+  stroke-dasharray: 2 9;
+  opacity: .42;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: wwb-hero-orbit-spin 36s linear infinite;
+}
+.what-we-build .wwb-hero-crosshair {
+  fill: none;
+  stroke: color-mix(in srgb, var(--brand-blue-light) 25%, transparent);
+  stroke-width: .7;
+  stroke-dasharray: 2 12;
+}
+.what-we-build .wwb-hero-core-halo {
+  opacity: .62;
+  filter: blur(2px);
+  animation: wwb-hero-halo 5.5s ease-in-out infinite;
+}
+.what-we-build .wwb-hero-core-ring {
+  fill: color-mix(in srgb, var(--color-surface-night-raised) 82%, transparent);
+  stroke: var(--brand-teal-light);
+  stroke-width: 1.2;
+  stroke-opacity: .76;
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--brand-teal) 32%, transparent));
+}
+.what-we-build .wwb-hero-core {
+  fill: var(--brand-white);
+  filter: drop-shadow(0 0 8px var(--brand-teal)) drop-shadow(0 0 22px color-mix(in srgb, var(--brand-blue) 45%, transparent));
+}
+.what-we-build .wwb-hero-satellite {
+  fill: var(--brand-teal-light);
+  filter: drop-shadow(0 0 7px var(--brand-teal));
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: wwb-hero-satellite-pulse 3.6s ease-in-out infinite alternate;
+}
+.what-we-build .wwb-hero-satellite--two { animation-delay: -1.2s; }
+.what-we-build .wwb-hero-satellite--three { animation-delay: -2.2s; }
+.what-we-build .wwb-hero-labels {
+  top: 13%;
+  bottom: 13%;
+  justify-content: space-evenly;
+  gap: .8rem;
+}
+.what-we-build .wwb-hero-labels span {
+  position: relative;
+  padding: .42rem .65rem .42rem .8rem;
+  border-color: color-mix(in srgb, var(--brand-teal) 22%, transparent);
+  border-radius: var(--radius-xs);
+  background: color-mix(in srgb, var(--color-surface-night-raised) 86%, transparent);
+  color: var(--color-text-inverse-muted);
+  font-size: .53rem;
+  letter-spacing: .1em;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-ink) 18%, transparent);
+}
+.what-we-build .wwb-hero-labels span::before {
+  position: absolute;
+  top: 50%;
+  left: .28rem;
+  width: 3px;
+  height: 3px;
+  content: "";
+  border-radius: 50%;
+  background: var(--brand-teal);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--brand-teal) 55%, transparent);
+  transform: translateY(-50%);
+}
+.what-we-build .wwb-hero-output {
+  top: 47%;
+  right: 1%;
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .75rem .9rem;
+  border: 1px solid color-mix(in srgb, var(--brand-teal) 25%, transparent);
+  border-radius: var(--radius-xs);
+  background: color-mix(in srgb, var(--color-surface-night-raised) 84%, transparent);
+  color: var(--color-text-inverse);
+  font-size: .58rem;
+  letter-spacing: .16em;
+  line-height: 1.7;
+  box-shadow: 0 12px 34px color-mix(in srgb, var(--color-ink) 22%, transparent);
+  backdrop-filter: blur(12px);
+}
+.what-we-build .wwb-hero-output i {
+  width: .42rem;
+  height: .42rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--brand-teal-light);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-teal) 12%, transparent), 0 0 12px var(--brand-teal);
+}
+.what-we-build .wwb-hero .wwb-next-link span {
+  border-color: color-mix(in srgb, var(--brand-teal) 35%, transparent);
+  background: color-mix(in srgb, var(--brand-teal) 7%, transparent);
+}
+@keyframes wwb-hero-orbit-spin { to { transform: rotate(360deg); } }
+@keyframes wwb-hero-system-breathe { 0%,100% { opacity: .88; } 50% { opacity: 1; } }
+@keyframes wwb-hero-halo { 0%,100% { opacity: .48; transform: scale(.96); } 50% { opacity: .78; transform: scale(1.04); } }
+@keyframes wwb-hero-satellite-pulse { from { opacity: .48; transform: scale(.82); } to { opacity: 1; transform: scale(1.18); } }
+@media(max-width:950px) {
+  .what-we-build .wwb-hero { min-height: 0; padding-block: 6.5rem 3rem; }
+  .what-we-build .wwb-hero-layout { gap: 1rem; }
+  .what-we-build .wwb-hero-copy { max-width: 48rem; padding-block: 0; }
+  .what-we-build .wwb-hero h1 { max-width: 12ch; }
+  .what-we-build .wwb-hero-art { height: 27rem; margin-top: -.5rem; }
+}
+@media(max-width:640px) {
+  .what-we-build .wwb-hero { padding-block: 5.5rem 2.5rem; }
+  .what-we-build .wwb-hero h1 { max-width: 11ch; font-size: clamp(2.9rem, 13vw, 4.35rem); }
+  .what-we-build .wwb-hero .wwb-lead { max-width: 35rem; margin-top: 1.35rem; font-size: .98rem; }
+  .what-we-build .wwb-hero-art { height: 21rem; margin: -.2rem -.6rem 0; }
+  .what-we-build .wwb-hero-labels { top: 9%; bottom: 9%; gap: .45rem; }
+  .what-we-build .wwb-hero-labels span { padding: .32rem .42rem .32rem .65rem; font-size: .43rem; letter-spacing: .06em; }
+  .what-we-build .wwb-hero-output { right: .2rem; top: 48%; padding: .55rem .6rem; font-size: .48rem; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .what-we-build .wwb-hero-orbit-system,
+  .what-we-build .wwb-hero-orbit,
+  .what-we-build .wwb-hero-core-halo,
+  .what-we-build .wwb-hero-satellite { animation: none !important; }
+}
