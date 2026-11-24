@@ -310,3 +310,11 @@
     transition-duration: var(--motion-instant) !important;
   }
 }
+
+/* Shared site surface treatments for the page's visual canvases. */
+.what-we-build .wwb-hero-art,
+.what-we-build .wwb-future-art { background: var(--gradient-media-placeholder); }
+.what-we-build .wwb-dimensions,
+.what-we-build .wwb-toolkit-system,
+.what-we-build .wwb-education,
+.what-we-build .wwb-intelligence { background: transparent; }
