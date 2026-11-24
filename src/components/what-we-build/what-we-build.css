@@ -683,3 +683,7 @@
   .what-we-build .wwb-method-rail span,
   .what-we-build .wwb-method-node i { animation: none !important; }
 }
+
+@media (max-width: 640px) {
+  .what-we-build .wwb-method-step:last-child { grid-column: auto; }
+}
