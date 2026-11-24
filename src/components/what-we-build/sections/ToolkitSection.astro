@@ -1,0 +1,89 @@
+<section
+  class="wwb-section wwb-toolkit"
+  id="our-toolkit"
+  aria-labelledby="wwb-toolkit-title"
+>
+  <div class="wwb-shell">
+    <p class="wwb-eyebrow"><span>04</span> OUR TOOLKIT</p>
+    <div class="wwb-section-intro wwb-intro-split">
+      <h2 id="wwb-toolkit-title">
+        Technology is a means.<br />
+        <em>We use whatever the problem demands.</em>
+      </h2>
+      <p class="wwb-lead">
+        We don’t begin with a technology and search for somewhere to use it. We begin with a
+        problem and assemble the capabilities required to solve it.
+      </p>
+    </div>
+
+    <div class="wwb-toolkit-system">
+      <svg class="wwb-toolkit-network" viewBox="0 0 1100 700" aria-hidden="true">
+        <defs>
+          <linearGradient id="toolkit-link">
+            <stop stop-color="#8b5cf6" stop-opacity=".08" />
+            <stop offset=".5" stop-color="#c4a8ff" stop-opacity=".8" />
+            <stop offset="1" stop-color="#8b5cf6" stop-opacity=".08" />
+          </linearGradient>
+        </defs>
+        <ellipse cx="550" cy="350" rx="440" ry="205" />
+        <ellipse cx="550" cy="350" rx="350" ry="135" transform="rotate(-24 550 350)" />
+        <ellipse cx="550" cy="350" rx="350" ry="135" transform="rotate(24 550 350)" />
+        <path d="M550 350 550 35M550 350 160 170M550 350 80 350M550 350 940 170M550 350 1020 350M550 350 250 610M550 350 850 610" />
+      </svg>
+
+      <div class="wwb-toolkit-core">
+        <div class="wwb-toolkit-orbit wwb-toolkit-orbit-a"></div>
+        <div class="wwb-toolkit-orbit wwb-toolkit-orbit-b"></div>
+        <div class="wwb-toolkit-orb">
+          <span>THE</span>
+          <b>PROBLEM</b>
+          <small>
+            Every problem is unique. The right solution isn’t found in a toolkit—it’s assembled
+            for it.
+          </small>
+        </div>
+      </div>
+
+      <div class="wwb-toolkit-capabilities">
+        {[
+          [
+            '01',
+            'AGENTIC AI',
+            'Intelligence that can understand, reason, plan, and act.',
+          ],
+          ['02', 'SOFTWARE', 'Robust, scalable systems purpose-built for impact.'],
+          ['03', 'DATA', 'Clean, connected, and contextualized for better decisions.'],
+          ['04', 'AUTOMATION', 'Workflows that remove friction and unlock scale.'],
+          [
+            '05',
+            'HUMAN EXPERTISE',
+            'Domain knowledge and experience that ground the solution in reality.',
+          ],
+          ['06', 'RESEARCH', 'Deep domain research that uncovers what really matters.'],
+          [
+            '07',
+            'EMERGING TECHNOLOGIES',
+            'We continuously explore what’s next—so we can build what works.',
+          ],
+        ].map((item, index) => (
+          <article class={`wwb-capability wwb-capability-${index + 1}`}>
+            <span>{item[0]} / CAPABILITY</span>
+            <h3>{item[1]}</h3>
+            <p>{item[2]}</p>
+            <i aria-hidden="true"></i>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="wwb-toolkit-foot">
+      <b>There is no fixed stack.<br /><em>Only the right combination.</em></b>
+      <span>
+        Our advantage isn’t any single technology.<br />
+        It’s our ability to orchestrate the right combination<br />
+        for the problem in front of us.
+      </span>
+    </div>
+    <a class="wwb-next-link" href="#why-education">NEXT: WHY EDUCATION, NOW? <span aria-hidden="true">↓</span></a>
+  </div>
+</section>

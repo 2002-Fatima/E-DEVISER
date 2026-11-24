@@ -1,0 +1,74 @@
+<section
+  class="wwb-section wwb-method"
+  id="our-way-of-building"
+  aria-labelledby="wwb-method-title"
+>
+  <div class="wwb-shell">
+    <p class="wwb-eyebrow"><span>03</span> OUR WAY OF BUILDING</p>
+    <div class="wwb-section-intro wwb-intro-split">
+      <h2 id="wwb-method-title">Understand first.<br /><em>Build second.</em></h2>
+      <p class="wwb-lead">
+        We go deep into a problem—its people, incentives, systems, constraints, evidence, and
+        desired outcomes—before deciding what needs to exist.
+      </p>
+    </div>
+
+    <div class="wwb-method-track">
+      <div class="wwb-method-rail" aria-hidden="true"><span></span></div>
+      {[
+        [
+          '01',
+          'UNDERSTAND',
+          'We immerse ourselves in the problem to understand its real context.',
+        ],
+        [
+          '02',
+          'DESIGN',
+          'We translate insights into a solution approach designed around the problem, not the tech.',
+        ],
+        [
+          '03',
+          'BUILD',
+          'We build with the right mix of capabilities—whatever the problem actually requires.',
+        ],
+        [
+          '04',
+          'SOLVE',
+          'We deliver a working solution that people can use in the real world.',
+        ],
+        [
+          '05',
+          'MEASURE',
+          'We measure what matters and learn what needs to improve next.',
+        ],
+      ].map((step, index) => (
+        <article class={`wwb-method-step wwb-method-step-${index + 1}`}>
+          <div class="wwb-method-node">
+            <span>{step[0]}</span>
+            <i></i>
+          </div>
+          <p class="wwb-method-index">STAGE {step[0]}</p>
+          <h3>{step[1]}</h3>
+          <p>{step[2]}</p>
+          <div class="wwb-method-geometry" aria-hidden="true">
+            <i></i><i></i><i></i>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="wwb-method-principles">
+      <p>
+        We don’t start by asking, <em>“What can this technology do?”</em><br />
+        We start by asking, <strong>“What would actually solve this?”</strong>
+      </p>
+      <div>
+        <span>THIS IS NOT A LINEAR HANDOFF.</span>
+        <small>Measurement feeds learning. Learning shapes the next iteration.</small>
+        <span>WE DON’T DELIVER AND DISAPPEAR.</span>
+        <small>We stay with the problem until it’s meaningfully solved.</small>
+      </div>
+    </div>
+    <a class="wwb-next-link" href="#our-toolkit">NEXT: OUR TOOLKIT <span aria-hidden="true">↓</span></a>
+  </div>
+</section>

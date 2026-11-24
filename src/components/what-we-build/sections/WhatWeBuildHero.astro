@@ -1,0 +1,52 @@
+<section class="wwb-section wwb-hero" aria-labelledby="wwb-title">
+  <div class="wwb-shell wwb-hero-layout">
+    <div class="wwb-copy">
+      <p class="wwb-eyebrow"><span>01</span> WHAT WE BUILD</p>
+      <h1 id="wwb-title">
+        We don’t build for an industry.
+        <em>We build for the problem.</em>
+      </h1>
+      <p class="wwb-lead">
+        E Deviser finds difficult problems worth solving, understands what makes them difficult,
+        and creates the intelligence, systems, and solutions needed to move them forward.
+      </p>
+      <a class="wwb-next-link" href="#why-not-one-industry">NEXT: WHY NOT ONE INDUSTRY? <span aria-hidden="true">↓</span></a>
+    </div>
+
+    <div class="wwb-hero-art" aria-hidden="true">
+      <div class="wwb-hero-noise"></div>
+      <svg viewBox="0 0 760 520" role="presentation">
+        <defs>
+          <linearGradient id="hero-stream">
+            <stop stop-color="#8b5cf6" stop-opacity="0" />
+            <stop offset=".5" stop-color="#a78bfa" stop-opacity=".8" />
+            <stop offset="1" stop-color="#fff" />
+          </linearGradient>
+          <radialGradient id="hero-core">
+            <stop stop-color="#fff" />
+            <stop offset=".2" stop-color="#d8c5ff" />
+            <stop offset=".5" stop-color="#8b5cf6" stop-opacity=".8" />
+            <stop offset="1" stop-color="#7c3aed" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <g class="wwb-hero-streams">
+          {Array.from({ length: 32 }, (_, i) => (
+            <path
+              d={`M ${35 + (i % 5) * 15} ${28 + i * 14} C 260 ${-50 + i * 18}, 390 ${450 - i * 5}, 640 260`}
+            />
+          ))}
+        </g>
+        <circle cx="640" cy="260" r="112" fill="url(#hero-core)" />
+        <circle cx="640" cy="260" r="7" fill="#fff" />
+      </svg>
+      <div class="wwb-hero-labels">
+        <span>FRAGMENTED INFORMATION</span>
+        <span>COMPLEX SYSTEMS</span>
+        <span>CONSTANT CHANGE</span>
+        <span>HUMAN FACTORS</span>
+        <span>UNCERTAIN OUTCOMES</span>
+      </div>
+      <span class="wwb-hero-output">INTELLIGENT<br />SOLUTIONS</span>
+    </div>
+  </div>
+</section>
