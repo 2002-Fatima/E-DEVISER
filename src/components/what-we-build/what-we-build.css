@@ -7,7 +7,7 @@
 .what-we-build .wwb-eyebrow{display:flex;align-items:center;gap:.9rem;margin:0 0 2.1rem;color:var(--wwb-violet-bright);font:600 .68rem/1.4 var(--font-mono);letter-spacing:.16em;text-transform:uppercase}
 .what-we-build .wwb-eyebrow span{color:var(--brand-teal)}
 .what-we-build .wwb-eyebrow span:after{content:"";display:inline-block;width:2.4rem;height:1px;margin:0 .1rem .22rem .75rem;background:linear-gradient(90deg,var(--brand-teal),transparent)}
-.what-we-build h1,.what-we-build h2{max-width:16ch;margin:0;color:var(--wwb-text);font-family:var(--font-display,var(--font-body));font-size:clamp(2.8rem,5.1vw,5.9rem);font-weight:750;line-height:.99;letter-spacing:-.065em;text-wrap:balance}
+.what-we-build h1,.what-we-build h2{max-width:16ch;margin:0;color:var(--wwb-text);font-family:var(--font-display,var(--font-body));font-size:clamp(2.8rem,5.1vw,5.9rem);font-weight:var(--weight-bold);line-height:.99;letter-spacing:-.065em;text-wrap:balance}
 .what-we-build h1 em,.what-we-build h2 em{color:var(--wwb-violet-bright);font-style:normal;text-shadow:0 0 34px color-mix(in srgb, var(--brand-blue) 22%, transparent)}
 .what-we-build p{color:var(--wwb-muted);line-height:1.75}
 .what-we-build .wwb-lead{max-width:40rem;margin:1.8rem 0 0;font-size:clamp(1rem,1.3vw,1.18rem);line-height:1.8}
@@ -23,7 +23,7 @@
 .what-we-build .wwb-hero-streams path:nth-child(3n){opacity:.45;stroke-width:.7}
 .what-we-build .wwb-hero-streams path:nth-child(4n){stroke-width:1.8}
 .what-we-build .wwb-hero-art:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 84% 50%,transparent 0 16%,color-mix(in srgb, var(--color-ink) 8%, transparent) 32%,var(--color-surface-night) 90%);pointer-events:none}
-.what-we-build .wwb-hero-noise{position:absolute;inset:0;background-image:radial-gradient(#c7a6ff 1px,transparent 1px);background-size:21px 21px;opacity:.08;mask-image:linear-gradient(90deg,var(--color-ink),transparent 85%)}
+.what-we-build .wwb-hero-noise{position:absolute;inset:0;background-image:radial-gradient(var(--brand-teal-light) 1px,transparent 1px);background-size:21px 21px;opacity:.08;mask-image:linear-gradient(90deg,var(--color-ink),transparent 85%)}
 .what-we-build .wwb-hero-labels{position:absolute;z-index:1;left:0;top:16%;bottom:16%;display:flex;flex-direction:column;justify-content:space-between;gap:.6rem}
 .what-we-build .wwb-hero-labels span{width:max-content;max-width:100%;padding:.35rem .55rem;border:1px solid color-mix(in srgb, var(--brand-blue) 22%, transparent);background:color-mix(in srgb, var(--color-ink) 76%, transparent);color:var(--brand-teal-light);font:500 .55rem/1.4 var(--font-mono);letter-spacing:.08em;backdrop-filter:blur(10px)}
 .what-we-build .wwb-hero-output{position:absolute;right:0;top:48%;z-index:1;color:var(--color-text-inverse);font:600 .62rem/1.6 var(--font-mono);letter-spacing:.14em}
@@ -63,7 +63,7 @@
 .what-we-build .wwb-method-geometry i:nth-child(3){width:1.2rem;height:1.2rem;border-radius:50%;background:var(--brand-teal);box-shadow:0 0 25px var(--brand-teal)}
 .what-we-build .wwb-method-step-2 .wwb-method-geometry i{border-radius:12% 88% 18% 82%}.what-we-build .wwb-method-step-3 .wwb-method-geometry i{border-radius:50% 10% 50% 10%}.what-we-build .wwb-method-step-4 .wwb-method-geometry i{width:4.6rem;height:1.6rem;border-radius:50%}.what-we-build .wwb-method-step-5 .wwb-method-geometry i{width:4.6rem;height:4.6rem;border-radius:50%}
 .what-we-build .wwb-method-principles{display:flex;justify-content:space-between;gap:2rem;align-items:center;margin-top:3.5rem;padding:1.4rem 1.7rem;border:1px solid color-mix(in srgb, var(--brand-blue) 18%, transparent);background:linear-gradient(100deg,color-mix(in srgb, var(--brand-blue) 72%, transparent),color-mix(in srgb, var(--color-ink) 60%, transparent))}
-.what-we-build .wwb-method-principles small{max-width:18rem;color:var(--color-text-inverse-muted);font-size:.7rem;line-height:1.5}.what-we-build .wwb-method-principles p{margin:0;color:var(--color-text-inverse-muted);font-size:.95rem}.what-we-build .wwb-method-principles em{color:#b18aff}.what-we-build .wwb-method-principles strong{color:var(--color-text-inverse)}
+.what-we-build .wwb-method-principles small{max-width:18rem;color:var(--color-text-inverse-muted);font-size:.7rem;line-height:1.5}.what-we-build .wwb-method-principles p{margin:0;color:var(--color-text-inverse-muted);font-size:.95rem}.what-we-build .wwb-method-principles em{color:var(--brand-teal)}.what-we-build .wwb-method-principles strong{color:var(--color-text-inverse)}
 .what-we-build .wwb-method-principles div{display:grid;gap:.55rem;color:var(--color-text-inverse-subtle);font:500 .54rem var(--font-mono);letter-spacing:.1em}
 .what-we-build .wwb-toolkit-system{position:relative;min-height:44rem;display:block;overflow:hidden;background:radial-gradient(ellipse at center,color-mix(in srgb, var(--brand-blue) 10%, transparent),transparent 55%)}
 .what-we-build .wwb-toolkit-network{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:url(#toolkit-link);stroke-width:1.2;stroke-dasharray:4 8;opacity:.72;animation:wwb-flow 24s linear infinite}
@@ -94,22 +94,22 @@
 .what-we-build .wwb-education-card h3{margin:1.5rem 0 .8rem;font-size:.82rem;letter-spacing:.13em}
 .what-we-build .wwb-education-card p{position:relative;z-index:1;max-width:24rem;margin:0;font-size:.88rem;line-height:1.7}
 .what-we-build .wwb-education-glyph{position:relative;width:5.5rem;height:5rem;margin:1.5rem 0 .5rem}
-.what-we-build .wwb-education-glyph i{position:absolute;width:1.1rem;height:1.1rem;border:1px solid #b18aff;border-radius:50%;background:var(--color-surface-night-raised);box-shadow:0 0 14px color-mix(in srgb, var(--brand-blue) 35%, transparent)}
+.what-we-build .wwb-education-glyph i{position:absolute;width:1.1rem;height:1.1rem;border:1px solid var(--brand-teal);border-radius:50%;background:var(--color-surface-night-raised);box-shadow:0 0 14px color-mix(in srgb, var(--brand-blue) 35%, transparent)}
 .what-we-build .glyph-network i:nth-child(1){left:0;top:1.8rem}.what-we-build .glyph-network i:nth-child(2){left:2.1rem;top:0}.what-we-build .glyph-network i:nth-child(3){right:0;top:1.8rem}.what-we-build .glyph-network i:nth-child(4){left:2.1rem;bottom:0}
 .what-we-build .glyph-measure i{bottom:0;width:.7rem;border-radius:3px 3px 0 0}.what-we-build .glyph-measure i:nth-child(1){left:.2rem;height:1.5rem}.what-we-build .glyph-measure i:nth-child(2){left:1.6rem;height:2.6rem}.what-we-build .glyph-measure i:nth-child(3){left:3rem;height:3.6rem}.what-we-build .glyph-measure i:nth-child(4){left:4.4rem;height:4.5rem}
 .what-we-build .glyph-scale i{width:1.3rem;height:1.3rem}.what-we-build .glyph-scale i:nth-child(1){left:0;top:1.7rem}.what-we-build .glyph-scale i:nth-child(2){left:1.6rem;top:.9rem}.what-we-build .glyph-scale i:nth-child(3){left:3.2rem;top:.1rem}.what-we-build .glyph-scale i:nth-child(4){left:4.5rem;top:-.5rem}
-.what-we-build .wwb-education-conclusion{margin:2rem 0 0;color:var(--color-text-inverse);font-size:1.08rem;font-weight:650}
+.what-we-build .wwb-education-conclusion{margin:2rem 0 0;color:var(--color-text-inverse);font-size:1.08rem;font-weight:var(--weight-semibold)}
 .what-we-build .wwb-intelligence{background:radial-gradient(ellipse at 50% 52%,color-mix(in srgb, var(--brand-blue) 14%, transparent),transparent 48%)}
-.what-we-build .wwb-intelligence-emphasis{color:var(--color-text-inverse);font-weight:650}
+.what-we-build .wwb-intelligence-emphasis{color:var(--color-text-inverse);font-weight:var(--weight-semibold)}
 .what-we-build .wwb-intelligence-loop{position:relative;min-height:39rem;display:grid;place-items:center;overflow:hidden}
 .what-we-build .wwb-intelligence-loop>svg{position:absolute;inset:0;width:100%;height:100%;fill:none;overflow:visible}
-.what-we-build .wwb-loop-path{stroke:var(--brand-teal);stroke-width:1.5;stroke-dasharray:7 9;opacity:.65;filter:drop-shadow(0 0 5px #8b5cf6);animation:wwb-flow 18s linear infinite}
+.what-we-build .wwb-loop-path{stroke:var(--brand-teal);stroke-width:1.5;stroke-dasharray:7 9;opacity:.65;filter:drop-shadow(0 0 5px var(--brand-blue));animation:wwb-flow 18s linear infinite}
 .what-we-build .wwb-loop-cross{stroke:var(--brand-teal);stroke-width:1;opacity:.2;stroke-dasharray:3 8}
 .what-we-build .wwb-loop-core{position:relative;z-index:2;width:clamp(13rem,23vw,18rem);aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;border:1px solid color-mix(in srgb, var(--brand-blue) 45%, transparent);border-radius:50%;background:radial-gradient(circle at 40% 30%,color-mix(in srgb, var(--brand-teal) 16%, var(--color-surface-night-raised)),var(--color-surface-night-raised) 72%);box-shadow:0 0 0 14px color-mix(in srgb, var(--brand-blue) 5%, transparent),0 0 85px color-mix(in srgb, var(--brand-blue) 22%, transparent);text-align:center}
 .what-we-build .wwb-loop-core>span{margin-top:.7rem;color:var(--color-text-inverse-muted);font:500 .55rem var(--font-mono);letter-spacing:.15em}
 .what-we-build .wwb-loop-core b{margin:.45rem 0;color:var(--color-text-inverse);font-size:1.05rem;line-height:1.2;letter-spacing:.04em}
 .what-we-build .wwb-loop-core small{max-width:12rem;color:var(--color-text-inverse-muted);font-size:.66rem;line-height:1.5}
-.what-we-build .wwb-loop-core-orb{position:absolute;top:1.5rem;width:2rem;height:2rem;border:1px solid var(--brand-teal);border-radius:50%;box-shadow:0 0 22px #8b5cf6}
+.what-we-build .wwb-loop-core-orb{position:absolute;top:1.5rem;width:2rem;height:2rem;border:1px solid var(--brand-teal);border-radius:50%;box-shadow:0 0 22px var(--brand-blue)}
 .what-we-build .wwb-loop-core-orb i{position:absolute;inset:5px;border:1px solid var(--brand-teal-light);border-radius:50%;transform:rotate(45deg) scaleX(1.8)}
 .what-we-build .wwb-loop-core-orb i:nth-child(2){transform:rotate(-45deg) scaleX(1.8)}
 .what-we-build .wwb-loop-core-orb i:nth-child(3){inset:9px;background:var(--color-text-inverse);box-shadow:0 0 10px var(--brand-white)}
@@ -133,7 +133,7 @@
 .what-we-build .wwb-future-grid{position:absolute;inset:35% -20% -40%;transform:perspective(500px) rotateX(62deg);transform-origin:top;background-image:linear-gradient(color-mix(in srgb, var(--brand-blue) 16%, transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb, var(--brand-blue) 16%, transparent) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(180deg,var(--color-ink),transparent)}
 .what-we-build .wwb-future-art>svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:url(#future-road);stroke-width:1.5;filter:drop-shadow(0 0 6px var(--brand-teal))}
 .what-we-build .wwb-future-art>svg path{stroke-dasharray:5 8;animation:wwb-flow 16s linear infinite}
-.what-we-build .wwb-future-horizon{position:absolute;top:39%;left:58%;width:12rem;height:12rem;border-radius:50%;background:radial-gradient(circle,var(--brand-white) 0 1%,#e7d8ff 3%,color-mix(in srgb, var(--brand-blue) 42%, transparent) 15%,transparent 70%);filter:blur(2px);animation:wwb-horizon 5s ease-in-out infinite}
+.what-we-build .wwb-future-horizon{position:absolute;top:39%;left:58%;width:12rem;height:12rem;border-radius:50%;background:radial-gradient(circle,var(--brand-white) 0 1%,var(--color-text-inverse) 3%,color-mix(in srgb, var(--brand-blue) 42%, transparent) 15%,transparent 70%);filter:blur(2px);animation:wwb-horizon 5s ease-in-out infinite}
 .what-we-build .wwb-future-horizon i{position:absolute;top:50%;left:50%;width:4px;height:4px;border-radius:50%;background:white;box-shadow:0 0 25px 12px var(--brand-teal)}
 .what-we-build .wwb-future-marker{position:absolute;display:flex;align-items:center;gap:.5rem;color:var(--color-text-inverse-muted);font:500 .56rem var(--font-mono);letter-spacing:.1em}
 .what-we-build .wwb-future-marker i{width:4px;height:4px;border-radius:50%;background:var(--brand-teal-light);box-shadow:0 0 10px 3px var(--brand-teal)}
@@ -209,7 +209,7 @@
   width: .8rem;
   height: .8rem;
   border-radius: 2px;
-  box-shadow: 5px 0 0 -1px #0d0914, 5px 0 0 0 var(--brand-teal-light), 0 5px 0 -1px #0d0914, 0 5px 0 0 var(--brand-teal-light);
+  box-shadow: 5px 0 0 -1px var(--color-surface-night-raised), 5px 0 0 0 var(--brand-teal-light), 0 5px 0 -1px var(--color-surface-night-raised), 0 5px 0 0 var(--brand-teal-light);
 }
 .what-we-build .wwb-capability-5 > i:before {
   width: .45rem;
