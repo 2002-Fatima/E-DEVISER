@@ -1,5 +1,7 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
+import { site } from '../../content/site';
+import { site } from '../../content/site';
 ---
 
 <SectionWrapper>
@@ -11,7 +13,7 @@ import SectionWrapper from '../ui/SectionWrapper.astro';
     <div class="content-block">
       <p>E Deviser supports education-focused innovation by aligning product thinking, systems design, and learning context. Cuevo is part of this direction.</p>
       <p>Use this page to orient visitors and provide a clear external destination for the product site.</p>
-      <p><a class="external-link" href="https://cuovo.tech" target="_blank" rel="noreferrer">Visit the Cuevo platform</a> to view the external destination.</p>
+      <p><a class="external-link" href={site.cuevoUrl} target="_blank" rel="noreferrer">Visit the Cuevo platform</a> to view the external destination.</p>
     </div>
   </section>
 </SectionWrapper>

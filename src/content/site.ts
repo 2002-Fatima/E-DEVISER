@@ -1,6 +1,7 @@
 export const site = {
   name: 'E Deviser',
   shortName: 'E Deviser',
+  cuevoUrl: 'https://cuevo.tech/',
   description:
     'E Deviser builds agentic intelligent systems for complex problems, combining AI, data, and domain intelligence with education-first thinking.',
   footerText:

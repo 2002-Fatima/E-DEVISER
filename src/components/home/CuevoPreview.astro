@@ -1,6 +1,7 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
 import Button from '../ui/Button.astro';
+import { site } from '../../content/site';
 ---
 
 <SectionWrapper background="pattern" class="home-cuevo-section">\n  <div class="cuevo-learning-pattern" aria-hidden="true">
@@ -114,7 +115,7 @@ import Button from '../ui/Button.astro';
         <li>Parent</li>
       </ul>
       <div class="cuevo-story-action">
-        <Button href="https://cuevo.tech/" external label="Explore CUEVO" />
+        <Button href={site.cuevoUrl} external label="Explore CUEVO" />
         <span>LEARNING, UNDERSTOOD BETTER.</span>
       </div>
     </div>
