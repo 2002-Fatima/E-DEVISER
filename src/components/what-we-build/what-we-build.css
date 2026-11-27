@@ -2680,3 +2680,78 @@
 @media (max-width: 640px) {
   .what-we-build .wwb-method-track { grid-template-columns: minmax(0, 1fr); }
 }
+
+
+/* Self-advancing six-stage methodology on the dedicated page. */
+.what-we-build .wwb-method-rail {
+  overflow: hidden;
+  background: var(--color-border-inverse-strong);
+}
+.what-we-build .wwb-method-rail span {
+  inset-block-start: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: var(--gradient-brand);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--brand-teal) 35%, transparent);
+  transform: scaleX(.1667);
+  transform-origin: left center;
+  animation: none;
+  transition: transform var(--motion-slow) var(--ease-emphasized);
+}
+.what-we-build .wwb-method-select {
+  display: block;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.what-we-build .wwb-method-select:focus-visible {
+  outline: 2px solid var(--brand-teal-light);
+  outline-offset: 5px;
+}
+.what-we-build .wwb-method-select .wwb-method-node {
+  margin: 0;
+}
+.what-we-build .wwb-method-step {
+  opacity: .58;
+  transition: opacity var(--motion-base) var(--ease-standard), transform var(--motion-base) var(--ease-standard);
+}
+.what-we-build .wwb-method-step[aria-current="step"] {
+  opacity: 1;
+}
+.what-we-build .wwb-method-step:not([aria-current="step"]) > p:last-of-type,
+.what-we-build .wwb-method-step:not([aria-current="step"]) .wwb-method-visual {
+  display: none;
+}
+.what-we-build .wwb-method-step[aria-current="step"] .wwb-method-node {
+  border-color: var(--brand-teal-light);
+  box-shadow: 0 0 0 7px color-mix(in srgb, var(--brand-teal) 12%, transparent), 0 0 28px color-mix(in srgb, var(--brand-teal) 28%, transparent);
+}
+.what-we-build .wwb-method-step[aria-current="step"] h3 {
+  color: var(--brand-teal-light);
+}
+@media (max-width: 640px) {
+  .what-we-build .wwb-method-select {
+    grid-column: 1;
+    grid-row: 1 / span 4;
+  }
+  .what-we-build .wwb-method-select .wwb-method-node {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .what-we-build .wwb-method-rail span,
+  .what-we-build .wwb-method-step {
+    transition: none;
+  }
+  .what-we-build .wwb-method-node i {
+    animation: none;
+  }
+}
