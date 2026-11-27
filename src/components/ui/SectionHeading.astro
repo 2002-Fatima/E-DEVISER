@@ -6,13 +6,14 @@ interface Props {
   align?: 'left' | 'center';
   level?: 2 | 3;
   class?: string;
+  id?: string;
 }
 
-const { eyebrow, title, description, align = 'left', level = 2, class: className = '' } = Astro.props;
+const { eyebrow, title, description, align = 'left', level = 2, class: className = '', id } = Astro.props;
 ---
 
 <div class:list={['section-heading', `align-${align}`, className]}>
   {eyebrow && <p class="eyebrow">{eyebrow}</p>}
-  {level === 3 ? <h3>{title}</h3> : <h2>{title}</h2>}
+  {level === 3 ? <h3 id={id}>{title}</h3> : <h2 id={id}>{title}</h2>}
   {description && <p class="section-heading-description">{description}</p>}
 </div>
