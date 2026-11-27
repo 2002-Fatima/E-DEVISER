@@ -20,33 +20,33 @@
 }
 .our-work-volume-heading > p { max-width: 43ch; color: var(--color-text-muted); font-size: var(--text-base); line-height: 1.8; }
 .work-volume {
-  --volume-ink: #09121D; --volume-blue: #0382BD; --volume-teal: #5AB9B4;
+  --volume-ink: var(--brand-ink); --volume-blue: var(--brand-blue); --volume-teal: var(--brand-teal);
   position: relative; min-width: 0; padding: clamp(.55rem, 1.2vw, 1rem);
-  border: 1px solid rgba(29,53,87,.14);
-  background: linear-gradient(135deg, rgba(192,226,253,.2), transparent 38%), var(--color-surface-subtle);
-  box-shadow: 0 24px 70px rgba(9,18,29,.08);
+  border: 1px solid color-mix(in srgb, var(--brand-navy) 14%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--brand-blue-light) 20%, transparent), transparent 38%), var(--color-surface-subtle);
+  box-shadow: var(--shadow-lg);
 }
 .work-volume-cover {
   position: relative; display: grid; grid-template-columns: minmax(15rem, .92fr) minmax(0, 1.08fr);
-  min-height: clamp(27rem, 48vw, 40rem); overflow: hidden; isolation: isolate; color: #fff;
+  min-height: clamp(27rem, 48vw, 40rem); overflow: hidden; isolation: isolate; color: var(--color-white);
   background: var(--volume-ink); transform-origin: left center;
   transition: opacity var(--motion-slow) var(--ease-enter), transform var(--motion-slow) var(--ease-enter);
 }
 .work-volume-cover-art { position: absolute; inset: 0 43% 0 0; overflow: hidden; }
 .work-volume-cover-art img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .5; filter: saturate(.68) contrast(1.08); transform: scale(1.035); }
-.work-volume-cover-wash { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(9,18,29,.05), rgba(9,18,29,.32) 58%, var(--volume-ink) 100%), linear-gradient(0deg, rgba(9,18,29,.7), transparent 48%); }
-.work-volume-cover-index { position: absolute; left: clamp(1.5rem, 4vw, 3.5rem); bottom: clamp(1.2rem, 3vw, 2.5rem); color: rgba(255,255,255,.82); font-family: var(--font-mono); font-size: clamp(4rem, 9vw, 8rem); font-weight: 400; letter-spacing: -.1em; line-height: .8; }
-.work-volume-cover-rule { position: absolute; top: 10%; bottom: 10%; right: 16%; width: 1px; background: linear-gradient(transparent, rgba(90,185,180,.7), transparent); }
-.work-volume-cover-mark { position: absolute; top: clamp(1.4rem, 3vw, 2.5rem); left: clamp(1.5rem, 4vw, 3.5rem); color: rgba(205,252,244,.9); font-family: var(--font-mono); font-size: .75rem; letter-spacing: .18em; }
+.work-volume-cover-wash { position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--brand-ink) 5%, transparent), color-mix(in srgb, var(--brand-ink) 32%, transparent) 58%, var(--volume-ink) 100%), linear-gradient(0deg, color-mix(in srgb, var(--brand-ink) 70%, transparent), transparent 48%); }
+.work-volume-cover-index { position: absolute; left: clamp(1.5rem, 4vw, 3.5rem); bottom: clamp(1.2rem, 3vw, 2.5rem); color: var(--color-text-inverse-muted); font-family: var(--font-mono); font-size: clamp(4rem, 9vw, 8rem); font-weight: 400; letter-spacing: -.1em; line-height: .8; }
+.work-volume-cover-rule { position: absolute; top: 10%; bottom: 10%; right: 16%; width: 1px; background: linear-gradient(transparent, color-mix(in srgb, var(--brand-teal) 70%, transparent), transparent); }
+.work-volume-cover-mark { position: absolute; top: clamp(1.4rem, 3vw, 2.5rem); left: clamp(1.5rem, 4vw, 3.5rem); color: color-mix(in srgb, var(--brand-teal-light) 90%, transparent); font-family: var(--font-mono); font-size: .75rem; letter-spacing: .18em; }
 .work-volume-cover-copy { position: relative; z-index: 1; grid-column: 2; align-self: center; max-width: 34rem; padding: clamp(2rem, 5vw, 5rem) clamp(1.5rem, 5vw, 5rem) clamp(2rem, 5vw, 4rem) clamp(1rem, 2vw, 2rem); }
 .work-volume-kicker, .work-volume-page-label { color: var(--volume-teal); font-family: var(--font-mono); font-size: .68rem; letter-spacing: .16em; line-height: 1.5; }
-.work-volume-cover-copy h3 { max-width: 10ch; margin-block: 1.25rem; color: #fff; font-size: clamp(2.7rem, 5.2vw, 5.2rem); line-height: .96; letter-spacing: -.065em; }
-.work-volume-cover-description { max-width: 35ch; color: rgba(255,255,255,.72); font-size: var(--text-sm); line-height: 1.8; }
-.work-volume-cover-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-block-start: 2rem; padding-block-start: 1rem; border-block-start: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.54); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .13em; }
-.work-volume-open, .work-volume-close { display: inline-flex; align-items: center; justify-content: space-between; gap: 2rem; min-width: 11.5rem; margin-block-start: 2rem; padding: .95rem 1.05rem; border: 1px solid rgba(205,252,244,.42); border-radius: var(--radius-sm); color: #fff; background: rgba(3,130,189,.12); font: inherit; font-size: .82rem; cursor: pointer; transition: background var(--transition-interactive), border-color var(--transition-interactive), transform var(--transition-interactive); }
-.work-volume-open:hover, .work-volume-close:hover { border-color: var(--brand-teal-light); background: rgba(3,130,189,.24); transform: translateY(-2px); }
+.work-volume-cover-copy h3 { max-width: 10ch; margin-block: 1.25rem; color: var(--color-white); font-size: clamp(2.7rem, 5.2vw, 5.2rem); line-height: .96; letter-spacing: -.065em; }
+.work-volume-cover-description { max-width: 35ch; color: var(--color-text-inverse-muted); font-size: var(--text-sm); line-height: 1.8; }
+.work-volume-cover-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-block-start: 2rem; padding-block-start: 1rem; border-block-start: 1px solid color-mix(in srgb, var(--color-white) 18%, transparent); color: var(--color-text-inverse-subtle); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .13em; }
+.work-volume-open, .work-volume-close { display: inline-flex; align-items: center; justify-content: space-between; gap: 2rem; min-width: 11.5rem; margin-block-start: 2rem; padding: .95rem 1.05rem; border: 1px solid color-mix(in srgb, var(--brand-teal-light) 42%, transparent); border-radius: var(--radius-sm); color: var(--color-white); background: color-mix(in srgb, var(--brand-blue) 12%, transparent); font: inherit; font-size: .82rem; cursor: pointer; transition: background var(--transition-interactive), border-color var(--transition-interactive), transform var(--transition-interactive); }
+.work-volume-open:hover, .work-volume-close:hover { border-color: var(--brand-teal-light); background: color-mix(in srgb, var(--brand-blue) 24%, transparent); transform: translateY(-2px); }
 .work-volume-open span:last-child { color: var(--brand-teal-light); font-size: 1.1rem; }
-.work-volume-spine { position: absolute; z-index: 2; top: 0; bottom: 0; left: 0; width: 5px; background: linear-gradient(180deg, var(--brand-teal), var(--brand-blue), rgba(90,185,180,.2)); box-shadow: 2px 0 16px rgba(90,185,180,.24); }
+.work-volume-spine { position: absolute; z-index: 2; top: 0; bottom: 0; left: 0; width: 5px; background: linear-gradient(180deg, var(--brand-teal), var(--brand-blue), color-mix(in srgb, var(--brand-teal) 20%, transparent)); box-shadow: 2px 0 16px color-mix(in srgb, var(--brand-teal) 24%, transparent); }
 .work-volume.is-open .work-volume-cover { display: none; }
 .work-volume-content { padding: clamp(1rem, 2.5vw, 2.25rem); color: var(--color-text); background: var(--color-surface-raised); animation: volume-open .65s var(--ease-enter) both; }
 @keyframes volume-open { from { opacity: 0; transform: translateY(14px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
@@ -88,7 +88,7 @@
   .our-work-volume-heading { grid-template-columns: 1fr; gap: 1rem; }
   .work-volume-cover { grid-template-columns: 1fr; min-height: 35rem; }
   .work-volume-cover-art { inset: 0; }
-  .work-volume-cover-wash { background: linear-gradient(0deg, rgba(9,18,29,.98) 0%, rgba(9,18,29,.72) 48%, rgba(9,18,29,.1) 100%); }
+  .work-volume-cover-wash { background: linear-gradient(0deg, color-mix(in srgb, var(--brand-ink) 98%, transparent) 0%, color-mix(in srgb, var(--brand-ink) 72%, transparent) 48%, color-mix(in srgb, var(--brand-ink) 10%, transparent) 100%); }
   .work-volume-cover-copy { grid-column: 1; align-self: end; padding: 8rem clamp(1.4rem, 6vw, 2.5rem) 2rem; }
   .work-volume-cover-index { top: 1.5rem; bottom: auto; font-size: 5rem; }
   .work-volume-cover-rule { top: 8%; bottom: 48%; right: 12%; }
@@ -137,18 +137,18 @@
 .work-volume-document-media img {
   padding: clamp(.5rem, 1.5vw, 1.25rem);
   object-fit: contain;
-  background: #F4F7F9;
+  background: var(--color-surface-subtle);
 }
 .work-volume-document-media {
   display: flex;
   min-height: 25rem;
   flex-direction: column;
-  background: #F4F7F9;
+  background: var(--color-surface-subtle);
 }
 .work-volume-document-media img { flex: 1; min-height: 0; }
 .work-volume-document-media figcaption {
   color: var(--color-navy);
-  background: #F4F7F9;
+  background: var(--color-surface-subtle);
 }
 .work-volume-document-media figcaption span { color: var(--color-primary); }
 
@@ -157,9 +157,9 @@
   grid-template-columns: minmax(16rem, .82fr) minmax(0, 1.18fr);
   min-height: 29rem;
   overflow: hidden;
-  border: 1px solid rgba(29,53,87,.16);
-  background: #fff;
-  box-shadow: 0 24px 65px rgba(9,18,29,.08);
+  border: 1px solid color-mix(in srgb, var(--brand-navy) 16%, transparent);
+  background: var(--color-white);
+  box-shadow: var(--shadow-lg);
 }
 .our-work-reader-guide-intro {
   position: relative;
@@ -168,7 +168,7 @@
   align-items: flex-start;
   padding: clamp(2rem, 4vw, 4rem);
   overflow: hidden;
-  color: #fff;
+  color: var(--color-white);
   background: var(--brand-ink);
 }
 .our-work-reader-guide-intro::after {
@@ -177,9 +177,9 @@
   bottom: -9rem;
   width: 20rem;
   aspect-ratio: 1;
-  border: 1px solid rgba(205,252,244,.2);
+  border: 1px solid color-mix(in srgb, var(--brand-teal-light) 20%, transparent);
   border-radius: 50%;
-  box-shadow: 0 0 0 2rem rgba(205,252,244,.025), 0 0 0 4rem rgba(205,252,244,.02);
+  box-shadow: 0 0 0 2rem color-mix(in srgb, var(--brand-teal-light) 2.5%, transparent), 0 0 0 4rem color-mix(in srgb, var(--brand-teal-light) 2%, transparent);
   content: "";
 }
 .our-work-reader-guide-kicker {
@@ -190,7 +190,7 @@
 }
 .our-work-reader-guide-mark {
   margin-block: auto 1.5rem;
-  color: rgba(205,252,244,.82);
+  color: color-mix(in srgb, var(--brand-teal-light) 82%, transparent);
   font-family: var(--font-mono);
   font-size: .8rem;
   letter-spacing: .18em;
@@ -198,14 +198,14 @@
 .our-work-reader-guide-intro h3 {
   max-width: 10ch;
   margin-block-end: 1rem;
-  color: #fff;
+  color: var(--color-white);
   font-size: clamp(2.3rem, 4vw, 3.8rem);
   line-height: .98;
   letter-spacing: -.06em;
 }
 .our-work-reader-guide-intro > p:not(.our-work-reader-guide-kicker) {
   max-width: 36ch;
-  color: rgba(255,255,255,.72);
+  color: var(--color-text-inverse-muted);
   font-size: var(--text-sm);
   line-height: 1.8;
 }
@@ -216,8 +216,8 @@
   gap: 1rem;
   margin-block-start: 2rem;
   padding-block-start: 1rem;
-  border-block-start: 1px solid rgba(255,255,255,.18);
-  color: rgba(255,255,255,.56);
+  border-block-start: 1px solid color-mix(in srgb, var(--color-white) 18%, transparent);
+  color: var(--color-text-inverse-subtle);
   font-family: var(--font-mono);
   font-size: .6rem;
   letter-spacing: .12em;
