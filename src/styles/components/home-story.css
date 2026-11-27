@@ -2576,6 +2576,7 @@
   .cuevo-doodle--abc, .cuevo-doodle--atom { display: none; }
 }
 
+/* Accessibility override: ensure the user's reduced-motion preference wins over component motion. */
 @media (prefers-reduced-motion: reduce) {
 .home-methodology-section .methodology-flow-list::after {
     transition: none;
