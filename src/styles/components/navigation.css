@@ -1,5 +1,5 @@
 .site-header {
-  --header-surface: rgba(9, 18, 29, 0.97);
+  --header-surface: color-mix(in srgb, var(--brand-ink) 97%, transparent);
 
   position: sticky;
   inset-block-start: 0;
@@ -101,14 +101,14 @@
 
 .nav-item > a:hover,
 .nav-item > .nav-details > summary:hover {
-  background: rgba(3, 130, 189, 0.08);
+  background: color-mix(in srgb, var(--brand-blue) 8%, transparent);
   color: var(--brand-teal);
   transform: translateY(-1px);
 }
 
 .nav-item > a[aria-current="page"],
 .nav-details[data-current="true"] > summary {
-  background: rgba(3, 130, 189, 0.07);
+  background: color-mix(in srgb, var(--brand-blue) 7%, transparent);
   color: var(--color-white);
 }
 
@@ -201,12 +201,12 @@
 }
 
 .nav-submenu a:hover {
-  background: rgba(3, 130, 189, 0.08);
+  background: color-mix(in srgb, var(--brand-blue) 8%, transparent);
   color: var(--brand-teal);
 }
 
 .nav-submenu a[aria-current="page"] {
-  background: rgba(3, 130, 189, 0.1);
+  background: color-mix(in srgb, var(--brand-blue) 10%, transparent);
   color: var(--color-white);
 }
 
@@ -236,7 +236,7 @@
   padding: var(--space-2);
   border: var(--border-width) solid var(--color-border-inverse);
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.035);
+  background: color-mix(in srgb, var(--color-white) 3.5%, transparent);
   cursor: pointer;
 }
 
@@ -463,7 +463,7 @@
   inset-block-start: 4.875rem;
   z-index: var(--z-sticky);
   border-block-end: var(--border-width) solid var(--color-border);
-  background: rgba(247, 250, 252, 0.96);
+  background: color-mix(in srgb, var(--color-surface) 96%, transparent);
   backdrop-filter: blur(10px);
 }
 
@@ -492,7 +492,7 @@
 
 .section-nav a.is-active,
 .section-nav a:hover {
-  background: rgba(3, 130, 189, 0.1);
+  background: color-mix(in srgb, var(--brand-blue) 10%, transparent);
   color: var(--color-primary-strong);
 }
 
@@ -662,9 +662,9 @@ body:has(.home-hero) .header-inner {
   align-items: center;
   min-height: 1.85rem;
   padding: .2rem .7rem;
-  border: 1px solid rgba(3,130,189,.18);
+  border: 1px solid color-mix(in srgb, var(--brand-blue) 18%, transparent);
   border-radius: var(--radius-pill);
-  background: rgba(3,130,189,.07);
+  background: color-mix(in srgb, var(--brand-blue) 7%, transparent);
   color: var(--color-primary-strong);
   font-weight: var(--weight-semibold);
 }
