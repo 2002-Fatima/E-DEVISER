@@ -39,6 +39,16 @@
   background-size: 2rem 2rem;
 }
 
+.background-learning {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 10% 10%, color-mix(in srgb, var(--brand-blue) 5%, transparent), transparent 42%),
+    linear-gradient(135deg, var(--brand-white), var(--color-surface));
+  color: var(--brand-navy);
+}
+
 .background-glass {
   border: var(--border-width) solid color-mix(in srgb, var(--brand-white) 18%, transparent);
   background: color-mix(in srgb, var(--brand-white) 8%, transparent);
