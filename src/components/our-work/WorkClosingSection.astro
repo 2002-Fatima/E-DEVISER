@@ -1,6 +1,8 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
 import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import Link from '../ui/Link.astro';
 ---
 
 <SectionWrapper background="luminous" class="our-work-section our-work-closing-section">
@@ -14,10 +16,14 @@ import Container from '../ui/Container.astro';
       <span class="our-work-closing-axis"></span>
     </div>
     <div class="our-work-closing-copy">
-      <p class="eyebrow">THE WORK CONTINUES</p>
-      <h2 id="work-closing-title">The next meaningful thing starts with a problem worth solving.</h2>
-      <p>Bring us the question, the challenge, or the ambition. We’ll work with you to understand what it takes to move it forward.</p>
-      <a class="our-work-closing-link" href="/company/careers-contact/">Start a conversation <span aria-hidden="true">↗</span></a>
+      <SectionHeading
+        id="work-closing-title"
+        class="our-work-closing-heading"
+        eyebrow="THE WORK CONTINUES"
+        title="The next meaningful thing starts with a problem worth solving."
+        description="Bring us the question, the challenge, or the ambition. We’ll work with you to understand what it takes to move it forward."
+      />
+      <Link href="/company/careers-contact/" class="our-work-closing-link">Start a conversation <span aria-hidden="true">↗</span></Link>
     </div>
     </Container>
   </section>
