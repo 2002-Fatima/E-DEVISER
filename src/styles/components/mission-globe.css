@@ -139,7 +139,7 @@
   position: absolute;
   z-index: 4;
   inset-block-start: 1.8%;
-  left: 50%;
+  inset-inline-start: 50%;
   margin: 0;
   color: var(--color-primary-strong);
   font-family: var(--font-mono);
@@ -198,7 +198,7 @@
   position: absolute;
   z-index: 0;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: var(--country-leader-length, 0px);
   height: 1px;
   background: linear-gradient(90deg, color-mix(in srgb, var(--brand-teal) 82%, transparent), color-mix(in srgb, var(--brand-teal) 6%, transparent));
@@ -240,7 +240,7 @@
   position: absolute;
   z-index: 6;
   top: 51%;
-  left: 50%;
+  inset-inline-start: 50%;
   display: flex;
   width: 4.15rem;
   height: 4.15rem;
@@ -311,7 +311,7 @@
   position: absolute;
   z-index: 6;
   inset-block-end: 2.45rem;
-  left: 50%;
+  inset-inline-start: 50%;
   display: inline-flex;
   min-height: 2rem;
   align-items: center;
@@ -346,7 +346,7 @@
   position: absolute;
   z-index: 4;
   inset-block-end: 0.9%;
-  left: 50%;
+  inset-inline-start: 50%;
   max-width: calc(100% - 1.5rem);
   margin: 0;
   color: var(--color-text-muted);
