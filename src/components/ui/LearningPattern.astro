@@ -7,7 +7,7 @@ interface Props {
 const { variant = 'section', density = 'low', tone = 'light' } = Astro.props;
 ---
 
-<div class:list={['learning-pattern', `learning-pattern--${variant}`, `learning-pattern--${density}`, `learning-pattern--${tone}']} aria-hidden="true">
+<div class:list={['learning-pattern', `learning-pattern--${variant}`, `learning-pattern--${density}`, `learning-pattern--${tone}`]} aria-hidden="true">
   <svg class="learning-pattern-sprite" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <symbol id="learning-book" viewBox="0 0 48 48"><path d="M4 9c8-3 14-2 20 2v29c-6-4-12-5-20-2zM44 9c-8-3-14-2-20 2v29c6-4 12-5 20-2zM24 11v29M9 17c4-1 8 0 11 2m-11 6c4-1 8 0 11 2m9-8c3-2 7-3 11-2m-11 10c3-2 7-3 11-2"/></symbol>
@@ -93,7 +93,7 @@ const { variant = 'section', density = 'low', tone = 'light' } = Astro.props;
   @keyframes learning-drift-two { 50% { transform: translateY(4px); } }
   @media (max-width: 48rem) {
     .learning-pattern-art .learning-glyph:nth-of-type(n + 7) { display: none; }
-    .learning-pattern { -webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 82%); mask-image: linear-gradient(90deg, #000 0%, transparent 82%); }
+    .learning-pattern { -webkit-mask-image: linear-gradient(90deg, var(--brand-navy) 0%, transparent 82%); mask-image: linear-gradient(90deg, #000 0%, transparent 82%); }
   }
   @media (prefers-reduced-motion: reduce) {
     .learning-pattern .learning-glyph { animation: none; }
