@@ -291,7 +291,7 @@
 .our-work-section { overflow: hidden; }
 .our-work-content {
   gap: clamp(var(--space-11), 5.5vw, var(--space-20));
-  padding-block: clamp(var(--space-18), 8vw, var(--space-28));
+  padding-block: var(--space-section);
 }
 .our-work-section-heading {
   grid-template-columns: minmax(0, 1fr) minmax(15rem, .58fr);
@@ -773,7 +773,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding-block: clamp(var(--space-20), 10vw, var(--space-32));
+  padding-block: var(--space-section-lg);
 }
 .our-work-closing::after {
   position: absolute;
@@ -1154,7 +1154,7 @@
   align-items: center;
   gap: clamp(var(--space-10), 7vw, var(--space-28));
   min-height: 35rem;
-  padding-block: clamp(var(--space-20), 9vw, var(--space-32));
+  padding-block: var(--space-section-lg);
 }
 .our-work-closing::after { content: none; }
 .our-work-closing-visual {
