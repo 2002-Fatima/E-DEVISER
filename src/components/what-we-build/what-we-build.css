@@ -904,7 +904,7 @@
   background: linear-gradient(145deg,
     color-mix(in srgb, var(--color-surface-night-hover) 96%, var(--brand-teal)),
     var(--color-surface-night-raised));
-  box-shadow: 0 22px 48px color-mix(in srgb, var(--brand-teal) 12%, transparent);
+  box-shadow: var(--shadow-card-teal);
 }
 .what-we-build .wwb-capability > span {
   color: var(--brand-teal-light);
@@ -922,7 +922,7 @@
   background: linear-gradient(145deg,
     color-mix(in srgb, var(--color-surface-night-hover) 94%, var(--brand-teal)),
     var(--color-surface-night-raised));
-  box-shadow: 0 22px 48px color-mix(in srgb, var(--brand-teal) 12%, transparent);
+  box-shadow: var(--shadow-card-teal);
 }
 .what-we-build .wwb-dimension b {
   color: var(--color-text-inverse);
