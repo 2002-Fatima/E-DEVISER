@@ -504,7 +504,7 @@
   font-weight: var(--weight-regular);
 }
 
-/* CUOVO: explain the platform model without pretending this is a live product screenshot. */
+/* CUEVO: explain the platform model without pretending this is a live product screenshot. */
 .home-cuevo-visual {
   display: grid;
   gap: var(--space-3);
