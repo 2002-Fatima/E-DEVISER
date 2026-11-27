@@ -45,15 +45,13 @@
 }
 
 .home-mission-number {
-  color: var(--brand-blue);
-  background: var(--gradient-brand-text);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-on-light-link);
+  background: none;
+  -webkit-text-fill-color: currentColor;
 }
 
 .home-mission-highlight {
-  color: var(--brand-blue);
+  color: var(--text-on-light-link);
   white-space: nowrap;
 }
 
