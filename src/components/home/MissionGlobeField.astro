@@ -94,6 +94,8 @@
   import { missionRegionPolygons } from '../../data/mission-region-geography';
 
   document.querySelectorAll('[data-mission-globe]').forEach((field) => {
+    const palette = getComputedStyle(document.documentElement);
+    const brandColor = (token) => palette.getPropertyValue(token).trim();
     const canvas = field.querySelector('[data-mission-globe-canvas]');
     const gl = canvas && canvas.getContext('webgl', {
       alpha: true,
@@ -256,9 +258,9 @@
       const w = map.width;
       const h = map.height;
       const ocean = context.createLinearGradient(0, 0, w, h);
-      ocean.addColorStop(0, '#286B7D');
-      ocean.addColorStop(0.42, '#174B63');
-      ocean.addColorStop(1, '#0D3047');
+      ocean.addColorStop(0, brandColor('--brand-navy'));
+      ocean.addColorStop(0.42, brandColor('--color-surface-dark'));
+      ocean.addColorStop(1, brandColor('--brand-ink'));
       context.fillStyle = ocean;
       context.fillRect(0, 0, w, h);
 
@@ -269,7 +271,7 @@
       // without adding dashboard-like graticules to the finished planet.
       context.save();
       context.globalAlpha = 0.12;
-      context.strokeStyle = '#8ACCC6';
+      context.strokeStyle = brandColor('--brand-teal');
       context.lineWidth = 1;
       for (let band = 0; band < 9; band += 1) {
         const y = py(34 - band * 8);
@@ -297,20 +299,20 @@
         const gcc = polygon.role === 'gcc';
         const land = context.createLinearGradient(px(42), py(38), px(60), py(12));
         if (gcc) {
-          land.addColorStop(0, '#C9DED0');
-          land.addColorStop(0.48, '#8FB8A9');
-          land.addColorStop(1, '#5B8E8B');
+          land.addColorStop(0, brandColor('--brand-teal-light'));
+          land.addColorStop(0.48, brandColor('--brand-teal'));
+          land.addColorStop(1, brandColor('--color-primary-strong'));
         } else {
-          land.addColorStop(0, '#8BAEA7');
-          land.addColorStop(0.55, '#557E7F');
-          land.addColorStop(1, '#315967');
+          land.addColorStop(0, brandColor('--brand-teal'));
+          land.addColorStop(0.55, brandColor('--color-surface-dark'));
+          land.addColorStop(1, brandColor('--brand-navy'));
         }
         context.fillStyle = land;
-        context.shadowColor = gcc ? 'rgba(103, 232, 205, 0.20)' : 'rgba(65, 160, 165, 0.10)';
+        context.shadowColor = gcc ? 'rgba(90, 185, 180, 0.20)' : 'rgba(3, 130, 189, 0.10)';
         context.shadowBlur = gcc ? 7 : 3;
         context.fill();
         context.shadowBlur = 0;
-        context.strokeStyle = gcc ? 'rgba(218, 250, 231, 0.74)' : 'rgba(179, 220, 213, 0.30)';
+        context.strokeStyle = gcc ? 'rgba(205, 252, 244, 0.74)' : 'rgba(192, 226, 253, 0.30)';
         context.lineWidth = gcc ? 1.5 : 0.9;
         context.stroke();
 
@@ -318,7 +320,7 @@
         // terrain without inventing borders or political subdivisions.
         context.save();
         context.clip();
-        context.strokeStyle = gcc ? 'rgba(235, 255, 239, 0.14)' : 'rgba(209, 239, 228, 0.075)';
+        context.strokeStyle = gcc ? 'rgba(205, 252, 244, 0.14)' : 'rgba(192, 226, 253, 0.075)';
         context.lineWidth = 0.85;
         for (let band = 0; band < 5; band += 1) {
           const y = py(37 - band * 5.5);
@@ -342,8 +344,8 @@
       // retained by the interactive marker; this restrained island glint keeps
       // the island nation legible on the rendered surface.
       context.save();
-      context.fillStyle = '#B8D9C9';
-      context.shadowColor = 'rgba(115, 255, 222, 0.72)';
+      context.fillStyle = brandColor('--brand-teal-light');
+      context.shadowColor = 'rgba(90, 185, 180, 0.72)';
       context.shadowBlur = 5;
       context.beginPath();
       context.ellipse(px(50.55), py(26.07), 2.1, 3.2, -0.18, 0, Math.PI * 2);
