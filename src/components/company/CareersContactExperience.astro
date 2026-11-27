@@ -7,122 +7,34 @@ const paths = [
 ---
 
 <main class="contact-experience">
-  <section class="contact-hero">
-    <div class="contact-wrap contact-hero-grid">
-      <div>
-        <p class="contact-eyebrow">CAREERS &amp; CONTACT</p>
-        <h1>Good work starts<br />with a <em>conversation.</em></h1>
-        <p class="contact-lead">We are building E Deviser around important problems, thoughtful people, and the determination to turn ideas into meaningful work. If that is the kind of work you care about, start here.</p>
-        <a class="contact-link" href="#contact">Start a conversation <span aria-hidden="true">↓</span></a>
-      </div>
-      <div class="contact-hero-art" aria-hidden="true">
-        <div class="contact-art-grid"></div><div class="contact-ring contact-ring-one"></div><div class="contact-ring contact-ring-two"></div><div class="contact-ring contact-ring-three"></div>
-        <div class="contact-art-core"><small>START WITH</small><strong>A QUESTION</strong><i></i></div>
-        <span class="contact-art-label contact-label-one">IDEAS</span><span class="contact-art-label contact-label-two">PEOPLE</span><span class="contact-art-label contact-label-three">POSSIBILITY</span>
-        <small class="contact-art-caption">OPEN TO WHAT MATTERS</small>
-      </div>
-    </div>
-  </section>
+  <section class="contact-hero"><div class="contact-wrap">
+    <p class="contact-eyebrow">E DEVİSER / CAREERS &amp; CONTACT</p>
+    <div class="contact-hero-grid"><h1>Good work starts<br />with a <em>conversation.</em></h1><div class="contact-hero-aside"><p>We are building E Deviser around important problems, thoughtful people, and the determination to turn ideas into meaningful work.</p><a class="contact-link" href="#contact">Start a conversation <span aria-hidden="true">↓</span></a></div></div>
+    <div class="contact-hero-foot"><span>OPEN TO</span><p>Good questions <i></i> Thoughtful people <i></i> Meaningful work</p></div>
+  </div></section>
 
-  <section class="contact-section" id="careers">
-    <div class="contact-wrap">
-      <div class="contact-section-heading">
-        <div><p class="contact-eyebrow">CAREERS AT E DEVİSER</p><h2>Curious enough to question.<br /><em>Practical enough to build.</em></h2></div>
-        <p>We value people who challenge assumptions, get close to the details, and stay open to changing their minds when the evidence tells them to. We look for people who ask not only what is possible, but what is worth doing.</p>
-      </div>
-      <div class="contact-paths">
-        {paths.map((path, index) => (
-          <article><span>0{index + 1}</span><div><h3>{path[0]}</h3><p>{path[1]}</p></div><b aria-hidden="true">↗</b></article>
-        ))}
-      </div>
-      <div class="contact-opportunities">
-        <span>OPPORTUNITIES</span>
-        <div><strong>We publish roles when they are real.</strong><p>There are no confirmed vacancies in the supplied company content. We will add opportunities here when roles and application details are approved.</p></div>
-        <a href="/company/team/">Meet the team <span aria-hidden="true">↗</span></a>
-      </div>
-    </div>
-  </section>
+  <section class="contact-section" id="careers"><div class="contact-wrap">
+    <div class="contact-section-heading"><div><p class="contact-eyebrow">CAREERS</p><h2>Curious enough to question.<br /><em>Practical enough to build.</em></h2></div><p>We value people who challenge assumptions, get close to the details, and stay open to changing their minds when the evidence tells them to. We look for people who ask not only what is possible, but what is worth doing.</p></div>
+    <div class="contact-paths">{paths.map((path) => <article><h3>{path[0]}</h3><p>{path[1]}</p><span aria-hidden="true">↗</span></article>)}</div>
+    <div class="contact-opportunities"><span>OPEN POSITIONS</span><div><strong>We publish roles when they are real.</strong><p>There are no confirmed vacancies in the supplied company content. Opportunities will appear here when roles and application details are approved.</p></div></div>
+  </div></section>
 
-  <section class="contact-section contact-section-alt" id="contact">
-    <div class="contact-wrap contact-conversation">
-      <div>
-        <p class="contact-eyebrow">GET IN TOUCH</p>
-        <h2>Have something<br /><em>worth exploring?</em></h2>
-        <p>Whether you have a problem to solve, an idea to discuss, or want to learn more about E Deviser, the starting point is a thoughtful conversation.</p>
-      </div>
-      <div class="contact-channel">
-        <span>START A CONVERSATION</span>
-        <strong>Talk to E Deviser.</strong>
-        <p>A public email address, phone number, or working enquiry destination was not included in the supplied content. We have not invented one or added a form that cannot deliver messages.</p>
-        <small>CONTACT CHANNEL TO BE CONFIRMED</small>
-      </div>
-    </div>
-  </section>
+  <section class="contact-section contact-section-contact" id="contact"><div class="contact-wrap contact-conversation">
+    <div><p class="contact-eyebrow">CONTACT</p><h2>Have something<br /><em>worth exploring?</em></h2></div>
+    <div class="contact-message"><p>Whether you have a problem to solve, an idea to discuss, or want to learn more about E Deviser, the starting point is a thoughtful conversation.</p><div class="contact-channel"><span>LET'S TALK</span><strong>Talk to E Deviser.</strong><small>Public contact details are awaiting confirmation.</small></div></div>
+  </div></section>
 
-  <section class="contact-next">
-    <div class="contact-wrap contact-next-grid">
-      <div><p class="contact-eyebrow">GET TO KNOW US</p><h2>See what we're<br /><em>building.</em></h2></div>
-      <div class="contact-next-links"><a href="/company/">Company overview <span aria-hidden="true">↗</span></a><a href="/company/team/">Meet the team <span aria-hidden="true">↗</span></a><a href="/what-we-build/">What We Build <span aria-hidden="true">↗</span></a><a href="/our-work/">Our Work <span aria-hidden="true">↗</span></a></div>
-    </div>
-  </section>
+  <section class="contact-next"><div class="contact-wrap contact-next-grid"><div><p class="contact-eyebrow">CONTINUE EXPLORING</p><h2>Get to know<br /><em>our work.</em></h2></div><div class="contact-next-links"><a href="/company/">Company overview <span aria-hidden="true">↗</span></a><a href="/company/team/">Meet the team <span aria-hidden="true">↗</span></a><a href="/what-we-build/">What We Build <span aria-hidden="true">↗</span></a><a href="/our-work/">Our Work <span aria-hidden="true">↗</span></a></div></div></section>
 </main>
 
 <style>
-.contact-experience{background:var(--color-surface);color:var(--color-text);overflow:hidden}
-.contact-experience *{box-sizing:border-box}
-.contact-wrap{width:min(var(--container-wide),calc(100% - 2*var(--gutter)));margin-inline:auto}
-.contact-hero{padding:clamp(4.5rem,8vw,7rem) 0;background:var(--gradient-pattern-light)}
-.contact-hero-grid,.contact-section-heading,.contact-conversation,.contact-next-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(2rem,6vw,6rem);align-items:center}
-.contact-eyebrow{margin:0 0 1.15rem;color:var(--brand-blue);font:var(--weight-semibold) var(--text-xs)/1.5 var(--font-body);letter-spacing:var(--tracking-wide)}
-.contact-experience h1,.contact-experience h2{margin:0;color:var(--color-text);font-family:var(--font-display);font-weight:var(--weight-bold);letter-spacing:-.055em;line-height:1.08;text-wrap:balance}
-.contact-experience h1{font-size:clamp(3rem,5.6vw,5.5rem)}
-.contact-experience h2{font-size:clamp(2.3rem,4.2vw,4.2rem)}
-.contact-experience h1 em,.contact-experience h2 em{background:var(--gradient-brand-text);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal}
-.contact-lead{max-width:40rem;margin:1.5rem 0 0;color:var(--color-text-muted);font-size:var(--text-body-large);line-height:1.8}
-.contact-link{display:inline-flex;gap:1rem;margin-top:1.5rem;color:var(--primary-700);font-size:var(--text-sm);font-weight:var(--weight-semibold);text-decoration:none}
-.contact-link span{color:var(--brand-teal)}
-.contact-hero-art{position:relative;min-height:clamp(19rem,31vw,26rem);overflow:hidden;border:1px solid var(--color-border);border-radius:var(--radius-xl);background:radial-gradient(circle at 50% 48%,rgba(90,185,180,.16),transparent 34%),linear-gradient(145deg,#fff,#edf6fa);box-shadow:var(--shadow-md)}
-.contact-art-grid{position:absolute;inset:0;background:var(--pattern-grid);background-size:2.25rem 2.25rem;opacity:.6;mask-image:radial-gradient(ellipse at center,#000 10%,transparent 78%)}
-.contact-ring{position:absolute;left:50%;top:48%;width:65%;aspect-ratio:1;border:1px solid rgba(3,130,189,.24);border-radius:50%;transform:translate(-50%,-50%) scaleY(.48) rotate(-28deg)}
-.contact-ring-two{width:84%;border-color:rgba(90,185,180,.35);transform:translate(-50%,-50%) scaleY(.48) rotate(52deg)}
-.contact-ring-three{width:52%;border-color:rgba(3,130,189,.18);transform:translate(-50%,-50%) scaleY(.48) rotate(80deg)}
-.contact-art-core{position:absolute;left:50%;top:48%;width:8rem;aspect-ratio:1;display:grid;place-content:center;justify-items:center;border:1px solid rgba(3,130,189,.2);border-radius:50%;background:rgba(255,255,255,.94);box-shadow:var(--shadow-md);transform:translate(-50%,-50%)}
-.contact-art-core small,.contact-art-core strong{font-family:var(--font-mono);letter-spacing:.1em}
-.contact-art-core small{color:var(--color-text-subtle);font-size:.5rem}
-.contact-art-core strong{margin-top:.45rem;color:var(--color-text);font-size:.8rem}
-.contact-art-core i{width:2rem;height:2px;margin-top:.7rem;background:var(--gradient-brand)}
-.contact-art-label{position:absolute;padding:.5rem .65rem;border:1px solid var(--color-border);border-radius:var(--radius-pill);background:rgba(255,255,255,.92);color:var(--primary-800);font:500 .53rem var(--font-mono);letter-spacing:.08em}
-.contact-label-one{left:6%;top:22%}.contact-label-two{right:6%;top:28%}.contact-label-three{left:28%;bottom:17%}
-.contact-art-caption{position:absolute;left:1.2rem;bottom:1.1rem;color:var(--color-text-subtle);font:500 .53rem var(--font-mono);letter-spacing:.12em}
-.contact-section{padding:clamp(4.25rem,7vw,6.75rem) 0;border-top:1px solid var(--color-border-subtle)}
-.contact-section-alt{background:var(--color-surface-subtle)}
-.contact-section-heading{align-items:end}
-.contact-section-heading>p,.contact-conversation>div:first-child>p:not(.contact-eyebrow){max-width:38rem;margin:0;color:var(--color-text-muted);line-height:1.85}
-.contact-paths{margin-top:2.75rem;border-top:1px solid var(--color-border)}
-.contact-paths article{display:grid;grid-template-columns:3rem 1fr 1.5rem;gap:1.5rem;align-items:center;padding:1.35rem .2rem;border-bottom:1px solid var(--color-border)}
-.contact-paths article>span{color:var(--primary-700);font:500 .6rem var(--font-mono);letter-spacing:.1em}
-.contact-paths h3{margin:0;color:var(--color-text);font-size:1.15rem}
-.contact-paths p{margin:.4rem 0 0;color:var(--color-text-muted);font-size:.88rem;line-height:1.7}
-.contact-paths article>b{color:var(--brand-teal);font-weight:400}
-.contact-opportunities{display:grid;grid-template-columns:9rem 1fr auto;gap:1.5rem;align-items:center;margin-top:2.75rem;padding:1.5rem;border:1px solid var(--color-border);border-radius:var(--radius-lg);background:linear-gradient(110deg,#fff,#f0f8fb)}
-.contact-opportunities>span,.contact-channel>span,.contact-channel>small{color:var(--primary-700);font:500 .55rem var(--font-mono);letter-spacing:.12em}
-.contact-opportunities strong{color:var(--color-text);font-size:1rem}
-.contact-opportunities p{margin:.4rem 0 0;color:var(--color-text-muted);font-size:.83rem;line-height:1.7}
-.contact-opportunities>a{color:var(--primary-700);font-size:.8rem;font-weight:var(--weight-semibold);text-decoration:none;white-space:nowrap}
-.contact-opportunities>a span{color:var(--brand-teal)}
-.contact-conversation{align-items:start}
-.contact-conversation>div:first-child>p:not(.contact-eyebrow){margin-top:1.2rem}
-.contact-channel{padding:clamp(1.5rem,3vw,2.5rem);border:1px solid var(--color-border);border-radius:var(--radius-lg);background:linear-gradient(145deg,#fff,#edf6fa);box-shadow:var(--shadow-sm)}
-.contact-channel strong{display:block;margin:1.3rem 0 .8rem;color:var(--color-text);font-size:clamp(1.4rem,2.4vw,2rem)}
-.contact-channel p{color:var(--color-text-muted);font-size:.9rem;line-height:1.8}
-.contact-channel>small{display:block;margin-top:1.6rem;color:var(--color-text-subtle)}
-.contact-next{padding:clamp(4rem,7vw,6rem) 0;border-top:1px solid var(--color-border);background:var(--color-surface-raised)}
-.contact-next h2{font-size:clamp(2.5rem,4.5vw,4.2rem)}
-.contact-next-links{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
-.contact-next-links a{display:flex;justify-content:space-between;gap:1rem;padding:1rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);background:#fff;color:var(--color-text);font-size:.82rem;text-decoration:none;transition:border-color var(--transition-interactive),background var(--transition-interactive),transform var(--transition-interactive)}
-.contact-next-links a:hover{transform:translateY(-2px);border-color:var(--brand-teal);background:var(--color-surface-subtle)}
-.contact-next-links a span{color:var(--primary-700)}
-@media(max-width:800px){.contact-hero-grid,.contact-section-heading,.contact-conversation,.contact-next-grid{grid-template-columns:1fr;gap:2rem}.contact-hero-art{min-height:22rem}.contact-opportunities{grid-template-columns:1fr}.contact-opportunities>a{justify-self:start}}
-@media(max-width:560px){.contact-wrap{width:calc(100% - 2rem)}.contact-experience h1{font-size:clamp(2.55rem,10.8vw,3.7rem)}.contact-experience h2{font-size:clamp(2.2rem,9.4vw,3.25rem)}.contact-hero-art{min-height:18rem}.contact-art-core{width:6.5rem}.contact-art-label{font-size:.44rem;padding:.4rem .45rem}.contact-paths article{grid-template-columns:2rem 1fr 1rem;gap:.8rem}.contact-next-links{grid-template-columns:1fr}.contact-section{padding:4.25rem 0}}
+.contact-experience{background:var(--color-surface-raised);color:var(--color-text);overflow:hidden}.contact-experience *{box-sizing:border-box}.contact-wrap{width:min(var(--container-wide),calc(100% - 2*var(--gutter)));margin-inline:auto}.contact-eyebrow{margin:0 0 1.25rem;color:var(--primary-700);font:600 .68rem/1.5 var(--font-body);letter-spacing:.12em}
+.contact-hero{padding:clamp(5rem,10vw,9rem) 0 2.2rem}.contact-hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,8vw,8rem);align-items:end}.contact-experience h1,.contact-experience h2{margin:0;color:var(--color-text);font-family:var(--font-display);font-weight:700;letter-spacing:-.06em;line-height:1.03;text-wrap:balance}.contact-experience h1{font-size:clamp(3.3rem,7vw,7rem)}.contact-experience h2{font-size:clamp(2.5rem,4.8vw,4.7rem)}.contact-experience em{color:var(--brand-blue);font-style:normal}.contact-hero-aside{max-width:28rem;padding-bottom:.5rem}.contact-hero-aside>p,.contact-section-heading>p,.contact-message>p{color:var(--color-text-muted);font-size:var(--text-body-large);line-height:1.8}.contact-link{display:inline-flex;gap:.8rem;margin-top:1.2rem;color:var(--primary-700);font-size:var(--text-sm);font-weight:600;text-decoration:none}.contact-link span{color:var(--brand-teal)}.contact-hero-foot{display:flex;justify-content:space-between;gap:2rem;margin-top:clamp(4rem,8vw,7rem);padding:1.15rem 0;border-block:1px solid var(--color-border)}.contact-hero-foot span,.contact-hero-foot p{margin:0;color:var(--color-text-subtle);font:500 .62rem var(--font-mono);letter-spacing:.1em}.contact-hero-foot p{display:flex;gap:1rem;color:var(--primary-800)}.contact-hero-foot i{width:1.8rem;height:1px;align-self:center;background:var(--brand-teal)}
+.contact-section{padding:clamp(4.5rem,8vw,7.5rem) 0;border-top:1px solid var(--color-border-subtle)}.contact-section-heading{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,8vw,8rem);align-items:end}.contact-section-heading>p{max-width:38rem;margin:0}.contact-paths{margin-top:3.5rem;border-top:1px solid var(--color-border)}.contact-paths article{display:grid;grid-template-columns:minmax(16rem,.8fr) 1fr 1.5rem;gap:2rem;align-items:center;padding:1.5rem .1rem;border-bottom:1px solid var(--color-border)}.contact-paths h3{margin:0;color:var(--color-text);font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:600;letter-spacing:-.025em}.contact-paths p{max-width:38rem;margin:0;color:var(--color-text-muted);font-size:.92rem;line-height:1.75}.contact-paths article>span{color:var(--brand-teal)}
+.contact-opportunities{display:grid;grid-template-columns:12rem 1fr;gap:2rem;margin-top:3rem;padding:1.4rem 0;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}.contact-opportunities>span,.contact-channel>span{color:var(--primary-700);font:500 .6rem var(--font-mono);letter-spacing:.12em}.contact-opportunities strong{color:var(--color-text);font-size:1rem}.contact-opportunities p{max-width:42rem;margin:.5rem 0 0;color:var(--color-text-muted);font-size:.88rem;line-height:1.75}
+.contact-section-contact{background:var(--color-surface-subtle)}.contact-conversation{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,8vw,8rem);align-items:start}.contact-message>p{max-width:38rem;margin:0}.contact-channel{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--color-border)}.contact-channel strong{display:block;margin:.8rem 0;color:var(--color-text);font:600 clamp(1.4rem,2.4vw,2rem) var(--font-display);letter-spacing:-.03em}.contact-channel small{color:var(--color-text-subtle);font-size:.82rem}
+.contact-next{padding:clamp(4rem,7vw,6rem) 0;border-top:1px solid var(--color-border)}.contact-next-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end}.contact-next-links{display:grid;grid-template-columns:1fr 1fr;gap:0 1.5rem}.contact-next-links a{display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--color-border);color:var(--color-text);font-size:.88rem;text-decoration:none;transition:color var(--transition-interactive)}.contact-next-links a:hover{color:var(--primary-700)}.contact-next-links a span{color:var(--brand-teal)}
+@media(max-width:800px){.contact-hero-grid,.contact-section-heading,.contact-conversation,.contact-next-grid{grid-template-columns:1fr;gap:2rem}.contact-hero-aside{max-width:40rem}}
+@media(max-width:560px){.contact-wrap{width:calc(100% - 2rem)}.contact-hero{padding-top:4rem}.contact-experience h1{font-size:clamp(2.8rem,13vw,4.5rem)}.contact-experience h2{font-size:clamp(2.3rem,10vw,3.5rem)}.contact-hero-foot{flex-direction:column;gap:.8rem;margin-top:3rem}.contact-hero-foot p{gap:.6rem;font-size:.52rem}.contact-paths article{grid-template-columns:1fr 1.5rem;gap:.5rem}.contact-paths p{grid-column:1}.contact-paths article>span{grid-column:2;grid-row:1/3}.contact-opportunities{grid-template-columns:1fr;gap:.8rem}.contact-next-links{grid-template-columns:1fr}.contact-section{padding:4.25rem 0}}
 @media(prefers-reduced-motion:reduce){.contact-experience *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style>
