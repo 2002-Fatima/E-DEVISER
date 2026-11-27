@@ -197,6 +197,9 @@
   --shadow-md: 0 12px 32px rgba(29, 53, 87, 0.1);
   --shadow-lg: 0 24px 60px rgba(29, 53, 87, 0.16);
   --shadow-glow: 0 0 0 1px rgba(3, 130, 189, 0.2), 0 12px 40px rgba(3, 130, 189, 0.16);
+  --shadow-glow-teal-sm: 0 0 12px color-mix(in srgb, var(--brand-teal) 60%, transparent);
+  --shadow-glow-teal-md: 0 0 16px color-mix(in srgb, var(--brand-teal) 60%, transparent);
+  --text-glow-teal: 0 0 28px color-mix(in srgb, var(--brand-teal) 28%, transparent);
   --shadow-soft: var(--shadow-md);
 
   /* Official brand gradient: blue to teal, using only approved brand hues. */
