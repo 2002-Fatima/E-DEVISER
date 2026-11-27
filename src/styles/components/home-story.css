@@ -1633,7 +1633,6 @@
     min-height: 9rem;
     justify-self: end;
   }
-  }
 
   .home-work-feature-copy {
     padding: clamp(var(--space-6), 5vw, var(--space-8));
@@ -1648,7 +1647,6 @@
   .home-work-image-placeholder {
     min-height: 0;
   }
-  }
 }
 
 @media (max-width: 36rem) {
@@ -1660,7 +1658,6 @@
   .home-work-gallery {
     grid-template-columns: 1fr;
     gap: var(--space-6);
-  }
   }
 
   .home-work-gallery-image {
