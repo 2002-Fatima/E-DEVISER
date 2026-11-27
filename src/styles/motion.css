@@ -28,6 +28,7 @@
 }
 
 /* One global accessibility contract for CSS-driven motion. */
+/* Accessibility override: ensure the user's reduced-motion preference wins over component motion. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
