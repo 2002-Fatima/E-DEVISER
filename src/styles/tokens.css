@@ -118,10 +118,10 @@
   /* Type scale: shared responsive sizes; use modifiers only for documented exceptions. */
   --text-micro: 0.75rem;
   --text-eyebrow: 0.75rem;
-  /* Relative scale tokens are limited to nested artwork labels and inline code. */
-  --text-artwork-secondary: 0.8em;
-  --text-artwork-micro: clamp(0.6875rem, 0.48em, 0.875rem);
-  --text-code-inline: 0.9em;
+  /* Percentage sizes resolve against the consuming element's parent typography. */
+  --text-artwork-secondary: 80%;
+  --text-artwork-micro: clamp(0.6875rem, 48%, 0.875rem);
+  --text-code-inline: 90%;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
