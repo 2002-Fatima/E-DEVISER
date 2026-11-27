@@ -103,8 +103,7 @@
   letter-spacing: -.07em
 }
 .what-we-build .wwb-hero h1 em {
-  display: inline;
-  color: var(--brand-teal-light)
+  display: inline
 }
 .what-we-build .wwb-hero-art {
   position: relative;
@@ -1445,8 +1444,6 @@
 .what-we-build .wwb-hero h1 em {
   display: block;
   margin-top: .12em;
-  color: var(--brand-teal-light);
-  text-shadow: 0 12px 44px color-mix(in srgb, var(--brand-teal) 14%, transparent);
 }
 .what-we-build .wwb-hero .wwb-lead {
   max-width: 34rem;
@@ -2353,9 +2350,7 @@
 }
 .what-we-build .wwb-hero h1 em {
   display: inline;
-  color: var(--brand-teal-light);
   font-style: italic;
-  text-shadow: none;
 }
 .what-we-build .wwb-hero-labels {
   z-index: 3;
@@ -2462,10 +2457,6 @@
 }
 .what-we-build h2 {
   text-wrap: balance;
-}
-.what-we-build h2 em, .what-we-build h1 em {
-  color: var(--brand-teal-light);
-  text-shadow: 0 0 28px color-mix(in srgb, var(--brand-teal) 12%, transparent);
 }
 .what-we-build .wwb-body-copy p + p {
   margin-top: var(--space-4);
