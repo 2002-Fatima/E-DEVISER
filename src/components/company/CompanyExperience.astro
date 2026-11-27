@@ -10,205 +10,92 @@ const beliefs = [
 
 <main class="company-overview">
   <section class="company-hero">
-    <div class="company-wrap company-hero-grid">
-      <div class="company-hero-copy">
-        <p class="company-eyebrow">THE COMPANY</p>
+    <div class="company-wrap">
+      <p class="company-eyebrow">E DEVİSER / THE COMPANY</p>
+      <div class="company-hero-grid">
         <h1>Built to solve<br /><em>what matters.</em></h1>
-        <p class="company-lead">E Deviser is a problem-solving company built around a simple belief: important problems deserve the curiosity, depth, and determination to find better ways forward.</p>
-        <a class="company-text-link" href="#why-we-exist">What drives us <span aria-hidden="true">↓</span></a>
+        <div class="company-hero-aside">
+          <p>E Deviser is a problem-solving company built around a simple belief: important problems deserve the curiosity, depth, and determination to find better ways forward.</p>
+          <a class="company-text-link" href="#why-we-exist">What drives us <span aria-hidden="true">↓</span></a>
+        </div>
       </div>
-      <div class="company-hero-visual" aria-hidden="true">
-        <div class="company-visual-grid"></div>
-        <div class="company-visual-orbit company-orbit-one"></div>
-        <div class="company-visual-orbit company-orbit-two"></div>
-        <div class="company-visual-core"><span>E</span><i></i><small>BUILT AROUND THE WORK</small></div>
-        <span class="company-visual-label company-label-one">CURIOSITY</span>
-        <span class="company-visual-label company-label-two">DEPTH</span>
-        <span class="company-visual-label company-label-three">DETERMINATION</span>
-        <small class="company-visual-caption">A PROBLEM-SOLVING COMPANY</small>
-      </div>
+      <div class="company-hero-foot"><span>OUR APPROACH</span><p>Curiosity <i></i> Depth <i></i> Determination</p></div>
     </div>
   </section>
 
   <section class="company-section company-founder" id="founder-story">
     <div class="company-wrap company-founder-grid">
-      <div class="company-founder-mark" aria-hidden="true">
-        <span>E.</span><i></i><small>FOUNDED ON CONVICTION</small>
-      </div>
+      <div class="company-section-label"><p class="company-eyebrow">01 / THE BEGINNING</p><span>A conviction<br />to keep building.</span></div>
       <div class="company-section-copy">
-        <p class="company-eyebrow">FOUNDED BY</p>
         <p class="company-role">FOUNDER &amp; CEO</p>
         <h2>Understanding is<br /><em>only the beginning.</em></h2>
         <p>E Deviser began with a simple conviction: when a problem matters, understanding it deeply is only the beginning. We should be willing to build, test, learn, and keep going until we find something that works.</p>
         <p>That conviction continues to shape how we build the company today.</p>
         <a class="company-text-link" href="/company/team/">Meet the people behind the work <span aria-hidden="true">↗</span></a>
-        <small class="company-editorial-note">The founder’s name and full story will be added when the approved details are available.</small>
+        <small class="company-editorial-note">Founder name and full story will be added when approved details are available.</small>
       </div>
     </div>
   </section>
 
   <section class="company-section company-why" id="why-we-exist">
-    <div class="company-wrap">
-      <div class="company-two-column">
-        <div>
-          <p class="company-eyebrow">WHY WE EXIST</p>
-          <h2>Because some problems are<br /><em>worth going deeper for.</em></h2>
-        </div>
-        <div class="company-body-copy">
-          <p>We started E Deviser to build—not simply advise, observe, or wait for someone else to solve the difficult problems we care about.</p>
-          <p>We believe meaningful progress comes from getting close to the problem, understanding what makes it difficult, bringing the right people and capabilities together, and having the courage to build something new.</p>
-        </div>
-      </div>
-      <div class="company-statement">
-        <span>OUR REASON TO BUILD</span>
-        <strong>Get close to the problem.<br />Bring the right capabilities.<br /><em>Make progress real.</em></strong>
+    <div class="company-wrap company-two-column">
+      <div><p class="company-eyebrow">02 / WHY WE EXIST</p><h2>Some problems are<br /><em>worth going deeper for.</em></h2></div>
+      <div class="company-body-copy">
+        <p>We started E Deviser to build—not simply advise, observe, or wait for someone else to solve the difficult problems we care about.</p>
+        <p>Meaningful progress comes from getting close to the problem, understanding what makes it difficult, bringing the right people and capabilities together, and having the courage to build something new.</p>
+        <p class="company-pullquote">Get close to the problem. Bring the right capabilities. Make progress real.</p>
       </div>
     </div>
   </section>
 
   <section class="company-section company-beliefs" id="beliefs">
     <div class="company-wrap">
-      <div class="company-two-column company-section-intro">
-        <div><p class="company-eyebrow">OUR BELIEFS</p><h2>Principles that shape<br /><em>the work.</em></h2></div>
-        <p class="company-intro-copy">These beliefs guide how we decide what deserves our time, attention, and effort.</p>
-      </div>
+      <div class="company-section-heading"><div><p class="company-eyebrow">03 / OUR BELIEFS</p><h2>Principles that shape<br /><em>the work.</em></h2></div><p>These beliefs guide how we decide what deserves our time, attention, and effort.</p></div>
       <div class="company-belief-list">
-        {beliefs.map((belief) => (
-          <article class="company-belief">
-            <h3>{belief[0]}</h3>
-            <p>{belief[1]}</p>
-            <span aria-hidden="true">↗</span>
-          </article>
-        ))}
+        {beliefs.map((belief) => <article class="company-belief"><h3>{belief[0]}</h3><p>{belief[1]}</p></article>)}
       </div>
     </div>
   </section>
 
   <section class="company-section company-culture" id="culture">
     <div class="company-wrap company-two-column">
-      <div>
-        <p class="company-eyebrow">OUR CULTURE</p>
-        <h2>Curious enough to question.<br /><em>Practical enough to build.</em></h2>
-      </div>
-      <div class="company-body-copy">
-        <p>We challenge assumptions, get close to the details, and stay open to changing our minds when the evidence tells us to.</p>
-        <p>We value people who can move between ideas and execution—people who don't just ask what is possible, but what is worth doing.</p>
-      </div>
+      <div><p class="company-eyebrow">04 / HOW WE WORK</p><h2>Curious enough to question.<br /><em>Practical enough to build.</em></h2></div>
+      <div class="company-body-copy"><p>We challenge assumptions, get close to the details, and stay open to changing our minds when the evidence tells us to.</p><p>We value people who can move between ideas and execution—people who don't just ask what is possible, but what is worth doing.</p></div>
     </div>
-    <div class="company-wrap company-practice-line"><span>QUESTION ASSUMPTIONS</span><i></i><span>GET CLOSE TO THE DETAILS</span><i></i><span>BUILD AND LEARN</span></div>
+    <div class="company-wrap company-practice-line"><span>QUESTION ASSUMPTIONS</span><i></i><span>UNDERSTAND THE DETAILS</span><i></i><span>BUILD / LEARN / IMPROVE</span></div>
   </section>
 
   <section class="company-section company-future" id="looking-ahead">
     <div class="company-wrap company-two-column">
-      <div><p class="company-eyebrow">LOOKING AHEAD</p><h2>Small enough to stay curious.<br /><em>Ambitious enough to matter.</em></h2></div>
-      <div class="company-body-copy">
-        <p>E Deviser is still early. That's intentional.</p>
-        <p>We are building a company capable of going deep on difficult problems, developing new capabilities along the way, and carrying what we learn from one challenge into the next.</p>
-        <p>The company may evolve. The problems we work on may change. The technologies will certainly change.</p>
-        <strong>Our willingness to build will not.</strong>
-      </div>
+      <div><p class="company-eyebrow">05 / LOOKING AHEAD</p><h2>Small enough to stay curious.<br /><em>Ambitious enough to matter.</em></h2></div>
+      <div class="company-body-copy"><p>E Deviser is still early. That's intentional.</p><p>We are building a company capable of going deep on difficult problems, developing new capabilities along the way, and carrying what we learn from one challenge into the next.</p><p>The company may evolve. The problems we work on may change. The technologies will certainly change.</p><strong>Our willingness to build will not.</strong></div>
     </div>
   </section>
 
   <section class="company-section company-today" id="today">
     <div class="company-wrap company-today-grid">
-      <div>
-        <p class="company-eyebrow">WHERE WE ARE NOW</p>
-        <h2>Going deep on<br /><em>learning.</em></h2>
-        <p class="company-body-copy">Education is where we are currently applying our approach most deeply—because learning is consequential, complex, measurable, and capable of affecting millions of lives.</p>
-        <p class="company-body-copy">Cuevo is the first major expression of that commitment.</p>
-        <a class="company-text-link" href="/cuevo/">Explore Cuevo <span aria-hidden="true">↗</span></a>
-      </div>
-      <a class="company-cuevo-card" href="/cuevo/" aria-label="Explore Cuevo, our first major expression of our commitment to learning">
-        <span>OUR FIRST MAJOR EXPRESSION</span><strong>CUEVO</strong><small>INTELLIGENCE FOR LEARNING</small><i aria-hidden="true">↗</i>
-      </a>
+      <div><p class="company-eyebrow">06 / WHERE WE ARE NOW</p><h2>Going deep on<br /><em>learning.</em></h2><p class="company-body-copy">Education is where we are currently applying our approach most deeply—because learning is consequential, complex, measurable, and capable of affecting millions of lives.</p><p class="company-body-copy">Cuevo is the first major expression of that commitment.</p><a class="company-text-link" href="/cuevo/">Explore Cuevo <span aria-hidden="true">↗</span></a></div>
+      <a class="company-cuevo-feature" href="/cuevo/" aria-label="Explore Cuevo"><span class="company-cuevo-overline">OUR FIRST MAJOR EXPRESSION</span><strong>CUEVO</strong><span class="company-cuevo-rule"></span><span class="company-cuevo-caption">A commitment to better learning <b aria-hidden="true">↗</b></span></a>
     </div>
   </section>
 
-  <section class="company-section company-closing">
-    <div class="company-wrap company-closing-inner">
-      <p class="company-eyebrow">STILL BUILDING</p>
-      <h2>The problems will change.<br /><em>The ambition won't.</em></h2>
-      <p>We are building E Deviser for the long term—one important problem, one real solution, and one lesson at a time.</p>
-      <div class="company-closing-links">
-        <a class="company-button" href="/company/team/">Meet the team <span aria-hidden="true">↗</span></a>
-        <a class="company-text-link" href="/company/careers-contact/">Talk to E Deviser <span aria-hidden="true">↗</span></a>
-      </div>
-    </div>
+  <section class="company-closing">
+    <div class="company-wrap company-closing-inner"><p class="company-eyebrow">STILL BUILDING</p><h2>The problems will change.<br /><em>The ambition won't.</em></h2><div class="company-closing-bottom"><p>We are building E Deviser for the long term—one important problem, one real solution, and one lesson at a time.</p><div><a class="company-button" href="/company/team/">Meet the team <span aria-hidden="true">↗</span></a><a class="company-text-link" href="/company/careers-contact/">Talk to E Deviser <span aria-hidden="true">↗</span></a></div></div></div>
   </section>
 </main>
 
 <style>
-.company-overview{background:var(--color-surface);color:var(--color-text);overflow:hidden}
-.company-overview *{box-sizing:border-box}
-.company-wrap{width:min(var(--container-wide),calc(100% - 2*var(--gutter)));margin-inline:auto}
-.company-section{padding:clamp(4.25rem,7vw,6.75rem) 0;border-top:1px solid var(--color-border-subtle)}
-.company-hero{padding:clamp(4.5rem,8vw,7.5rem) 0;background:var(--gradient-pattern-light)}
-.company-hero-grid,.company-two-column,.company-founder-grid,.company-today-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(2.5rem,6vw,6rem);align-items:center}
-.company-eyebrow{margin:0 0 1.15rem;color:var(--brand-blue);font:var(--weight-semibold) var(--text-xs)/1.5 var(--font-body);letter-spacing:var(--tracking-wide)}
-.company-overview h1,.company-overview h2{margin:0;color:var(--color-text);font-family:var(--font-display);font-weight:var(--weight-bold);letter-spacing:-.055em;line-height:1.08;text-wrap:balance}
-.company-overview h1{font-size:clamp(3.1rem,6.1vw,6rem)}
-.company-overview h2{font-size:clamp(2.25rem,4.2vw,4.2rem)}
-.company-overview h1 em,.company-overview h2 em{background:var(--gradient-brand-text);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal}
-.company-lead{max-width:42rem;margin:1.6rem 0 0;color:var(--color-text-muted);font-size:var(--text-body-large);line-height:1.8}
-.company-text-link{display:inline-flex;align-items:center;gap:.8rem;margin-top:1.5rem;color:var(--primary-700);font-size:var(--text-sm);font-weight:var(--weight-semibold);text-decoration:none}
-.company-text-link span{color:var(--brand-teal);transition:transform var(--transition-interactive)}
-.company-text-link:hover span{transform:translate(3px,-3px)}
-.company-hero-visual{position:relative;min-height:clamp(19rem,32vw,27rem);overflow:hidden;border:1px solid var(--color-border);border-radius:var(--radius-xl);background:radial-gradient(circle at 50% 48%,rgba(90,185,180,.18),transparent 34%),linear-gradient(145deg,#fff 0%,#edf6fa 100%);box-shadow:var(--shadow-md);isolation:isolate}
-.company-visual-grid{position:absolute;inset:0;background:var(--pattern-grid);background-size:2.25rem 2.25rem;opacity:.65;mask-image:radial-gradient(ellipse at center,#000 10%,transparent 78%)}
-.company-visual-orbit{position:absolute;left:50%;top:48%;width:68%;aspect-ratio:1;border:1px solid rgba(3,130,189,.25);border-radius:50%;transform:translate(-50%,-50%) scaleY(.48) rotate(-28deg)}
-.company-orbit-two{width:86%;border-color:rgba(90,185,180,.38);transform:translate(-50%,-50%) scaleY(.48) rotate(52deg)}
-.company-visual-core{position:absolute;left:50%;top:48%;width:8rem;aspect-ratio:1;display:grid;place-content:center;justify-items:center;border:1px solid rgba(3,130,189,.22);border-radius:50%;background:rgba(255,255,255,.92);color:var(--brand-navy);box-shadow:0 12px 40px rgba(29,53,87,.12);transform:translate(-50%,-50%)}
-.company-visual-core>span{font:var(--weight-bold) 3.5rem/1 var(--font-display);letter-spacing:-.1em}
-.company-visual-core>i{width:2rem;height:2px;margin:.6rem;background:var(--gradient-brand)}
-.company-visual-core>small,.company-visual-caption{color:var(--color-text-subtle);font:500 .53rem var(--font-mono);letter-spacing:.12em}
-.company-visual-label{position:absolute;padding:.5rem .7rem;border:1px solid var(--color-border);border-radius:var(--radius-pill);background:rgba(255,255,255,.9);color:var(--primary-800);font:500 .56rem var(--font-mono);letter-spacing:.08em}
-.company-label-one{left:7%;top:22%}.company-label-two{right:7%;top:30%}.company-label-three{left:30%;bottom:18%}
-.company-visual-caption{position:absolute;left:1.2rem;bottom:1.1rem}
-.company-founder{background:var(--color-surface-raised)}
-.company-founder-mark{position:relative;min-height:22rem;display:grid;place-content:center;justify-items:center;overflow:hidden;border:1px solid var(--color-border);border-radius:var(--radius-xl);background:linear-gradient(145deg,#f7fbfd,#eaf4f7)}
-.company-founder-mark>span{background:var(--gradient-brand-text);-webkit-background-clip:text;background-clip:text;color:transparent;font:var(--weight-extrabold) clamp(7rem,14vw,11rem)/1 var(--font-display);letter-spacing:-.12em}
-.company-founder-mark>i{position:absolute;inset:20%;border:1px solid rgba(3,130,189,.2);border-radius:50%;transform:scaleY(.55) rotate(-25deg)}
-.company-founder-mark>small{margin-top:1rem;color:var(--primary-700);font:500 .55rem var(--font-mono);letter-spacing:.14em}
-.company-role{margin:0 0 .8rem;color:var(--primary-700);font:500 .62rem var(--font-mono);letter-spacing:.12em}
-.company-section-copy>p:not(.company-eyebrow,.company-role),.company-body-copy{color:var(--color-text-muted);line-height:1.85}
-.company-section-copy>p+p{margin-top:1rem}
-.company-editorial-note{display:block;margin-top:1.3rem;color:var(--color-text-subtle);font-size:var(--text-xs);line-height:1.6}
-.company-why{background:var(--color-surface-subtle)}
-.company-body-copy p+p{margin-top:1rem}
-.company-body-copy strong{display:block;margin-top:1.5rem;color:var(--primary-700);font-size:1.05rem}
-.company-statement{display:flex;justify-content:space-between;align-items:center;gap:2rem;margin-top:3.5rem;padding:clamp(1.5rem,4vw,2.75rem);border:1px solid var(--color-border);border-radius:var(--radius-lg);background:linear-gradient(110deg,#fff,#f0f8fb)}
-.company-statement>span,.company-cuevo-card>span,.company-cuevo-card>small{color:var(--primary-700);font:500 .58rem var(--font-mono);letter-spacing:.13em}
-.company-statement strong{color:var(--color-text);font-size:clamp(1.35rem,2.6vw,2.4rem);line-height:1.4}
-.company-statement em{background:var(--gradient-brand-text);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal}
-.company-beliefs{background:var(--color-surface-raised)}
-.company-intro-copy{max-width:34rem;color:var(--color-text-muted);line-height:1.8}
-.company-belief-list{margin-top:2.75rem;border-top:1px solid var(--color-border)}
-.company-belief{display:grid;grid-template-columns:minmax(14rem,.8fr) minmax(0,1fr) 1.5rem;gap:2rem;align-items:center;padding:1.45rem .25rem;border-bottom:1px solid var(--color-border)}
-.company-belief h3{margin:0;color:var(--color-text);font-size:clamp(1.05rem,1.8vw,1.3rem)}
-.company-belief p{margin:0;color:var(--color-text-muted);font-size:.9rem;line-height:1.75}
-.company-belief>span{color:var(--brand-teal)}
-.company-culture{background:var(--color-surface-subtle)}
-.company-practice-line{display:flex;align-items:center;gap:1rem;margin-top:3rem;color:var(--primary-700);font:500 .56rem var(--font-mono);letter-spacing:.1em}
-.company-practice-line i{height:1px;flex:1;background:var(--gradient-brand);opacity:.55}
-.company-future{background:var(--color-surface-raised)}
-.company-today{background:var(--gradient-pattern-light)}
-.company-cuevo-card{position:relative;min-height:20rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;border:1px solid var(--color-border);border-radius:var(--radius-xl);background:radial-gradient(circle at 50% 42%,rgba(90,185,180,.16),transparent 60%),#fff;box-shadow:var(--shadow-sm);text-decoration:none;transition:border-color var(--transition-base),transform var(--transition-base),box-shadow var(--transition-base)}
-.company-cuevo-card:hover{transform:translateY(-4px);border-color:var(--brand-teal);box-shadow:var(--shadow-md)}
-.company-cuevo-card strong{background:var(--gradient-brand-text);-webkit-background-clip:text;background-clip:text;color:transparent;font:var(--weight-extrabold) clamp(3rem,6vw,5rem)/1 var(--font-display);letter-spacing:.12em}
-.company-cuevo-card>i{position:absolute;right:1.5rem;bottom:1.5rem;color:var(--primary-700);font-style:normal}
-.company-closing{background:linear-gradient(135deg,#eef7fb 0%,#f8fbfc 58%,#eaf5f4 100%)}
-.company-closing .company-eyebrow{color:var(--primary-700)}
-.company-closing h2{color:var(--color-text);font-size:clamp(2.8rem,5.3vw,5.2rem)}
-.company-closing h2 em{background:var(--gradient-brand-text);-webkit-background-clip:text;background-clip:text;color:transparent}
-.company-closing-inner{max-width:var(--container-standard)}
-.company-closing-inner>p:not(.company-eyebrow){max-width:42rem;margin:1.4rem 0;color:var(--color-text-muted);line-height:1.8}
-.company-closing-links{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
-.company-button{display:inline-flex;align-items:center;gap:1rem;padding:.85rem 1.2rem;border:1px solid var(--brand-teal);border-radius:var(--radius-pill);color:var(--color-text);font-size:var(--text-sm);font-weight:var(--weight-semibold);text-decoration:none;transition:background var(--transition-interactive)}
-.company-button:hover{background:rgba(90,185,180,.14)}
-.company-button+.company-text-link{margin-top:0;color:var(--primary-700)}
-.company-button+.company-text-link span{color:var(--brand-teal)}
-@media(max-width:800px){.company-hero-grid,.company-two-column,.company-founder-grid,.company-today-grid{grid-template-columns:1fr;gap:2.5rem}.company-hero-visual{min-height:23rem}.company-founder-mark{min-height:17rem}.company-statement{align-items:flex-start;flex-direction:column}.company-cuevo-card{min-height:17rem}}
-@media(max-width:560px){.company-wrap{width:calc(100% - 2rem)}.company-hero{padding-top:3.5rem}.company-overview h1{font-size:clamp(2.8rem,13vw,4.3rem)}.company-overview h2{font-size:clamp(2.2rem,10vw,3.4rem)}.company-hero-visual{min-height:19rem}.company-visual-core{width:6.5rem}.company-visual-core>span{font-size:2.8rem}.company-visual-label{font-size:.46rem;padding:.4rem .5rem}.company-label-one{left:3%}.company-label-two{right:3%}.company-label-three{left:22%;bottom:14%}.company-founder-mark{min-height:14rem}.company-belief{grid-template-columns:1fr 1.3rem;gap:.6rem;padding:1.15rem 0}.company-belief h3,.company-belief p{grid-column:1}.company-belief>span{grid-column:2;grid-row:1/3}.company-practice-line{gap:.5rem;flex-wrap:wrap;font-size:.48rem}.company-practice-line i{min-width:1.2rem}}
+.company-overview{background:var(--color-surface-raised);color:var(--color-text);overflow:hidden}.company-overview *{box-sizing:border-box}.company-wrap{width:min(var(--container-wide),calc(100% - 2*var(--gutter)));margin-inline:auto}
+.company-eyebrow{margin:0 0 1.25rem;color:var(--primary-700);font:600 .68rem/1.5 var(--font-body);letter-spacing:.12em}
+.company-hero{padding:clamp(5rem,10vw,9rem) 0 2.2rem;background:var(--color-surface-raised)}.company-hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(2rem,8vw,9rem);align-items:end}.company-overview h1,.company-overview h2{margin:0;color:var(--color-text);font-family:var(--font-display);font-weight:700;letter-spacing:-.06em;line-height:1.02;text-wrap:balance}.company-overview h1{font-size:clamp(3.8rem,8vw,8rem)}.company-overview h2{font-size:clamp(2.35rem,4.8vw,4.7rem)}.company-overview em{color:var(--brand-blue);font-style:normal}.company-hero-aside{max-width:27rem;padding-bottom:.5rem}.company-hero-aside>p,.company-body-copy{color:var(--color-text-muted);font-size:var(--text-body-large);line-height:1.8}.company-text-link{display:inline-flex;align-items:center;gap:.8rem;margin-top:1.25rem;color:var(--primary-700);font-size:var(--text-sm);font-weight:600;text-decoration:none}.company-text-link span{color:var(--brand-teal)}.company-hero-foot{display:flex;justify-content:space-between;align-items:center;gap:2rem;margin-top:clamp(4rem,8vw,7rem);padding:1.15rem 0;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}.company-hero-foot>span,.company-hero-foot p{margin:0;color:var(--color-text-subtle);font:500 .62rem var(--font-mono);letter-spacing:.1em}.company-hero-foot p{display:flex;align-items:center;gap:1rem;color:var(--primary-800)}.company-hero-foot i{width:1.8rem;height:1px;background:var(--brand-teal)}
+.company-section{padding:clamp(4.5rem,8vw,7.5rem) 0;border-top:1px solid var(--color-border-subtle)}.company-founder-grid{display:grid;grid-template-columns:.55fr 1.45fr;gap:clamp(2rem,8vw,9rem)}.company-section-label>span{display:block;margin-top:3rem;color:var(--color-text-subtle);font:500 .8rem/1.7 var(--font-mono);letter-spacing:.03em}.company-section-copy{max-width:54rem}.company-role{margin:0 0 1rem;color:var(--primary-700);font:500 .65rem var(--font-mono);letter-spacing:.12em}.company-section-copy h2{margin-bottom:1.5rem}.company-section-copy>p:not(.company-role){max-width:48rem;color:var(--color-text-muted);line-height:1.85}.company-section-copy>p+p{margin-top:1rem}.company-editorial-note{display:block;margin-top:1.25rem;color:var(--color-text-subtle);font-size:var(--text-xs);line-height:1.6}
+.company-why{background:var(--color-surface-subtle)}.company-two-column{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,8vw,8rem);align-items:start}.company-body-copy{max-width:42rem}.company-body-copy p+p{margin-top:1.2rem}.company-pullquote{margin-top:2rem!important;padding:1.2rem 0 1.2rem 1.4rem;border-left:2px solid var(--brand-teal);color:var(--color-text)!important;font-size:clamp(1.2rem,2vw,1.7rem)!important;font-weight:600;line-height:1.5!important}
+.company-section-heading{display:grid;grid-template-columns:1fr .7fr;gap:3rem;align-items:end}.company-section-heading>p{max-width:28rem;margin:0;color:var(--color-text-muted);line-height:1.8}.company-belief-list{margin-top:3.5rem;border-top:1px solid var(--color-border)}.company-belief{display:grid;grid-template-columns:minmax(15rem,.85fr) minmax(0,1fr);gap:3rem;padding:1.55rem .1rem;border-bottom:1px solid var(--color-border)}.company-belief h3{margin:0;color:var(--color-text);font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:600;letter-spacing:-.025em}.company-belief p{max-width:42rem;margin:0;color:var(--color-text-muted);font-size:.95rem;line-height:1.75}
+.company-culture{background:var(--color-surface-raised)}.company-practice-line{display:flex;align-items:center;gap:1.2rem;margin-top:3.5rem;color:var(--primary-700);font:500 .58rem var(--font-mono);letter-spacing:.1em}.company-practice-line i{height:1px;flex:1;background:var(--color-border)}
+.company-future{background:var(--color-surface-subtle)}.company-body-copy strong{display:block;margin-top:1.5rem;color:var(--primary-700);font-size:1.1rem}
+.company-today{background:var(--color-surface-raised)}.company-today-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,8vw,8rem);align-items:center}.company-today-grid>div>p:not(.company-eyebrow){max-width:40rem}.company-cuevo-feature{min-height:22rem;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(1.5rem,4vw,3rem);border:1px solid var(--color-border);background:linear-gradient(135deg,#f3f9fc 0%,#e8f4f6 100%);color:var(--color-text);text-decoration:none;transition:background var(--transition-base),border-color var(--transition-base)}.company-cuevo-feature:hover{border-color:var(--brand-teal);background:#eaf6f7}.company-cuevo-overline{color:var(--primary-700);font:500 .6rem var(--font-mono);letter-spacing:.13em}.company-cuevo-feature strong{font:800 clamp(4rem,9vw,8rem)/.95 var(--font-display);letter-spacing:.08em;color:var(--brand-blue)}.company-cuevo-rule{width:100%;height:1px;background:var(--color-border)}.company-cuevo-caption{display:flex;justify-content:space-between;gap:1rem;color:var(--color-text-muted);font-size:.85rem}.company-cuevo-caption b{color:var(--primary-700);font-weight:400}
+.company-closing{padding:clamp(4.5rem,8vw,7.5rem) 0;background:var(--color-surface-subtle);border-top:1px solid var(--color-border)}.company-closing-inner{max-width:var(--container-standard)}.company-closing h2{font-size:clamp(3rem,6.4vw,6.3rem)}.company-closing-bottom{display:flex;justify-content:space-between;align-items:end;gap:3rem;margin-top:2.5rem}.company-closing-bottom>p{max-width:32rem;margin:0;color:var(--color-text-muted);line-height:1.8}.company-closing-bottom>div{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}.company-button{display:inline-flex;align-items:center;gap:.9rem;padding:.85rem 1.15rem;border:1px solid var(--primary-700);color:var(--primary-800);font-size:var(--text-sm);font-weight:600;text-decoration:none;transition:background var(--transition-interactive),color var(--transition-interactive)}.company-button:hover{background:var(--primary-700);color:#fff}.company-closing-bottom .company-text-link{margin-top:0}
+@media(max-width:800px){.company-hero-grid,.company-two-column,.company-section-heading,.company-founder-grid,.company-today-grid{grid-template-columns:1fr;gap:2rem}.company-hero-aside{max-width:38rem}.company-section-label>span{margin-top:0}.company-closing-bottom{align-items:flex-start;flex-direction:column}}
+@media(max-width:560px){.company-wrap{width:calc(100% - 2rem)}.company-hero{padding-top:4rem}.company-overview h1{font-size:clamp(3.2rem,15vw,5rem)}.company-overview h2{font-size:clamp(2.3rem,10vw,3.5rem)}.company-hero-foot{align-items:flex-start;flex-direction:column;gap:.8rem;margin-top:3rem}.company-hero-foot p{gap:.6rem;font-size:.52rem}.company-belief{grid-template-columns:1fr;gap:.5rem}.company-practice-line{align-items:flex-start;flex-wrap:wrap;gap:.7rem;font-size:.5rem}.company-practice-line i{flex:1 0 1rem}.company-cuevo-feature{min-height:17rem}.company-section{padding:4.25rem 0}}
 @media(prefers-reduced-motion:reduce){.company-overview *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style>
