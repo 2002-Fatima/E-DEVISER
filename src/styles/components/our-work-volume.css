@@ -10,7 +10,7 @@
   padding-block-end: clamp(1.4rem, 2.5vw, 2rem);
   border-block-end: 1px solid var(--color-border);
 }
-.our-work-volume-heading .eyebrow { color: var(--color-primary); letter-spacing: .15em; }
+.our-work-volume-heading .eyebrow { color: var(--text-on-light-link); letter-spacing: .15em; }
 .our-work-volume-heading h2 {
   margin-block-start: .65rem;
   color: var(--color-navy);
@@ -52,7 +52,7 @@
 @keyframes volume-open { from { opacity: 0; transform: translateY(14px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
 .work-volume-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block-end: 1rem; border-block-end: 1px solid var(--color-border); }
 .work-volume-location { display: flex; align-items: center; gap: 1.5rem; color: var(--color-text-subtle); font-family: var(--font-mono); font-size: .65rem; letter-spacing: .1em; }
-.work-volume-location .work-volume-kicker { color: var(--color-primary); }
+.work-volume-location .work-volume-kicker { color: var(--text-on-light-link); }
 .work-volume-close { min-width: auto; margin: 0; padding: .55rem .75rem; gap: 1rem; border-color: var(--color-border-strong); color: var(--color-navy); background: transparent; }
 .work-volume-close:hover { color: var(--color-navy); border-color: var(--color-primary); background: var(--color-surface-soft); }
 .work-volume-close span:last-child { font-size: 1.25rem; line-height: 1; }
@@ -67,7 +67,7 @@
 .work-volume-page-media, .work-volume-page-gallery figure, .work-volume-video-pair figure { min-width: 0; margin: 0; }
 .work-volume-page-media img { display: block; width: 100%; height: 100%; min-height: 25rem; object-fit: cover; background: var(--color-surface-soft); }
 .work-volume-page-media figcaption, .work-volume-page-gallery figcaption, .work-volume-video-pair figcaption { display: flex; gap: .8rem; align-items: baseline; padding-block-start: .8rem; color: var(--color-text-muted); font-size: .75rem; }
-.work-volume-page-media figcaption span, .work-volume-page-gallery figcaption span, .work-volume-video-pair figcaption span { color: var(--color-primary); font-family: var(--font-mono); font-size: .65rem; }
+.work-volume-page-media figcaption span, .work-volume-page-gallery figcaption span, .work-volume-video-pair figcaption span { color: var(--text-on-light-link); font-family: var(--font-mono); font-size: .65rem; }
 .work-volume-page-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-content: center; }
 .work-volume-page-gallery img { display: block; width: 100%; aspect-ratio: .82 / 1; object-fit: cover; background: var(--color-surface-soft); }
 .work-volume-page-gallery--trio { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; align-content: center; }
@@ -77,7 +77,7 @@
 .work-volume-navigation { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem; padding-block-start: 1.15rem; border-block-start: 1px solid var(--color-border); }
 .work-volume-navigation > button { display: inline-flex; align-items: center; gap: .65rem; justify-self: start; padding: .55rem 0; border: 0; color: var(--color-navy); background: transparent; font: inherit; font-size: .78rem; cursor: pointer; }
 .work-volume-navigation > button:last-child { justify-self: end; }
-.work-volume-navigation > button span:first-child { color: var(--color-primary); font-size: 1.1rem; }
+.work-volume-navigation > button span:first-child { color: var(--text-on-light-link); font-size: 1.1rem; }
 .work-volume-navigation > button:disabled { opacity: .3; cursor: not-allowed; }
 .work-volume-progress { display: flex; align-items: center; gap: .5rem; }
 .work-volume-progress button { width: 1.7rem; height: 3px; padding: 0; border: 0; background: var(--color-border-strong); cursor: pointer; transition: width var(--transition-interactive), background var(--transition-interactive); }
@@ -150,7 +150,7 @@
   color: var(--color-navy);
   background: var(--color-surface-subtle);
 }
-.work-volume-document-media figcaption span { color: var(--color-primary); }
+.work-volume-document-media figcaption span { color: var(--text-on-light-link); }
 
 .our-work-reader-guide {
   display: grid;
@@ -247,7 +247,7 @@
   color: var(--color-primary-strong);
 }
 .our-work-reader-guide-number {
-  color: var(--brand-teal);
+  color: var(--text-on-light-link);
   font-family: var(--font-mono);
   font-size: .78rem;
 }
@@ -270,7 +270,7 @@
   font-size: .78rem;
 }
 .our-work-reader-guide-arrow {
-  color: var(--color-primary);
+  color: var(--text-on-light-link);
   transition: transform var(--transition-interactive);
 }
 .our-work-reader-guide-entry:hover .our-work-reader-guide-arrow,
