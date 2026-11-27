@@ -1,6 +1,6 @@
 .eyebrow {
   margin-block-end: var(--space-4);
-  color: var(--color-primary-strong);
+  color: var(--text-on-light-link);
   font-size: var(--text-eyebrow);
   font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-eyebrow);
