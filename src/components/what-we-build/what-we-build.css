@@ -325,7 +325,7 @@
 .what-we-build .wwb-method-track {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(5,minmax(0,1fr));
+  grid-template-columns: repeat(6,minmax(0,1fr));
   gap: var(--space-6);
   padding-top: var(--space-9)
 }
@@ -2632,4 +2632,51 @@
 
 .what-we-build .wwb-future h2 {
   max-width: 14ch;
+}
+
+
+/* Six-stage problem-led methodology. */
+.what-we-build .wwb-method-track {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.what-we-build .wwb-method-visual--problem {
+  position: relative;
+  display: grid;
+  height: 5.8rem;
+  place-items: center;
+  margin-top: var(--space-6);
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--brand-blue) 15%, transparent);
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--brand-blue) 13%, transparent), transparent 70%);
+}
+
+.what-we-build .method-problem-fragment {
+  position: absolute;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid var(--brand-teal);
+  background: color-mix(in srgb, var(--brand-blue) 12%, transparent);
+  transform: rotate(35deg);
+}
+
+.what-we-build .method-problem-fragment--one { margin-inline-start: -3.2rem; margin-block-start: -1rem; }
+.what-we-build .method-problem-fragment--two { width: 2.4rem; height: 1.2rem; margin-inline-start: 2.2rem; margin-block-start: .8rem; transform: rotate(-28deg); }
+.what-we-build .method-problem-fragment--three { width: 1rem; height: 2.2rem; margin-inline-start: .2rem; margin-block-start: -1.2rem; transform: rotate(18deg); }
+.what-we-build .method-problem-core { width: .45rem; height: .45rem; border-radius: 50%; background: var(--brand-white); box-shadow: 0 0 18px 5px var(--brand-teal); }
+.what-we-build .wwb-method-visual--problem b {
+  position: absolute;
+  inset-inline-start: var(--space-3);
+  inset-block-end: var(--space-2);
+  color: var(--brand-teal);
+  font: var(--weight-medium) var(--text-micro) var(--font-mono);
+  letter-spacing: .1em;
+}
+
+@media (max-width: 950px) {
+  .what-we-build .wwb-method-track { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .what-we-build .wwb-method-track { grid-template-columns: minmax(0, 1fr); }
 }

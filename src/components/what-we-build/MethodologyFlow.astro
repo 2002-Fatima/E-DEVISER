@@ -6,7 +6,7 @@ const flowSteps = methodologySteps;
 ---
 
 <div class="methodology-flow" data-methodology-flow data-active-index="0">
-  <ol class="methodology-sequence" aria-label="Our five-stage methodology">
+  <ol class="methodology-sequence" aria-label="Our six-stage methodology">
     {flowSteps.map((step, index) => (
       <li class="methodology-sequence-step" data-methodology-step data-index={index} data-description={step.description} aria-current={index === 0 ? 'step' : undefined}>
         <span class="methodology-sequence-number">{step.number}</span>
@@ -135,7 +135,7 @@ const flowSteps = methodologySteps;
   </div>
 
   <div class="methodology-transcript" data-methodology-transcript>
-    <span class="methodology-transcript-index"><span data-methodology-current>01</span> <i>/</i> <span data-methodology-total>05</span></span>
+    <span class="methodology-transcript-index"><span data-methodology-current>01</span> <i>/</i> <span data-methodology-total>06</span></span>
     <div class="methodology-transcript-content">
       <h3 data-methodology-title>{flowSteps[0].title}</h3>
       <p data-methodology-description>{flowSteps[0].description}</p>

@@ -615,9 +615,9 @@
 }
 
 
-/* Five-step, scroll-linked methodology track. */
+/* Six-step, scroll-linked methodology track. */
 .methodology-sequence {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   position: relative;
   gap: var(--space-3);
   padding-block-start: var(--space-2);
@@ -779,11 +779,12 @@
   filter: none;
 }
 
-.methodology-flow[data-active-index="0"] .methodology-constellation--understand,
-.methodology-flow[data-active-index="1"] .methodology-constellation--design,
-.methodology-flow[data-active-index="2"] .methodology-constellation--build,
-.methodology-flow[data-active-index="3"] .methodology-constellation--solution,
-.methodology-flow[data-active-index="4"] .methodology-constellation--measure {
+.methodology-flow[data-active-index="0"] .methodology-constellation--problem,
+.methodology-flow[data-active-index="1"] .methodology-constellation--understand,
+.methodology-flow[data-active-index="2"] .methodology-constellation--design,
+.methodology-flow[data-active-index="3"] .methodology-constellation--build,
+.methodology-flow[data-active-index="4"] .methodology-constellation--solution,
+.methodology-flow[data-active-index="5"] .methodology-constellation--measure {
   opacity: 1;
   filter: drop-shadow(0 0 13px color-mix(in srgb, var(--brand-blue) 34%, transparent)) drop-shadow(0 0 26px color-mix(in srgb, var(--brand-teal) 20%, transparent));
 }
