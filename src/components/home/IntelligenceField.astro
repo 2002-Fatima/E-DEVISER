@@ -29,7 +29,7 @@
     type OrbitParticle = { angle: number; orbit: number; speed: number; size: number; color: string };
     type FieldState = 'understand' | 'decide' | 'act' | 'measure';
 
-    const colors = ['#0382BD', '#2F9EAD', '#5AB9B4', '#C0E2FD', '#CDFCF4'];
+    const colors = ['#0382BD', '#5AB9B4', '#5AB9B4', '#C0E2FD', '#CDFCF4'];
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const controls = visual.querySelectorAll<HTMLButtonElement>('[data-field-state]');
     const random = (() => {
