@@ -1030,7 +1030,7 @@
 
 .home-work-gallery-heading .eyebrow {
   margin-block-end: var(--space-3);
-  color: var(--brand-teal-light);
+  color: var(--text-on-dark-accent);
 }
 
 .home-work-gallery-heading h3 {
