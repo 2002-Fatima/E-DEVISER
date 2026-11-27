@@ -23,7 +23,7 @@
   --volume-ink: var(--brand-ink); --volume-blue: var(--brand-blue); --volume-teal: var(--brand-teal);
   position: relative; min-width: 0; padding: clamp(.55rem, 1.2vw, 1rem);
   border: 1px solid color-mix(in srgb, var(--brand-navy) 14%, transparent);
-  background: linear-gradient(135deg, color-mix(in srgb, var(--brand-blue-light) 20%, transparent), transparent 38%), var(--color-surface-subtle);
+  background: var(--gradient-pattern-light);
   box-shadow: var(--shadow-lg);
 }
 .work-volume-cover {
