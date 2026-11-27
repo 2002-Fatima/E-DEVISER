@@ -35,9 +35,9 @@
 .work-volume-cover-art { position: absolute; inset: 0 43% 0 0; overflow: hidden; }
 .work-volume-cover-art img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .5; filter: saturate(.68) contrast(1.08); transform: scale(1.035); }
 .work-volume-cover-wash { position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--brand-ink) 5%, transparent), color-mix(in srgb, var(--brand-ink) 32%, transparent) 58%, var(--volume-ink) 100%), linear-gradient(0deg, color-mix(in srgb, var(--brand-ink) 70%, transparent), transparent 48%); }
-.work-volume-cover-index { position: absolute; left: clamp(1.5rem, 4vw, 3.5rem); bottom: clamp(1.2rem, 3vw, 2.5rem); color: var(--color-text-inverse-muted); font-family: var(--font-mono); font-size: var(--text-display); font-weight: 400; letter-spacing: -.1em; line-height: .8; }
-.work-volume-cover-rule { position: absolute; top: 10%; bottom: 10%; right: 16%; width: 1px; background: linear-gradient(transparent, color-mix(in srgb, var(--brand-teal) 70%, transparent), transparent); }
-.work-volume-cover-mark { position: absolute; top: clamp(1.4rem, 3vw, 2.5rem); left: clamp(1.5rem, 4vw, 3.5rem); color: color-mix(in srgb, var(--brand-teal-light) 90%, transparent); font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: .18em; }
+.work-volume-cover-index { position: absolute; inset-inline-start: clamp(1.5rem, 4vw, 3.5rem); bottom: clamp(1.2rem, 3vw, 2.5rem); color: var(--color-text-inverse-muted); font-family: var(--font-mono); font-size: var(--text-display); font-weight: 400; letter-spacing: -.1em; line-height: .8; }
+.work-volume-cover-rule { position: absolute; top: 10%; bottom: 10%; inset-inline-end: 16%; width: 1px; background: linear-gradient(transparent, color-mix(in srgb, var(--brand-teal) 70%, transparent), transparent); }
+.work-volume-cover-mark { position: absolute; top: clamp(1.4rem, 3vw, 2.5rem); inset-inline-start: clamp(1.5rem, 4vw, 3.5rem); color: color-mix(in srgb, var(--brand-teal-light) 90%, transparent); font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: .18em; }
 .work-volume-cover-copy { position: relative; z-index: 1; grid-column: 2; align-self: center; max-width: 34rem; padding: clamp(var(--space-8), 5vw, var(--space-20)) clamp(var(--space-6), 5vw, var(--space-20)) clamp(var(--space-8), 5vw, var(--space-16)) clamp(var(--space-4), 2vw, var(--space-8)); }
 .work-volume-kicker, .work-volume-page-label { color: var(--volume-teal); font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: .16em; line-height: 1.5; }
 .work-volume-cover-copy h3 { max-width: 10ch; margin-block: var(--space-5); color: var(--color-white); font-size: var(--text-display); line-height: .96; letter-spacing: -.065em; }
@@ -46,7 +46,7 @@
 .work-volume-open, .work-volume-close { display: inline-flex; align-items: center; justify-content: space-between; gap: var(--space-8); min-width: 11.5rem; margin-block-start: var(--space-8); padding: var(--space-4) var(--space-4); border: 1px solid color-mix(in srgb, var(--brand-teal-light) 42%, transparent); border-radius: var(--radius-sm); color: var(--color-white); background: color-mix(in srgb, var(--brand-blue) 12%, transparent); font: inherit; font-size: var(--text-sm); cursor: pointer; transition: background var(--transition-interactive), border-color var(--transition-interactive), transform var(--transition-interactive); }
 .work-volume-open:hover, .work-volume-close:hover { border-color: var(--brand-teal-light); background: color-mix(in srgb, var(--brand-blue) 24%, transparent); transform: translateY(-2px); }
 .work-volume-open span:last-child { color: var(--brand-teal-light); font-size: var(--text-lg); }
-.work-volume-spine { position: absolute; z-index: 2; top: 0; bottom: 0; left: 0; width: 5px; background: linear-gradient(180deg, var(--brand-teal), var(--brand-blue), color-mix(in srgb, var(--brand-teal) 20%, transparent)); box-shadow: 2px 0 16px color-mix(in srgb, var(--brand-teal) 24%, transparent); }
+.work-volume-spine { position: absolute; z-index: 2; top: 0; bottom: 0; inset-inline-start: 0; width: 5px; background: linear-gradient(180deg, var(--brand-teal), var(--brand-blue), color-mix(in srgb, var(--brand-teal) 20%, transparent)); box-shadow: 2px 0 16px color-mix(in srgb, var(--brand-teal) 24%, transparent); }
 .work-volume.is-open .work-volume-cover { display: none; }
 .work-volume-content { padding: clamp(var(--space-4), 2.5vw, var(--space-9)); color: var(--color-text); background: var(--color-surface-raised); animation: volume-open .65s var(--ease-enter) both; }
 @keyframes volume-open { from { opacity: 0; transform: translateY(14px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
@@ -91,7 +91,7 @@
   .work-volume-cover-wash { background: linear-gradient(0deg, color-mix(in srgb, var(--brand-ink) 98%, transparent) 0%, color-mix(in srgb, var(--brand-ink) 72%, transparent) 48%, color-mix(in srgb, var(--brand-ink) 10%, transparent) 100%); }
   .work-volume-cover-copy { grid-column: 1; align-self: end; padding: var(--space-32) clamp(var(--space-6), 6vw, var(--space-10)) var(--space-8); }
   .work-volume-cover-index { top: 1.5rem; bottom: auto; font-size: var(--text-display); }
-  .work-volume-cover-rule { top: 8%; bottom: 48%; right: 12%; }
+  .work-volume-cover-rule { top: 8%; bottom: 48%; inset-inline-end: 12%; }
   .work-volume-cover-meta { margin-block-start: var(--space-6); }
   .work-volume-spread { grid-template-columns: 1fr; gap: var(--space-6); }
   .work-volume-pages { min-height: 0; }
@@ -173,7 +173,7 @@
 }
 .our-work-reader-guide-intro::after {
   position: absolute;
-  right: -7rem;
+  inset-inline-end: -7rem;
   bottom: -9rem;
   width: 20rem;
   aspect-ratio: 1;
