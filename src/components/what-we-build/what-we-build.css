@@ -770,7 +770,7 @@
   .what-we-build .wwb-hero .wwb-lead {
     max-width: 38rem;
     margin-top: 1.15rem;
-    font-size: .94rem;
+    font-size: var(--text-base);
     line-height: 1.72;
   }
   .what-we-build .wwb-hero .wwb-next-link {
