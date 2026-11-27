@@ -96,8 +96,14 @@
   document.querySelectorAll('[data-mission-globe]').forEach((field) => {
     const palette = getComputedStyle(document.documentElement);
     const brandColor = (token) => palette.getPropertyValue(token).trim();
-    // WebGL accepts numeric RGB vectors, so derive them from the same CSS palette tokens.
-    const brandRgb = (token) => brandColor(token).replace('#', '').match(/.{2}/g).map((channel) => (Number.parseInt(channel, 16) / 255).toFixed(3)).join(', ');
+    // WebGL accepts numeric RGB vectors, while Canvas 2D needs concrete RGBA strings.
+    // Both are derived from the approved CSS palette rather than duplicated color literals.
+    const brandChannels = (token) => brandColor(token).replace('#', '').match(/.{2}/g).map((channel) => Number.parseInt(channel, 16));
+    const brandRgb = (token) => brandChannels(token).map((channel) => (channel / 255).toFixed(3)).join(', ');
+    const brandRgba = (token, alpha) => {
+      const [red, green, blue] = brandChannels(token);
+      return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+    };
     const canvas = field.querySelector('[data-mission-globe-canvas]');
     const gl = canvas && canvas.getContext('webgl', {
       alpha: true,
@@ -310,11 +316,11 @@
           land.addColorStop(1, brandColor('--brand-navy'));
         }
         context.fillStyle = land;
-        context.shadowColor = gcc ? 'rgba(90, 185, 180, 0.20)' : 'rgba(3, 130, 189, 0.10)';
+        context.shadowColor = gcc ? brandRgba('--brand-teal', 0.20) : brandRgba('--brand-blue', 0.10);
         context.shadowBlur = gcc ? 7 : 3;
         context.fill();
         context.shadowBlur = 0;
-        context.strokeStyle = gcc ? 'rgba(205, 252, 244, 0.74)' : 'rgba(192, 226, 253, 0.30)';
+        context.strokeStyle = gcc ? brandRgba('--brand-teal-light', 0.74) : brandRgba('--brand-blue-light', 0.30);
         context.lineWidth = gcc ? 1.5 : 0.9;
         context.stroke();
 
@@ -322,7 +328,7 @@
         // terrain without inventing borders or political subdivisions.
         context.save();
         context.clip();
-        context.strokeStyle = gcc ? 'rgba(205, 252, 244, 0.14)' : 'rgba(192, 226, 253, 0.075)';
+        context.strokeStyle = gcc ? brandRgba('--brand-teal-light', 0.14) : brandRgba('--brand-blue-light', 0.075);
         context.lineWidth = 0.85;
         for (let band = 0; band < 5; band += 1) {
           const y = py(37 - band * 5.5);
@@ -347,7 +353,7 @@
       // the island nation legible on the rendered surface.
       context.save();
       context.fillStyle = brandColor('--brand-teal-light');
-      context.shadowColor = 'rgba(90, 185, 180, 0.72)';
+      context.shadowColor = brandRgba('--brand-teal', 0.72);
       context.shadowBlur = 5;
       context.beginPath();
       context.ellipse(px(50.55), py(26.07), 2.1, 3.2, -0.18, 0, Math.PI * 2);
