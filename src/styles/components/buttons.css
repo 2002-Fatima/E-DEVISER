@@ -125,11 +125,12 @@
 
 .btn-destructive {
   background: var(--color-danger);
-  color: var(--color-white);
+  color: var(--brand-ink);
 }
 
 .btn-destructive:hover:not(:disabled):not([aria-disabled="true"]) {
-  background: color-mix(in srgb, var(--semantic-error) 78%, var(--brand-ink));
+  background: var(--color-danger);
+  box-shadow: var(--shadow-sm);
 }
 
 .button-context-dark .btn-outline {
