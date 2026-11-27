@@ -33,10 +33,7 @@
   line-height: var(--leading-tight);
 }
 .cuevo-story-copy h2 span {
-  background: var(--gradient-brand-text);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary-700);
 }
 .cuevo-story-lede {
   max-width: 44ch;
