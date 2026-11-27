@@ -524,7 +524,7 @@
 .contrast-guidance code {
   color: var(--brand-teal-light);
   font-family: var(--font-mono);
-  font-size: .9em;
+  font-size: var(--text-code-inline);
 }
 
 .contrast-table-wrap {
