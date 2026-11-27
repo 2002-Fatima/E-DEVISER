@@ -112,10 +112,7 @@
   .work-volume-progress button { width: 1rem; }
   .work-volume-progress button.is-active { width: 1.7rem; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .work-volume-cover, .work-volume-content, .work-volume-spread, .work-volume-open, .work-volume-close, .work-volume-progress button { animation: none !important; transition: none !important; }
-  .work-volume-spread { transform: none !important; }
-}
+
 
 
 /* Volume headings must inherit the contrast logic of their section surface. */
@@ -286,7 +283,11 @@
   .our-work-reader-guide-entry { grid-template-columns: 1.8rem minmax(0,1fr) 1rem; gap: var(--space-3); }
   .our-work-reader-guide-foot { flex-direction: column; gap: var(--space-1); }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .our-work-reader-guide-entry,
+.work-volume-cover, .work-volume-content, .work-volume-spread, .work-volume-open, .work-volume-close, .work-volume-progress button { animation: none !important; transition: none !important; }
+  .work-volume-spread { transform: none !important; }
+
+.our-work-reader-guide-entry,
   .our-work-reader-guide-arrow { transition: none; }
 }
