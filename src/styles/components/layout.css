@@ -49,7 +49,7 @@
 }
 
 .headline-accent {
-  color: var(--color-primary);
+  color: var(--text-on-light-link);
 }
 
 .lede,
