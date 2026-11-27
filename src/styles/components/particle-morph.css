@@ -11,11 +11,11 @@
 
 .particle-hero-eyebrow {
   margin: 0;
-  color: var(--brand-teal-light);
+  color: var(--text-on-dark-accent);
 }
 
 .particle-hero .eyebrow {
-  color: var(--brand-teal-light);
+  color: var(--text-on-dark-accent);
 }
 
 .particle-hero-title {
