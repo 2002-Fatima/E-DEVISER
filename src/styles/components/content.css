@@ -127,7 +127,7 @@
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--brand-teal);
-  box-shadow: 0 0 12px rgba(90, 185, 180, 0.6);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--brand-teal) 60%, transparent);
 }
 
 .forums-feature-kicker {
@@ -164,7 +164,7 @@
 
 .forums-feature-topics span {
   padding: 0.4rem 0.65rem;
-  border: 1px solid rgba(192, 226, 253, 0.2);
+  border: 1px solid color-mix(in srgb, var(--brand-blue-light) 20%, transparent);
   border-radius: var(--radius-pill);
   color: var(--color-text-inverse-muted);
   font-size: var(--text-xs);
@@ -178,22 +178,22 @@
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at center, rgba(90, 185, 180, 0.12), transparent 48%),
-    linear-gradient(145deg, rgba(3, 130, 189, 0.04), rgba(90, 185, 180, 0.06));
+    radial-gradient(circle at center, color-mix(in srgb, var(--brand-teal) 12%, transparent), transparent 48%),
+    linear-gradient(145deg, color-mix(in srgb, var(--brand-blue) 4%, transparent), color-mix(in srgb, var(--brand-teal) 6%, transparent));
 }
 
 .forums-feature-orbit {
   position: absolute;
   width: min(72%, 22rem);
   aspect-ratio: 1;
-  border: 1px solid rgba(192, 226, 253, 0.2);
+  border: 1px solid color-mix(in srgb, var(--brand-blue-light) 20%, transparent);
   border-radius: 50%;
   transform: scaleY(0.58) rotate(24deg);
 }
 
 .forums-feature-orbit--inner {
   width: min(52%, 16rem);
-  border-color: rgba(90, 185, 180, 0.36);
+  border-color: color-mix(in srgb, var(--brand-teal) 36%, transparent);
   transform: scaleY(0.58) rotate(-34deg);
 }
 
@@ -207,7 +207,7 @@
   font-weight: var(--weight-bold);
   letter-spacing: -0.05em;
   line-height: 1;
-  text-shadow: 0 0 28px rgba(90, 185, 180, 0.28);
+  text-shadow: 0 0 28px color-mix(in srgb, var(--brand-teal) 28%, transparent);
 }
 
 .forums-feature-visual-core span {
@@ -239,7 +239,7 @@
   border: 1px solid var(--brand-teal-light);
   border-radius: 50%;
   background: var(--brand-teal);
-  box-shadow: 0 0 16px rgba(90, 185, 180, 0.6);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--brand-teal) 60%, transparent);
 }
 
 .forums-feature-point--one { inset-block-start: 25%; inset-inline-start: 23%; }
