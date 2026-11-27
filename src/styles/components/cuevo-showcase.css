@@ -296,8 +296,18 @@
   from { stroke-dashoffset: 100; }
   to { stroke-dashoffset: 0; }
 }
+@supports (animation-timeline: view()) {
+  .cuevo-dashboard, .cuevo-device {
+    animation-timeline: view();
+    animation-range: entry 0% entry 75%;
+  }
+}
 @supports not (animation-timeline: view()) {
-  .cuevo-foundations-path path { animation: none; stroke-dashoffset: 0; }
+  .cuevo-dashboard, .cuevo-device, .cuevo-foundations-path path {
+    animation: none;
+    transform: none;
+    stroke-dashoffset: 0;
+  }
 }
 @media (max-width: 62rem) {
   .home-cuevo-layout { grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.95fr); gap: var(--space-8); }
