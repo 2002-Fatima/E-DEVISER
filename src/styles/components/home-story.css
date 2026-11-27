@@ -450,11 +450,7 @@
 
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .home-methodology-section .methodology-flow-list::after {
-    transition: none;
-  }
-}
+
 
 
 /* Founder introduction: an intentional media state until approved video is supplied. */
@@ -852,11 +848,7 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .home-work-feature-link {
-    transition: none;
-  }
-}
+
 
 
 /* Our Work — morphic light archive.
@@ -1244,15 +1236,7 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .home-work-image-placeholder::before,
-  .home-work-image-placeholder::after,
-  .home-work-gallery-image::before,
-  .home-work-gallery-image::after,
-  .home-work-gallery-caption > .home-work-gallery-link {
-    transition: none;
-  }
-}
+
 
 .home-work-gallery-link {
   display: inline-grid;
@@ -1281,11 +1265,7 @@
   outline-offset: 3px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .home-work-gallery-link {
-    transition: none;
-  }
-}
+
 
 
 
@@ -1694,19 +1674,7 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .home-work-build-sketch,
-  .home-work-build-particle,
-  .home-work-build-frame i,
-  .home-work-image-placeholder::before,
-  .home-work-gallery-image::before,
-  .home-work-image-placeholder::after,
-  .home-work-gallery-image::after,
-  .home-work-media-state-mark i,
-  .home-work-media-state-track i {
-    animation: none;
-  }
-}
+
 
 
 /* Our Work — give the morphic idea-to-intelligence artwork the full editorial canvas. */
@@ -1894,12 +1862,7 @@
   .home-work-gallery-image { aspect-ratio: 1.55 / 1; }
   .home-work-gallery-image--four { aspect-ratio: 1.3 / 1; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .home-work-gallery-item,
-  .home-work-gallery-image img { transition: none; }
-  .home-work-gallery-item:hover { transform: none; }
-  .home-work-gallery-item:hover .home-work-gallery-image img { transform: none; }
-}
+
 
 
 /* CUEVO product showcase — real interface imagery in a cinematic product stage. */
@@ -2446,18 +2409,7 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .cuevo-stage-orbit,
-  .cuevo-stage-spark,
-  .cuevo-dashboard,
-  .cuevo-device {
-    animation: none !important;
-  }
 
-  .cuevo-foundations > div {
-    transition: none;
-  }
-}
 
 
 /* CUEVO light editorial direction — designed to sit between darker story sections. */
@@ -2571,9 +2523,7 @@
 @media (max-width: 48rem) {
   .cuevo-story-copy .home-cuevo-roles { margin-block-end: var(--space-7); }
 }
-@media (prefers-reduced-motion: reduce) {
-  .cuevo-story-copy .home-cuevo-roles li { transition: none; }
-}
+
 
 /* Subtle learning-world doodles: editorial texture, not a busy classroom wallpaper. */
 .home-cuevo-section {
@@ -2625,6 +2575,57 @@
   .home-cuevo-section > .cuevo-learning-pattern { opacity: .32; }
   .cuevo-doodle--abc, .cuevo-doodle--atom { display: none; }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .home-cuevo-section > .cuevo-learning-pattern { scroll-behavior: auto; }
+.home-methodology-section .methodology-flow-list::after {
+    transition: none;
+  }
+
+.home-work-feature-link {
+    transition: none;
+  }
+
+.home-work-image-placeholder::before,
+  .home-work-image-placeholder::after,
+  .home-work-gallery-image::before,
+  .home-work-gallery-image::after,
+  .home-work-gallery-caption > .home-work-gallery-link {
+    transition: none;
+  }
+
+.home-work-gallery-link {
+    transition: none;
+  }
+
+.home-work-build-sketch,
+  .home-work-build-particle,
+  .home-work-build-frame i,
+  .home-work-image-placeholder::before,
+  .home-work-gallery-image::before,
+  .home-work-image-placeholder::after,
+  .home-work-gallery-image::after,
+  .home-work-media-state-mark i,
+  .home-work-media-state-track i {
+    animation: none;
+  }
+
+.home-work-gallery-item,
+  .home-work-gallery-image img { transition: none; }
+  .home-work-gallery-item:hover { transform: none; }
+  .home-work-gallery-item:hover .home-work-gallery-image img { transform: none; }
+
+.cuevo-stage-orbit,
+  .cuevo-stage-spark,
+  .cuevo-dashboard,
+  .cuevo-device {
+    animation: none !important;
+  }
+
+  .cuevo-foundations > div {
+    transition: none;
+  }
+
+.cuevo-story-copy .home-cuevo-roles li { transition: none; }
+
+.home-cuevo-section > .cuevo-learning-pattern { scroll-behavior: auto; }
 }
