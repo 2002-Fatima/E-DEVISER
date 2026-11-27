@@ -1,7 +1,7 @@
 
 /* Volume collection — editorial book experience within the E Deviser design system. */
 .our-work-volume-section { overflow: clip; }
-.our-work-volume { display: grid; gap: clamp(var(--space-10), 5vw, var(--space-18)); padding-block: clamp(var(--space-18), 8vw, var(--space-28)); }
+.our-work-volume { display: grid; gap: clamp(var(--space-10), 5vw, var(--space-18)); padding-block: var(--space-section); }
 .our-work-volume-heading {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(16rem, .58fr);
