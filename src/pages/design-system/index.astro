@@ -70,10 +70,24 @@ const spaces = [
   { token: '--space-2', value: '8px', width: '0.5rem' },
   { token: '--space-3', value: '12px', width: '0.75rem' },
   { token: '--space-4', value: '16px', width: '1rem' },
+  { token: '--space-5', value: '20px', width: '1.25rem' },
   { token: '--space-6', value: '24px', width: '1.5rem' },
+  { token: '--space-7', value: '28px', width: '1.75rem' },
   { token: '--space-8', value: '32px', width: '2rem' },
+  { token: '--space-9', value: '36px', width: '2.25rem' },
+  { token: '--space-10', value: '40px', width: '2.5rem' },
+  { token: '--space-11', value: '44px', width: '2.75rem' },
   { token: '--space-12', value: '48px', width: '3rem' },
+  { token: '--space-14', value: '56px', width: '3.5rem' },
   { token: '--space-16', value: '64px', width: '4rem' },
+  { token: '--space-18', value: '72px', width: '4.5rem' },
+  { token: '--space-20', value: '80px', width: '5rem' },
+  { token: '--space-22', value: '88px', width: '5.5rem' },
+  { token: '--space-24', value: '96px', width: '6rem' },
+  { token: '--space-28', value: '112px', width: '7rem' },
+  { token: '--space-32', value: '128px', width: '8rem' },
+  { token: '--space-36', value: '144px', width: '9rem' },
+  { token: '--space-40', value: '160px', width: '10rem' },
 ];
 const buttonVariants = [
   { key: 'primary', label: 'Primary' },
@@ -231,15 +245,20 @@ const selectOptions = [
               <div class="radius-token" style="--sample-radius: var(--radius-sm)">SM · 10px</div>
               <div class="radius-token" style="--sample-radius: var(--radius-md)">MD · 16px</div>
               <div class="radius-token" style="--sample-radius: var(--radius-lg)">LG · 24px</div>
+              <div class="radius-token" style="--sample-radius: var(--radius-xl)">XL · 32px</div>
+              <div class="radius-token" style="--sample-radius: var(--radius-pill)">Pill</div>
             </div>
             <p class="design-label">Structural 1px borders use semantic border tokens.</p>
           </div>
           <div class="design-stack">
             <h3>Elevation</h3>
             <div class="elevation-token-list">
+              <div class="elevation-token" style="--sample-shadow: var(--shadow-xs)">Subtle · --shadow-xs</div>
               <div class="elevation-token" style="--sample-shadow: var(--shadow-sm)">Low · --shadow-sm</div>
               <div class="elevation-token" style="--sample-shadow: var(--shadow-md)">Raised · --shadow-md</div>
               <div class="elevation-token" style="--sample-shadow: var(--shadow-lg)">Overlay · --shadow-lg</div>
+              <div class="elevation-token" style="--sample-shadow: var(--shadow-glow)">Brand glow · --shadow-glow</div>
+              <div class="elevation-token" style="--sample-shadow: var(--shadow-glow-teal-sm)">Teal glow · --shadow-glow-teal-sm</div>
             </div>
           </div>
         </div>
