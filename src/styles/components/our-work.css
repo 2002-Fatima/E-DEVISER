@@ -279,6 +279,7 @@
   border-block-end: 1px solid color-mix(in srgb, var(--brand-navy) 13%, transparent);
 }
 .our-work-section-heading--inverse { border-color: color-mix(in srgb, var(--color-white) 16%, transparent); }
+.our-work-section-heading--inverse .eyebrow { color: var(--text-on-dark-accent); }
 .our-work-section-heading .eyebrow {
   display: inline-flex;
   align-items: center;
