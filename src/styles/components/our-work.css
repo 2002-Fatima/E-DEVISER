@@ -4,6 +4,7 @@
   overflow: hidden;
   border-block-end: 1px solid var(--color-border-inverse);
 }
+.our-work-hero .eyebrow { color: var(--text-on-dark-accent); }
 .our-work-hero-layout {
   display: grid;
   grid-template-columns: minmax(19rem, .78fr) minmax(0, 1.22fr);
