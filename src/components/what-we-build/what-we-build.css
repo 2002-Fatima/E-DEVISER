@@ -238,10 +238,7 @@
 .what-we-build .wwb-hero {
   min-height: min(48rem, calc(100svh - 5rem));
   padding-block: clamp(6.5rem, 10vw, 9rem) clamp(4.5rem, 7vw, 6.5rem);
-  background:
-    radial-gradient(ellipse at 79% 48%, color-mix(in srgb, var(--brand-teal) 8%, transparent), transparent 36%),
-    radial-gradient(ellipse at 54% 84%, color-mix(in srgb, var(--brand-blue) 7%, transparent), transparent 42%),
-    var(--color-surface-night);
+  background: var(--gradient-hero-approved);
 }
 .what-we-build .wwb-hero-layout {
   grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
@@ -284,9 +281,7 @@
   isolation: isolate;
   overflow: hidden;
   mask-image: linear-gradient(90deg, transparent 0%, var(--color-ink) 9%, var(--color-ink) 100%);
-  background:
-    radial-gradient(ellipse at 76% 50%, color-mix(in srgb, var(--brand-blue) 9%, transparent), transparent 39%),
-    radial-gradient(ellipse at 73% 50%, color-mix(in srgb, var(--brand-teal) 5%, transparent), transparent 56%);
+  background: var(--gradient-dark-luminous);
 }
 .what-we-build .wwb-hero-art::before {
   position: absolute;
