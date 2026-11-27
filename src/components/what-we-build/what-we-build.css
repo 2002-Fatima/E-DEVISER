@@ -2330,7 +2330,7 @@
 /* Final harmony pass — align typography, labels and interactive surfaces with the shared system. */
 .what-we-build .wwb-eyebrow {
   gap: 0;
-  color: var(--color-text-inverse-muted);
+  color: var(--text-on-dark-accent);
   font-family: var(--font-body);
   font-size: var(--text-micro);
   font-weight: var(--weight-semibold);
@@ -2448,7 +2448,7 @@
 }
 .what-we-build .wwb-eyebrow {
   margin-bottom: clamp(var(--space-5), 2.2vw, var(--space-8));
-  color: var(--color-text-inverse-muted);
+  color: var(--text-on-dark-accent);
   font-family: var(--font-body);
   font-size: var(--text-micro);
   font-weight: var(--weight-semibold);
