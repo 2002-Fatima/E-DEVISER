@@ -185,7 +185,6 @@
   z-index: 4;
   margin: 0;
   pointer-events: none;
-  filter: drop-shadow(0 0.8rem 1rem color-mix(in srgb, var(--brand-navy) 14%, transparent));
 }
 .cuevo-device--tablet {
   inset-inline-start: 0;
