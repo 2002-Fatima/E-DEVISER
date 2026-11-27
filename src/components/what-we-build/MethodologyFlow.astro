@@ -2,14 +2,11 @@
 import '../../styles/components/methodology-flow.css';
 import { methodologySteps } from '../../content/methodology';
 
-const flowSteps = methodologySteps.map((step, index) => ({
-  ...step,
-  title: index === 0 ? 'The Problem' : step.title,
-}));
+const flowSteps = methodologySteps;
 ---
 
 <div class="methodology-flow" data-methodology-flow data-active-index="0">
-  <ol class="methodology-sequence" aria-label="Our six-stage methodology">
+  <ol class="methodology-sequence" aria-label="Our five-stage methodology">
     {flowSteps.map((step, index) => (
       <li class="methodology-sequence-step" data-methodology-step data-index={index} data-description={step.description} aria-current={index === 0 ? 'step' : undefined}>
         <span class="methodology-sequence-number">{step.number}</span>
@@ -137,8 +134,8 @@ const flowSteps = methodologySteps.map((step, index) => ({
     </svg>
   </div>
 
-  <div class="methodology-transcript" data-methodology-transcript aria-live="polite" aria-atomic="true">
-    <span class="methodology-transcript-index"><span data-methodology-current>01</span> <i>/</i> 06</span>
+  <div class="methodology-transcript" data-methodology-transcript>
+    <span class="methodology-transcript-index"><span data-methodology-current>01</span> <i>/</i> <span data-methodology-total>05</span></span>
     <div class="methodology-transcript-content">
       <h3 data-methodology-title>{flowSteps[0].title}</h3>
       <p data-methodology-description>{flowSteps[0].description}</p>
@@ -157,24 +154,22 @@ const flowSteps = methodologySteps.map((step, index) => ({
     const steps = Array.from(flow.querySelectorAll<HTMLElement>('[data-methodology-step]'));
     const title = flow.querySelector<HTMLElement>('[data-methodology-title]');
     const description = flow.querySelector<HTMLElement>('[data-methodology-description]');
-    const index = flow.querySelector<HTMLElement>('.methodology-transcript-index');
+    const current = flow.querySelector<HTMLElement>('[data-methodology-current]');
+    const total = flow.querySelector<HTMLElement>('[data-methodology-total]');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const duration = 5200;
-    let activeIndex = 0;
-    let elapsed = 0;
-    let startedAt = 0;
-    let timer: number | undefined;
+    const controller = new AbortController();
+    let activeIndex = -1;
+    let frame = 0;
     let transitionTimer: number | undefined;
-    let visible = true;
-    let paused = false;
     let disposed = false;
-    const listenerController = new AbortController();
-    const listenerOptions = { signal: listenerController.signal };
-    let observer: IntersectionObserver | undefined;
+
+    if (total) total.textContent = String(steps.length).padStart(2, '0');
 
     const render = (nextIndex: number) => {
+      if (nextIndex === activeIndex || nextIndex < 0 || nextIndex >= steps.length) return;
       activeIndex = nextIndex;
       flow.dataset.activeIndex = String(nextIndex);
+
       steps.forEach((step, stepIndex) => {
         if (stepIndex === nextIndex) step.setAttribute('aria-current', 'step');
         else step.removeAttribute('aria-current');
@@ -182,84 +177,58 @@ const flowSteps = methodologySteps.map((step, index) => ({
 
       const selected = steps[nextIndex];
       const nextTitle = selected?.querySelector('.methodology-sequence-title')?.textContent ?? '';
-      const sourceDescription = selected?.getAttribute('data-description') ?? '';
+      const nextDescription = selected?.getAttribute('data-description') ?? '';
 
-      flow.classList.add('is-transitioning');
+      if (!reducedMotion.matches) flow.classList.add('is-transitioning');
+      if (title) title.textContent = nextTitle;
+      if (description) description.textContent = nextDescription;
+      if (current) current.textContent = String(nextIndex + 1).padStart(2, '0');
+
       if (transitionTimer !== undefined) window.clearTimeout(transitionTimer);
-      transitionTimer = window.setTimeout(() => {
-        transitionTimer = undefined;
-        if (disposed) return;
-        if (title) title.textContent = nextTitle;
-        if (description) description.textContent = sourceDescription;
-        if (index) index.querySelector('[data-methodology-current]')?.replaceChildren(String(nextIndex + 1).padStart(2, '0'));
+      if (!reducedMotion.matches) {
+        transitionTimer = window.setTimeout(() => {
+          transitionTimer = undefined;
+          if (!disposed) flow.classList.remove('is-transitioning');
+        }, 220);
+      } else {
         flow.classList.remove('is-transitioning');
-      }, 280);
+      }
     };
 
-    const stop = () => {
-      if (timer !== undefined) window.clearInterval(timer);
-      timer = undefined;
-      elapsed += startedAt ? performance.now() - startedAt : 0;
-      startedAt = 0;
+    const updateProgress = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        if (disposed) return;
+
+        const rect = flow.getBoundingClientRect();
+        const range = Math.max(1, rect.height + window.innerHeight);
+        const progress = reducedMotion.matches
+          ? 1
+          : Math.min(1, Math.max(0, (window.innerHeight - rect.top) / range));
+
+        flow.style.setProperty('--methodology-progress-factor', String(progress));
+        const nextIndex = reducedMotion.matches
+          ? steps.length - 1
+          : Math.min(steps.length - 1, Math.floor(progress * steps.length));
+        render(nextIndex);
+      });
     };
 
-    const start = () => {
-      if (disposed || timer !== undefined || paused || !visible || document.hidden || reducedMotion.matches) return;
-      startedAt = performance.now();
-      timer = window.setInterval(() => {
-        const cycleElapsed = elapsed + (performance.now() - startedAt);
-        const nextIndex = Math.min(5, Math.floor(cycleElapsed / duration));
-        if (nextIndex !== activeIndex) render(nextIndex);
-        if (cycleElapsed >= duration * 6) {
-          elapsed = 0;
-          startedAt = performance.now();
-          render(0);
-        }
-      }, 50);
-    };
-
-    const pause = () => { paused = true; stop(); };
-    const resume = () => { paused = false; start(); };
-
-    const syncInteractionPause = () => {
-      const interactionActive = flow.matches(':hover') || flow.contains(document.activeElement);
-      if (interactionActive) pause();
-      else resume();
-    };
-
-    flow.addEventListener('pointerenter', syncInteractionPause, listenerOptions);
-    flow.addEventListener('pointerleave', syncInteractionPause, listenerOptions);
-    flow.addEventListener('focusin', syncInteractionPause, listenerOptions);
-    flow.addEventListener('focusout', syncInteractionPause, listenerOptions);
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) stop();
-      else start();
-    }, listenerOptions);
-    reducedMotion.addEventListener('change', () => {
-      if (reducedMotion.matches) stop();
-      else start();
-    }, listenerOptions);
-
-    if ('IntersectionObserver' in window) {
-      observer = new IntersectionObserver(([entry]) => {
-        visible = entry.isIntersecting;
-        if (visible) start();
-        else stop();
-      }, { threshold: 0.2 });
-      observer.observe(flow);
-    } else {
-      start();
-    }
+    window.addEventListener('scroll', updateProgress, { passive: true, signal: controller.signal });
+    window.addEventListener('resize', updateProgress, { signal: controller.signal });
+    reducedMotion.addEventListener('change', updateProgress, { signal: controller.signal });
 
     const cleanup = () => {
       if (disposed) return;
       disposed = true;
-      stop();
+      controller.abort();
+      if (frame) window.cancelAnimationFrame(frame);
       if (transitionTimer !== undefined) window.clearTimeout(transitionTimer);
-      observer?.disconnect();
-      listenerController.abort();
       document.removeEventListener('astro:before-swap', cleanup);
     };
+
     document.addEventListener('astro:before-swap', cleanup, { once: true });
+    updateProgress();
   });
 </script>
