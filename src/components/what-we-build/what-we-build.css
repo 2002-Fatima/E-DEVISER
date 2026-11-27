@@ -2603,32 +2603,30 @@
 
 /* Accessibility override: ensure the user's reduced-motion preference wins over component motion. */
 @media (prefers-reduced-motion: reduce) {
-.what-we-build *, .what-we-build *:before,.what-we-build *:after {
-    animation-duration: .01ms!important;
-    animation-iteration-count: 1!important;
-    scroll-behavior: auto!important;
-    transition-duration: .01ms!important
+  /* The global motion layer already shortens all transitions and animations. */
+  .what-we-build .wwb-hero-orbit-system,
+  .what-we-build .wwb-hero-orbit,
+  .what-we-build .wwb-hero-core-halo,
+  .what-we-build .wwb-hero-satellite,
+  .what-we-build .wwb-method-rail span,
+  .what-we-build .wwb-method-node i {
+    animation: none;
   }
 
-.what-we-build .wwb-hero-orbit-system, .what-we-build .wwb-hero-orbit, .what-we-build .wwb-hero-core-halo, .what-we-build .wwb-hero-satellite {
-    animation: none !important;
-  }
-
-.what-we-build .wwb-method-rail span, .what-we-build .wwb-method-node i {
-    animation: none !important;
-  }
-
-.what-we-build .wwb-capability, .what-we-build .wwb-dimension {
+  .what-we-build .wwb-capability,
+  .what-we-build .wwb-dimension,
+  .what-we-build .wwb-method-step,
+  .what-we-build .wwb-method-visual,
+  .what-we-build .wwb-education-card,
+  .what-we-build .wwb-loop-node {
     transition: none;
   }
-  .what-we-build .wwb-capability:hover, .what-we-build .wwb-dimension:hover {
-    transform: none;
-  }
 
-.what-we-build .wwb-method-step, .what-we-build .wwb-method-visual, .what-we-build .wwb-education-card, .what-we-build .wwb-loop-node {
-    transition: none;
-  }
-  .what-we-build .wwb-method-step:hover, .what-we-build .wwb-education-card:hover, .what-we-build .wwb-loop-node:hover {
+  .what-we-build .wwb-capability:hover,
+  .what-we-build .wwb-dimension:hover,
+  .what-we-build .wwb-method-step:hover,
+  .what-we-build .wwb-education-card:hover,
+  .what-we-build .wwb-loop-node:hover {
     transform: none;
   }
 }
