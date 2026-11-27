@@ -1,10 +1,12 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
+import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
 ---
 
 <SectionWrapper background="atmosphere" class="home-work-section">
-  <section class="container container-wide home-work-content" aria-labelledby="home-work-title">
+  <section aria-labelledby="home-work-title">
+    <Container width="wide" class="home-work-content">
     <div class="home-work-editorial">
       <article class="home-work-cover" aria-labelledby="home-work-title">
         <div class="home-work-cover-art" aria-hidden="true">
@@ -115,6 +117,7 @@ import Button from '../ui/Button.astro';
         </div>
       </aside>
     </div>
+    </Container>
   </section>
 </SectionWrapper>
 
