@@ -490,11 +490,7 @@
   background: var(--brand-ink);
   box-shadow: var(--shadow-card-dark);
 }
-.our-work-video-card figcaption {
-  margin-block-start: var(--space-3);
-  color: var(--color-text-inverse-muted);
-  font-size: var(--text-sm);
-}
+
 
 /* News: a lead press image with two supporting pieces, not three equal thumbnails. */
 .our-work-news-gallery {
@@ -545,8 +541,7 @@
     grid-column: span 1;
     min-height: 0;
     aspect-ratio: 1.2 / 1;
-  }
-  .our-work-forum-feature { grid-template-columns: 1fr; }
+  }; }
   .our-work-forum-copy { padding: clamp(var(--space-6), 5vw, var(--space-9)); }
   .our-work-forum-image { aspect-ratio: 16 / 10; }
   .our-work-forum-gallery .our-work-image-card,
@@ -1115,10 +1110,8 @@
   .our-work-initiatives-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .our-work-initiatives-gallery .our-work-image-card:first-child { grid-column: 1 / -1; }
   .our-work-partnerships-gallery,
-  .our-work-field-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .our-work-forum-feature { grid-template-columns: 1fr; }
-  .our-work-forum-copy { padding: var(--space-6); }
-  .our-work-forum-image { aspect-ratio: 16 / 10; }
+  .our-work-field-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }; }
+  .our-work-forum-copy { padding: var(--space-6); }; }
   .our-work-forum-image img { aspect-ratio: 16 / 10; }
   .our-work-forum-gallery .our-work-image-card,
   .our-work-forum-gallery .our-work-image-card:nth-child(n) { grid-column: span 3; }
@@ -1140,9 +1133,7 @@
   .our-work-recognition-grid { grid-template-columns: 1fr 1fr; }
   .our-work-recognition-item:last-child { grid-column: auto; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .our-work-image-card img { transition: none; }
-  .our-work-image-card:hover img { transform: none; }
+@media (prefers-reduced-motion: reduce) {; }; }
 }
 
 
