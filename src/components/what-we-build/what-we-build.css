@@ -2755,3 +2755,33 @@
     animation: none;
   }
 }
+
+
+.what-we-build .wwb-method-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-5);
+}
+.what-we-build .wwb-method-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.5rem;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border-inverse-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-night-raised);
+  color: var(--color-text-inverse);
+  font: var(--weight-medium) var(--text-xs)/1 var(--font-body);
+  cursor: pointer;
+}
+.what-we-build .wwb-method-toggle > span:first-child {
+  color: var(--brand-teal-light);
+}
+.what-we-build .wwb-method-toggle:focus-visible {
+  outline: 2px solid var(--brand-teal-light);
+  outline-offset: 4px;
+}
+.what-we-build .wwb-method-toggle[hidden] {
+  display: none;
+}
