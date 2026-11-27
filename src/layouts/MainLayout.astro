@@ -5,10 +5,10 @@ import SiteFooter from '../components/layout/SiteFooter.astro';
 import PageShell from '../components/layout/PageShell.astro';
 import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
 
-const { title, description, breadcrumbs = [] } = Astro.props;
+const { title, description, breadcrumbs = [], lang = 'en', dir = 'ltr', noindex = false } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} lang={lang} dir={dir} noindex={noindex}>
   <SiteHeader />
   <PageShell>
     <Breadcrumbs items={breadcrumbs} />
