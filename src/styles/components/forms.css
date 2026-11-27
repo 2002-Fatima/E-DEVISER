@@ -78,7 +78,7 @@
 }
 
 .form-feedback-success {
-  background: #e7f5ef;
+  background: var(--semantic-success-subtle);
   color: var(--color-success);
 }
 
