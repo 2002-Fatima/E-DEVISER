@@ -34,8 +34,8 @@
   min-height: clamp(22rem, 35vw, 32rem);
   overflow: visible;
   background:
-    radial-gradient(ellipse at 76% 52%, rgba(3,130,189,.19), transparent 44%),
-    radial-gradient(ellipse at 35% 52%, rgba(90,185,180,.12), transparent 48%);
+    radial-gradient(ellipse at 76% 52%, color-mix(in srgb, var(--brand-blue) 19%, transparent), transparent 44%),
+    radial-gradient(ellipse at 35% 52%, color-mix(in srgb, var(--brand-teal) 12%, transparent), transparent 48%);
 }
 .our-work-signature-art {
   display: block;
@@ -46,7 +46,7 @@
   overflow: visible;
   filter: drop-shadow(0 0 1.6rem color-mix(in srgb, var(--brand-teal) 14%, transparent));
 }
-.our-work-signature .work-art-grid { opacity: .55; mask-image: radial-gradient(ellipse at 62% 50%, #000 8%, transparent 82%); }
+.our-work-signature .work-art-grid { opacity: .55; mask-image: radial-gradient(ellipse at 62% 50%, var(--brand-ink) 8%, transparent 82%); }
 .our-work-signature .work-art-idea { transform-origin: 145px 136px; animation: work-idea-drift 8s ease-in-out infinite; }
 .our-work-signature .work-art-flow path:first-child { stroke-dasharray: 420; stroke-dashoffset: 420; animation: work-ribbon-draw 7s cubic-bezier(.65,0,.25,1) infinite; }
 .our-work-signature .work-art-flow path:nth-child(2) { stroke-dasharray: 390; stroke-dashoffset: 390; animation: work-ribbon-draw 7s .35s cubic-bezier(.65,0,.25,1) infinite; }
