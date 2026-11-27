@@ -1271,12 +1271,6 @@
     flex-direction: column;
     gap: var(--space-3)
   }
-  .what-we-build .wwb-toolkit-capabilities {
-    grid-template-columns: 1fr
-  }
-  .what-we-build .wwb-capability-7 {
-    grid-column: auto
-  }
   .what-we-build .wwb-education-grid {
     grid-template-columns: 1fr
   }
@@ -2437,10 +2431,6 @@
     max-width: 13ch;
     font-size: var(--text-hero-mobile);
     line-height: 1.04;
-  }
-  .what-we-build .wwb-hero h1 em {
-    display: block;
-    margin-top: .12em;
   }
   .what-we-build .wwb-hero-labels {
     z-index: 3;
