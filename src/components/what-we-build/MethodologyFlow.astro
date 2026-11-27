@@ -9,8 +9,10 @@ const flowSteps = methodologySteps;
   <ol class="methodology-sequence" aria-label="Our six-stage methodology">
     {flowSteps.map((step, index) => (
       <li class="methodology-sequence-step" data-methodology-step data-index={index} data-description={step.description} aria-current={index === 0 ? 'step' : undefined}>
-        <span class="methodology-sequence-number">{step.number}</span>
-        <span class="methodology-sequence-title">{step.title}</span>
+        <button class="methodology-step-button" type="button" data-methodology-select aria-pressed={index === 0 ? 'true' : 'false'} aria-label={`Show stage ${step.number}: ${step.title}`}>
+          <span class="methodology-sequence-number">{step.number}</span>
+          <span class="methodology-sequence-title">{step.title}</span>
+        </button>
       </li>
     ))}
   </ol>
@@ -140,9 +142,10 @@ const flowSteps = methodologySteps;
       <h3 data-methodology-title>{flowSteps[0].title}</h3>
       <p data-methodology-description>{flowSteps[0].description}</p>
     </div>
-    <span class="methodology-transcript-signal" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span>
-    </span>
+    <button class="methodology-autoplay-toggle" type="button" data-methodology-toggle aria-pressed="false" aria-label="Pause automatic progression">
+      <span class="methodology-autoplay-icon" aria-hidden="true">Ⅱ</span>
+      <span data-methodology-toggle-label>Pause</span>
+    </button>
   </div>
 </div>
 
@@ -152,33 +155,55 @@ const flowSteps = methodologySteps;
     flow.dataset.initialized = 'true';
 
     const steps = Array.from(flow.querySelectorAll<HTMLElement>('[data-methodology-step]'));
+    const selectButtons = Array.from(flow.querySelectorAll<HTMLButtonElement>('[data-methodology-select]'));
     const title = flow.querySelector<HTMLElement>('[data-methodology-title]');
     const description = flow.querySelector<HTMLElement>('[data-methodology-description]');
     const current = flow.querySelector<HTMLElement>('[data-methodology-current]');
     const total = flow.querySelector<HTMLElement>('[data-methodology-total]');
+    const toggle = flow.querySelector<HTMLButtonElement>('[data-methodology-toggle]');
+    const toggleLabel = flow.querySelector<HTMLElement>('[data-methodology-toggle-label]');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const controller = new AbortController();
-    let activeIndex = -1;
-    let frame = 0;
+    const interval = 4800;
+    let activeIndex = 0;
+    let timer: number | undefined;
     let transitionTimer: number | undefined;
+    let inView = false;
+    let userPaused = false;
+    let pointerPaused = false;
+    let focusPaused = false;
     let disposed = false;
 
     if (total) total.textContent = String(steps.length).padStart(2, '0');
 
+    const isPaused = () => userPaused || pointerPaused || focusPaused || !inView || document.hidden || reducedMotion.matches;
+
+    const updateToggle = () => {
+      if (!toggle) return;
+      const paused = userPaused || reducedMotion.matches;
+      toggle.setAttribute('aria-pressed', String(paused));
+      toggle.setAttribute('aria-label', paused ? 'Resume automatic progression' : 'Pause automatic progression');
+      if (toggleLabel) toggleLabel.textContent = paused ? 'Resume' : 'Pause';
+      const icon = toggle.querySelector<HTMLElement>('.methodology-autoplay-icon');
+      if (icon) icon.textContent = paused ? '▶' : 'Ⅱ';
+      toggle.hidden = reducedMotion.matches;
+    };
+
     const render = (nextIndex: number) => {
-      if (nextIndex === activeIndex || nextIndex < 0 || nextIndex >= steps.length) return;
+      if (nextIndex < 0 || nextIndex >= steps.length) return;
       activeIndex = nextIndex;
       flow.dataset.activeIndex = String(nextIndex);
+      flow.style.setProperty('--methodology-progress-factor', String((nextIndex + 1) / steps.length));
 
       steps.forEach((step, stepIndex) => {
         if (stepIndex === nextIndex) step.setAttribute('aria-current', 'step');
         else step.removeAttribute('aria-current');
       });
+      selectButtons.forEach((button, buttonIndex) => button.setAttribute('aria-pressed', String(buttonIndex === nextIndex)));
 
       const selected = steps[nextIndex];
       const nextTitle = selected?.querySelector('.methodology-sequence-title')?.textContent ?? '';
       const nextDescription = selected?.getAttribute('data-description') ?? '';
-
       if (!reducedMotion.matches) flow.classList.add('is-transitioning');
       if (title) title.textContent = nextTitle;
       if (description) description.textContent = nextDescription;
@@ -195,40 +220,75 @@ const flowSteps = methodologySteps;
       }
     };
 
-    const updateProgress = () => {
-      if (frame) return;
-      frame = window.requestAnimationFrame(() => {
-        frame = 0;
-        if (disposed) return;
-
-        const rect = flow.getBoundingClientRect();
-        const range = Math.max(1, rect.height + window.innerHeight);
-        const progress = reducedMotion.matches
-          ? 1
-          : Math.min(1, Math.max(0, (window.innerHeight - rect.top) / range));
-
-        flow.style.setProperty('--methodology-progress-factor', String(progress));
-        const nextIndex = reducedMotion.matches
-          ? steps.length - 1
-          : Math.min(steps.length - 1, Math.floor(progress * steps.length));
-        render(nextIndex);
-      });
+    const stopTimer = () => {
+      if (timer !== undefined) window.clearTimeout(timer);
+      timer = undefined;
     };
 
-    window.addEventListener('scroll', updateProgress, { passive: true, signal: controller.signal });
-    window.addEventListener('resize', updateProgress, { signal: controller.signal });
-    reducedMotion.addEventListener('change', updateProgress, { signal: controller.signal });
+    const scheduleNext = () => {
+      stopTimer();
+      updateToggle();
+      if (disposed || isPaused()) return;
+      timer = window.setTimeout(() => {
+        timer = undefined;
+        if (isPaused()) return;
+        render((activeIndex + 1) % steps.length);
+        scheduleNext();
+      }, interval);
+    };
+
+    selectButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        userPaused = true;
+        render(index);
+        scheduleNext();
+      }, { signal: controller.signal });
+    });
+
+    toggle?.addEventListener('click', () => {
+      userPaused = !userPaused;
+      scheduleNext();
+    }, { signal: controller.signal });
+
+    flow.addEventListener('pointerenter', () => {
+      pointerPaused = true;
+      scheduleNext();
+    }, { signal: controller.signal });
+    flow.addEventListener('pointerleave', () => {
+      pointerPaused = false;
+      scheduleNext();
+    }, { signal: controller.signal });
+    flow.addEventListener('focusin', () => {
+      focusPaused = true;
+      scheduleNext();
+    }, { signal: controller.signal });
+    flow.addEventListener('focusout', (event) => {
+      if (event instanceof FocusEvent && event.relatedTarget instanceof Node && flow.contains(event.relatedTarget)) return;
+      focusPaused = false;
+      scheduleNext();
+    }, { signal: controller.signal });
+
+    const observer = new IntersectionObserver(([entry]) => {
+      inView = Boolean(entry?.isIntersecting && entry.intersectionRatio >= 0.25);
+      scheduleNext();
+    }, { threshold: [0, 0.25, 0.5] });
+    observer.observe(flow);
+
+    document.addEventListener('visibilitychange', scheduleNext, { signal: controller.signal });
+    reducedMotion.addEventListener('change', scheduleNext, { signal: controller.signal });
 
     const cleanup = () => {
       if (disposed) return;
       disposed = true;
+      stopTimer();
+      observer.disconnect();
       controller.abort();
-      if (frame) window.cancelAnimationFrame(frame);
       if (transitionTimer !== undefined) window.clearTimeout(transitionTimer);
       document.removeEventListener('astro:before-swap', cleanup);
     };
 
     document.addEventListener('astro:before-swap', cleanup, { once: true });
-    updateProgress();
+    render(0);
+    scheduleNext();
   });
 </script>
