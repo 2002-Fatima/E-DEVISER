@@ -24,8 +24,7 @@ const classes = ['card', `card-${variant}`, (interactive || href) && 'card-inter
   >
     <slot />
   </a>
-) : (
-{as === 'figure' ? (
+) : as === 'figure' ? (
   <figure class:list={['card', `card-${variant}`, interactive && 'card-interactive', className]}>
     <slot />
   </figure>
@@ -37,5 +36,4 @@ const classes = ['card', `card-${variant}`, (interactive || href) && 'card-inter
   <article class:list={['card', `card-${variant}`, interactive && 'card-interactive', className]}>
     <slot />
   </article>
-)}
 )}
