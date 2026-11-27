@@ -27,14 +27,29 @@ const brandColors = [
   { name: 'White', token: '--brand-white', value: '#FFFFFF' },
 ];
 const semanticColors = [
-  { name: 'Page surface', token: '--color-surface-ink', value: '#09121D' },
+  { name: 'Light page surface', token: '--color-surface', value: '#F7FAFC' },
+  { name: 'Soft light surface', token: '--color-surface-soft', value: '#EAF4F7' },
+  { name: 'Dark page surface', token: '--color-surface-ink', value: '#09121D' },
   { name: 'Raised dark surface', token: '--color-surface-dark', value: '#1D3557' },
   { name: 'Patterned light surface', token: '--color-surface-patterned', value: '#F3F8FC' },
-  { name: 'Primary action', token: '--color-primary', value: '#0382BD' },
-  { name: 'Primary hover', token: '--color-primary-strong', value: '#026B9B' },
+  { name: 'Primary brand blue', token: '--brand-blue', value: '#0382BD' },
+  { name: 'Primary action', token: '--color-primary-strong', value: '#026B9B' },
+  { name: 'Primary hover', token: '--color-primary-hover', value: '#075779' },
+  { name: 'Text link on light', token: '--text-on-light-link', value: '#026B9B' },
+  { name: 'Accent text on dark', token: '--text-on-dark-accent', value: '#5AB9B4' },
   { name: 'Text', token: '--color-text', value: '#1D3557' },
-  { name: 'Muted text', token: '--color-text-muted', value: '#595F69' },
+  { name: 'Muted text', token: '--color-text-muted', value: '#596779' },
   { name: 'Inverse focus ring', token: '--brand-teal-light', value: '#CDFCF4' },
+];
+const contrastPairs = [
+  { use: 'Primary body text', foreground: '#1D3557', background: '#F7FAFC', ratio: '11.79:1' },
+  { use: 'Muted body text', foreground: '#596779', background: '#F7FAFC', ratio: '5.50:1' },
+  { use: 'Links and small accents on light', foreground: '#026B9B', background: '#F7FAFC', ratio: '5.60:1' },
+  { use: 'Primary CTA label', foreground: '#FFFFFF', background: '#026B9B', ratio: '5.87:1' },
+  { use: 'Teal accent on dark', foreground: '#5AB9B4', background: '#09121D', ratio: '8.10:1' },
+  { use: 'Light teal accent on dark', foreground: '#CDFCF4', background: '#09121D', ratio: '16.87:1' },
+  { use: 'Inverse body text', foreground: '#FFFFFF', background: '#09121D', ratio: '18.82:1' },
+  { use: 'Destructive action label', foreground: '#09121D', background: '#E53E3E', ratio: '4.56:1' },
 ];
 const fontSpecimens = [
   { name: 'Display / Plus Jakarta Sans / ExtraBold', sample: 'Human-centred intelligence', family: 'var(--font-display)', size: 'var(--text-display)', weight: 'var(--weight-extrabold)' },
@@ -129,6 +144,37 @@ const selectOptions = [
               </div>
             ))}
           </div>
+        </div>
+        <div class="design-subsection">
+          <h3>Text contrast and color roles</h3>
+          <p class="contrast-guidance">
+            Teal is never used as text on light surfaces. Use <code>--text-on-light-link</code> for
+            links and small accents on light backgrounds; reserve <code>--text-on-dark-accent</code>
+            for dark surfaces. The brand blue and blue-to-teal gradient are visual accents, not
+            white-text CTA backgrounds. Primary actions use solid primary-700 with white text.
+          </p>
+          <div class="contrast-table-wrap">
+            <table class="contrast-table">
+              <thead>
+                <tr><th scope="col">Use</th><th scope="col">Foreground</th><th scope="col">Background</th><th scope="col">Contrast</th><th scope="col">AA</th></tr>
+              </thead>
+              <tbody>
+                {contrastPairs.map((pair) => (
+                  <tr>
+                    <th scope="row">{pair.use}</th>
+                    <td><code>{pair.foreground}</code></td>
+                    <td><code>{pair.background}</code></td>
+                    <td>{pair.ratio}</td>
+                    <td>Pass</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="contrast-guidance">
+            White on the brighter brand blue is 4.26:1, and teal on a light surface is below 3:1.
+            Those combinations are excluded from normal-size text and filled primary actions.
+          </p>
         </div>
       </Container>
     </section>
