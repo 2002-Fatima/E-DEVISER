@@ -130,7 +130,7 @@
 }
 
 .btn-destructive:hover:not(:disabled):not([aria-disabled="true"]) {
-  background: #862525;
+  background: color-mix(in srgb, var(--semantic-error) 78%, var(--brand-ink));
 }
 
 .button-context-dark .btn-outline {
