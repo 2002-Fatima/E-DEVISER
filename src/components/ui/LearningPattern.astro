@@ -1,0 +1,106 @@
+---
+interface Props {
+  variant?: 'section' | 'card';
+  density?: 'low' | 'medium';
+  tone?: 'light';
+}
+const { variant = 'section', density = 'low', tone = 'light' } = Astro.props;
+---
+
+<div class:list={['learning-pattern', `learning-pattern--${variant}`, `learning-pattern--${density}`, `learning-pattern--${tone}']} aria-hidden="true">
+  <svg class="learning-pattern-sprite" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="learning-book" viewBox="0 0 48 48"><path d="M4 9c8-3 14-2 20 2v29c-6-4-12-5-20-2zM44 9c-8-3-14-2-20 2v29c6-4 12-5 20-2zM24 11v29M9 17c4-1 8 0 11 2m-11 6c4-1 8 0 11 2m9-8c3-2 7-3 11-2m-11 10c3-2 7-3 11-2"/></symbol>
+      <symbol id="learning-pencil" viewBox="0 0 48 48"><path d="m9 34 22-25 8 7-22 25-10 2zM27 13l8 7M9 34l8 7"/></symbol>
+      <symbol id="learning-atom" viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="20" ry="8" transform="rotate(35 24 24)"/><ellipse cx="24" cy="24" rx="20" ry="8" transform="rotate(-35 24 24)"/><circle cx="24" cy="24" r="3"/></symbol>
+      <symbol id="learning-star" viewBox="0 0 48 48"><path d="m24 4 6 13 14 2-10 10 3 14-13-7-13 7 3-14L4 19l14-2z"/></symbol>
+      <symbol id="learning-ruler" viewBox="0 0 48 48"><path d="m7 34 27-27 8 8-27 27zM25 16l5 5m-11 1 5 5m-11 1 5 5"/></symbol>
+      <symbol id="learning-bulb" viewBox="0 0 48 48"><path d="M15 20a9 9 0 1 1 18 0c0 5-4 7-5 12h-8c-1-5-5-7-5-12zm6 17h6m-5 4h4"/></symbol>
+      <symbol id="learning-search" viewBox="0 0 48 48"><circle cx="21" cy="21" r="13"/><path d="m31 31 11 11"/></symbol>
+      <symbol id="learning-cap" viewBox="0 0 48 48"><path d="m4 19 20-10 20 10-20 10zM12 23v11c8 6 16 6 24 0V23m8-4v13"/></symbol>
+      <symbol id="learning-globe" viewBox="0 0 48 48"><circle cx="24" cy="24" r="19"/><path d="M5 24h38M24 5c10 10 10 28 0 38M24 5c-10 10-10 28 0 38M8 14h32M8 34h32"/></symbol>
+      <symbol id="learning-chart" viewBox="0 0 48 48"><path d="M7 41V7m0 34h35M15 34V24h7v10m5 0V15h7v19m5 0V9h5v25"/></symbol>
+      <symbol id="learning-progress" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><path d="M24 6a18 18 0 0 1 17 24"/></symbol>
+      <symbol id="learning-medal" viewBox="0 0 48 48"><circle cx="24" cy="19" r="11"/><path d="m17 29-4 15 11-6 11 6-4-15m-7-18 2 5 5 1-4 4 1 5-4-3-4 3 1-5-4-4 5-1z"/></symbol>
+      <symbol id="learning-check" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><path d="m14 24 7 7 14-15"/></symbol>
+      <symbol id="learning-abc" viewBox="0 0 96 48"><text x="4" y="34">A B C</text></symbol>
+      <symbol id="learning-arabic" viewBox="0 0 96 48"><text x="48" y="34" text-anchor="middle" lang="ar" direction="rtl">أ ب ج</text></symbol>
+      <symbol id="learning-pi" viewBox="0 0 48 48"><text x="24" y="35" text-anchor="middle">π</text></symbol>
+      <symbol id="learning-square" viewBox="0 0 48 48"><text x="24" y="35" text-anchor="middle">x²</text></symbol>
+      <symbol id="learning-divide" viewBox="0 0 48 48"><text x="24" y="35" text-anchor="middle">÷</text></symbol>
+    </defs>
+  </svg>
+  <svg class="learning-pattern-art" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <g class="learning-glyph learning-glyph--blue learning-float-1" transform="translate(54 112) rotate(-4 24 24)"><use href="#learning-book" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--teal learning-float-2" transform="translate(270 44) rotate(4 24 24)"><use href="#learning-pencil" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--blue" transform="translate(515 112) rotate(-3 24 24)"><use href="#learning-atom" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--teal" transform="translate(78 690) rotate(4 24 24)"><use href="#learning-star" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--blue learning-float-3" transform="translate(335 770) rotate(-4 24 24)"><use href="#learning-ruler" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--teal" transform="translate(690 62) rotate(3 24 24)"><use href="#learning-bulb" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--blue" transform="translate(1010 120) rotate(-3 24 24)"><use href="#learning-search" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--teal learning-float-4" transform="translate(1280 280) rotate(4 24 24)"><use href="#learning-cap" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--blue" transform="translate(1190 720) rotate(-4 24 24)"><use href="#learning-globe" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--teal" transform="translate(930 790) rotate(3 24 24)"><use href="#learning-chart" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--blue" transform="translate(1370 560) rotate(-3 24 24)"><use href="#learning-progress" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--teal" transform="translate(600 820) rotate(4 24 24)"><use href="#learning-medal" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--blue learning-glyph--letter" transform="translate(160 420) rotate(-3 48 24)"><use href="#learning-abc" width="96" height="48"/></g>
+    <g class="learning-glyph learning-glyph--teal learning-glyph--letter" transform="translate(1120 440) rotate(3 48 24)"><use href="#learning-arabic" width="96" height="48"/></g>
+    <g class="learning-glyph learning-glyph--blue learning-glyph--letter" transform="translate(740 700) rotate(-4 24 24)"><use href="#learning-pi" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--teal learning-glyph--letter" transform="translate(470 510) rotate(4 24 24)"><use href="#learning-square" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--blue learning-glyph--letter" transform="translate(1320 80) rotate(-3 24 24)"><use href="#learning-divide" width="48" height="48"/></g>
+  </svg>
+</div>
+
+<style>
+  .learning-pattern {
+    --learning-blue: var(--brand-blue);
+    --learning-teal: var(--brand-teal);
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    contain: paint;
+    background:
+      radial-gradient(ellipse at 8% 12%, color-mix(in srgb, var(--brand-blue) 7%, transparent), transparent 42%),
+      radial-gradient(ellipse at 78% 86%, color-mix(in srgb, var(--brand-teal) 6%, transparent), transparent 40%),
+      linear-gradient(135deg, var(--brand-white), var(--color-surface));
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 48%, transparent 88%);
+    mask-image: linear-gradient(90deg, #000 0%, #000 48%, transparent 88%);
+  }
+  .learning-pattern--card { border-radius: inherit; }
+  .learning-pattern-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+  .learning-pattern-art { display: block; width: 100%; height: 100%; }
+  .learning-glyph {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.08;
+  }
+  .learning-glyph--blue { color: var(--learning-blue); }
+  .learning-glyph--teal { color: var(--learning-teal); }
+  .learning-glyph--letter { opacity: 0.07; }
+  .learning-glyph--letter text {
+    fill: currentColor;
+    stroke: none;
+    font-family: var(--font-body), "Noto Naskh Arabic", "Segoe UI", sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+  }
+  .learning-pattern--low .learning-glyph:nth-of-type(even) { display: none; }
+  .learning-float-1 { animation: learning-drift-one 16s ease-in-out infinite; }
+  .learning-float-2 { animation: learning-drift-two 18s ease-in-out infinite; }
+  .learning-float-3 { animation: learning-drift-one 20s ease-in-out infinite; }
+  .learning-float-4 { animation: learning-drift-two 14s ease-in-out infinite; }
+  @keyframes learning-drift-one { 50% { transform: translateY(-4px); } }
+  @keyframes learning-drift-two { 50% { transform: translateY(4px); } }
+  @media (max-width: 48rem) {
+    .learning-pattern-art .learning-glyph:nth-of-type(n + 7) { display: none; }
+    .learning-pattern { -webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 82%); mask-image: linear-gradient(90deg, #000 0%, transparent 82%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .learning-pattern .learning-glyph { animation: none; }
+  }
+</style>
