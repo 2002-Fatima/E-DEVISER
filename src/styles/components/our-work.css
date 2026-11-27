@@ -658,10 +658,12 @@
 }
 .our-work-story-index {
   margin-block-end: auto;
-  color: var(--brand-teal);
+  color: var(--text-on-light-link);
   font-family: var(--font-mono);
   font-size: .78rem;
 }
+.our-work-story-card:hover .our-work-story-index,
+.our-work-story-card:focus-visible .our-work-story-index { color: var(--text-on-dark-accent); }
 .our-work-story-type {
   margin-block: 2.5rem .75rem;
   color: var(--color-text-muted);
