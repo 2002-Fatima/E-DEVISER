@@ -432,7 +432,7 @@
 
 .footer-mission .eyebrow {
   margin: 0;
-  color: var(--brand-teal-light);
+  color: var(--text-on-dark-accent);
 }
 
 .footer-mission h2 {
