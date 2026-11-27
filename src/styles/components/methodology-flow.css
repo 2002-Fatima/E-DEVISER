@@ -449,7 +449,7 @@
 .methodology-transcript-signal {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--space-1);
   height: 2.5rem;
   opacity: 0.72;
 }
@@ -536,19 +536,19 @@
 @media (max-width: 40rem) {
   .methodology-cosmos {
     height: 12rem;
-    margin-inline: -1.25rem;
+    margin-inline: calc(var(--space-5) * -1);
   }
 
   .methodology-sequence {
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 0.15rem;
+    gap: var(--space-1);
     margin-block-start: 0;
   }
 
   .methodology-sequence-step {
     flex-direction: column;
     justify-content: flex-start;
-    gap: 0.2rem;
+    gap: var(--space-1);
     text-align: center;
   }
 

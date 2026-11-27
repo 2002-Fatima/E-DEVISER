@@ -1,5 +1,5 @@
 .design-section {
-  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  padding-block: clamp(var(--space-10), 5vw, var(--space-18));
 }
 
 .design-section + .design-section {
@@ -13,7 +13,7 @@
 }
 
 .design-review-intro {
-  padding-block: clamp(2.5rem, 6vw, 5rem);
+  padding-block: clamp(var(--space-10), 6vw, var(--space-20));
   border-block-end: var(--border-width) solid var(--color-border-inverse);
 }
 

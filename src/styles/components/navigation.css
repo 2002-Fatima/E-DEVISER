@@ -64,7 +64,7 @@
 .nav-list {
   display: flex;
   align-items: center;
-  gap: clamp(0.1rem, 0.6vw, var(--space-2));
+  gap: clamp(var(--space-1), 0.6vw, var(--space-2));
   list-style: none;
 }
 
@@ -74,7 +74,7 @@
   display: inline-flex;
   min-height: 2.625rem;
   align-items: center;
-  padding: var(--space-2) clamp(0.55rem, 0.85vw, var(--space-3));
+  padding: var(--space-2) clamp(var(--space-2), 0.85vw, var(--space-3));
   border-radius: var(--radius-sm);
   color: var(--color-text-inverse-muted);
   font-size: var(--text-sm);
@@ -244,7 +244,7 @@
   display: block;
   width: 1.125rem;
   height: 1.5px;
-  margin: 0.28rem auto;
+  margin: var(--space-1) auto;
   border-radius: var(--radius-pill);
   background: var(--color-white);
   transition:
@@ -615,13 +615,13 @@ body:has(.home-hero) .header-inner {
   z-index: 1;
   width: min(var(--container-wide), calc(100% - (var(--gutter) * 2)));
   margin-inline: auto;
-  padding-block: .9rem;
+  padding-block: var(--space-4);
 }
 .breadcrumbs ol {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: .45rem;
+  gap: var(--space-2);
 }
 .breadcrumbs li {
   display: inline-flex;
@@ -635,7 +635,7 @@ body:has(.home-hero) .header-inner {
   display: inline-block;
   width: .32rem;
   height: .32rem;
-  margin-inline: .1rem .55rem;
+  margin-inline: var(--space-1) var(--space-2);
   border-block-start: 1px solid currentColor;
   border-inline-end: 1px solid currentColor;
   color: var(--brand-teal);
@@ -646,7 +646,7 @@ body:has(.home-hero) .header-inner {
   display: inline-flex;
   align-items: center;
   min-height: 1.85rem;
-  padding-inline: .15rem;
+  padding-inline: var(--space-1);
   border-radius: var(--radius-sm);
   color: var(--color-text-muted);
   font-weight: var(--weight-medium);
@@ -661,7 +661,7 @@ body:has(.home-hero) .header-inner {
   display: inline-flex;
   align-items: center;
   min-height: 1.85rem;
-  padding: .2rem .7rem;
+  padding: var(--space-1) var(--space-3);
   border: 1px solid color-mix(in srgb, var(--brand-blue) 18%, transparent);
   border-radius: var(--radius-pill);
   background: color-mix(in srgb, var(--brand-blue) 7%, transparent);
@@ -669,8 +669,8 @@ body:has(.home-hero) .header-inner {
   font-weight: var(--weight-semibold);
 }
 @media (max-width: 40rem) {
-  .breadcrumbs { padding-block: .65rem; }
-  .breadcrumbs ol { gap: .25rem; }
+  .breadcrumbs { padding-block: var(--space-3); }
+  .breadcrumbs ol { gap: var(--space-1); }
   .breadcrumbs li { font-size: var(--text-micro); }
-  .breadcrumbs li:last-child span { min-height: 1.7rem; padding-inline: .6rem; }
+  .breadcrumbs li:last-child span { min-height: 1.7rem; padding-inline: var(--space-2); }
 }
