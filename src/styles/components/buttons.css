@@ -65,7 +65,7 @@
 }
 
 .btn-secondary {
-  border-color: rgba(90, 185, 180, 0.3);
+  border-color: color-mix(in srgb, var(--brand-teal) 30%, transparent);
   background: var(--color-surface-night-raised);
   color: var(--color-white);
 }
@@ -79,7 +79,7 @@
 .btn-secondary:hover:not(:disabled):not([aria-disabled="true"]) {
   border-color: var(--brand-teal);
   background: var(--color-surface-night-hover);
-  box-shadow: inset 0 0 0 1px rgba(90, 185, 180, 0.14);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brand-teal) 14%, transparent);
 }
 
 .btn-dark:hover:not(:disabled):not([aria-disabled="true"]) {
@@ -99,7 +99,7 @@
 
 .btn-outline:hover:not(:disabled):not([aria-disabled="true"]) {
   border-color: var(--color-primary);
-  background: rgba(3, 130, 189, 0.06);
+  background: color-mix(in srgb, var(--brand-blue) 6%, transparent);
 }
 
 .btn-ghost,
@@ -110,7 +110,7 @@
 
 .btn-ghost:hover:not(:disabled):not([aria-disabled="true"]),
 .btn-tertiary:hover:not(:disabled):not([aria-disabled="true"]) {
-  background: rgba(3, 130, 189, 0.09);
+  background: color-mix(in srgb, var(--brand-blue) 9%, transparent);
 }
 
 .btn-light,
@@ -140,14 +140,14 @@
 }
 
 .button-context-dark .btn-secondary {
-  border-color: rgba(90, 185, 180, 0.3);
+  border-color: color-mix(in srgb, var(--brand-teal) 30%, transparent);
   background: var(--color-surface-night-raised);
   color: var(--color-white);
 }
 
 .button-context-dark .btn-outline:hover:not(:disabled):not([aria-disabled="true"]) {
   border-color: var(--color-white);
-  background: rgba(255, 255, 255, 0.08);
+  background: color-mix(in srgb, var(--brand-white) 8%, transparent);
 }
 
 .button-context-dark .btn:focus-visible {
@@ -161,7 +161,7 @@
 
 .button-context-dark .btn-ghost:hover:not(:disabled):not([aria-disabled="true"]),
 .button-context-dark .btn-tertiary:hover:not(:disabled):not([aria-disabled="true"]) {
-  background: rgba(255, 255, 255, 0.08);
+  background: color-mix(in srgb, var(--brand-white) 8%, transparent);
 }
 
 .btn-sm {
