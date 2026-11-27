@@ -103,6 +103,12 @@
       </article>
     </div>
 
+    <div class="wwb-method-controls">
+      <button class="wwb-method-toggle" type="button" data-wwb-method-toggle aria-pressed="false">
+        <span aria-hidden="true">Ⅱ</span> <span data-wwb-method-toggle-label>Pause</span>
+      </button>
+    </div>
+
     <div class="wwb-method-principles">
       <p>
         We don’t start by asking, <em>“What can this technology do?”</em><br />
@@ -125,6 +131,8 @@
     const section = track.closest<HTMLElement>('.wwb-method');
     const stages = Array.from(track.querySelectorAll<HTMLElement>('[data-wwb-method-step]'));
     const controls = Array.from(track.querySelectorAll<HTMLButtonElement>('[data-wwb-method-select]'));
+    const toggle = section?.querySelector<HTMLButtonElement>('[data-wwb-method-toggle]');
+    const toggleLabel = section?.querySelector<HTMLElement>('[data-wwb-method-toggle-label]');
     const rail = track.querySelector<HTMLElement>('.wwb-method-rail span');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const abort = new AbortController();
@@ -149,12 +157,20 @@
     };
     const schedule = () => {
       stop();
+      const manuallyPaused = paused || reducedMotion.matches;
+      if (toggle) {
+        toggle.setAttribute('aria-pressed', String(manuallyPaused));
+        toggle.setAttribute('aria-label', manuallyPaused ? 'Resume automatic progression' : 'Pause automatic progression');
+        if (toggleLabel) toggleLabel.textContent = manuallyPaused ? 'Resume' : 'Pause';
+        toggle.hidden = reducedMotion.matches;
+      }
       if (disposed || paused || hovered || focused || !visible || document.hidden || reducedMotion.matches) return;
       timer = window.setTimeout(() => {
         update((active + 1) % stages.length);
         schedule();
       }, interval);
     };
+    toggle?.addEventListener('click', () => { paused = !paused; schedule(); }, { signal: abort.signal });
     controls.forEach((control, index) => control.addEventListener('click', () => {
       paused = true;
       update(index);
