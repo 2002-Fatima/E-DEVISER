@@ -644,6 +644,7 @@
   transform: scaleX(var(--methodology-progress-factor, 0));
   transform-origin: left center;
   box-shadow: 0 0 14px color-mix(in srgb, var(--brand-teal) 28%, transparent);
+  transition: transform 4.8s linear;
 }
 
 .methodology-sequence-step {
