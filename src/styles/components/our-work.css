@@ -44,7 +44,7 @@
   height: auto;
   margin-inline-start: -7%;
   overflow: visible;
-  filter: drop-shadow(0 0 1.6rem rgba(36,181,190,.14));
+  filter: drop-shadow(0 0 1.6rem color-mix(in srgb, var(--brand-teal) 14%, transparent));
 }
 .our-work-signature .work-art-grid { opacity: .55; mask-image: radial-gradient(ellipse at 62% 50%, #000 8%, transparent 82%); }
 .our-work-signature .work-art-idea { transform-origin: 145px 136px; animation: work-idea-drift 8s ease-in-out infinite; }
@@ -64,17 +64,17 @@
 .our-work-signature .work-art-sparkles { animation: work-sparkle-breathe 4s ease-in-out infinite alternate; }
 .our-work-signature .work-art-orbit { transform-box: fill-box; transform-origin: center; animation: work-orbit-turn 22s linear infinite; }
 .our-work-signature .work-art-label {
-  fill: rgba(194,248,240,.76);
+  fill: color-mix(in srgb, var(--brand-teal-light) 76%, transparent);
   font-family: var(--font-mono), "SFMono-Regular", Consolas, monospace;
   font-size: 7.5px;
   font-weight: 500;
   letter-spacing: 2px;
   paint-order: stroke;
-  stroke: rgba(7,24,37,.48);
+  stroke: color-mix(in srgb, var(--brand-ink) 48%, transparent);
   stroke-width: 2px;
   stroke-linejoin: round;
 }
-.our-work-signature .work-art-label--brand { fill: rgba(199,255,242,.9); font-size: 8px; font-weight: 600; letter-spacing: 2.4px; }
+.our-work-signature .work-art-label--brand { fill: color-mix(in srgb, var(--brand-teal-light) 90%, transparent); font-size: 8px; font-weight: 600; letter-spacing: 2.4px; }
 
 @keyframes work-idea-drift {
   0%,100% { transform: translate3d(0,0,0) rotate(0); opacity: .76; }
@@ -298,9 +298,9 @@
   align-items: end;
   gap: clamp(2rem, 5vw, 5rem);
   padding-block-end: clamp(1.4rem, 2.5vw, 2rem);
-  border-block-end: 1px solid rgba(29,53,87,.13);
+  border-block-end: 1px solid color-mix(in srgb, var(--brand-navy) 13%, transparent);
 }
-.our-work-section-heading--inverse { border-color: rgba(255,255,255,.16); }
+.our-work-section-heading--inverse { border-color: color-mix(in srgb, var(--color-white) 16%, transparent); }
 .our-work-section-heading .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -334,10 +334,10 @@
   min-height: 0;
   overflow: hidden;
   padding: 0;
-  border: 1px solid rgba(29,53,87,.13);
+  border: 1px solid color-mix(in srgb, var(--brand-navy) 13%, transparent);
   border-radius: var(--radius-lg);
-  background: #0C1E2D;
-  box-shadow: 0 18px 42px rgba(9,18,29,.1);
+  background: var(--color-surface-night-raised);
+  box-shadow: 0 18px 42px color-mix(in srgb, var(--brand-ink) 10%, transparent);
 }
 .our-work-image-card img {
   display: block;
@@ -353,7 +353,7 @@
   display: grid;
   place-items: center;
   padding: clamp(.75rem, 1.6vw, 1.35rem);
-  background: #F7FAFC;
+  background: var(--color-surface);
   box-shadow: 0 16px 38px rgba(9,18,29,.08);
 }
 .our-work-image-card--document img {
@@ -413,10 +413,10 @@
   grid-template-columns: minmax(16rem, .72fr) minmax(0, 1.28fr);
   align-items: stretch;
   overflow: hidden;
-  border: 1px solid rgba(29,53,87,.12);
+  border: 1px solid color-mix(in srgb, var(--brand-navy) 12%, transparent);
   border-radius: var(--radius-lg);
-  background: #fff;
-  box-shadow: 0 22px 56px rgba(10,28,46,.08);
+  background: var(--color-white);
+  box-shadow: 0 22px 56px color-mix(in srgb, var(--brand-ink) 8%, transparent);
 }
 .our-work-forum-copy {
   align-self: center;
@@ -434,7 +434,7 @@
   margin: 0;
   padding: clamp(.75rem, 1.5vw, 1.25rem);
   border-radius: 0;
-  background: #F4F7F9;
+  background: var(--color-surface-subtle);
 }
 .our-work-forum-image img {
   display: block;
@@ -478,17 +478,17 @@
   grid-template-columns: repeat(2, minmax(0,1fr));
   gap: clamp(1rem, 2vw, 1.75rem);
   padding-block-start: clamp(1.5rem, 3vw, 2.5rem);
-  border-block-start: 1px solid rgba(255,255,255,.16);
+  border-block-start: 1px solid color-mix(in srgb, var(--color-white) 16%, transparent);
 }
 .our-work-video-card { min-width: 0; }
 .our-work-video-card video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border: 1px solid rgba(255,255,255,.16);
+  border: 1px solid color-mix(in srgb, var(--color-white) 16%, transparent);
   border-radius: var(--radius-lg);
-  background: #071522;
-  box-shadow: 0 18px 42px rgba(0,0,0,.18);
+  background: var(--brand-ink);
+  box-shadow: 0 18px 42px color-mix(in srgb, var(--brand-ink) 18%, transparent);
 }
 .our-work-video-card figcaption {
   margin-block-start: .8rem;
@@ -607,8 +607,8 @@
   justify-content: space-between;
   gap: 1rem;
   padding: clamp(.9rem, 1.6vw, 1.35rem);
-  color: #fff;
-  background: linear-gradient(180deg, transparent 0%, rgba(4,15,25,.78) 100%);
+  color: var(--color-white);
+  background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--brand-ink) 78%, transparent) 100%);
   pointer-events: none;
 }
 .our-work-image-caption span {
@@ -619,7 +619,7 @@
 }
 .our-work-image-caption small {
   flex: 0 0 auto;
-  color: rgba(255,255,255,.72);
+  color: var(--color-text-inverse-muted);
   font-size: .68rem;
   letter-spacing: .11em;
   text-transform: uppercase;
@@ -627,17 +627,17 @@
 .our-work-partnership-image .our-work-image-caption,
 .our-work-forum-gallery .our-work-image-caption { min-height: 42%; }
 .our-work-forum-gallery .our-work-image-card--document .our-work-image-caption {
-  color: #fff;
+  color: var(--color-white);
 }
-.our-work-stories-section { background: #F5F8FA; }
+.our-work-stories-section { background: var(--color-surface); }
 .our-work-story-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0,1fr));
   gap: 1px;
   overflow: hidden;
-  border: 1px solid rgba(29,53,87,.13);
+  border: 1px solid color-mix(in srgb, var(--brand-navy) 13%, transparent);
   border-radius: var(--radius-lg);
-  background: rgba(29,53,87,.13);
+  background: color-mix(in srgb, var(--brand-navy) 13%, transparent);
 }
 .our-work-story-card {
   position: relative;
@@ -647,14 +647,14 @@
   align-items: flex-start;
   padding: clamp(1.5rem, 3vw, 2.6rem);
   color: var(--color-navy);
-  background: #fff;
+  background: var(--color-white);
   text-decoration: none;
   transition: background var(--transition-interactive), color var(--transition-interactive);
 }
 .our-work-story-card:hover,
 .our-work-story-card:focus-visible {
-  color: #fff;
-  background: #102B3D;
+  color: var(--color-white);
+  background: var(--color-surface-night-hover);
 }
 .our-work-story-index {
   margin-block-end: auto;
@@ -670,7 +670,7 @@
   letter-spacing: .14em;
 }
 .our-work-story-card:hover .our-work-story-type,
-.our-work-story-card:focus-visible .our-work-story-type { color: #91DED4; }
+.our-work-story-card:focus-visible .our-work-story-type { color: var(--brand-teal-light); }
 .our-work-story-card strong {
   max-width: 17ch;
   font-size: clamp(1.35rem, 2vw, 1.9rem);
@@ -684,14 +684,14 @@
   justify-content: space-between;
   margin-block-start: 2rem;
   padding-block-start: 1rem;
-  border-block-start: 1px solid rgba(29,53,87,.14);
+  border-block-start: 1px solid color-mix(in srgb, var(--brand-navy) 14%, transparent);
   color: var(--color-text-muted);
   font-size: .82rem;
 }
 .our-work-story-card:hover .our-work-story-link,
 .our-work-story-card:focus-visible .our-work-story-link {
-  border-color: rgba(255,255,255,.2);
-  color: #fff;
+  border-color: color-mix(in srgb, var(--color-white) 20%, transparent);
+  color: var(--color-white);
 }
 .our-work-recognition-grid {
   display: grid;
@@ -703,9 +703,9 @@
   min-width: 0;
   margin: 0;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.14);
+  border: 1px solid var(--color-border-inverse);
   border-radius: var(--radius-lg);
-  background: rgba(255,255,255,.055);
+  background: color-mix(in srgb, var(--color-white) 5.5%, transparent);
 }
 .our-work-recognition-media {
   display: grid;
@@ -713,7 +713,7 @@
   aspect-ratio: 1.35 / 1;
   place-items: center;
   padding: clamp(.8rem, 1.8vw, 1.4rem);
-  background: #F4F7F9;
+  background: var(--color-surface-subtle);
 }
 .our-work-recognition-media img {
   display: block;
@@ -727,7 +727,7 @@
   flex-direction: column;
   gap: .35rem;
   padding: 1.15rem 1.25rem 1.35rem;
-  color: #fff;
+  color: var(--color-white);
 }
 .our-work-recognition-item figcaption span { font-weight: 600; }
 .our-work-recognition-item figcaption small {
@@ -737,7 +737,7 @@
   text-transform: uppercase;
 }
 .our-work-archive-list {
-  border-block-start: 1px solid rgba(29,53,87,.18);
+  border-block-start: 1px solid color-mix(in srgb, var(--brand-navy) 18%, transparent);
 }
 .our-work-archive-row {
   display: grid;
@@ -745,7 +745,7 @@
   align-items: center;
   gap: 1.25rem;
   padding: 1.35rem .25rem;
-  border-block-end: 1px solid rgba(29,53,87,.15);
+  border-block-end: 1px solid color-mix(in srgb, var(--brand-navy) 15%, transparent);
   color: var(--color-navy);
   text-decoration: none;
   transition: padding var(--transition-interactive), color var(--transition-interactive);
@@ -784,9 +784,9 @@
   right: 3%;
   width: min(34vw, 27rem);
   aspect-ratio: 1;
-  border: 1px solid rgba(91,215,202,.18);
+  border: 1px solid color-mix(in srgb, var(--brand-teal) 18%, transparent);
   border-radius: 50%;
-  box-shadow: 0 0 0 2.5rem rgba(91,215,202,.025), 0 0 0 5rem rgba(91,215,202,.02);
+  box-shadow: 0 0 0 2.5rem color-mix(in srgb, var(--brand-teal) 2.5%, transparent), 0 0 0 5rem color-mix(in srgb, var(--brand-teal) 2%, transparent);
   content: "";
   transform: translateY(-50%);
   pointer-events: none;
@@ -796,7 +796,7 @@
   z-index: 1;
   max-width: 13ch;
   margin-block: 1.1rem;
-  color: #fff;
+  color: var(--color-white);
   font-size: clamp(2.8rem, 6vw, 5.7rem);
   line-height: .98;
   letter-spacing: -.065em;
@@ -817,11 +817,11 @@
   margin-block-start: 1.8rem;
   padding-block-end: .65rem;
   border-block-end: 1px solid var(--brand-teal);
-  color: #fff;
+  color: var(--color-white);
   font-weight: 600;
   text-decoration: none;
 }
-.our-work-closing-link span { color: #83E2D3; transition: transform var(--transition-interactive); }
+.our-work-closing-link span { color: var(--brand-teal-light); transition: transform var(--transition-interactive); }
 .our-work-closing-link:hover span { transform: translate(3px,-3px); }
 
 @media (max-width: 48rem) {
@@ -1153,7 +1153,7 @@
 .our-work-closing-section {
   position: relative;
   overflow: hidden;
-  border-block-start: 1px solid rgba(205, 252, 244, .14);
+  border-block-start: 1px solid color-mix(in srgb, var(--brand-teal-light) 14%, transparent);
 }
 .our-work-closing {
   display: grid;
@@ -1176,23 +1176,23 @@
 .our-work-closing-orbit {
   position: absolute;
   display: block;
-  border: 1px solid rgba(143, 233, 220, .3);
+  border: 1px solid color-mix(in srgb, var(--brand-teal-light) 30%, transparent);
   border-radius: 50%;
   transform: rotate(-28deg);
 }
 .our-work-closing-orbit--outer {
   inset: 5%;
-  border-color: rgba(143, 233, 220, .2);
+  border-color: color-mix(in srgb, var(--brand-teal-light) 20%, transparent);
   transform: rotate(-28deg) scaleY(.76);
 }
 .our-work-closing-orbit--middle {
   inset: 17%;
-  border-color: rgba(143, 233, 220, .36);
+  border-color: color-mix(in srgb, var(--brand-teal-light) 36%, transparent);
   transform: rotate(38deg) scaleY(.82);
 }
 .our-work-closing-orbit--inner {
   inset: 29%;
-  border-color: rgba(143, 233, 220, .48);
+  border-color: color-mix(in srgb, var(--brand-teal-light) 48%, transparent);
   transform: rotate(-52deg) scaleY(.9);
 }
 .our-work-closing-core {
@@ -1200,16 +1200,16 @@
   z-index: 1;
   width: 22%;
   aspect-ratio: 1;
-  border: 1px solid rgba(205, 252, 244, .78);
+  border: 1px solid color-mix(in srgb, var(--brand-teal-light) 78%, transparent);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(205,252,244,.92) 0%, rgba(90,185,180,.48) 28%, rgba(3,130,189,.12) 70%, transparent 100%);
-  box-shadow: 0 0 2.5rem rgba(90,185,180,.24), 0 0 6rem rgba(3,130,189,.16);
+  background: radial-gradient(circle, color-mix(in srgb, var(--brand-teal-light) 92%, transparent) 0%, color-mix(in srgb, var(--brand-teal) 48%, transparent) 28%, color-mix(in srgb, var(--brand-blue) 12%, transparent) 70%, transparent 100%);
+  box-shadow: 0 0 2.5rem color-mix(in srgb, var(--brand-teal) 24%, transparent), 0 0 6rem color-mix(in srgb, var(--brand-blue) 16%, transparent);
 }
 .our-work-closing-axis {
   position: absolute;
   width: 72%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(205,252,244,.68), transparent);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--brand-teal-light) 68%, transparent), transparent);
   transform: rotate(-35deg);
 }
 .our-work-closing-copy {
@@ -1264,7 +1264,7 @@
    a collection of unrelated rounded cards.
 ------------------------------------------------------------------- */
 .our-work-bordered-grid {
-  --work-grid-rule: rgba(29, 53, 87, .18);
+  --work-grid-rule: color-mix(in srgb, var(--brand-navy) 18%, transparent);
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: stretch;
@@ -1382,12 +1382,12 @@
 .background-atmosphere .our-work-bordered-grid,
 .background-dark .our-work-bordered-grid,
 .background-luminous .our-work-bordered-grid {
-  --work-grid-rule: rgba(220, 248, 246, .18);
+  --work-grid-rule: color-mix(in srgb, var(--brand-teal-light) 18%, transparent);
 }
 .background-atmosphere .our-work-bordered-grid .our-work-image-card,
 .background-dark .our-work-bordered-grid .our-work-image-card,
 .background-luminous .our-work-bordered-grid .our-work-image-card {
-  background: rgba(7, 25, 39, .88);
+  background: color-mix(in srgb, var(--brand-ink) 88%, transparent);
 }
 .background-atmosphere .our-work-bordered-grid .our-work-image-caption,
 .background-dark .our-work-bordered-grid .our-work-image-caption,
@@ -1456,16 +1456,16 @@
   width: 6px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: #baf8ed;
-  box-shadow: 0 0 12px 2px rgba(117, 231, 213, .58);
+  background: var(--brand-teal-light);
+  box-shadow: 0 0 12px 2px color-mix(in srgb, var(--brand-teal) 58%, transparent);
   content: "";
 }
 .our-work-closing-orbit--middle::after {
   top: 12%;
   right: 15%;
   width: 5px;
-  background: #76d8e4;
-  box-shadow: 0 0 11px 2px rgba(92, 198, 222, .5);
+  background: var(--brand-teal);
+  box-shadow: 0 0 11px 2px color-mix(in srgb, var(--brand-teal) 50%, transparent);
 }
 .our-work-closing-orbit--inner::after {
   top: 50%;
@@ -1473,8 +1473,8 @@
   bottom: auto;
   left: -2px;
   width: 4px;
-  background: #e1fff7;
-  box-shadow: 0 0 9px 2px rgba(177, 255, 237, .55);
+  background: var(--brand-teal-light);
+  box-shadow: 0 0 9px 2px color-mix(in srgb, var(--brand-teal-light) 55%, transparent);
 }
 .our-work-closing-core {
   animation: work-core-breathe 5.5s ease-in-out infinite;
