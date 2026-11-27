@@ -2304,7 +2304,6 @@
     padding: var(--space-2) var(--space-3);
   }
 
-  .cuevo-stage-note strong { font-size: var(--text-micro); }
   .cuevo-foundations > div { padding: var(--space-3); }
 }
 
@@ -2376,8 +2375,6 @@
     padding: var(--space-2) var(--space-2);
   }
 
-  .cuevo-stage-note span { font-size: var(--text-micro); }
-  .cuevo-stage-note strong { font-size: var(--text-micro); }
 
   .cuevo-foundations {
     grid-template-columns: 1fr;
