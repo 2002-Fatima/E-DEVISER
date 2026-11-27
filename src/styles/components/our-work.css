@@ -35,7 +35,7 @@
   overflow: visible;
   background:
     radial-gradient(ellipse at 76% 52%, rgba(3,130,189,.19), transparent 44%),
-    radial-gradient(ellipse at 35% 52%, rgba(9,185,156,.12), transparent 48%);
+    radial-gradient(ellipse at 35% 52%, rgba(90,185,180,.12), transparent 48%);
 }
 .our-work-signature-art {
   display: block;
