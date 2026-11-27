@@ -249,7 +249,7 @@ import Button from '../ui/Button.astro';
     left: 69%;
     color: color-mix(in srgb, var(--brand-teal-light) 12%, transparent);
     font-family: var(--font-display);
-    font-size: clamp(8rem, 19vw, 17rem);
+    font-size: var(--text-artwork-display);
     font-weight: var(--weight-bold);
     letter-spacing: -.12em;
     line-height: 1;
@@ -272,7 +272,7 @@ import Button from '../ui/Button.astro';
     gap: 1rem;
     color: color-mix(in srgb, var(--brand-white) 92%, transparent);
     font-family: var(--font-mono);
-    font-size: .62rem;
+    font-size: var(--text-micro);
     letter-spacing: .13em;
     line-height: 1.5;
     text-shadow: 0 1px 12px color-mix(in srgb, var(--brand-ink) 35%, transparent);
@@ -280,7 +280,7 @@ import Button from '../ui/Button.astro';
 
   .home-work-cover-masthead {
     font-family: var(--font-display);
-    font-size: clamp(1.35rem, 2.5vw, 2rem);
+    font-size: var(--text-xl);
     font-weight: var(--weight-bold);
     letter-spacing: -.075em;
   }
@@ -299,7 +299,7 @@ import Button from '../ui/Button.astro';
     gap: .7rem;
     color: color-mix(in srgb, var(--brand-white) 92%, transparent);
     font-family: var(--font-mono);
-    font-size: .58rem;
+    font-size: var(--text-micro);
     letter-spacing: .15em;
     text-shadow: 0 1px 12px color-mix(in srgb, var(--brand-ink) 50%, transparent);
   }
@@ -322,7 +322,7 @@ import Button from '../ui/Button.astro';
     margin-block-end: .8rem;
     color: var(--brand-teal-light);
     font-family: var(--font-mono);
-    font-size: .7rem;
+    font-size: var(--text-micro);
     letter-spacing: .2em;
   }
 
@@ -330,7 +330,7 @@ import Button from '../ui/Button.astro';
     max-width: 11ch;
     color: var(--color-white);
     font-family: var(--font-display);
-    font-size: clamp(2.8rem, 5.3vw, 5.2rem);
+    font-size: var(--text-display);
     font-weight: var(--weight-semibold);
     letter-spacing: -.075em;
     line-height: .94;
@@ -356,7 +356,7 @@ import Button from '../ui/Button.astro';
     border-block-end: 1px solid color-mix(in srgb, var(--brand-teal-light) 72%, transparent);
     color: var(--color-white);
     font-family: var(--font-mono);
-    font-size: .68rem;
+    font-size: var(--text-micro);
     letter-spacing: .12em;
     text-decoration: none;
     transition: color var(--transition-interactive), gap var(--transition-interactive);
@@ -364,7 +364,7 @@ import Button from '../ui/Button.astro';
 
   .home-work-cover-link span:last-child {
     color: var(--brand-teal-light);
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .home-work-cover-link:hover {
@@ -393,7 +393,7 @@ import Button from '../ui/Button.astro';
     margin-block-start: .9rem;
     color: var(--color-white);
     font-family: var(--font-display);
-    font-size: clamp(2rem, 3.2vw, 3rem);
+    font-size: var(--text-h2);
     font-weight: var(--weight-semibold);
     letter-spacing: -.06em;
     line-height: 1.02;
@@ -440,7 +440,7 @@ import Button from '../ui/Button.astro';
     padding-block-start: .2rem;
     color: var(--brand-teal-light);
     font-family: var(--font-mono);
-    font-size: .68rem;
+    font-size: var(--text-micro);
     letter-spacing: .08em;
   }
 
@@ -453,20 +453,20 @@ import Button from '../ui/Button.astro';
   .home-work-index-copy strong {
     color: var(--color-white);
     font-family: var(--font-display);
-    font-size: clamp(.95rem, 1.25vw, 1.08rem);
+    font-size: var(--text-base);
     font-weight: var(--weight-semibold);
     line-height: 1.3;
   }
 
   .home-work-index-copy small {
     color: var(--color-text-inverse-subtle);
-    font-size: .76rem;
+    font-size: var(--text-sm);
     line-height: 1.45;
   }
 
   .home-work-index-arrow {
     color: var(--color-text-inverse-subtle);
-    font-size: 1rem;
+    font-size: var(--text-base);
     transition: color var(--transition-interactive), transform var(--transition-interactive);
   }
 
@@ -488,7 +488,7 @@ import Button from '../ui/Button.astro';
   .home-work-contents-foot > span {
     color: var(--color-text-inverse-subtle);
     font-family: var(--font-mono);
-    font-size: .6rem;
+    font-size: var(--text-micro);
     letter-spacing: .12em;
   }
 
@@ -504,7 +504,7 @@ import Button from '../ui/Button.astro';
     }
 
     .home-work-cover { min-height: 39rem; }
-    .home-work-cover-main h2 { font-size: clamp(2.65rem, 5vw, 4.25rem); }
+    .home-work-cover-main h2 { font-size: var(--text-h1); }
   }
 
   @media (max-width: 48rem) {
@@ -523,15 +523,15 @@ import Button from '../ui/Button.astro';
   @media (max-width: 36rem) {
     .home-work-cover { min-height: 36rem; padding: 1.15rem; }
     .home-work-cover-topline,
-    .home-work-cover-bottom { font-size: .54rem; }
-    .home-work-cover-masthead { font-size: 1.35rem; }
-    .home-work-cover-kicker { inset-inline: 1.15rem; gap: .5rem; font-size: .5rem; }
+    .home-work-cover-bottom { font-size: var(--text-micro); }
+    .home-work-cover-masthead { font-size: var(--text-xl); }
+    .home-work-cover-kicker { inset-inline: 1.15rem; gap: .5rem; font-size: var(--text-micro); }
     .home-work-cover-main { padding-block: 5.5rem 1.5rem; }
-    .home-work-cover-main h2 { font-size: clamp(2.65rem, 12vw, 3.6rem); }
-    .home-work-cover-deck { font-size: .82rem; }
-    .home-work-contents-heading h3 { font-size: 2.35rem; }
+    .home-work-cover-main h2 { font-size: var(--text-hero-mobile); }
+    .home-work-cover-deck { font-size: var(--text-sm); }
+    .home-work-contents-heading h3 { font-size: var(--text-2xl); }
     .home-work-index li a { grid-template-columns: 1.65rem minmax(0, 1fr) auto; gap: .6rem; }
-    .home-work-index-copy small { font-size: .72rem; }
+    .home-work-index-copy small { font-size: var(--text-micro); }
     .home-work-contents-foot { align-items: flex-start; flex-direction: column; }
   }
 
