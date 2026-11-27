@@ -33,16 +33,11 @@ const { variant = 'section', density = 'low', tone = 'light' } = Astro.props;
   <svg class="learning-pattern-art" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false">
     <g class="learning-glyph learning-glyph--blue learning-float-1" transform="translate(54 112) rotate(-4 24 24)"><use href="#learning-book" width="48" height="48"/></g>
     <g class="learning-glyph learning-glyph--teal learning-float-2" transform="translate(270 44) rotate(4 24 24)"><use href="#learning-pencil" width="48" height="48"/></g>
+    <g class="learning-glyph learning-glyph--blue" transform="translate(1190 720) rotate(-4 24 24)"><use href="#learning-globe" width="48" height="48"/></g>
     <g class="learning-glyph learning-glyph--blue" transform="translate(515 112) rotate(-3 24 24)"><use href="#learning-atom" width="48" height="48"/></g>
     <g class="learning-glyph learning-glyph--teal" transform="translate(78 690) rotate(4 24 24)"><use href="#learning-star" width="48" height="48"/></g>
     <g class="learning-glyph learning-glyph--blue learning-float-3" transform="translate(335 770) rotate(-4 24 24)"><use href="#learning-ruler" width="48" height="48"/></g>
     <g class="learning-glyph learning-glyph--teal" transform="translate(690 62) rotate(3 24 24)"><use href="#learning-bulb" width="48" height="48"/></g>
-    <g class="learning-glyph learning-glyph--blue" transform="translate(1010 120) rotate(-3 24 24)"><use href="#learning-search" width="48" height="48"/></g>
-    <g class="learning-glyph learning-glyph--teal learning-float-4" transform="translate(1280 280) rotate(4 24 24)"><use href="#learning-cap" width="48" height="48"/></g>
-    <g class="learning-glyph learning-glyph--blue" transform="translate(1190 720) rotate(-4 24 24)"><use href="#learning-globe" width="48" height="48"/></g>
-    <g class="learning-glyph learning-glyph--teal" transform="translate(930 790) rotate(3 24 24)"><use href="#learning-chart" width="48" height="48"/></g>
-    <g class="learning-glyph learning-glyph--blue" transform="translate(1370 560) rotate(-3 24 24)"><use href="#learning-progress" width="48" height="48"/></g>
-    <g class="learning-glyph learning-glyph--teal" transform="translate(600 820) rotate(4 24 24)"><use href="#learning-medal" width="48" height="48"/></g>
     <g class="learning-glyph learning-glyph--blue learning-glyph--letter" transform="translate(160 420) rotate(-3 48 24)"><use href="#learning-abc" width="96" height="48"/></g>
     <g class="learning-glyph learning-glyph--teal learning-glyph--letter" transform="translate(1120 440) rotate(3 48 24)"><use href="#learning-arabic" width="96" height="48"/></g>
     <g class="learning-glyph learning-glyph--blue learning-glyph--letter" transform="translate(740 700) rotate(-4 24 24)"><use href="#learning-pi" width="48" height="48"/></g>
@@ -65,8 +60,8 @@ const { variant = 'section', density = 'low', tone = 'light' } = Astro.props;
       radial-gradient(ellipse at 8% 12%, color-mix(in srgb, var(--brand-blue) 7%, transparent), transparent 42%),
       radial-gradient(ellipse at 78% 86%, color-mix(in srgb, var(--brand-teal) 6%, transparent), transparent 40%),
       linear-gradient(135deg, var(--brand-white), var(--color-surface));
-    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 48%, transparent 88%);
-    mask-image: linear-gradient(90deg, #000 0%, #000 48%, transparent 88%);
+    -webkit-mask-image: linear-gradient(90deg, var(--brand-navy) 0%, var(--brand-navy) 48%, transparent 88%);
+    mask-image: linear-gradient(90deg, var(--brand-navy) 0%, var(--brand-navy) 48%, transparent 88%);
   }
   .learning-pattern--card { border-radius: inherit; }
   .learning-pattern-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
