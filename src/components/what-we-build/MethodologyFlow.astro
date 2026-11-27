@@ -240,7 +240,6 @@ const flowSteps = methodologySteps;
 
     selectButtons.forEach((button, index) => {
       button.addEventListener('click', () => {
-        userPaused = true;
         render(index);
         scheduleNext();
       }, { signal: controller.signal });
