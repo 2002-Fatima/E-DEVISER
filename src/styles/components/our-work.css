@@ -778,7 +778,7 @@
 .our-work-closing::after {
   position: absolute;
   top: 50%;
-  right: 3%;
+  inset-inline-end: 3%;
   width: min(34vw, 27rem);
   aspect-ratio: 1;
   border: 1px solid color-mix(in srgb, var(--brand-teal) 18%, transparent);
@@ -830,7 +830,7 @@
   .our-work-archive-row { grid-template-columns: 3.5rem minmax(0,1fr) 1.25rem; gap: var(--space-3); }
   .our-work-archive-kind { display: none; }
   .our-work-closing { min-height: 25rem; }
-  .our-work-closing::after { right: -35%; width: 75vw; opacity: .7; }
+  .our-work-closing::after { inset-inline-end: -35%; width: 75vw; opacity: .7; }
 }
 @media (prefers-reduced-motion: reduce) {
   .our-work-story-card,
@@ -1459,7 +1459,7 @@
 .our-work-closing-orbit::after {
   position: absolute;
   top: 50%;
-  right: -3px;
+  inset-inline-end: -3px;
   width: 6px;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -1469,16 +1469,16 @@
 }
 .our-work-closing-orbit--middle::after {
   top: 12%;
-  right: 15%;
+  inset-inline-end: 15%;
   width: 5px;
   background: var(--brand-teal);
   box-shadow: 0 0 11px 2px color-mix(in srgb, var(--brand-teal) 50%, transparent);
 }
 .our-work-closing-orbit--inner::after {
   top: 50%;
-  right: auto;
+  inset-inline-end: auto;
   bottom: auto;
-  left: -2px;
+  inset-inline-start: -2px;
   width: 4px;
   background: var(--brand-teal-light);
   box-shadow: 0 0 9px 2px color-mix(in srgb, var(--brand-teal-light) 55%, transparent);
