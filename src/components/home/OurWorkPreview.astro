@@ -125,14 +125,14 @@ import Button from '../ui/Button.astro';
   }
 
   .home-work-content {
-    padding-block: clamp(4.5rem, 8vw, 7rem);
+    padding-block: clamp(var(--space-18), 8vw, var(--space-28));
   }
 
   .home-work-editorial {
     display: grid;
     grid-template-columns: minmax(0, 1.02fr) minmax(19rem, .78fr);
     align-items: stretch;
-    gap: clamp(1.5rem, 4vw, 4.5rem);
+    gap: clamp(var(--space-6), 4vw, var(--space-18));
     max-width: 76rem;
     margin-inline: auto;
   }
@@ -146,7 +146,7 @@ import Button from '../ui/Button.astro';
     justify-content: space-between;
     isolation: isolate;
     overflow: hidden;
-    padding: clamp(1.35rem, 3vw, 2.5rem);
+    padding: clamp(var(--space-5), 3vw, var(--space-10));
     border: 1px solid color-mix(in srgb, var(--brand-teal-light) 50%, transparent);
     background: var(--color-surface-night);
     box-shadow:
@@ -269,7 +269,7 @@ import Button from '../ui/Button.astro';
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: var(--space-4);
     color: color-mix(in srgb, var(--brand-white) 92%, transparent);
     font-family: var(--font-mono);
     font-size: var(--text-micro);
@@ -296,7 +296,7 @@ import Button from '../ui/Button.astro';
     inset-inline: clamp(1.35rem, 3vw, 2.5rem);
     display: flex;
     align-items: center;
-    gap: .7rem;
+    gap: var(--space-3);
     color: color-mix(in srgb, var(--brand-white) 92%, transparent);
     font-family: var(--font-mono);
     font-size: var(--text-micro);
@@ -314,12 +314,12 @@ import Button from '../ui/Button.astro';
   .home-work-cover-main {
     max-width: 36rem;
     margin-block-start: auto;
-    padding-block: 7rem 2.25rem;
+    padding-block: var(--space-28) var(--space-9);
     color: var(--color-white);
   }
 
   .home-work-cover-overline {
-    margin-block-end: .8rem;
+    margin-block-end: var(--space-3);
     color: var(--brand-teal-light);
     font-family: var(--font-mono);
     font-size: var(--text-micro);
@@ -340,7 +340,7 @@ import Button from '../ui/Button.astro';
 
   .home-work-cover-deck {
     max-width: 36ch;
-    margin-block-start: 1.2rem;
+    margin-block-start: var(--space-5);
     color: color-mix(in srgb, var(--brand-white) 84%, transparent);
     font-size: var(--text-sm);
     line-height: 1.75;
@@ -350,9 +350,9 @@ import Button from '../ui/Button.astro';
   .home-work-cover-link {
     display: inline-flex;
     align-items: center;
-    gap: 1rem;
-    margin-block-start: 1.5rem;
-    padding-block-end: .45rem;
+    gap: var(--space-4);
+    margin-block-start: var(--space-6);
+    padding-block-end: var(--space-2);
     border-block-end: 1px solid color-mix(in srgb, var(--brand-teal-light) 72%, transparent);
     color: var(--color-white);
     font-family: var(--font-mono);
@@ -368,7 +368,7 @@ import Button from '../ui/Button.astro';
   }
 
   .home-work-cover-link:hover {
-    gap: 1.35rem;
+    gap: var(--space-5);
     color: var(--brand-teal-light);
   }
 
@@ -377,11 +377,11 @@ import Button from '../ui/Button.astro';
     min-width: 0;
     flex-direction: column;
     justify-content: center;
-    padding-block: clamp(1rem, 2vw, 2rem);
+    padding-block: clamp(var(--space-4), 2vw, var(--space-8));
   }
 
   .home-work-contents-heading {
-    padding-block-end: 1.5rem;
+    padding-block-end: var(--space-6);
     border-block-end: 1px solid color-mix(in srgb, var(--brand-teal-light) 22%, transparent);
   }
 
@@ -390,7 +390,7 @@ import Button from '../ui/Button.astro';
   }
 
   .home-work-contents-heading h3 {
-    margin-block-start: .9rem;
+    margin-block-start: var(--space-4);
     color: var(--color-white);
     font-family: var(--font-display);
     font-size: var(--text-h2);
@@ -401,7 +401,7 @@ import Button from '../ui/Button.astro';
 
   .home-work-contents-heading > p:last-child {
     max-width: 39ch;
-    margin-block-start: .9rem;
+    margin-block-start: var(--space-4);
     color: var(--color-text-inverse-muted);
     font-size: var(--text-sm);
     line-height: 1.75;
@@ -422,22 +422,22 @@ import Button from '../ui/Button.astro';
     display: grid;
     grid-template-columns: 2rem minmax(0, 1fr) auto;
     align-items: center;
-    gap: .8rem;
+    gap: var(--space-3);
     min-height: 5rem;
-    padding-block: .8rem;
+    padding-block: var(--space-3);
     color: inherit;
     text-decoration: none;
     transition: background var(--transition-interactive), padding var(--transition-interactive);
   }
 
   .home-work-index li a:hover {
-    padding-inline: .55rem;
+    padding-inline: var(--space-2);
     background: color-mix(in srgb, var(--brand-teal) 5.5%, transparent);
   }
 
   .home-work-index-number {
     align-self: start;
-    padding-block-start: .2rem;
+    padding-block-start: var(--space-1);
     color: var(--brand-teal-light);
     font-family: var(--font-mono);
     font-size: var(--text-micro);
@@ -446,7 +446,7 @@ import Button from '../ui/Button.astro';
 
   .home-work-index-copy {
     display: grid;
-    gap: .28rem;
+    gap: var(--space-1);
     min-width: 0;
   }
 
@@ -480,9 +480,9 @@ import Button from '../ui/Button.astro';
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--space-4);
     margin-block-start: auto;
-    padding-block-start: 1.5rem;
+    padding-block-start: var(--space-6);
   }
 
   .home-work-contents-foot > span {
@@ -500,7 +500,7 @@ import Button from '../ui/Button.astro';
   @media (max-width: 64rem) {
     .home-work-editorial {
       grid-template-columns: minmax(0, 1fr) minmax(17rem, .82fr);
-      gap: 1.5rem;
+      gap: var(--space-6);
     }
 
     .home-work-cover { min-height: 39rem; }
@@ -508,29 +508,29 @@ import Button from '../ui/Button.astro';
   }
 
   @media (max-width: 48rem) {
-    .home-work-content { padding-block: 3.75rem; }
+    .home-work-content { padding-block: var(--space-14); }
     .home-work-editorial { grid-template-columns: 1fr; }
     .home-work-cover {
       min-height: min(42rem, 145vw);
       aspect-ratio: 4 / 5;
     }
-    .home-work-cover-main { padding-block: 6rem 1.75rem; }
+    .home-work-cover-main { padding-block: var(--space-24) var(--space-7); }
     .home-work-cover-kicker { top: 24%; }
-    .home-work-contents { padding-block: 1.5rem 0; }
-    .home-work-contents-foot { margin-block-start: 1.5rem; }
+    .home-work-contents { padding-block: var(--space-6) 0; }
+    .home-work-contents-foot { margin-block-start: var(--space-6); }
   }
 
   @media (max-width: 36rem) {
-    .home-work-cover { min-height: 36rem; padding: 1.15rem; }
+    .home-work-cover { min-height: 36rem; padding: var(--space-5); }
     .home-work-cover-topline,
     .home-work-cover-bottom { font-size: var(--text-micro); }
     .home-work-cover-masthead { font-size: var(--text-xl); }
-    .home-work-cover-kicker { inset-inline: 1.15rem; gap: .5rem; font-size: var(--text-micro); }
-    .home-work-cover-main { padding-block: 5.5rem 1.5rem; }
+    .home-work-cover-kicker { inset-inline: 1.15rem; gap: var(--space-2); font-size: var(--text-micro); }
+    .home-work-cover-main { padding-block: var(--space-22) var(--space-6); }
     .home-work-cover-main h2 { font-size: var(--text-hero-mobile); }
     .home-work-cover-deck { font-size: var(--text-sm); }
     .home-work-contents-heading h3 { font-size: var(--text-2xl); }
-    .home-work-index li a { grid-template-columns: 1.65rem minmax(0, 1fr) auto; gap: .6rem; }
+    .home-work-index li a { grid-template-columns: 1.65rem minmax(0, 1fr) auto; gap: var(--space-2); }
     .home-work-index-copy small { font-size: var(--text-micro); }
     .home-work-contents-foot { align-items: flex-start; flex-direction: column; }
   }
