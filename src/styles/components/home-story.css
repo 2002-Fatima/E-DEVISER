@@ -729,13 +729,13 @@
 
 .home-work-feature-core span:nth-child(2) {
   color: var(--brand-teal);
-  font-size: 0.8em;
+  font-size: var(--text-artwork-secondary);
   font-weight: var(--weight-regular);
 }
 
 .home-work-feature-core span:last-child {
   color: var(--brand-blue-light);
-  font-size: 0.48em;
+  font-size: var(--text-artwork-micro);
   letter-spacing: 0.2em;
 }
 
