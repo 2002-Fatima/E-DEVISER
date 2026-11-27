@@ -671,6 +671,6 @@ body:has(.home-hero) .header-inner {
 @media (max-width: 40rem) {
   .breadcrumbs { padding-block: .65rem; }
   .breadcrumbs ol { gap: .25rem; }
-  .breadcrumbs li { font-size: .72rem; }
+  .breadcrumbs li { font-size: var(--text-micro); }
   .breadcrumbs li:last-child span { min-height: 1.7rem; padding-inline: .6rem; }
 }
