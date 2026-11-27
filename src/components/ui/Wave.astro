@@ -12,20 +12,20 @@ const { direction = 'up', variant = 'light-to-blue', animated = true, class: cla
 const gradientPrefix = `wave-${Math.random().toString(36).slice(2, 10)}`;
 const palette = variant === 'blue-to-dark'
   ? [
-      { start: '#5AB9B4', end: '#1D3557', opacity: 0.26 },
-      { start: '#0382BD', end: '#09121D', opacity: 0.54 },
-      { start: '#1D3557', end: '#09121D', opacity: 0.94 },
+      { start: 'var(--brand-teal)', end: 'var(--brand-navy)', opacity: 0.26 },
+      { start: 'var(--brand-blue)', end: 'var(--brand-ink)', opacity: 0.54 },
+      { start: 'var(--brand-navy)', end: 'var(--brand-ink)', opacity: 0.94 },
     ]
   : variant === 'texture'
     ? [
-        { start: '#CDFCF4', end: '#5AB9B4', opacity: 0.45 },
-        { start: '#C0E2FD', end: '#0382BD', opacity: 0.34 },
-        { start: '#5AB9B4', end: '#1D3557', opacity: 0.24 },
+        { start: 'var(--brand-teal-light)', end: 'var(--brand-teal)', opacity: 0.45 },
+        { start: 'var(--brand-blue-light)', end: 'var(--brand-blue)', opacity: 0.34 },
+        { start: 'var(--brand-teal)', end: 'var(--brand-navy)', opacity: 0.24 },
       ]
     : [
-        { start: '#C0E2FD', end: '#5AB9B4', opacity: 0.38 },
-        { start: '#5AB9B4', end: '#0382BD', opacity: 0.56 },
-        { start: '#0382BD', end: '#0382BD', opacity: 1 },
+        { start: 'var(--brand-blue-light)', end: 'var(--brand-teal)', opacity: 0.38 },
+        { start: 'var(--brand-teal)', end: 'var(--brand-blue)', opacity: 0.56 },
+        { start: 'var(--brand-blue)', end: 'var(--brand-blue)', opacity: 1 },
       ];
 const paths = [
   'M0 112 C145 78 250 35 420 75 C585 114 690 169 875 128 C1058 88 1154 43 1305 67 C1365 77 1408 96 1440 108 V260 H0 Z',
