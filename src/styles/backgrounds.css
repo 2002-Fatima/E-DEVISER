@@ -47,7 +47,7 @@
 }
 
 .section-spacing-compact {
-  padding-block: clamp(2rem, 5vw, 4rem);
+  padding-block: clamp(var(--space-8), 5vw, var(--space-16));
 }
 
 .section-spacing-none {
