@@ -5,9 +5,10 @@ interface Props {
   tone?: Tone;
   dot?: boolean;
   label?: string;
+  class?: string;
 }
 
-const { tone = 'neutral', dot = false, label } = Astro.props;
+const { tone = 'neutral', dot = false, label, class: className = '' } = Astro.props;
 ---
 
 <span class:list={['badge', `badge-${tone}`]}>
