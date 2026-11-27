@@ -57,7 +57,7 @@
   --color-text: var(--brand-navy);
   --color-text-strong: #142A45;
   --color-text-muted: #596779;
-  --color-text-subtle: #718096;
+  --color-text-subtle: var(--color-text-muted);
   --color-text-inverse: var(--brand-white);
   --color-text-inverse-muted: rgba(255, 255, 255, 0.78);
   --color-text-inverse-subtle: rgba(255, 255, 255, 0.62);
