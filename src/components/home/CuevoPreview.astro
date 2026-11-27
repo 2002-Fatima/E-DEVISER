@@ -1,5 +1,6 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
+import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
 import { site } from '../../content/site';
 ---
@@ -29,7 +30,8 @@ import { site } from '../../content/site';
       </g>
     </svg>
   </div>
-  <section class="container container-wide home-cuevo-layout" aria-labelledby="home-cuevo-title">
+  <section aria-labelledby="home-cuevo-title">
+    <Container width="wide" class="home-cuevo-layout">
     <div class="home-cuevo-visual" aria-label="CUEVO student learning platform preview">
       <div class="cuevo-product-stage">
         <div class="cuevo-stage-grid" aria-hidden="true"></div>
@@ -119,5 +121,6 @@ import { site } from '../../content/site';
         <span>LEARNING, UNDERSTOOD BETTER.</span>
       </div>
     </div>
+    </Container>
   </section>
 </SectionWrapper>
