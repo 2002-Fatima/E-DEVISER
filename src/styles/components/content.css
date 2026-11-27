@@ -68,7 +68,7 @@
 .step-number {
   display: inline-block;
   margin-block-end: var(--space-3);
-  color: var(--color-primary);
+  color: var(--text-on-light-link);
   font-family: var(--font-mono);
   font-size: var(--text-xl);
 }
