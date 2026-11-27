@@ -2,28 +2,56 @@
 import SectionWrapper from '../ui/SectionWrapper.astro';
 import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
+import { founderVideo } from '../../content/site';
 ---
 
 <SectionWrapper background="light" class="home-founder-section">
   <section aria-labelledby="home-founder-title">
     <Container width="wide" class="home-founder-layout">
-    <div class="home-founder-copy">
-      <p class="eyebrow">FOUNDER INTRODUCTION</p>
-      <h2 id="home-founder-title">Why we&apos;re building E Deviser</h2>
-      <p>We believe the hardest problems deserve better intelligence.</p>
-      <Button href="/company/" label="Meet E Deviser" variant="outline" />
-    </div>
-
-    <figure class="home-founder-media">
-      <div class="home-founder-media-frame" aria-label="Founder introduction media">
-        <span class="home-founder-media-index" aria-hidden="true">E / D</span>
-        <div class="home-founder-media-orbit home-founder-media-orbit--one" aria-hidden="true"></div>
-        <div class="home-founder-media-orbit home-founder-media-orbit--two" aria-hidden="true"></div>
-        <div class="home-founder-media-status">
-          <span class="home-founder-monogram" aria-hidden="true">E<span>/</span>D</span>
-        </div>
+      <div class="home-founder-copy">
+        <p class="eyebrow">FOUNDER INTRODUCTION</p>
+        <h2 id="home-founder-title">Why we&apos;re building E Deviser</h2>
+        <blockquote class="home-founder-quote">
+          <p>We believe the hardest problems deserve <span>better intelligence.</span></p>
+        </blockquote>
+        <Button href="/company/" label="Meet E Deviser" variant="outline" />
       </div>
-    </figure>
+
+      <figure class="home-founder-media">
+        <div class="home-founder-media-frame">
+          <span class="home-founder-media-index" aria-hidden="true">E / D</span>
+          {founderVideo ? (
+            <div class="home-founder-video-wrap">
+              <video
+                class="home-founder-video"
+                controls
+                playsinline
+                preload="none"
+                poster={founderVideo.poster}
+                aria-label="Founder introduction video"
+              >
+                <source src={founderVideo.src} type="video/mp4" />
+                {founderVideo.captions && (
+                  <track kind="captions" src={founderVideo.captions} srcLang="en" label="English" default />
+                )}
+              </video>
+              {founderVideo.transcript && (
+                <a class="home-founder-transcript" href={founderVideo.transcript}>Read transcript</a>
+              )}
+            </div>
+          ) : (
+            <img
+              class="home-founder-photo"
+              src="/media/university-speaking.webp"
+              alt="A speaker presenting at an event"
+              width="960"
+              height="960"
+              loading="lazy"
+              decoding="async"
+            />
+          )}
+        </div>
+      </figure>
     </Container>
   </section>
 </SectionWrapper>
