@@ -285,13 +285,6 @@
   gap: var(--space-3);
   letter-spacing: .15em;
 }
-.our-work-section-heading .eyebrow::before {
-  width: 1.35rem;
-  height: 1px;
-  background: var(--brand-teal);
-  content: "";
-}
-.our-work-section-heading--inverse .eyebrow::before { background: var(--brand-teal-light); }
 .our-work-section-heading h2 {
   max-width: 16ch;
   font-size: var(--text-h1);
@@ -1107,11 +1100,6 @@
 
 
 /* Closing chapter: a luminous, branded finish with a visual anchor. */
-.our-work-section-heading .eyebrow::before {
-  display: none;
-  content: none;
-}
-
 .our-work-closing-section {
   position: relative;
   overflow: hidden;
@@ -1146,16 +1134,19 @@
   inset: 5%;
   border-color: color-mix(in srgb, var(--brand-teal-light) 20%, transparent);
   transform: rotate(-28deg) scaleY(.76);
+  animation: work-orbit-outer 34s linear infinite;
 }
 .our-work-closing-orbit--middle {
   inset: 17%;
   border-color: color-mix(in srgb, var(--brand-teal-light) 36%, transparent);
   transform: rotate(38deg) scaleY(.82);
+  animation: work-orbit-middle 25s linear infinite;
 }
 .our-work-closing-orbit--inner {
   inset: 29%;
   border-color: color-mix(in srgb, var(--brand-teal-light) 48%, transparent);
   transform: rotate(-52deg) scaleY(.9);
+  animation: work-orbit-inner 18s linear infinite;
 }
 .our-work-closing-core {
   position: relative;
@@ -1166,6 +1157,7 @@
   border-radius: 50%;
   background: radial-gradient(circle, color-mix(in srgb, var(--brand-teal-light) 92%, transparent) 0%, color-mix(in srgb, var(--brand-teal) 48%, transparent) 28%, color-mix(in srgb, var(--brand-blue) 12%, transparent) 70%, transparent 100%);
   box-shadow: 0 0 2.5rem color-mix(in srgb, var(--brand-teal) 24%, transparent), 0 0 6rem color-mix(in srgb, var(--brand-blue) 16%, transparent);
+  animation: work-core-breathe 5.5s ease-in-out infinite;
 }
 .our-work-closing-axis {
   position: absolute;
@@ -1173,6 +1165,7 @@
   height: 1px;
   background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--brand-teal-light) 68%, transparent), transparent);
   transform: rotate(-35deg);
+  animation: work-axis-glide 12s ease-in-out infinite alternate;
 }
 .our-work-closing-copy {
   position: relative;
@@ -1409,15 +1402,6 @@
 
 /* THE WORK CONTINUES — slow orbital motion, not a decorative spinner.
    Each ring has its own pace and direction to suggest a living system. */
-.our-work-closing-orbit--outer {
-  animation: work-orbit-outer 34s linear infinite;
-}
-.our-work-closing-orbit--middle {
-  animation: work-orbit-middle 25s linear infinite;
-}
-.our-work-closing-orbit--inner {
-  animation: work-orbit-inner 18s linear infinite;
-}
 .our-work-closing-orbit::after {
   position: absolute;
   top: 50%;
@@ -1445,13 +1429,6 @@
   background: var(--brand-teal-light);
   box-shadow: 0 0 9px 2px color-mix(in srgb, var(--brand-teal-light) 55%, transparent);
 }
-.our-work-closing-core {
-  animation: work-core-breathe 5.5s ease-in-out infinite;
-}
-.our-work-closing-axis {
-  animation: work-axis-glide 12s ease-in-out infinite alternate;
-}
-
 @keyframes work-orbit-outer {
   from { transform: rotate(-28deg) scaleY(.76); }
   to { transform: rotate(332deg) scaleY(.76); }
