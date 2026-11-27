@@ -2601,6 +2601,7 @@
   }
 }
 
+/* Accessibility override: ensure the user's reduced-motion preference wins over component motion. */
 @media (prefers-reduced-motion: reduce) {
 .what-we-build *, .what-we-build *:before,.what-we-build *:after {
     animation-duration: .01ms!important;
