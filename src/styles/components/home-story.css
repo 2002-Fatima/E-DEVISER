@@ -558,7 +558,7 @@
 }
 
 .home-cuevo-capabilities span {
-  color: var(--color-primary);
+  color: var(--text-on-light-link);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
 }
