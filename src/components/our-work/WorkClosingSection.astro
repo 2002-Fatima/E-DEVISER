@@ -1,9 +1,11 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
+import Container from '../ui/Container.astro';
 ---
 
 <SectionWrapper background="luminous" class="our-work-section our-work-closing-section">
-  <section class="container container-wide our-work-closing" aria-labelledby="work-closing-title">
+  <section aria-labelledby="work-closing-title">
+    <Container width="wide" class="our-work-closing">
     <div class="our-work-closing-visual" aria-hidden="true">
       <span class="our-work-closing-orbit our-work-closing-orbit--outer"></span>
       <span class="our-work-closing-orbit our-work-closing-orbit--middle"></span>
@@ -17,5 +19,6 @@ import SectionWrapper from '../ui/SectionWrapper.astro';
       <p>Bring us the question, the challenge, or the ambition. We’ll work with you to understand what it takes to move it forward.</p>
       <a class="our-work-closing-link" href="/company/careers-contact/">Start a conversation <span aria-hidden="true">↗</span></a>
     </div>
+    </Container>
   </section>
 </SectionWrapper>
