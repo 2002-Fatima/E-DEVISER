@@ -771,3 +771,26 @@
     transition: none;
   }
 }
+
+
+/* Ensure exactly one stage is highlighted at a time. */
+.methodology-flow[data-active-index] .methodology-constellation {
+  opacity: 0.14;
+  filter: none;
+}
+
+.methodology-flow[data-active-index="0"] .methodology-constellation--understand,
+.methodology-flow[data-active-index="1"] .methodology-constellation--design,
+.methodology-flow[data-active-index="2"] .methodology-constellation--build,
+.methodology-flow[data-active-index="3"] .methodology-constellation--solution,
+.methodology-flow[data-active-index="4"] .methodology-constellation--measure {
+  opacity: 1;
+  filter: drop-shadow(0 0 13px color-mix(in srgb, var(--brand-blue) 34%, transparent)) drop-shadow(0 0 26px color-mix(in srgb, var(--brand-teal) 20%, transparent));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .methodology-flow[data-active-index] .methodology-constellation {
+    opacity: 0.72;
+    filter: none;
+  }
+}
