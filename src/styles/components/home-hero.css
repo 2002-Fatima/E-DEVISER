@@ -27,6 +27,7 @@
 }
 
 .home-hero-brand {
+  color: var(--text-on-dark-accent);
   animation: motion-fade-up var(--motion-slow) var(--ease-enter) both;
   animation-delay: calc(var(--motion-stagger-step) * 1);
 }
