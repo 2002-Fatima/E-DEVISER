@@ -354,7 +354,7 @@
   place-items: center;
   padding: clamp(.75rem, 1.6vw, 1.35rem);
   background: var(--color-surface);
-  box-shadow: 0 16px 38px rgba(9,18,29,.08);
+  box-shadow: var(--shadow-md);
 }
 .our-work-image-card--document img {
   width: 100%;
