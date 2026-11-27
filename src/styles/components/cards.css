@@ -77,12 +77,12 @@
 }
 
 .badge-success {
-  background: #e7f5ef;
+  background: var(--semantic-success-subtle);
   color: var(--color-success);
 }
 
 .badge-warning {
-  background: #fff3d8;
+  background: var(--semantic-warning-subtle);
   color: var(--color-warning);
 }
 
