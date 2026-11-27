@@ -1,0 +1,63 @@
+<section class="wwb-section wwb-hero" aria-labelledby="wwb-title">
+  <div class="wwb-shell wwb-hero-layout">
+    <div class="wwb-copy wwb-hero-copy">
+      <p class="wwb-eyebrow">WHAT WE BUILD</p>
+      <h1 id="wwb-title">
+        We don’t build for an industry.
+        <em>We build for the problem.</em>
+      </h1>
+      <p class="wwb-lead">
+        E Deviser finds difficult problems worth solving, understands what makes them difficult,
+        and creates the intelligence, systems, and solutions needed to move them forward.
+      </p>
+      <a class="wwb-next-link" href="#why-not-one-industry">NEXT: WHY NOT ONE INDUSTRY? <span aria-hidden="true">↓</span></a>
+    </div>
+
+    <div class="wwb-hero-art" aria-hidden="true">
+      <div class="wwb-hero-noise"></div>
+      <svg viewBox="0 0 760 520" role="presentation">
+        <defs>
+          <linearGradient id="hero-stream">
+            <stop stop-color="var(--brand-blue)" stop-opacity="0" />
+            <stop offset=".5" stop-color="var(--brand-teal-light)" stop-opacity=".8" />
+            <stop offset="1" stop-color="var(--brand-white)" />
+          </linearGradient>
+          <radialGradient id="hero-core">
+            <stop stop-color="var(--brand-white)" />
+            <stop offset=".2" stop-color="var(--brand-teal-light)" />
+            <stop offset=".5" stop-color="var(--brand-blue)" stop-opacity=".8" />
+            <stop offset="1" stop-color="var(--brand-blue)" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <g class="wwb-hero-streams">
+          {Array.from({ length: 32 }, (_, i) => (
+            <path
+              d={`M ${35 + (i % 5) * 15} ${28 + i * 14} C 260 ${-50 + i * 18}, 390 ${450 - i * 5}, 640 260`}
+            />
+          ))}
+        </g>
+        <g class="wwb-hero-orbit-system">
+          <circle class="wwb-hero-orbit wwb-hero-orbit--outer" cx="640" cy="260" r="150" />
+          <circle class="wwb-hero-orbit wwb-hero-orbit--middle" cx="640" cy="260" r="112" />
+          <circle class="wwb-hero-orbit wwb-hero-orbit--inner" cx="640" cy="260" r="76" />
+          <ellipse class="wwb-hero-orbit wwb-hero-orbit--tilted" cx="640" cy="260" rx="176" ry="68" />
+          <path class="wwb-hero-crosshair" d="M640 78V442M458 260H760" />
+          <circle class="wwb-hero-core-halo" cx="640" cy="260" r="112" fill="url(#hero-core)" />
+          <circle class="wwb-hero-core-ring" cx="640" cy="260" r="31" />
+          <circle class="wwb-hero-core" cx="640" cy="260" r="7" />
+          <circle class="wwb-hero-satellite" cx="640" cy="110" r="4" />
+          <circle class="wwb-hero-satellite wwb-hero-satellite--two" cx="790" cy="260" r="3" />
+          <circle class="wwb-hero-satellite wwb-hero-satellite--three" cx="526" cy="342" r="3" />
+        </g>
+      </svg>
+      <div class="wwb-hero-labels">
+        <span>FRAGMENTED INFORMATION</span>
+        <span>COMPLEX SYSTEMS</span>
+        <span>CONSTANT CHANGE</span>
+        <span>HUMAN FACTORS</span>
+        <span>UNCERTAIN OUTCOMES</span>
+      </div>
+      <span class="wwb-hero-output"><i aria-hidden="true"></i> INTELLIGENT<br />SOLUTIONS</span>
+    </div>
+  </div>
+</section>

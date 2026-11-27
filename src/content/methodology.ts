@@ -7,32 +7,27 @@ export type MethodologyStep = {
 export const methodologySteps: MethodologyStep[] = [
   {
     number: '01',
-    title: 'Problem',
-    description: 'A complex, messy real-world problem.',
+    title: 'Understand',
+    description: 'We go deep into a problem—its people, incentives, systems, constraints, evidence, and desired outcomes—before deciding what needs to exist.',
   },
   {
     number: '02',
-    title: 'Understand',
-    description: 'We investigate the domain, constraints, people, systems, and evidence.',
+    title: 'Design',
+    description: 'We translate insights into a solution approach designed around the problem, not the tech.',
   },
   {
     number: '03',
-    title: 'Design',
-    description: 'We determine what intelligence, technology, and solution are actually required.',
+    title: 'Build',
+    description: 'We build with the right mix of capabilities—whatever the problem actually requires.',
   },
   {
     number: '04',
-    title: 'Build',
-    description: 'AI agents, software, data, automation, or whatever is appropriate.',
+    title: 'Solve',
+    description: 'We deliver a working solution that people can use in the real world.',
   },
   {
     number: '05',
-    title: 'Solution',
-    description: 'A working system that solves the problem.',
-  },
-  {
-    number: '06',
     title: 'Measure',
-    description: 'Does it actually improve the outcome?',
+    description: 'We measure what matters and learn what needs to improve next.',
   },
 ];

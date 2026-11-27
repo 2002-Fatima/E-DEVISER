@@ -12,17 +12,15 @@ import Button from '../ui/Button.astro';
       </a>
       <p>{site.footerText}</p>
     </section>
-
     <nav class="footer-nav" aria-label="Footer navigation">
       <h2>Explore</h2>
       <ul class="footer-links">
         <li><a href="/">Home</a></li>
         <li><a href="/what-we-build/">What We Build</a></li>
         <li><a href="/our-work/">Our Work</a></li>
-        <li><a href="https://cuovo.tech" target="_blank" rel="noopener noreferrer">CUEVO</a></li>
+        <li><a href={site.cuevoUrl} target="_blank" rel="noopener noreferrer">CUEVO</a></li>
       </ul>
     </nav>
-
     <nav class="footer-nav footer-company" aria-label="Company navigation">
       <h2>Company</h2>
       <ul class="footer-links">
@@ -31,7 +29,6 @@ import Button from '../ui/Button.astro';
         <li><a href="/company/careers-contact/">Careers &amp; Contact</a></li>
       </ul>
     </nav>
-
     <section class="footer-contact">
       <h2>Let’s talk</h2>
       <Button href="/company/careers-contact/" label="Contact E Deviser" variant="secondary" size="sm" />

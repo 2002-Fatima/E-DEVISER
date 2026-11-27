@@ -1,3 +1,5 @@
+import { site } from './site';
+
 export type NavItem = {
   label: string;
   href: string;
@@ -18,7 +20,7 @@ export const primaryNavigation: NavItem[] = [
       { label: 'Careers & Contact', href: '/company/careers-contact/' },
     ],
   },
-  { label: 'CUEVO', href: 'https://cuovo.tech', external: true },
+  { label: 'CUEVO', href: site.cuevoUrl, external: true },
 ];
 
 export const companyNavigation = [

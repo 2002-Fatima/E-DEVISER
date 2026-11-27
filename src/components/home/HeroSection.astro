@@ -2,6 +2,7 @@
 import Button from '../ui/Button.astro';
 import HeroTransformation from '../ui/HeroTransformation.astro';
 import IntelligenceField from './IntelligenceField.astro';
+import { site } from '../../content/site';
 ---
 
 <section class="hero-section home-hero">
@@ -22,10 +23,9 @@ import IntelligenceField from './IntelligenceField.astro';
       </p>
       <div class="hero-actions button-context-dark">
         <Button href="/what-we-build/" label="Explore What We Build" />
-        <Button href="https://cuovo.tech/" external label="Explore CUEVO" variant="secondary" />
+        <Button href={site.cuevoUrl} external label="Explore CUEVO" variant="secondary" />
       </div>
     </div>
-
     <IntelligenceField />
   </div>
 </section>

@@ -1,0 +1,89 @@
+<section
+  class="wwb-section wwb-intelligence"
+  id="intelligence-capability"
+  aria-labelledby="wwb-intelligence-title"
+>
+  <div class="wwb-shell">
+    <p class="wwb-eyebrow">OUR INTELLIGENCE CAPABILITY</p>
+    <div class="wwb-section-intro wwb-intro-split">
+      <h2 id="wwb-intelligence-title">
+        We build systems that think,<br />
+        <em>so they can keep getting better.</em>
+      </h2>
+      <div>
+        <p class="wwb-lead">
+          Our intelligence loop is at the core of everything we build. It allows our systems to
+          understand deeply, reason clearly, act effectively, and learn continuously.
+        </p>
+        <p class="wwb-intelligence-emphasis">That’s how we create lasting impact.</p>
+      </div>
+    </div>
+
+    <div
+      class="wwb-intelligence-loop"
+    >
+      <svg viewBox="0 0 900 620" aria-hidden="true">
+        <path
+          class="wwb-loop-path"
+          d="M450 75 C650 75 790 190 790 310 C790 445 650 545 450 545 C250 545 110 445 110 310 C110 190 250 75 450 75Z"
+        />
+        <path class="wwb-loop-cross" d="M450 75V310M790 310H450M450 545V310M110 310H450" />
+      </svg>
+
+      <div class="wwb-loop-core">
+        <div class="wwb-loop-core-orb" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </div>
+        <span>CENTER</span>
+        <b>CONTINUOUS<br />IMPROVEMENT</b>
+        <small>Every cycle makes the system smarter and more effective.</small>
+      </div>
+
+      {[
+        [
+          '01',
+          'UNDERSTAND',
+          'We gather and synthesize the right context to deeply understand the problem.',
+        ],
+        ['02', 'REASON', 'We analyze, connect dots, and generate the best possible approach.'],
+        [
+          '03',
+          'ACT',
+          'We turn insights into action—through software, automation, or human-in-the-loop systems.',
+        ],
+        [
+          '04',
+          'LEARN',
+          'We measure outcomes, capture feedback, and continuously improve the system.',
+        ],
+      ].map((step, index) => (
+        <article class={`wwb-loop-node wwb-loop-node-${index + 1}`}>
+          <span>{step[0]}</span>
+          <h3>{step[1]}</h3>
+          <p>{step[2]}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="wwb-intelligence-foot">
+      <p>
+        <b>Not a one-time output.</b><br />
+        A system that compounds.<br />
+        <em>Intelligence that grows.</em>
+      </p>
+      <p>
+        This loop powers every E Deviser solution—from platforms like Cuevo to custom systems we
+        build.
+      </p>
+      <p>
+        <b>Different problems.</b><br />
+        Same intelligence engine.<br />
+        Better outcomes.
+      </p>
+    </div>
+
+    <a class="wwb-text-link" href="/cuevo/">
+      SEE IT IN ACTION: CUEVO <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>
