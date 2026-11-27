@@ -1,11 +1,13 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
+import Container from '../ui/Container.astro';
 import MissionGlobeField from './MissionGlobeField.astro';
 import { site } from '../../content/site';
 ---
 
 <SectionWrapper background="light" class="home-mission-section">
-  <section class="container container-wide home-mission-layout" aria-labelledby="home-mission-title">
+  <section aria-labelledby="home-mission-title">
+    <Container width="wide" class="home-mission-layout">
     <div class="home-mission-copy">
       <p class="eyebrow">OUR MISSION</p>
       <h2 id="home-mission-title">
@@ -22,5 +24,6 @@ import { site } from '../../content/site';
     <div class="home-mission-visual">
       <MissionGlobeField />
     </div>
+    </Container>
   </section>
 </SectionWrapper>
