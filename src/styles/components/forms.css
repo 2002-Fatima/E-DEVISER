@@ -27,7 +27,7 @@
 
 .field-control:focus-visible {
   border-color: var(--color-focus);
-  outline: 3px solid rgba(0, 106, 156, 0.2);
+  outline: 3px solid color-mix(in srgb, var(--color-primary-strong) 20%, transparent);
   outline-offset: 0;
 }
 
