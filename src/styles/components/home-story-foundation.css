@@ -11,7 +11,6 @@
 }
 
 .home-founder-copy h2,
-.home-cuevo-copy h2,
 .home-work-copy h2 {
   max-width: 17ch;
   font-family: var(--font-display);
@@ -22,12 +21,10 @@
 }
 
 .home-founder-copy h2,
-.home-cuevo-copy h2 {
   color: var(--color-navy);
 }
 
 .home-founder-copy > p:not(.eyebrow),
-.home-cuevo-copy > p:not(.eyebrow),
 .home-work-copy > p:not(.eyebrow) {
   max-width: 46ch;
   margin-block-start: var(--space-5);
@@ -36,7 +33,6 @@
 }
 
 .home-founder-copy > p:not(.eyebrow),
-.home-cuevo-copy > p:not(.eyebrow) {
   color: var(--color-text-muted);
 }
 
@@ -218,57 +214,6 @@
   margin-block-start: var(--space-3);
 }
 
-.home-cuevo-section {
-  border-block: 1px solid var(--color-border);
-}
-
-.home-cuevo-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  align-items: center;
-  gap: clamp(var(--space-8), 8vw, var(--space-20));
-}
-
-.home-cuevo-mark-wrap {
-  position: relative;
-  display: grid;
-  min-height: clamp(18rem, 34vw, 28rem);
-  place-items: center;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface-soft);
-}
-
-.home-cuevo-mark-wrap img {
-  width: clamp(8rem, 20vw, 15rem);
-  height: auto;
-}
-
-.home-cuevo-mark-caption {
-  position: absolute;
-  inset-inline-start: var(--space-5);
-  inset-block-end: var(--space-5);
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.1em;
-}
-
-.home-cuevo-copy > .btn {
-  margin-block-start: var(--space-7);
-}
-
-.home-cuevo-copy > .home-cuevo-support {
-  margin-block-start: var(--space-3);
-  color: var(--color-navy);
-  font-size: var(--text-base);
-  font-weight: var(--weight-semibold);
-}
-
-.home-cuevo-copy h2 {
-  color: var(--color-navy);
-}
-
 .home-work-section {
   border-block: 1px solid var(--color-border-inverse);
 }
@@ -340,20 +285,17 @@
 
 @media (max-width: 62rem) {
   .home-founder-layout,
-  .home-cuevo-layout,
   .home-methodology-philosophy {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-8);
   }
 
   .home-founder-copy h2,
-  .home-cuevo-copy h2,
   .home-work-copy h2 {
     font-size: var(--text-h2);
   }
 
   .home-founder-media-frame,
-  .home-cuevo-mark-wrap {
     min-height: 22rem;
   }
 }
@@ -406,25 +348,21 @@
 
 @media (max-width: 48rem) {
   .home-founder-layout,
-  .home-cuevo-layout,
   .home-methodology-philosophy,
   .home-methodology-heading {
     grid-template-columns: 1fr;
   }
 
   .home-founder-layout,
-  .home-cuevo-layout {
     gap: var(--space-8);
   }
 
   .home-founder-copy,
-  .home-cuevo-copy,
   .home-work-copy {
     max-width: 42rem;
   }
 
   .home-founder-media-frame,
-  .home-cuevo-mark-wrap {
     min-height: 0;
     aspect-ratio: 16 / 10;
   }
