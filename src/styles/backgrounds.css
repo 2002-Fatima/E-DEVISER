@@ -19,7 +19,7 @@
 }
 
 .background-blue {
-  background: var(--brand-blue);
+  background: var(--primary-700);
   color: var(--color-text-inverse);
 }
 
