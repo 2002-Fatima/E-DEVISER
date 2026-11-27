@@ -1,6 +1,8 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
 import Container from '../ui/Container.astro';
+import Badge from '../ui/Badge.astro';
+import Divider from '../ui/Divider.astro';
 import Button from '../ui/Button.astro';
 import { site } from '../../content/site';
 ---
@@ -43,7 +45,7 @@ import { site } from '../../content/site';
 
         <div class="cuevo-stage-heading">
           <span>CUEVO / LEARNING INTELLIGENCE</span>
-          <span class="cuevo-live-indicator"><i aria-hidden="true"></i> PRODUCT EXPERIENCE</span>
+          <Badge tone="neutral" dot class="cuevo-live-indicator">PRODUCT EXPERIENCE</Badge>
         </div>
 
         <figure class="cuevo-dashboard">
@@ -107,7 +109,7 @@ import { site } from '../../content/site';
         CUEVO is E Deviser&apos;s learning-intelligence platform — bringing outcome-based education,
         meaningful gamification, and agentic AI into one connected experience.
       </p>
-      <div class="cuevo-story-divider" aria-hidden="true"></div>
+      <Divider class="cuevo-story-divider" />
       <p class="home-cuevo-support">Designed around the people who make learning happen.</p>
       <ul class="home-cuevo-roles" aria-label="People CUEVO is designed to support">
         <li>Admin</li>
