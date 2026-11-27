@@ -19,7 +19,8 @@
   --color-secondary: var(--brand-teal);
   --color-brand-cyan: var(--brand-blue);
   --color-brand-start: var(--brand-blue);
-  --color-brand-middle: #2F9EAD;
+  /* The midpoint is a blend of the two approved brand colors, not a third hue. */
+  --color-brand-middle: color-mix(in srgb, var(--brand-blue) 50%, var(--brand-teal));
   --color-brand-end: var(--brand-teal);
   --color-brand-button-text: var(--brand-white);
   --color-brand-focus: var(--brand-blue-light);
@@ -61,6 +62,11 @@
   --color-text-inverse-muted: rgba(255, 255, 255, 0.78);
   --color-text-inverse-subtle: rgba(255, 255, 255, 0.62);
 
+  /* Text roles: teal is for text on dark surfaces only, never light surfaces. */
+  --text-on-light-link: var(--primary-700);
+  --text-on-dark-accent: var(--brand-teal);
+  --text-on-dark-muted: rgba(255, 255, 255, 0.78);
+
   /* Surfaces: page, raised content, soft grouping and dark atmosphere. */
   --color-surface: #F7FAFC;
   --color-surface-raised: var(--brand-white);
@@ -71,6 +77,12 @@
   --color-surface-night: var(--brand-ink);
   --color-surface-night-raised: #0E1B29;
   --color-surface-night-hover: #142A40;
+  --surface-1: var(--color-surface-raised);
+  --surface-2: var(--color-surface);
+  --surface-3: var(--color-surface-soft);
+  --surface-night-1: var(--color-surface-night);
+  --surface-night-2: var(--color-surface-night-raised);
+  --surface-night-3: var(--color-surface-night-hover);
   --color-border: rgba(29, 53, 87, 0.14);
   --color-border-strong: rgba(29, 53, 87, 0.28);
   --color-border-subtle: rgba(29, 53, 87, 0.08);
@@ -78,6 +90,10 @@
   --color-border-inverse-strong: rgba(192, 226, 253, 0.34);
   --color-focus: var(--primary-700);
   --color-focus-inverse: var(--brand-teal-light);
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 3px;
+  --focus-ring-light: var(--primary-700);
+  --focus-ring-dark: var(--brand-teal-light);
 
   /* Backward-compatible semantic aliases used by existing components. */
   --color-success: var(--semantic-success);
@@ -99,26 +115,36 @@
   --weight-bold: 700;
   --weight-extrabold: 800;
 
+  /* Type scale: shared responsive sizes; use modifiers only for documented exceptions. */
+  --text-micro: 0.75rem;
+  --text-eyebrow: 0.75rem;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.125rem;
   --text-body-large: clamp(1.0625rem, 1.25vw, 1.25rem);
   --text-body-small: 0.875rem;
-  --text-h4: clamp(1.125rem, 1.5vw, 1.375rem);
+  --text-h4: clamp(1.125rem, 1.45vw, 1.375rem);
   --text-h3: clamp(1.375rem, 2vw, 1.75rem);
   --text-h2: clamp(1.75rem, 3.6vw, 3rem);
-  --text-h1: clamp(2.5rem, 5vw, 4.5rem);
-  --text-display: clamp(3rem, 7vw, 6.5rem);
-  --text-hero: clamp(3rem, 5.2vw, 4.75rem);
-  --text-hero-mobile: clamp(2.5rem, 12vw, 3.5rem);
+  --text-h1: clamp(2.25rem, 4.8vw, 4rem);
+  --text-display: clamp(3rem, 6.5vw, 5.75rem);
+  --text-hero: clamp(2.75rem, 5.2vw, 4.75rem);
+  --text-hero-mobile: clamp(2.25rem, 10vw, 3.25rem);
   --text-xl: clamp(1.5rem, 2.4vw, 2rem);
   --text-2xl: clamp(2rem, 4.5vw, 3.75rem);
   --leading-tight: 1.08;
+  --leading-display: 1.02;
+  --leading-hero: 1.08;
+  --leading-h1: 1.1;
+  --leading-h2: 1.15;
+  --leading-h3: 1.2;
+  --leading-h4: 1.25;
   --leading-heading: 1.2;
   --leading-body: 1.65;
   --tracking-tight: -0.045em;
   --tracking-wide: 0.12em;
+  --tracking-eyebrow: 0.14em;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -132,7 +158,9 @@
   --space-16: 4rem;
   --space-20: 5rem;
   --space-24: 6rem;
+  --space-section-sm: clamp(2.5rem, 5vw, 4rem);
   --space-section: clamp(3.5rem, 8vw, 7rem);
+  --space-section-lg: clamp(4.5rem, 10vw, 8rem);
 
   --container-narrow: 48rem;
   --container-standard: 74rem;
@@ -153,17 +181,19 @@
   --radius-xl: 2rem;
   --radius-pill: 999px;
   --border-width: 1px;
+  --shadow-xs: 0 1px 3px rgba(29, 53, 87, 0.06);
   --shadow-sm: 0 2px 8px rgba(29, 53, 87, 0.07);
   --shadow-md: 0 12px 32px rgba(29, 53, 87, 0.1);
-  --shadow-lg: 0 24px 60px rgba(12, 39, 67, 0.16);
+  --shadow-lg: 0 24px 60px rgba(29, 53, 87, 0.16);
+  --shadow-glow: 0 0 0 1px rgba(3, 130, 189, 0.2), 0 12px 40px rgba(3, 130, 189, 0.16);
   --shadow-soft: var(--shadow-md);
 
-  /* Official brand gradient: blue to teal. */
+  /* Official brand gradient: blue to teal, using only approved brand hues. */
   --gradient-brand:
-    linear-gradient(110deg, var(--brand-blue) 0%, #2F9EAD 52%, var(--brand-teal) 100%);
+    linear-gradient(110deg, var(--brand-blue) 0%, var(--color-brand-middle) 52%, var(--brand-teal) 100%);
   --gradient-brand-action: var(--gradient-brand);
   --gradient-brand-action-hover:
-    linear-gradient(110deg, var(--brand-teal) 0%, #2F9EAD 52%, var(--brand-blue) 100%);
+    linear-gradient(110deg, var(--brand-teal) 0%, var(--color-brand-middle) 52%, var(--brand-blue) 100%);
   --gradient-brand-text:
     linear-gradient(
       100deg,
