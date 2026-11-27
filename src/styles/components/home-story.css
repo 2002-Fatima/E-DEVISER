@@ -597,9 +597,7 @@
   overflow: hidden;
   border: 1px solid var(--color-border-inverse);
   border-radius: var(--radius-lg);
-  background:
-    radial-gradient(ellipse at 78% 45%, color-mix(in srgb, var(--brand-blue) 18%, transparent), transparent 42%),
-    linear-gradient(125deg, var(--color-surface-night-hover) 0%, var(--brand-ink) 68%, var(--color-surface-night-raised) 100%);
+  background: var(--gradient-dark-atmosphere);
 }
 
 .home-work-feature-copy {
@@ -867,9 +865,7 @@
   grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
   min-height: 0;
   border-color: color-mix(in srgb, var(--brand-blue-light) 20%, transparent);
-  background:
-    radial-gradient(ellipse at 78% 42%, color-mix(in srgb, var(--brand-blue) 17%, transparent), transparent 43%),
-    linear-gradient(128deg, var(--color-surface-night-hover) 0%, var(--brand-ink) 65%, var(--color-surface-night-raised) 100%);
+  background: var(--gradient-dark-atmosphere);
 }
 
 .home-work-feature-copy {
