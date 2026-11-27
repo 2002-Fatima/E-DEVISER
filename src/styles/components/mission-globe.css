@@ -4,9 +4,7 @@
   isolation: isolate;
   overflow: hidden;
   border-block: 1px solid var(--color-border);
-  background:
-    radial-gradient(ellipse at 78% 48%, color-mix(in srgb, var(--brand-blue) 6.5%, transparent), transparent 42%),
-    linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface) 56%, var(--color-surface-soft) 100%);
+  background: var(--gradient-pattern-light);
 }
 
 .home-mission-layout {
