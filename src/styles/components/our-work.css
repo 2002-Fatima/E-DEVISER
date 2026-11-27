@@ -337,7 +337,7 @@
   border: 1px solid color-mix(in srgb, var(--brand-navy) 13%, transparent);
   border-radius: var(--radius-lg);
   background: var(--color-surface-night-raised);
-  box-shadow: 0 18px 42px color-mix(in srgb, var(--brand-ink) 10%, transparent);
+  box-shadow: var(--shadow-card);
 }
 .our-work-image-card img {
   display: block;
@@ -416,7 +416,7 @@
   border: 1px solid color-mix(in srgb, var(--brand-navy) 12%, transparent);
   border-radius: var(--radius-lg);
   background: var(--color-white);
-  box-shadow: 0 22px 56px color-mix(in srgb, var(--brand-ink) 8%, transparent);
+  box-shadow: var(--shadow-card-soft);
 }
 .our-work-forum-copy {
   align-self: center;
@@ -488,7 +488,7 @@
   border: 1px solid color-mix(in srgb, var(--color-white) 16%, transparent);
   border-radius: var(--radius-lg);
   background: var(--brand-ink);
-  box-shadow: 0 18px 42px color-mix(in srgb, var(--brand-ink) 18%, transparent);
+  box-shadow: var(--shadow-card-dark);
 }
 .our-work-video-card figcaption {
   margin-block-start: var(--space-3);
