@@ -1513,6 +1513,7 @@
   }
 }
 
+/* Accessibility override: ensure the user's reduced-motion preference wins over component motion. */
 @media (prefers-reduced-motion: reduce) {
 .our-work-signature .work-art-idea,
   .our-work-signature .work-art-flow path,
