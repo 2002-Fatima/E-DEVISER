@@ -60,7 +60,7 @@
 .background-luminous .eyebrow,
 .background-blue .eyebrow,
 .background-ink .eyebrow {
-  color: var(--brand-teal-light);
+  color: var(--text-on-dark-accent);
 }
 
 .background-dark h1,
