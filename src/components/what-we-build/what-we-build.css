@@ -972,7 +972,7 @@
 .what-we-build .wwb-future-overline {
   display: block;
   margin: 0 0 var(--space-4);
-  color: var(--brand-teal-light);
+  color: var(--text-on-dark-accent);
   font: var(--weight-semibold) var(--text-micro) var(--font-mono);
   letter-spacing: .15em
 }
