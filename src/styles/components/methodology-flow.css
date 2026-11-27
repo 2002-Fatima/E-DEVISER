@@ -764,6 +764,7 @@
 
   .methodology-sequence::after {
     transform: scaleX(1);
+    transition: none;
   }
 
   .methodology-flow .methodology-constellation {
