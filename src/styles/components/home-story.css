@@ -626,7 +626,7 @@
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--brand-teal);
-  box-shadow: 0 0 12px color-mix(in srgb, var(--brand-teal) 60%, transparent);
+  box-shadow: var(--shadow-glow-teal-sm);
 }
 
 .home-work-feature-kicker {
@@ -728,7 +728,7 @@
   font-weight: var(--weight-bold);
   letter-spacing: -0.05em;
   line-height: 1;
-  text-shadow: 0 0 28px color-mix(in srgb, var(--brand-teal) 28%, transparent);
+  text-shadow: var(--text-glow-teal);
 }
 
 .home-work-feature-core span:nth-child(2) {
@@ -768,7 +768,7 @@
   border: 1px solid var(--brand-teal-light);
   border-radius: 50%;
   background: var(--brand-teal);
-  box-shadow: 0 0 16px color-mix(in srgb, var(--brand-teal) 60%, transparent);
+  box-shadow: var(--shadow-glow-teal-md);
 }
 
 .home-work-feature-node--one {
