@@ -127,7 +127,7 @@
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--brand-teal);
-  box-shadow: 0 0 12px color-mix(in srgb, var(--brand-teal) 60%, transparent);
+  box-shadow: var(--shadow-glow-teal-sm);
 }
 
 .forums-feature-kicker {
@@ -205,7 +205,7 @@
   font-weight: var(--weight-bold);
   letter-spacing: -0.05em;
   line-height: 1;
-  text-shadow: 0 0 28px color-mix(in srgb, var(--brand-teal) 28%, transparent);
+  text-shadow: var(--text-glow-teal);
 }
 
 .forums-feature-visual-core span {
@@ -237,7 +237,7 @@
   border: 1px solid var(--brand-teal-light);
   border-radius: 50%;
   background: var(--brand-teal);
-  box-shadow: 0 0 16px color-mix(in srgb, var(--brand-teal) 60%, transparent);
+  box-shadow: var(--shadow-glow-teal-md);
 }
 
 .forums-feature-point--one { inset-block-start: 25%; inset-inline-start: 23%; }
