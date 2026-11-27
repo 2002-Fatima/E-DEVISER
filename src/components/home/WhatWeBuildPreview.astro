@@ -1,11 +1,13 @@
 ---
 import SectionWrapper from '../ui/SectionWrapper.astro';
+import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
 import MethodologyFlow from '../what-we-build/MethodologyFlow.astro';
 ---
 
 <SectionWrapper background="atmosphere" class="home-methodology-section">
-  <section class="container container-wide" aria-labelledby="home-methodology-title">
+  <section aria-labelledby="home-methodology-title">
+    <Container width="wide">
     <div class="home-methodology-heading">
       <div>
         <p class="eyebrow">WHAT WE BUILD</p>
@@ -36,5 +38,6 @@ import MethodologyFlow from '../what-we-build/MethodologyFlow.astro';
         <Button href="/what-we-build/" label="Explore What We Build" />
       </div>
     </div>
+    </Container>
   </section>
 </SectionWrapper>
