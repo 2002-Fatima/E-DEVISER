@@ -113,6 +113,8 @@
   background: var(--brand-teal);
 }
 
+.home-methodology-section .eyebrow { color: var(--text-on-dark-accent); }
+
 .home-methodology-section {
   border-block: 1px solid var(--color-border-inverse);
 }
