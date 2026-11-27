@@ -154,6 +154,7 @@ const flowSteps = methodologySteps;
     if (flow.dataset.initialized === 'true') return;
     flow.dataset.initialized = 'true';
 
+    const sequence = flow.querySelector<HTMLElement>('.methodology-sequence');
     const steps = Array.from(flow.querySelectorAll<HTMLElement>('[data-methodology-step]'));
     const selectButtons = Array.from(flow.querySelectorAll<HTMLButtonElement>('[data-methodology-select]'));
     const title = flow.querySelector<HTMLElement>('[data-methodology-title]');
@@ -250,20 +251,20 @@ const flowSteps = methodologySteps;
       scheduleNext();
     }, { signal: controller.signal });
 
-    flow.addEventListener('pointerenter', () => {
+    sequence?.addEventListener('pointerenter', () => {
       pointerPaused = true;
       scheduleNext();
     }, { signal: controller.signal });
-    flow.addEventListener('pointerleave', () => {
+    sequence?.addEventListener('pointerleave', () => {
       pointerPaused = false;
       scheduleNext();
     }, { signal: controller.signal });
-    flow.addEventListener('focusin', () => {
+    sequence?.addEventListener('focusin', () => {
       focusPaused = true;
       scheduleNext();
     }, { signal: controller.signal });
-    flow.addEventListener('focusout', (event) => {
-      if (event instanceof FocusEvent && event.relatedTarget instanceof Node && flow.contains(event.relatedTarget)) return;
+    sequence?.addEventListener('focusout', (event) => {
+      if (event instanceof FocusEvent && event.relatedTarget instanceof Node && sequence?.contains(event.relatedTarget)) return;
       focusPaused = false;
       scheduleNext();
     }, { signal: controller.signal });
