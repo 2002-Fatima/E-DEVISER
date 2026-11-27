@@ -261,29 +261,7 @@
   .our-work-field-grid .our-work-image-card--wide { min-height: 0; aspect-ratio: 1.35 / 1; grid-row: auto; }
   .our-work-video-grid { grid-template-columns: 1fr; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .our-work-signature .work-art-idea,
-  .our-work-signature .work-art-flow path,
-  .our-work-signature .work-art-sparkles,
-  .our-work-signature .work-art-orbit,
-  .our-work-image-card img {
-    animation: none;
-    transition: none;
-  }
-  .our-work-signature .work-art-flow path { stroke-dashoffset: 0; }
-  .our-work-signature .build-foundation,
-  .our-work-signature .build-columns,
-  .our-work-signature .build-floor-plates,
-  .our-work-signature .build-facade,
-  .our-work-signature .build-windows,
-  .our-work-signature .build-crown,
-  .our-work-signature .building-construction-glints {
-    animation: none;
-    opacity: 1;
-    transform: none;
-    stroke-dashoffset: 0;
-  }
-}
+
 
 
 
@@ -585,10 +563,7 @@
   }
   .our-work-filmstrip { grid-template-columns: 1fr; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .our-work-image-card img { transition: none; }
-  .our-work-image-card:hover img { transform: none; }
-}
+
 
 
 /* Editorial Our Work refresh */
@@ -832,11 +807,7 @@
   .our-work-closing { min-height: 25rem; }
   .our-work-closing::after { inset-inline-end: -35%; width: 75vw; opacity: .7; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .our-work-story-card,
-  .our-work-archive-row,
-  .our-work-closing-link span { transition: none; }
-}
+
 
 
 /* ---------------------------------------------------------------
@@ -1133,7 +1104,7 @@
   .our-work-recognition-grid { grid-template-columns: 1fr 1fr; }
   .our-work-recognition-item:last-child { grid-column: auto; }
 }
-@media (prefers-reduced-motion: reduce) {; }; }
+; }
 }
 
 
@@ -1257,11 +1228,7 @@
     font-size: var(--text-hero-mobile);
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .our-work-closing-orbit,
-  .our-work-closing-core,
-  .our-work-closing-axis { animation: none; }
-}
+
 
 
 /* ------------------------------------------------------------------
@@ -1440,10 +1407,7 @@
   .our-work-bordered-grid .our-work-image-caption small { text-align: start; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .our-work-bordered-grid .our-work-image-card img { transition: none; }
-  .our-work-bordered-grid .our-work-image-card:hover img { transform: none; }
-}
+
 
 /* THE WORK CONTINUES — slow orbital motion, not a decorative spinner.
    Each ring has its own pace and direction to suggest a living system. */
@@ -1510,16 +1474,7 @@
   from { opacity: .35; transform: rotate(-35deg) scaleX(.82); }
   to { opacity: .9; transform: rotate(35deg) scaleX(1.08); }
 }
-@media (prefers-reduced-motion: reduce) {
-  .our-work-closing-orbit--outer,
-  .our-work-closing-orbit--middle,
-  .our-work-closing-orbit--inner,
-  .our-work-closing-orbit::after,
-  .our-work-closing-core,
-  .our-work-closing-axis {
-    animation: none !important;
-  }
-}
+
 
 
 /* Our Work page: keep the chapter navigation usable without consuming
@@ -1555,5 +1510,54 @@
     min-height: 2.5rem;
     padding-inline: var(--space-3);
     font-size: var(--text-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+.our-work-signature .work-art-idea,
+  .our-work-signature .work-art-flow path,
+  .our-work-signature .work-art-sparkles,
+  .our-work-signature .work-art-orbit,
+  .our-work-image-card img {
+    animation: none;
+    transition: none;
+  }
+  .our-work-signature .work-art-flow path { stroke-dashoffset: 0; }
+  .our-work-signature .build-foundation,
+  .our-work-signature .build-columns,
+  .our-work-signature .build-floor-plates,
+  .our-work-signature .build-facade,
+  .our-work-signature .build-windows,
+  .our-work-signature .build-crown,
+  .our-work-signature .building-construction-glints {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    stroke-dashoffset: 0;
+  }
+
+.our-work-image-card img { transition: none; }
+  .our-work-image-card:hover img { transform: none; }
+
+.our-work-story-card,
+  .our-work-archive-row,
+  .our-work-closing-link span { transition: none; }
+
+;
+
+.our-work-closing-orbit,
+  .our-work-closing-core,
+  .our-work-closing-axis { animation: none; }
+
+.our-work-bordered-grid .our-work-image-card img { transition: none; }
+  .our-work-bordered-grid .our-work-image-card:hover img { transform: none; }
+
+.our-work-closing-orbit--outer,
+  .our-work-closing-orbit--middle,
+  .our-work-closing-orbit--inner,
+  .our-work-closing-orbit::after,
+  .our-work-closing-core,
+  .our-work-closing-axis {
+    animation: none !important;
   }
 }
