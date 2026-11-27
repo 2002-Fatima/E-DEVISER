@@ -49,6 +49,7 @@ import { site } from '../../content/site';
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
       const controller = new AbortController();
       let animationFrames: number[] = [];
+      let observer: IntersectionObserver | undefined;
       let started = false;
       let disposed = false;
 
@@ -93,10 +94,10 @@ import { site } from '../../content/site';
         finish();
         started = true;
       } else if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(([entry]) => {
+        observer = new IntersectionObserver(([entry]) => {
           if (!entry.isIntersecting) return;
           animate();
-          observer.disconnect();
+          observer?.disconnect();
         }, { threshold: 0.35 });
         observer.observe(stats);
       } else {
@@ -113,6 +114,7 @@ import { site } from '../../content/site';
       const cleanup = () => {
         disposed = true;
         animationFrames.forEach((frame) => window.cancelAnimationFrame(frame));
+        observer?.disconnect();
         controller.abort();
         document.removeEventListener('astro:before-swap', cleanup);
       };
