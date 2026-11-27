@@ -2697,7 +2697,7 @@
   transform: scaleX(.1667);
   transform-origin: left center;
   animation: none;
-  transition: transform var(--motion-slow) var(--ease-emphasized);
+  transition: transform 4.8s linear;
 }
 .what-we-build .wwb-method-select {
   display: block;
