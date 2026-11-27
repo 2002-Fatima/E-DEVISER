@@ -133,6 +133,9 @@
 .background-dark .our-work-volume-heading > p { color: var(--color-text-inverse-muted); }
 
 .work-volume-document-media img {
+  display: block;
+  flex: 1;
+  min-height: 0;
   padding: clamp(var(--space-2), 1.5vw, var(--space-5));
   object-fit: contain;
   background: var(--color-surface-subtle);
@@ -143,7 +146,6 @@
   flex-direction: column;
   background: var(--color-surface-subtle);
 }
-.work-volume-document-media img { flex: 1; min-height: 0; }
 .work-volume-document-media figcaption {
   color: var(--color-navy);
   background: var(--color-surface-subtle);
