@@ -612,7 +612,7 @@
 }
 .cuevo-foundations span { color: var(--primary-700); }
 .cuevo-foundations strong { color: var(--brand-navy); }
-.cuevo-story-copy .eyebrow { color: var(--primary-700); }
+.cuevo-story-copy .eyebrow { color: var(--text-on-light-link); }
 .cuevo-overline { color: var(--color-text-subtle); }
 .cuevo-story-copy h2 { color: var(--brand-navy); }
 .cuevo-story-copy h2 span { color: var(--primary-700); }
