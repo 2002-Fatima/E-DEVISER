@@ -7,123 +7,34 @@ const teamPrinciples = [
 ---
 
 <main class="team-experience">
-  <section class="team-hero">
-    <div class="team-wrap team-hero-grid">
-      <div>
-        <p class="team-eyebrow">THE PEOPLE LEADING E DEVİSER</p>
-        <h1>Built by people who care deeply about <em>the problems they take on.</em></h1>
-        <p class="team-lead">Our leadership brings together the experience, perspective, and determination needed to turn difficult ideas into real work.</p>
-        <a class="team-link" href="#leadership">Our leadership <span aria-hidden="true">↓</span></a>
-      </div>
-      <div class="team-hero-art" aria-hidden="true">
-        <div class="team-art-grid"></div><div class="team-orbit team-orbit-a"></div><div class="team-orbit team-orbit-b"></div><div class="team-orbit team-orbit-c"></div>
-        <div class="team-core"><span>E.</span><small>PEOPLE / PURPOSE / PROGRESS</small></div>
-        <b class="team-art-label team-art-label-a">PERSPECTIVE</b><b class="team-art-label team-art-label-b">EXPERIENCE</b><b class="team-art-label team-art-label-c">DETERMINATION</b>
-      </div>
-    </div>
-  </section>
+  <section class="team-hero"><div class="team-wrap">
+    <p class="team-eyebrow">E DEVİSER / PEOPLE</p>
+    <div class="team-hero-grid"><h1>People who care<br />about the problems<br /><em>they take on.</em></h1><div class="team-hero-aside"><p>Our leadership brings together the experience, perspective, and determination needed to turn difficult ideas into real work.</p><a class="team-link" href="#leadership">Explore our approach <span aria-hidden="true">↓</span></a></div></div>
+    <div class="team-hero-foot"><span>WHAT WE VALUE</span><p>Perspective <i></i> Responsibility <i></i> Follow-through</p></div>
+  </div></section>
 
-  <section class="team-section" id="leadership">
-    <div class="team-wrap">
-      <div class="team-section-heading">
-        <div><p class="team-eyebrow">SENIOR LEADERSHIP</p><h2>People behind<br /><em>the decisions.</em></h2></div>
-        <p>Leadership at E Deviser is about taking responsibility for difficult problems and carrying ideas through to meaningful work.</p>
-      </div>
-      <div class="team-leadership-note">
-        <span class="team-note-mark" aria-hidden="true">E.</span>
-        <div><small>LEADERSHIP PROFILES</small><h3>Confirmed people. Real experience. Clear responsibility.</h3><p>The supplied company content does not include approved executive names, titles, or biographies. We will publish leadership profiles when those details are confirmed—never invented to fill a layout.</p></div>
-        <span class="team-note-status">PROFILES PENDING APPROVAL</span>
-      </div>
-    </div>
-  </section>
+  <section class="team-section" id="leadership"><div class="team-wrap team-leadership">
+    <div class="team-section-label"><p class="team-eyebrow">SENIOR LEADERSHIP</p><span>Leadership is<br />responsibility<br />in practice.</span></div>
+    <div class="team-leadership-copy"><h2>People behind<br /><em>the decisions.</em></h2><p>Leadership at E Deviser is about taking responsibility for difficult problems and carrying ideas through to meaningful work.</p><div class="team-profile-status"><span>LEADERSHIP PROFILES</span><p>Names, titles, and biographies will be published once confirmed. We won't manufacture profiles or imply a team structure that hasn't been approved.</p></div></div>
+  </div></section>
 
-  <section class="team-section team-section-alt">
-    <div class="team-wrap">
-      <div class="team-section-heading">
-        <div><p class="team-eyebrow">THE PEOPLE BEHIND THE WORK</p><h2>A team built around curiosity, <em>ownership, and execution.</em></h2></div>
-        <p>Different perspectives. Different disciplines. One shared expectation: if something matters, we should be willing to do the work to make it better.</p>
-      </div>
-      <div class="team-principles">
-        {teamPrinciples.map((principle, index) => (
-          <article class="team-principle">
-            <span>0{index + 1}</span>
-            <div class="team-principle-mark" aria-hidden="true"><i></i><i></i><i></i></div>
-            <h3>{principle[0]}</h3>
-            <p>{principle[1]}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+  <section class="team-section team-section-alt"><div class="team-wrap">
+    <div class="team-section-heading"><div><p class="team-eyebrow">THE TEAM</p><h2>Curiosity. Ownership.<br /><em>Execution.</em></h2></div><p>Different perspectives and disciplines, connected by one shared expectation: if something matters, do the work to make it better.</p></div>
+    <div class="team-principles">{teamPrinciples.map((principle) => <article class="team-principle"><h3>{principle[0]}</h3><p>{principle[1]}</p></article>)}</div>
+  </div></section>
 
-  <section class="team-section">
-    <div class="team-wrap team-standard">
-      <div><p class="team-eyebrow">OUR SHARED STANDARD</p><h2>Different strengths.<br /><em>One commitment to the work.</em></h2></div>
-      <div><p>We challenge assumptions, get close to the details, and stay open to changing our minds when the evidence tells us to.</p><p>We value people who can move between ideas and execution—people who don't just ask what is possible, but what is worth doing.</p><a class="team-link" href="/company/">More about E Deviser <span aria-hidden="true">↗</span></a></div>
-    </div>
-  </section>
+  <section class="team-section"><div class="team-wrap team-standard"><div><p class="team-eyebrow">OUR SHARED STANDARD</p><h2>Different strengths.<br /><em>One commitment.</em></h2></div><div><p>We challenge assumptions, get close to the details, and stay open to changing our minds when the evidence tells us to.</p><p>We value people who can move between ideas and execution—people who don't just ask what is possible, but what is worth doing.</p><a class="team-link" href="/company/">More about E Deviser <span aria-hidden="true">↗</span></a></div></div></section>
 
-  <section class="team-closing">
-    <div class="team-wrap">
-      <p class="team-eyebrow">BUILD WITH US</p>
-      <h2>Bring your perspective.<br /><em>Make something matter.</em></h2>
-      <p>We are building a company for people who care deeply about the problems they take on.</p>
-      <a class="team-button" href="/company/careers-contact/">Careers &amp; contact <span aria-hidden="true">↗</span></a>
-    </div>
-  </section>
+  <section class="team-closing"><div class="team-wrap"><p class="team-eyebrow">BUILD WITH US</p><h2>Bring your perspective.<br /><em>Make something matter.</em></h2><a class="team-button" href="/company/careers-contact/">Careers &amp; contact <span aria-hidden="true">↗</span></a></div></section>
 </main>
 
 <style>
-.team-experience{background:var(--color-surface);color:var(--color-text);overflow:hidden}
-.team-experience *{box-sizing:border-box}
-.team-wrap{width:min(var(--container-wide),calc(100% - 2*var(--gutter)));margin-inline:auto}
-.team-hero{padding:clamp(4.5rem,8vw,7rem) 0;background:var(--gradient-pattern-light)}
-.team-hero-grid,.team-section-heading,.team-standard{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:clamp(2rem,6vw,6rem);align-items:center}
-.team-eyebrow{margin:0 0 1.15rem;color:var(--brand-blue);font:var(--weight-semibold) var(--text-xs)/1.5 var(--font-body);letter-spacing:var(--tracking-wide)}
-.team-experience h1,.team-experience h2{margin:0;color:var(--color-text);font-family:var(--font-display);font-weight:var(--weight-bold);letter-spacing:-.055em;line-height:1.08;text-wrap:balance}
-.team-experience h1{font-size:clamp(2.9rem,5.6vw,5.4rem)}
-.team-experience h2{font-size:clamp(2.3rem,4.2vw,4.2rem)}
-.team-experience h1 em,.team-experience h2 em{background:var(--gradient-brand-text);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal}
-.team-lead{max-width:40rem;margin:1.5rem 0 0;color:var(--color-text-muted);font-size:var(--text-body-large);line-height:1.8}
-.team-link{display:inline-flex;align-items:center;gap:1rem;margin-top:1.5rem;color:var(--primary-700);font-size:var(--text-sm);font-weight:var(--weight-semibold);text-decoration:none}
-.team-link span{color:var(--brand-teal)}
-.team-hero-art{position:relative;min-height:clamp(19rem,31vw,26rem);overflow:hidden;border:1px solid var(--color-border);border-radius:var(--radius-xl);background:radial-gradient(circle at 50% 48%,rgba(90,185,180,.16),transparent 34%),linear-gradient(145deg,#fff,#edf6fa);box-shadow:var(--shadow-md)}
-.team-art-grid{position:absolute;inset:0;background:var(--pattern-grid);background-size:2.25rem 2.25rem;opacity:.6;mask-image:radial-gradient(ellipse at center,#000 10%,transparent 78%)}
-.team-orbit{position:absolute;left:50%;top:48%;width:68%;aspect-ratio:1;border:1px solid rgba(3,130,189,.24);border-radius:50%;transform:translate(-50%,-50%) scaleY(.48) rotate(-28deg)}
-.team-orbit-b{width:82%;border-color:rgba(90,185,180,.35);transform:translate(-50%,-50%) scaleY(.48) rotate(52deg)}
-.team-orbit-c{width:56%;border-color:rgba(3,130,189,.18);transform:translate(-50%,-50%) scaleY(.48) rotate(80deg)}
-.team-core{position:absolute;left:50%;top:48%;width:7.5rem;aspect-ratio:1;display:grid;place-content:center;justify-items:center;border:1px solid rgba(3,130,189,.2);border-radius:50%;background:rgba(255,255,255,.94);color:var(--brand-navy);box-shadow:var(--shadow-md);transform:translate(-50%,-50%)}
-.team-core>span{font:var(--weight-bold) 3.2rem/1 var(--font-display);letter-spacing:-.1em}
-.team-core>small{margin-top:.7rem;color:var(--color-text-subtle);font:500 .46rem var(--font-mono);letter-spacing:.1em;white-space:nowrap}
-.team-art-label{position:absolute;padding:.5rem .65rem;border:1px solid var(--color-border);border-radius:var(--radius-pill);background:rgba(255,255,255,.92);color:var(--primary-800);font:500 .52rem var(--font-mono);letter-spacing:.08em}
-.team-art-label-a{left:6%;top:22%}.team-art-label-b{right:6%;top:28%}.team-art-label-c{left:28%;bottom:17%}
-.team-section{padding:clamp(4.25rem,7vw,6.75rem) 0;border-top:1px solid var(--color-border-subtle)}
-.team-section-alt{background:var(--color-surface-subtle)}
-.team-section-heading{align-items:end}
-.team-section-heading>p{max-width:35rem;margin:0;color:var(--color-text-muted);line-height:1.85}
-.team-leadership-note{display:grid;grid-template-columns:4rem minmax(0,1fr) auto;gap:1.5rem;align-items:center;margin-top:2.75rem;padding:clamp(1.3rem,3vw,2.1rem);border:1px solid var(--color-border);border-radius:var(--radius-lg);background:linear-gradient(110deg,#fff,#f0f8fb)}
-.team-note-mark{display:grid;place-items:center;width:3.5rem;aspect-ratio:1;border:1px solid rgba(3,130,189,.25);border-radius:50%;color:var(--primary-700);font:var(--weight-bold) 1.3rem var(--font-display)}
-.team-leadership-note small,.team-note-status{color:var(--primary-700);font:500 .55rem var(--font-mono);letter-spacing:.12em}
-.team-leadership-note h3{margin:.7rem 0;color:var(--color-text);font-size:1.2rem}
-.team-leadership-note p{max-width:65ch;margin:0;color:var(--color-text-muted);font-size:.88rem;line-height:1.75}
-.team-note-status{white-space:nowrap;color:var(--color-text-subtle)}
-.team-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:2.75rem}
-.team-principle{min-height:16rem;padding:1.5rem;border:1px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface-raised);box-shadow:var(--shadow-sm)}
-.team-principle>span{color:var(--primary-700);font:500 .58rem var(--font-mono);letter-spacing:.1em}
-.team-principle-mark{display:flex;align-items:center;gap:.4rem;height:3.2rem;margin:1.1rem 0}
-.team-principle-mark i{width:.55rem;border:1px solid rgba(90,185,180,.75);border-radius:var(--radius-pill);background:linear-gradient(180deg,rgba(90,185,180,.6),rgba(90,185,180,.08))}
-.team-principle-mark i:nth-child(1){height:1.1rem}.team-principle-mark i:nth-child(2){height:2.5rem}.team-principle-mark i:nth-child(3){height:1.7rem}
-.team-principle h3{margin:0 0 .7rem;color:var(--color-text);font-size:1.3rem}
-.team-principle p{margin:0;color:var(--color-text-muted);font-size:.88rem;line-height:1.8}
-.team-standard>div:last-child p{color:var(--color-text-muted);line-height:1.85}
-.team-closing{padding:clamp(4.25rem,7vw,6.75rem) 0;border-top:1px solid var(--color-border);background:linear-gradient(135deg,#eef7fb 0%,#f8fbfc 58%,#eaf5f4 100%)}
-.team-closing .team-eyebrow{color:var(--primary-700)}
-.team-closing h2{color:var(--color-text);font-size:clamp(2.7rem,5.2vw,5rem)}
-.team-closing h2 em{background:var(--gradient-brand-text);-webkit-background-clip:text;background-clip:text;color:transparent}
-.team-closing>div>p:not(.team-eyebrow){max-width:40rem;color:var(--color-text-muted);line-height:1.8}
-.team-button{display:inline-flex;align-items:center;gap:1rem;margin-top:1rem;padding:.85rem 1.2rem;border:1px solid var(--brand-teal);border-radius:var(--radius-pill);color:var(--color-text);font-size:var(--text-sm);font-weight:var(--weight-semibold);text-decoration:none}
-.team-button span{color:var(--brand-teal-light)}
-@media(max-width:800px){.team-hero-grid,.team-section-heading,.team-standard{grid-template-columns:1fr;gap:2rem}.team-hero-art{min-height:22rem}.team-leadership-note{grid-template-columns:3.5rem 1fr}.team-note-status{grid-column:2}.team-principles{grid-template-columns:1fr 1fr}.team-principle:last-child{grid-column:1/-1}}
-@media(max-width:560px){.team-wrap{width:calc(100% - 2rem)}.team-experience h1{font-size:clamp(2.5rem,10.8vw,3.65rem)}.team-experience h2{font-size:clamp(2.2rem,9.4vw,3.25rem)}.team-hero-art{min-height:18rem}.team-core{width:6.2rem}.team-core>span{font-size:2.7rem}.team-art-label{font-size:.43rem;padding:.4rem .45rem}.team-principles{grid-template-columns:1fr}.team-principle:last-child{grid-column:auto}.team-leadership-note{grid-template-columns:1fr}.team-note-status{grid-column:auto}.team-section{padding:4.25rem 0}}
+.team-experience{background:var(--color-surface-raised);color:var(--color-text);overflow:hidden}.team-experience *{box-sizing:border-box}.team-wrap{width:min(var(--container-wide),calc(100% - 2*var(--gutter)));margin-inline:auto}.team-eyebrow{margin:0 0 1.25rem;color:var(--primary-700);font:600 .68rem/1.5 var(--font-body);letter-spacing:.12em}
+.team-hero{padding:clamp(5rem,10vw,9rem) 0 2.2rem}.team-hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,8vw,8rem);align-items:end}.team-experience h1,.team-experience h2{margin:0;color:var(--color-text);font-family:var(--font-display);font-weight:700;letter-spacing:-.06em;line-height:1.03;text-wrap:balance}.team-experience h1{font-size:clamp(3.3rem,7vw,7rem)}.team-experience h2{font-size:clamp(2.5rem,4.8vw,4.7rem)}.team-experience em{color:var(--brand-blue);font-style:normal}.team-hero-aside{max-width:28rem;padding-bottom:.5rem}.team-hero-aside>p,.team-standard>div:last-child p{color:var(--color-text-muted);font-size:var(--text-body-large);line-height:1.8}.team-link{display:inline-flex;gap:.8rem;margin-top:1.2rem;color:var(--primary-700);font-size:var(--text-sm);font-weight:600;text-decoration:none}.team-link span{color:var(--brand-teal)}.team-hero-foot{display:flex;justify-content:space-between;gap:2rem;margin-top:clamp(4rem,8vw,7rem);padding:1.15rem 0;border-block:1px solid var(--color-border)}.team-hero-foot span,.team-hero-foot p{margin:0;color:var(--color-text-subtle);font:500 .62rem var(--font-mono);letter-spacing:.1em}.team-hero-foot p{display:flex;gap:1rem;color:var(--primary-800)}.team-hero-foot i{width:1.8rem;height:1px;align-self:center;background:var(--brand-teal)}
+.team-section{padding:clamp(4.5rem,8vw,7.5rem) 0;border-top:1px solid var(--color-border-subtle)}.team-section-alt{background:var(--color-surface-subtle)}.team-leadership{display:grid;grid-template-columns:.55fr 1.45fr;gap:clamp(2rem,8vw,9rem)}.team-section-label>span{display:block;margin-top:3rem;color:var(--color-text-subtle);font:500 .8rem/1.7 var(--font-mono)}.team-leadership-copy{max-width:55rem}.team-leadership-copy>p{max-width:40rem;margin:1.5rem 0;color:var(--color-text-muted);font-size:var(--text-body-large);line-height:1.8}.team-profile-status{display:grid;grid-template-columns:12rem 1fr;gap:2rem;margin-top:3rem;padding:1.3rem 0;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}.team-profile-status span{color:var(--primary-700);font:500 .6rem var(--font-mono);letter-spacing:.1em}.team-profile-status p{max-width:38rem;margin:0;color:var(--color-text-subtle);font-size:.88rem;line-height:1.75}
+.team-section-heading{display:grid;grid-template-columns:1fr .7fr;gap:3rem;align-items:end}.team-section-heading>p{max-width:30rem;margin:0;color:var(--color-text-muted);line-height:1.8}.team-principles{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem}.team-principle{padding:1.5rem 0 0;border-top:2px solid var(--brand-teal)}.team-principle h3{margin:0 0 1rem;color:var(--color-text);font:600 clamp(1.4rem,2.2vw,1.8rem) var(--font-display);letter-spacing:-.035em}.team-principle p{max-width:24rem;margin:0;color:var(--color-text-muted);font-size:.92rem;line-height:1.8}
+.team-standard{display:grid;grid-template-columns:1fr .8fr;gap:clamp(2rem,8vw,8rem);align-items:start}.team-standard>div:last-child p{margin:0 0 1rem;font-size:1rem}.team-closing{padding:clamp(4.5rem,8vw,7.5rem) 0;border-top:1px solid var(--color-border);background:var(--color-surface-subtle)}.team-closing h2{font-size:clamp(3rem,6vw,5.8rem)}.team-button{display:inline-flex;gap:1rem;margin-top:2rem;padding:.85rem 1.15rem;border:1px solid var(--primary-700);color:var(--primary-800);font-size:var(--text-sm);font-weight:600;text-decoration:none;transition:background var(--transition-interactive),color var(--transition-interactive)}.team-button:hover{background:var(--primary-700);color:#fff}.team-button span{color:var(--brand-teal)}
+@media(max-width:800px){.team-hero-grid,.team-leadership,.team-section-heading,.team-standard{grid-template-columns:1fr;gap:2rem}.team-section-label>span{margin-top:0}.team-principles{gap:1.2rem}}
+@media(max-width:560px){.team-wrap{width:calc(100% - 2rem)}.team-hero{padding-top:4rem}.team-experience h1{font-size:clamp(2.8rem,13vw,4.5rem)}.team-experience h2{font-size:clamp(2.3rem,10vw,3.5rem)}.team-hero-foot{flex-direction:column;gap:.8rem;margin-top:3rem}.team-hero-foot p{gap:.6rem;font-size:.52rem}.team-profile-status{grid-template-columns:1fr;gap:.8rem}.team-principles{grid-template-columns:1fr;gap:2rem}.team-section{padding:4.25rem 0}}
 @media(prefers-reduced-motion:reduce){.team-experience *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style>
