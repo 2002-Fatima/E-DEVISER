@@ -19,6 +19,20 @@ import { site } from '../../content/site';
       <p class="home-mission-supporting">
         Better learning, connected across six nations, built for the future of the GCC.
       </p>
+      <div class="home-mission-stats" data-mission-stats aria-label="Mission milestones">
+        <div class="home-mission-stat" role="group" aria-label="10 million learners">
+          <span class="home-mission-stat-value" data-mission-count data-count-target="10" data-count-suffix=" million" aria-hidden="true">10 million</span>
+          <span class="home-mission-stat-label">learners</span>
+        </div>
+        <div class="home-mission-stat" role="group" aria-label="6 nations">
+          <span class="home-mission-stat-value" data-mission-count data-count-target="6" data-count-suffix="" aria-hidden="true">6</span>
+          <span class="home-mission-stat-label">nations</span>
+        </div>
+        <div class="home-mission-stat" role="group" aria-label="2030 target year">
+          <span class="home-mission-stat-value" data-mission-count data-count-target="2030" data-count-suffix="" aria-hidden="true">2030</span>
+          <span class="home-mission-stat-label">target year</span>
+        </div>
+      </div>
       <span class="home-mission-sr-only">{site.missionStatement}</span>
     </div>
     <div class="home-mission-visual">
@@ -26,4 +40,85 @@ import { site } from '../../content/site';
     </div>
     </Container>
   </section>
+  <script>
+    document.querySelectorAll<HTMLElement>('[data-mission-stats]').forEach((stats) => {
+      if (stats.dataset.initialized === 'true') return;
+      stats.dataset.initialized = 'true';
+
+      const counters = Array.from(stats.querySelectorAll<HTMLElement>('[data-mission-count]'));
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const controller = new AbortController();
+      let animationFrames: number[] = [];
+      let observer: IntersectionObserver | undefined;
+      let started = false;
+      let disposed = false;
+
+      const finish = () => {
+        counters.forEach((counter) => {
+          const target = Number(counter.dataset.countTarget ?? 0);
+          const suffix = counter.dataset.countSuffix ?? '';
+          counter.textContent = String(target) + suffix;
+        });
+      };
+
+      const animate = () => {
+        if (started || disposed) return;
+        started = true;
+        if (reducedMotion.matches) {
+          finish();
+          return;
+        }
+
+        counters.forEach((counter) => {
+          const target = Number(counter.dataset.countTarget ?? 0);
+          const suffix = counter.dataset.countSuffix ?? '';
+          const startTime = performance.now();
+          const duration = 900;
+          counter.textContent = '0' + suffix;
+
+          const tick = (time: number) => {
+            if (disposed || reducedMotion.matches) return;
+            const progress = Math.min(1, (time - startTime) / duration);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            counter.textContent = String(Math.round(target * eased)) + suffix;
+            if (progress < 1) {
+              animationFrames.push(window.requestAnimationFrame(tick));
+            }
+          };
+
+          animationFrames.push(window.requestAnimationFrame(tick));
+        });
+      };
+
+      if (reducedMotion.matches) {
+        finish();
+        started = true;
+      } else if ('IntersectionObserver' in window) {
+        observer = new IntersectionObserver(([entry]) => {
+          if (!entry.isIntersecting) return;
+          animate();
+          observer?.disconnect();
+        }, { threshold: 0.35 });
+        observer.observe(stats);
+      } else {
+        animate();
+      }
+
+      reducedMotion.addEventListener('change', () => {
+        if (!reducedMotion.matches) return;
+        animationFrames.forEach((frame) => window.cancelAnimationFrame(frame));
+        animationFrames = [];
+        finish();
+      }, { signal: controller.signal });
+
+      const cleanup = () => {
+        disposed = true;
+        animationFrames.forEach((frame) => window.cancelAnimationFrame(frame));
+        observer?.disconnect();
+        controller.abort();
+        document.removeEventListener('astro:before-swap', cleanup);
+      };
+      document.addEventListener('astro:before-swap', cleanup, { once: true });
+    });
+  </script>
 </SectionWrapper>

@@ -26,6 +26,15 @@ export const pendingNotes: PendingSiteNotes = {
   screenReaderPlaceholderCaption: 'The founder video introduction is not yet available. This is a placeholder and does not contain playback.',
 };
 
+export interface FounderVideoConfig {
+  src: string;
+  poster: string;
+  captions?: string;
+  transcript?: string;
+}
+
+export const founderVideo: FounderVideoConfig | null = null;
+
 export const site = {
   name: 'E Deviser',
   shortName: 'E Deviser',
@@ -36,4 +45,6 @@ export const site = {
     'E Deviser builds intelligent systems for complex problems with a focus on learning and decision-making.',
   missionStatement:
     'To improve learning outcomes for 10 million learners across the GCC by 2030.',
+  contactEmail: '',
+  contactFormEndpoint: '',
 };

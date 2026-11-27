@@ -451,3 +451,15 @@
   }
 
 }
+
+
+.home-methodology-pull-line {
+  max-width: 15ch;
+  margin: 0;
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
