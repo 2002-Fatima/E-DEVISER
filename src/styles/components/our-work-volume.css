@@ -124,7 +124,7 @@
 }
 .background-luminous .our-work-volume-heading .eyebrow,
 .background-atmosphere .our-work-volume-heading .eyebrow,
-.background-dark .our-work-volume-heading .eyebrow { color: var(--brand-teal-light); }
+.background-dark .our-work-volume-heading .eyebrow { color: var(--text-on-dark-accent); }
 .background-luminous .our-work-volume-heading h2,
 .background-atmosphere .our-work-volume-heading h2,
 .background-dark .our-work-volume-heading h2 { color: var(--color-text-inverse); }
