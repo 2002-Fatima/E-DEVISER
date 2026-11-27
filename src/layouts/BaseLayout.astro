@@ -1,5 +1,6 @@
 ---
 import '../styles/tokens.css';
+import '../styles/fonts.css';
 import '../styles/reset.css';
 import '../styles/global.css';
 import '../styles/utilities.css';
@@ -19,26 +20,34 @@ import '../styles/components/particle-morph.css';
 import '../styles/components/methodology-flow.css';
 import '../styles/motion.css';
 
-const { title = 'E Deviser', description = 'E Deviser combines AI, data, and domain intelligence to solve complex problems.' } = Astro.props;
+const { title = 'E Deviser', description = 'E Deviser combines AI, data, and domain intelligence to solve complex problems.', lang = 'en', dir = 'ltr', noindex = false } = Astro.props;
+const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
 const fullTitle = title.includes('E Deviser') ? title : `${title} | E Deviser`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang} dir={dir}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#09121D" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="E Deviser" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    {canonicalURL && <link rel="canonical" href={canonicalURL} />}
+    {canonicalURL && <meta property="og:url" content={canonicalURL} />}
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="preload" href="/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
     <title>{fullTitle}</title>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <slot />
   </body>
 </html>
