@@ -210,13 +210,13 @@
 
 .forums-feature-visual-core span {
   color: var(--brand-teal);
-  font-size: 0.8em;
+  font-size: var(--text-artwork-secondary);
   font-weight: var(--weight-regular);
 }
 
 .forums-feature-visual-core strong:last-child {
   color: var(--brand-blue-light);
-  font-size: 0.48em;
+  font-size: var(--text-artwork-micro);
   letter-spacing: 0.2em;
 }
 
