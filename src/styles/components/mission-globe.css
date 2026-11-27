@@ -219,7 +219,8 @@
 .mission-globe-country-controls button[aria-pressed="true"] {
   opacity: 1;
   border-color: var(--brand-teal-light);
-  outline: none;
+  outline: 2px solid var(--brand-teal-light);
+  outline-offset: 4px;
   background: linear-gradient(135deg, var(--brand-blue), var(--brand-teal));
   box-shadow:
     0 0 0 6px color-mix(in srgb, var(--brand-blue) 12%, transparent),
@@ -228,8 +229,8 @@
 }
 
 .mission-globe-country-controls button:focus-visible {
-  outline: 2px solid var(--brand-blue);
-  outline-offset: 5px;
+  outline: 2px solid var(--brand-teal-light);
+  outline-offset: 4px;
 }
 
 .mission-globe-country-controls button[hidden] {
@@ -524,5 +525,60 @@
 
   .mission-globe-core__halo {
     animation: none;
+  }
+}
+
+
+.home-mission-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-block-start: var(--space-8);
+  padding-block-start: var(--space-5);
+  border-block-start: 1px solid var(--color-border);
+}
+
+.home-mission-stat {
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+  min-width: 0;
+  padding-inline-end: var(--space-3);
+  border-inline-end: 1px solid var(--color-border);
+}
+
+.home-mission-stat:last-child {
+  padding-inline-end: 0;
+  border-inline-end: 0;
+}
+
+.home-mission-stat-value {
+  color: var(--text-on-light-link);
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-base), 2.2vw, var(--text-xl));
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.home-mission-stat-label {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.4;
+}
+
+@media (max-width: 48rem) {
+  .home-mission-stats {
+    margin-block-start: var(--space-6);
+    padding-block-start: var(--space-4);
+  }
+
+  .home-mission-stat {
+    padding-inline-end: var(--space-2);
+  }
+
+  .home-mission-stat-value {
+    font-size: var(--text-base);
   }
 }
