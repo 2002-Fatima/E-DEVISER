@@ -2074,9 +2074,16 @@
   align-items: center;
   gap: var(--space-2);
   color: var(--brand-teal-light);
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: var(--text-micro);
+  font-weight: var(--weight-semibold);
 }
 
-.cuevo-live-indicator i {
+.cuevo-live-indicator .badge-dot {
   width: 0.4rem;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -2527,7 +2534,7 @@
 .cuevo-stage-spark { background: var(--brand-teal); box-shadow: 0 0 1rem color-mix(in srgb, var(--brand-teal) 45%, transparent); }
 .cuevo-stage-heading, .cuevo-stage-footer { color: color-mix(in srgb, var(--brand-navy) 62%, transparent); }
 .cuevo-live-indicator { color: var(--primary-700); }
-.cuevo-live-indicator i { background: var(--brand-teal); box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-teal) 11%, transparent), 0 0 10px color-mix(in srgb, var(--brand-teal) 35%, transparent); }
+.cuevo-live-indicator .badge-dot { background: var(--brand-teal); box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-teal) 11%, transparent), 0 0 10px color-mix(in srgb, var(--brand-teal) 35%, transparent); }
 .cuevo-stage-footer { border-color: color-mix(in srgb, var(--brand-navy) 12%, transparent); }
 .cuevo-dashboard {
   border-color: color-mix(in srgb, var(--brand-white) 95%, transparent);
