@@ -1328,14 +1328,7 @@
     gap: var(--space-1)
   }
 }
-@media(prefers-reduced-motion:reduce) {
-  .what-we-build *, .what-we-build *:before,.what-we-build *:after {
-    animation-duration: .01ms!important;
-    animation-iteration-count: 1!important;
-    scroll-behavior: auto!important;
-    transition-duration: .01ms!important
-  }
-}
+
 /* Quiet progression links keep the long-form page navigable without competing with section content. */
 .what-we-build .wwb-next-link {
   display: inline-flex;
@@ -1731,11 +1724,7 @@
     font-size: var(--text-micro);
   }
 }
-@media(prefers-reduced-motion:reduce) {
-  .what-we-build .wwb-hero-orbit-system, .what-we-build .wwb-hero-orbit, .what-we-build .wwb-hero-core-halo, .what-we-build .wwb-hero-satellite {
-    animation: none !important;
-  }
-}
+
 /* Methodology — five distinct visual languages inside one connected process. */
 .what-we-build .wwb-method {
   background: radial-gradient(ellipse at 50% 48%, color-mix(in srgb, var(--brand-blue) 8%, transparent), transparent 58%), var(--color-surface-night);
@@ -2152,11 +2141,7 @@
     align-items: flex-start;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .what-we-build .wwb-method-rail span, .what-we-build .wwb-method-node i {
-    animation: none !important;
-  }
-}
+
 @media (max-width: 640px) {
   .what-we-build .wwb-method-step:last-child {
     grid-column: auto;
@@ -2465,14 +2450,7 @@
     font-size: var(--text-micro);
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .what-we-build .wwb-capability, .what-we-build .wwb-dimension {
-    transition: none;
-  }
-  .what-we-build .wwb-capability:hover, .what-we-build .wwb-dimension:hover {
-    transform: none;
-  }
-}
+
 /* Final page-wide finish: consistent rhythm, clearer hierarchy, and restrained interaction. */
 .what-we-build .wwb-section {
   scroll-margin-top: 6rem;
@@ -2622,8 +2600,31 @@
     padding: var(--space-4);
   }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .what-we-build .wwb-method-step, .what-we-build .wwb-method-visual, .what-we-build .wwb-education-card, .what-we-build .wwb-loop-node {
+.what-we-build *, .what-we-build *:before,.what-we-build *:after {
+    animation-duration: .01ms!important;
+    animation-iteration-count: 1!important;
+    scroll-behavior: auto!important;
+    transition-duration: .01ms!important
+  }
+
+.what-we-build .wwb-hero-orbit-system, .what-we-build .wwb-hero-orbit, .what-we-build .wwb-hero-core-halo, .what-we-build .wwb-hero-satellite {
+    animation: none !important;
+  }
+
+.what-we-build .wwb-method-rail span, .what-we-build .wwb-method-node i {
+    animation: none !important;
+  }
+
+.what-we-build .wwb-capability, .what-we-build .wwb-dimension {
+    transition: none;
+  }
+  .what-we-build .wwb-capability:hover, .what-we-build .wwb-dimension:hover {
+    transform: none;
+  }
+
+.what-we-build .wwb-method-step, .what-we-build .wwb-method-visual, .what-we-build .wwb-education-card, .what-we-build .wwb-loop-node {
     transition: none;
   }
   .what-we-build .wwb-method-step:hover, .what-we-build .wwb-education-card:hover, .what-we-build .wwb-loop-node:hover {
