@@ -54,7 +54,7 @@
 .home-hero-kicker {
   margin-block-end: var(--space-5);
   color: var(--color-text-inverse-muted);
-  font-size: 0.72rem;
+  font-size: var(--text-micro);
   font-weight: var(--weight-bold);
   letter-spacing: 0.24em;
 }
@@ -246,7 +246,7 @@
   }
 
   .stage-item {
-    font-size: 0.68rem;
+    font-size: var(--text-micro);
     letter-spacing: 0.07em;
   }
 }
