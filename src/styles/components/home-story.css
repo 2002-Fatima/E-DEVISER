@@ -1011,7 +1011,7 @@
 
 .home-work-image-placeholder-label {
   inset-block-end: var(--space-5);
-  left: 50%;
+  inset-inline-start: 50%;
   padding: var(--space-2) var(--space-3);
   border: 1px solid color-mix(in srgb, var(--brand-blue-light) 22%, transparent);
   border-radius: var(--radius-pill);
@@ -1983,7 +1983,7 @@
   position: absolute;
   z-index: -1;
   top: 47%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: 76%;
   aspect-ratio: 1.65;
   border: 1px solid color-mix(in srgb, var(--brand-teal) 20%, transparent);
@@ -2066,7 +2066,7 @@
   position: absolute;
   z-index: 2;
   top: 16%;
-  left: 9%;
+  inset-inline-start: 9%;
   width: 82%;
   margin: 0;
   overflow: hidden;
@@ -2131,14 +2131,14 @@
 }
 
 .cuevo-device--tablet {
-  left: -1%;
+  inset-inline-start: -1%;
   bottom: 10%;
   width: 31%;
   animation: cuevo-device-float 7.5s ease-in-out infinite;
 }
 
 .cuevo-device--phone {
-  right: 1%;
+  inset-inline-end: 1%;
   bottom: 8%;
   width: 19%;
   animation: cuevo-device-float 6.5s ease-in-out -2s infinite;
@@ -2175,12 +2175,12 @@
 
 .cuevo-stage-note--top {
   top: 29%;
-  right: 1.5%;
+  inset-inline-end: 1.5%;
 }
 
 .cuevo-stage-note--bottom {
   bottom: 23%;
-  left: 2%;
+  inset-inline-start: 2%;
 }
 
 .cuevo-foundations {
@@ -2388,32 +2388,32 @@
 
   .cuevo-dashboard {
     top: 23%;
-    left: 5%;
+    inset-inline-start: 5%;
     width: 90%;
     transform: none;
     animation: none;
   }
 
   .cuevo-device--tablet {
-    left: -4%;
+    inset-inline-start: -4%;
     bottom: 11%;
     width: 34%;
   }
 
   .cuevo-device--phone {
-    right: 0;
+    inset-inline-end: 0;
     bottom: 9%;
     width: 21%;
   }
 
   .cuevo-stage-note--top {
     top: 16%;
-    right: 2%;
+    inset-inline-end: 2%;
   }
 
   .cuevo-stage-note--bottom {
     bottom: 25%;
-    left: 1%;
+    inset-inline-start: 1%;
   }
 
   .cuevo-stage-note {
