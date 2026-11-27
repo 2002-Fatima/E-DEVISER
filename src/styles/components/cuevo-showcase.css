@@ -241,7 +241,6 @@
 }
 .cuevo-foundations-path path {
   fill: none;
-  stroke: url(#cuevo-path-gradient);
   stroke-width: 2;
   stroke-linecap: round;
   stroke-dasharray: 1.5 7;
@@ -319,7 +318,6 @@
   .cuevo-foundations { grid-template-columns: 1fr; gap: var(--space-3); margin-inline-start: var(--space-6); }
   .cuevo-foundations-path--desktop { display: none; }
   .cuevo-foundations-path--mobile { display: block; inset-inline-start: -1.5rem; width: 1.5rem; height: 100%; }
-  .cuevo-foundations-path path { stroke: url(#cuevo-path-gradient-mobile); }
   .cuevo-foundation { grid-template-columns: 2rem minmax(0, 1fr); justify-items: start; align-items: center; padding: var(--space-3) var(--space-4); text-align: start; }
 }
 @media (max-width: 40rem) {
