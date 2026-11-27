@@ -271,7 +271,7 @@
 
 .mission-globe-core:hover,
 .mission-globe-core:focus-visible {
-  opacity: 1 !important;
+  opacity: 1;
   border-color: color-mix(in srgb, var(--brand-teal-light) 96%, transparent);
   outline: 2px solid color-mix(in srgb, var(--brand-blue) 50%, transparent);
   outline-offset: 6px;
@@ -508,6 +508,7 @@
   }
 }
 
+/* Accessibility override: ensure the user's reduced-motion preference wins over component motion. */
 @media (prefers-reduced-motion: reduce) {
   .mission-globe-field *,
   .mission-globe-field::before,
