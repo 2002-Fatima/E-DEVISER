@@ -2559,10 +2559,6 @@
   font-weight: 700;
   letter-spacing: .2em;
 }
-.home-cuevo-layout {
-  position: relative;
-  z-index: 1;
-}
 @media (max-width: 48rem) {
   .home-cuevo-section > .cuevo-learning-pattern { opacity: .32; }
   .cuevo-doodle--abc, .cuevo-doodle--atom { display: none; }
