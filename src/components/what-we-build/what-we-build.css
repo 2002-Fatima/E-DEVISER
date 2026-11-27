@@ -155,7 +155,7 @@
 .what-we-build .wwb-hero-labels {
   position: absolute;
   z-index: 1;
-  left: 0;
+  inset-inline-start: 0;
   top: 16%;
   bottom: 16%;
   display: flex;
@@ -176,7 +176,7 @@
 }
 .what-we-build .wwb-hero-output {
   position: absolute;
-  right: 0;
+  inset-inline-end: 0;
   top: 48%;
   z-index: 1;
   color: var(--color-text-inverse);
@@ -258,15 +258,15 @@
 }
 .what-we-build .wwb-dimension-tech {
   top: 13%;
-  left: 9%
+  inset-inline-start: 9%
 }
 .what-we-build .wwb-dimension-human {
   top: 13%;
-  right: 9%
+  inset-inline-end: 9%
 }
 .what-we-build .wwb-dimension-system {
   bottom: 10%;
-  left: calc(50% - 6rem)
+  inset-inline-start: calc(50% - 6rem)
 }
 .what-we-build .wwb-dimension-core {
   position: relative;
@@ -306,7 +306,7 @@
 .what-we-build .wwb-dimension-note {
   position: absolute;
   bottom: 1.3rem;
-  left: 50%;
+  inset-inline-start: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
   color: var(--color-text-inverse-subtle);
@@ -333,15 +333,15 @@
 .what-we-build .wwb-method-rail {
   position: absolute;
   top: 3.45rem;
-  left: 5%;
-  right: 5%;
+  inset-inline-start: 5%;
+  inset-inline-end: 5%;
   height: 1px;
   background: linear-gradient(90deg,transparent,var(--brand-blue) 8%,var(--brand-teal) 50%,var(--brand-blue) 92%,transparent)
 }
 .what-we-build .wwb-method-rail span {
   position: absolute;
   top: -2px;
-  left: 0;
+  inset-inline-start: 0;
   width: 5px;
   height: 5px;
   border-radius: 50%;
@@ -405,7 +405,7 @@
 }
 .what-we-build .wwb-method-geometry i {
   position: absolute;
-  left: 50%;
+  inset-inline-start: 50%;
   top: 50%;
   width: 3.4rem;
   height: 3.4rem;
@@ -499,7 +499,7 @@
 .what-we-build .wwb-toolkit-core {
   position: absolute;
   z-index: 1;
-  left: 50%;
+  inset-inline-start: 50%;
   top: 50%;
   width: 34%;
   height: 44rem;
@@ -590,7 +590,7 @@
 }
 .what-we-build .wwb-capability>i {
   position: absolute;
-  right: 1.1rem;
+  inset-inline-end: 1.1rem;
   top: 1.2rem;
   width: .4rem;
   height: .4rem;
@@ -600,30 +600,30 @@
 }
 .what-we-build .wwb-capability-1 {
   top: 0;
-  left: calc(50% - 8.5rem)
+  inset-inline-start: calc(50% - 8.5rem)
 }
 .what-we-build .wwb-capability-2 {
   top: 16%;
-  left: 2%
+  inset-inline-start: 2%
 }
 .what-we-build .wwb-capability-3 {
   top: 48%;
-  left: 0
+  inset-inline-start: 0
 }
 .what-we-build .wwb-capability-4 {
   top: 16%;
-  right: 2%
+  inset-inline-end: 2%
 }
 .what-we-build .wwb-capability-5 {
   top: 48%;
-  right: 0
+  inset-inline-end: 0
 }
 .what-we-build .wwb-capability-6 {
   bottom: 0;
-  left: 17%
+  inset-inline-start: 17%
 }
 .what-we-build .wwb-capability-7 {
-  right: 17%;
+  inset-inline-end: 17%;
   bottom: 0
 }
 .what-we-build .wwb-toolkit-foot {
@@ -654,7 +654,7 @@
 }
 .what-we-build .wwb-education-aside {
   padding: var(--space-5) var(--space-6);
-  border-left: 1px solid var(--brand-teal);
+  border-inline-start: 1px solid var(--brand-teal);
   background: linear-gradient(90deg,color-mix(in srgb, var(--brand-blue) 8%, transparent),transparent)
 }
 .what-we-build .wwb-education-aside span {
@@ -684,7 +684,7 @@
 .what-we-build .wwb-education-card:after {
   content: "";
   position: absolute;
-  right: -4rem;
+  inset-inline-end: -4rem;
   bottom: -5rem;
   width: 13rem;
   height: 13rem;
@@ -725,19 +725,19 @@
   box-shadow: 0 0 14px color-mix(in srgb, var(--brand-blue) 35%, transparent)
 }
 .what-we-build .glyph-network i:nth-child(1) {
-  left: 0;
+  inset-inline-start: 0;
   top: 1.8rem
 }
 .what-we-build .glyph-network i:nth-child(2) {
-  left: 2.1rem;
+  inset-inline-start: 2.1rem;
   top: 0
 }
 .what-we-build .glyph-network i:nth-child(3) {
-  right: 0;
+  inset-inline-end: 0;
   top: 1.8rem
 }
 .what-we-build .glyph-network i:nth-child(4) {
-  left: 2.1rem;
+  inset-inline-start: 2.1rem;
   bottom: 0
 }
 .what-we-build .glyph-measure i {
@@ -746,19 +746,19 @@
   border-radius: 3px 3px 0 0
 }
 .what-we-build .glyph-measure i:nth-child(1) {
-  left: .2rem;
+  inset-inline-start: .2rem;
   height: 1.5rem
 }
 .what-we-build .glyph-measure i:nth-child(2) {
-  left: 1.6rem;
+  inset-inline-start: 1.6rem;
   height: 2.6rem
 }
 .what-we-build .glyph-measure i:nth-child(3) {
-  left: 3rem;
+  inset-inline-start: 3rem;
   height: 3.6rem
 }
 .what-we-build .glyph-measure i:nth-child(4) {
-  left: 4.4rem;
+  inset-inline-start: 4.4rem;
   height: 4.5rem
 }
 .what-we-build .glyph-scale i {
@@ -766,19 +766,19 @@
   height: 1.3rem
 }
 .what-we-build .glyph-scale i:nth-child(1) {
-  left: 0;
+  inset-inline-start: 0;
   top: 1.7rem
 }
 .what-we-build .glyph-scale i:nth-child(2) {
-  left: 1.6rem;
+  inset-inline-start: 1.6rem;
   top: .9rem
 }
 .what-we-build .glyph-scale i:nth-child(3) {
-  left: 3.2rem;
+  inset-inline-start: 3.2rem;
   top: .1rem
 }
 .what-we-build .glyph-scale i:nth-child(4) {
-  left: 4.5rem;
+  inset-inline-start: 4.5rem;
   top: -.5rem
 }
 .what-we-build .wwb-education-conclusion {
@@ -909,18 +909,18 @@
 }
 .what-we-build .wwb-loop-node-1 {
   top: 1%;
-  left: calc(50% - 7.5rem)
+  inset-inline-start: calc(50% - 7.5rem)
 }
 .what-we-build .wwb-loop-node-2 {
-  right: 0;
+  inset-inline-end: 0;
   top: calc(50% - 4rem)
 }
 .what-we-build .wwb-loop-node-3 {
   bottom: 1%;
-  left: calc(50% - 7.5rem)
+  inset-inline-start: calc(50% - 7.5rem)
 }
 .what-we-build .wwb-loop-node-4 {
-  left: 0;
+  inset-inline-start: 0;
   top: calc(50% - 4rem)
 }
 .what-we-build .wwb-intelligence-foot {
@@ -988,8 +988,8 @@
   display: grid;
   gap: var(--space-1);
   margin-top: var(--space-10);
-  padding-left: var(--space-4);
-  border-left: 1px solid var(--brand-teal)
+  padding-inline-start: var(--space-4);
+  border-inline-start: 1px solid var(--brand-teal)
 }
 .what-we-build .wwb-future-cta>span {
   color: var(--color-text-inverse-muted);
@@ -1030,7 +1030,7 @@
 .what-we-build .wwb-future-horizon {
   position: absolute;
   top: 39%;
-  left: 58%;
+  inset-inline-start: 58%;
   width: 12rem;
   height: 12rem;
   border-radius: 50%;
@@ -1041,7 +1041,7 @@
 .what-we-build .wwb-future-horizon i {
   position: absolute;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: 4px;
   height: 4px;
   border-radius: 50%;
@@ -1066,21 +1066,21 @@
 }
 .what-we-build .marker-a {
   top: 23%;
-  left: 10%
+  inset-inline-start: 10%
 }
 .what-we-build .marker-b {
   top: 17%;
-  left: 45%
+  inset-inline-start: 45%
 }
 .what-we-build .marker-c {
   top: 7%;
-  right: 5%
+  inset-inline-end: 5%
 }
 .what-we-build .wwb-future-art-foot {
   position: absolute;
-  right: 1rem;
+  inset-inline-end: 1rem;
   bottom: 1.2rem;
-  left: 1rem;
+  inset-inline-start: 1rem;
   display: flex;
   justify-content: center;
   gap: var(--space-3);
@@ -1124,13 +1124,13 @@
 }
 @keyframes wwb-rail {
   0% {
-    left: 0
+    inset-inline-start: 0
   }
   50% {
-    left: 100%
+    inset-inline-start: 100%
   }
   100% {
-    left: 0
+    inset-inline-start: 0
   }
 }
 @keyframes wwb-horizon {
@@ -1155,7 +1155,7 @@
   }
   .what-we-build .wwb-toolkit-core {
     position: relative;
-    left: auto;
+    inset-inline-start: auto;
     top: auto;
     width: 100%;
     height: 23rem;
@@ -1243,15 +1243,15 @@
   }
   .what-we-build .wwb-dimension-tech {
     top: 9%;
-    left: 3%
+    inset-inline-start: 3%
   }
   .what-we-build .wwb-dimension-human {
     top: 9%;
-    right: 3%
+    inset-inline-end: 3%
   }
   .what-we-build .wwb-dimension-system {
     bottom: 8%;
-    left: calc(50% - 5rem)
+    inset-inline-start: calc(50% - 5rem)
   }
   .what-we-build .wwb-dimension-core {
     width: 10rem
@@ -1302,18 +1302,18 @@
   }
   .what-we-build .wwb-loop-node-1 {
     top: 0;
-    left: calc(50% - 4.7rem)
+    inset-inline-start: calc(50% - 4.7rem)
   }
   .what-we-build .wwb-loop-node-2 {
-    right: 0;
+    inset-inline-end: 0;
     top: calc(50% - 4rem)
   }
   .what-we-build .wwb-loop-node-3 {
     bottom: 0;
-    left: calc(50% - 4.7rem)
+    inset-inline-start: calc(50% - 4.7rem)
   }
   .what-we-build .wwb-loop-node-4 {
-    left: 0;
+    inset-inline-start: 0;
     top: calc(50% - 4rem)
   }
   .what-we-build .wwb-intelligence-foot {
@@ -1605,7 +1605,7 @@
 .what-we-build .wwb-hero-labels span::before {
   position: absolute;
   top: 50%;
-  left: .28rem;
+  inset-inline-start: .28rem;
   width: 3px;
   height: 3px;
   content: "";
@@ -1616,7 +1616,7 @@
 }
 .what-we-build .wwb-hero-output {
   top: 47%;
-  right: 1%;
+  inset-inline-end: 1%;
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
@@ -1725,7 +1725,7 @@
     letter-spacing: .06em;
   }
   .what-we-build .wwb-hero-output {
-    right: .2rem;
+    inset-inline-end: .2rem;
     top: 48%;
     padding: var(--space-2) var(--space-2);
     font-size: var(--text-micro);
@@ -1754,8 +1754,8 @@
 .what-we-build .wwb-method-rail {
   position: absolute;
   top: 1.28rem;
-  right: 8%;
-  left: 8%;
+  inset-inline-end: 8%;
+  inset-inline-start: 8%;
   height: 1px;
   overflow: hidden;
   background: linear-gradient(90deg, color-mix(in srgb, var(--brand-blue) 18%, transparent), color-mix(in srgb, var(--brand-teal) 48%, transparent) 50%, color-mix(in srgb, var(--brand-blue) 18%, transparent));
@@ -1847,7 +1847,7 @@
 }
 .what-we-build .wwb-method-visual b {
   position: absolute;
-  right: .55rem;
+  inset-inline-end: .55rem;
   bottom: .5rem;
   color: var(--color-text-inverse-subtle);
   font: var(--weight-medium) var(--text-micro) var(--font-mono);
@@ -1857,7 +1857,7 @@
 .what-we-build .method-lens {
   position: absolute;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: 4.5rem;
   height: 2.4rem;
   border: 1px solid color-mix(in srgb, var(--brand-teal-light) 70%, transparent);
@@ -1877,7 +1877,7 @@
 .what-we-build .method-focus {
   position: absolute;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: .42rem;
   height: .42rem;
   border-radius: 50%;
@@ -1888,7 +1888,7 @@
 .what-we-build .method-ray {
   position: absolute;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: 5.8rem;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--brand-teal-light), transparent);
@@ -1898,7 +1898,7 @@
 .what-we-build .method-blueprint {
   position: absolute;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   border: 1px solid color-mix(in srgb, var(--brand-blue-light) 65%, transparent);
   transform: translate(-50%, -50%);
 }
@@ -1923,7 +1923,7 @@
 .what-we-build .method-blueprint-anchor {
   position: absolute;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: .48rem;
   height: .48rem;
   border: 1px solid var(--brand-white);
@@ -1942,27 +1942,27 @@
 }
 .what-we-build .method-module--one {
   top: 27%;
-  left: 28%;
+  inset-inline-start: 28%;
 }
 .what-we-build .method-module--two {
   top: 27%;
-  left: 49%;
+  inset-inline-start: 49%;
   border-color: var(--brand-blue-light);
 }
 .what-we-build .method-module--three {
   top: 52%;
-  left: 38.5%;
+  inset-inline-start: 38.5%;
   border-color: var(--brand-teal);
 }
 .what-we-build .method-module--four {
   top: 52%;
-  left: 59.5%;
+  inset-inline-start: 59.5%;
   border-color: var(--brand-blue-light);
 }
 .what-we-build .method-module-joint {
   position: absolute;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: .38rem;
   height: .38rem;
   border-radius: 50%;
@@ -1980,18 +1980,18 @@
   transform: translateY(-50%) rotate(45deg);
 }
 .what-we-build .method-bridge--left {
-  left: 20%;
-  border-right: 0;
+  inset-inline-start: 20%;
+  border-inline-end: 0;
   border-top: 0;
 }
 .what-we-build .method-bridge--right {
-  right: 20%;
-  border-left: 0;
+  inset-inline-end: 20%;
+  border-inline-start: 0;
   border-bottom: 0;
   border-color: var(--brand-teal-light);
 }
 .what-we-build .method-bridge--span {
-  left: 50%;
+  inset-inline-start: 50%;
   width: 4.1rem;
   height: 1.2rem;
   border-width: 1px 0;
@@ -2001,7 +2001,7 @@
 .what-we-build .method-bridge-point {
   position: absolute;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: .48rem;
   height: .48rem;
   border-radius: 50%;
@@ -2013,7 +2013,7 @@
 .what-we-build .method-signal--ring {
   position: absolute;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: 4.3rem;
   height: 4.3rem;
   border: 1px solid color-mix(in srgb, var(--brand-blue-light) 58%, transparent);
@@ -2023,7 +2023,7 @@
 .what-we-build .method-signal--arc {
   position: absolute;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: 3rem;
   height: 3rem;
   border: 1px solid var(--brand-teal-light);
@@ -2035,7 +2035,7 @@
 .what-we-build .method-signal--trace {
   position: absolute;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: 6.5rem;
   height: 1.5rem;
   border: 0;
@@ -2047,7 +2047,7 @@
 .what-we-build .method-signal-point {
   position: absolute;
   top: 50%;
-  left: 68%;
+  inset-inline-start: 68%;
   width: .4rem;
   height: .4rem;
   border-radius: 50%;
@@ -2197,7 +2197,7 @@
   object-fit: contain;
 }
 .what-we-build .wwb-hero-labels {
-  left: clamp(.15rem, 1vw, .8rem);
+  inset-inline-start: clamp(.15rem, 1vw, .8rem);
   max-width: 45%;
 }
 .what-we-build .wwb-hero-labels span {
@@ -2206,7 +2206,7 @@
   overflow-wrap: anywhere;
 }
 .what-we-build .wwb-hero-output {
-  right: clamp(.2rem, 1vw, .8rem);
+  inset-inline-end: clamp(.2rem, 1vw, .8rem);
 }
 @media (max-width: 1100px) {
   .what-we-build .wwb-hero {
@@ -2282,7 +2282,7 @@
   .what-we-build .wwb-hero-labels {
     top: 7%;
     bottom: 7%;
-    left: .25rem;
+    inset-inline-start: .25rem;
     max-width: 43%;
     gap: var(--space-1);
   }
@@ -2295,7 +2295,7 @@
   }
   .what-we-build .wwb-hero-output {
     top: auto;
-    right: .25rem;
+    inset-inline-end: .25rem;
     bottom: 7%;
     padding: var(--space-2) var(--space-2);
     font-size: var(--text-micro);
@@ -2339,7 +2339,7 @@
     display: none;
   }
   .what-we-build .wwb-hero-output {
-    right: .35rem;
+    inset-inline-end: .35rem;
     bottom: .45rem;
   }
 }
