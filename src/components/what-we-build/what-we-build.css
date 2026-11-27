@@ -2611,3 +2611,31 @@
     transform: none;
   }
 }
+
+
+/* Phase 1 finish — restore a clear editorial heading hierarchy and let the hero
+   intelligence visual breathe as part of the section rather than a framed panel. */
+.what-we-build h2 {
+  font-size: var(--text-h2);
+  line-height: 1.08;
+  letter-spacing: -.045em;
+}
+
+.what-we-build .wwb-hero h1 {
+  font-size: var(--text-display);
+}
+
+.what-we-build .wwb-hero-art {
+  overflow: visible;
+  mask-image: none;
+  background: transparent;
+}
+
+.what-we-build .wwb-hero-art::before,
+.what-we-build .wwb-hero-art::after {
+  content: none;
+}
+
+.what-we-build .wwb-future h2 {
+  max-width: 14ch;
+}
