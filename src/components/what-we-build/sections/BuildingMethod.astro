@@ -172,7 +172,6 @@
     };
     toggle?.addEventListener('click', () => { paused = !paused; schedule(); }, { signal: abort.signal });
     controls.forEach((control, index) => control.addEventListener('click', () => {
-      paused = true;
       update(index);
       schedule();
     }, { signal: abort.signal }));
