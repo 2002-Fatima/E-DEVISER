@@ -15,7 +15,6 @@ const currentPath = Astro.url.pathname;
         {item.children ? (
           <details
             class="nav-details"
-            open={item.children.some((child) => child.href === currentPath)}
             data-current={item.children.some((child) => child.href === currentPath) ? 'true' : undefined}
           >
             <summary>{item.label}</summary>
