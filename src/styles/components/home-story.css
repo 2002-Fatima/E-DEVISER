@@ -161,8 +161,8 @@
 }
 
 .home-methodology-section .methodology-node-button[aria-current="step"] {
-  border-color: var(--brand-blue);
-  background: var(--brand-blue);
+  border-color: var(--primary-700);
+  background: var(--primary-700);
   color: var(--color-white);
 }
 
