@@ -698,7 +698,7 @@
 .what-we-build .wwb-hero-copy { min-width: 0; }
 .what-we-build .wwb-hero h1 {
   max-width: 11ch;
-  font-size: clamp(2.9rem, 5.4vw, 6.1rem);
+  font-size: var(--text-display);
   line-height: .96;
   overflow-wrap: normal;
   word-break: normal;
@@ -737,7 +737,7 @@
   .what-we-build .wwb-hero-copy { max-width: 52rem; }
   .what-we-build .wwb-hero h1 {
     max-width: 13ch;
-    font-size: clamp(3.3rem, 7.2vw, 5.8rem);
+    font-size: var(--text-display);
   }
   .what-we-build .wwb-hero .wwb-lead { max-width: 43rem; }
   .what-we-build .wwb-hero-art {
@@ -762,7 +762,7 @@
   }
   .what-we-build .wwb-hero h1 {
     max-width: 12ch;
-    font-size: clamp(2.65rem, 10.6vw, 4.4rem);
+    font-size: var(--text-hero-mobile);
     line-height: .98;
     letter-spacing: -.065em;
   }
@@ -814,7 +814,7 @@
 }
 @media (max-width: 390px) {
   .what-we-build .wwb-hero-layout { width: calc(100% - 1.75rem); }
-  .what-we-build .wwb-hero h1 { font-size: clamp(2.45rem, 10.3vw, 3.15rem); }
+  .what-we-build .wwb-hero h1 { font-size: var(--text-hero-mobile); }
   .what-we-build .wwb-hero .wwb-eyebrow { gap: .55rem; font-size: var(--text-micro); }
   .what-we-build .wwb-hero-art { height: 16.5rem; }
   .what-we-build .wwb-hero-labels { max-width: 46%; }
@@ -848,7 +848,7 @@
 .what-we-build .wwb-hero h1 {
   max-width: 13ch;
   font-family: var(--font-display);
-  font-size: clamp(2.85rem, 5.1vw, 5.6rem);
+  font-size: var(--text-display);
   font-weight: var(--weight-bold);
   text-transform: none;
   line-height: 1.02;
@@ -891,7 +891,7 @@
 .what-we-build .wwb-capability h3 {
   color: var(--color-text-inverse);
   font-family: var(--font-display);
-  font-size: clamp(.92rem, 1.05vw, 1.04rem);
+  font-size: var(--text-base);
   font-weight: var(--weight-semibold);
   letter-spacing: -.015em;
   line-height: 1.3;
@@ -933,7 +933,7 @@
 @media (max-width: 700px) {
   .what-we-build .wwb-hero h1 {
     max-width: 13ch;
-    font-size: clamp(2.55rem, 9.7vw, 4.15rem);
+    font-size: var(--text-hero-mobile);
     line-height: 1.04;
   }
   .what-we-build .wwb-hero h1 em { display: block; margin-top: .12em; }
