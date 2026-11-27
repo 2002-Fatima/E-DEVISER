@@ -1,19 +1,179 @@
 ---
+import '../../styles/components/company.css';
+import Button from '../ui/Button.astro';
 import Card from '../ui/Card.astro';
+import Container from '../ui/Container.astro';
+import FormFeedback from '../ui/FormFeedback.astro';
+import Link from '../ui/Link.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import SectionWrapper from '../ui/SectionWrapper.astro';
+import Select from '../ui/Select.astro';
+import TextInput from '../ui/TextInput.astro';
+import Textarea from '../ui/Textarea.astro';
+import { site } from '../../content/site';
+
 const paths = [
   ['A problem worth solving','Bring us a difficult problem that deserves curiosity, depth, and determination.'],
   ['A collaboration to explore','Work with us to bring the right people and capabilities together.'],
   ['A willingness to build','If you move between ideas and execution, we want to hear what you could contribute.'],
 ];
+const contactEmail = site.contactEmail.trim();
+const contactFormEndpoint = site.contactFormEndpoint.trim();
+const hasContactChannel = Boolean(contactEmail || contactFormEndpoint);
+const interestOptions = paths.map((path, index) => ({
+  label: path[0],
+  value: ['problem', 'collaboration', 'building'][index],
+}));
 ---
-<div class="co-sub co-careers">
-  <section class="co-sub-hero"><div class="co-sub-wrap co-sub-hero-grid"><div><p class="co-kicker">CAREERS &amp; CONTACT</p><h1>Good work starts<br/>with a <em>conversation.</em></h1><p class="co-lead">E Deviser exists to work on difficult problems with people who care about making meaningful progress. If that sounds like the work you want to be part of, let’s start a conversation.</p></div><div class="co-contact-art"><span>OPEN CHANNEL</span><strong>Let’s<br/><em>connect.</em></strong><i>↗</i><small>E DEVISER / 01</small></div></div></section>
-  <section class="co-sub-section"><div class="co-sub-wrap"><p class="co-kicker">WHAT BRINGS YOU HERE?</p><div class="co-sub-heading"><h2>Start with<br/><em>what matters.</em></h2><p>We begin with the problem, understand what makes it difficult, and explore what it would take to move it forward. The best conversations are specific, thoughtful, and open to evidence.</p></div><div class="co-paths">{paths.map((path,i)=><article><span>0{i+1}</span><div><h3>{path[0]}</h3><p>{path[1]}</p></div><b>↗</b></article>)}</div></div></section>
-  <section class="co-sub-section co-sub-tint"><div class="co-sub-wrap co-open"><div><p class="co-kicker">CAREERS</p><h2>Curious enough<br/><em>to question.</em><br/>Practical enough to build.</h2></div><div><p>We value people who challenge assumptions, get close to the details, and stay open to changing their minds when the evidence tells them to. We look for people who do not just ask what is possible, but what is worth doing.</p><a href="/company/team/">Meet the team ↗</a></div></div></section>
-  <section class="co-sub-section co-contact" id="contact"><div class="co-sub-wrap"><Card as="div" variant="light" class="co-contact-panel"><div><p class="co-kicker">START A CONVERSATION</p><h2>Tell us what<br/><em>you’re thinking.</em></h2><p></p></div><div class="co-contact-status"><span>CONTACT INFORMATION</span><strong>Talk to E Deviser</strong><a href="/company/team/">Meet the team ↗</a></div></Card></div></section>
-</div>
-<style>
-.co-sub{--sub-bg:var(--color-surface);--sub-text:var(--brand-navy);--sub-muted:var(--color-text-muted);--sub-line:var(--color-border);background:var(--sub-bg);color:var(--sub-text);overflow:hidden}.co-sub *{box-sizing:border-box}.co-sub-wrap{width:min(88rem,calc(100% - 3rem));margin:auto}.co-sub-section{padding:clamp(var(--space-18),8vw,var(--space-32)) 0;border-bottom:1px solid var(--sub-line)}.co-sub-tint{background:var(--color-surface-soft)}.co-kicker{margin:0 0 var(--space-6);color:var(--text-on-light-link);font-family:var(--font-body);font-size:var(--text-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase}.co-sub h1,.co-sub h2{margin:var(--space-4) 0 var(--space-6);line-height:1.02;letter-spacing:-.06em;color:var(--brand-navy)}.co-sub h1{font-size:var(--text-h1)}.co-sub h2{font-size:var(--text-h2)}.co-sub h1 em,.co-sub h2 em{font-style:normal;color:var(--text-on-light-link)}@supports ((background-clip:text) or (-webkit-background-clip:text)){.co-sub h1 em,.co-sub h2 em{background-image:var(--gradient-brand-text);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;color:transparent}}.co-sub p{color:var(--sub-muted);line-height:1.8}.co-sub-hero{padding:clamp(var(--space-20),9vw,var(--space-36)) 0;background:var(--gradient-pattern-light)}.co-sub-hero-grid{display:grid;grid-template-columns:1fr .8fr;gap:8vw;align-items:center}.co-lead{max-width:39rem;font-size: var(--text-base)}.co-contact-art{min-height:24rem;position:relative;padding:var(--space-8);display:flex;flex-direction:column;justify-content:center;border:1px solid var(--sub-line);border-radius:var(--radius-lg);background:var(--gradient-pattern-light);color:var(--brand-navy);box-shadow:var(--shadow-card-soft)}.co-contact-art>span,.co-contact-art>small{font:600 var(--text-micro) var(--font-mono);letter-spacing:var(--tracking-wide);color:var(--text-on-light-link)}.co-contact-art strong{font-size: var(--text-display);line-height:1.02;margin:var(--space-8) 0}.co-contact-art em{font-style:normal;background:var(--gradient-brand-text);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}.co-contact-art i{position:absolute;inset-inline-end:var(--space-8);bottom:var(--space-8);font-size:var(--text-2xl);color:var(--text-on-light-link);font-style:normal}.co-contact-art>small{position:absolute;bottom:1.5rem;inset-inline-start:2rem}.co-sub-heading,.co-open,.co-contact-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(18rem,.8fr);gap:clamp(var(--space-10),6vw,var(--space-20));align-items:center}.co-sub-heading>p,.co-open>div:last-child{max-width:38rem}.co-paths{margin-top:var(--space-12);border-top:1px solid var(--sub-line)}.co-paths article{display:grid;grid-template-columns:3rem minmax(0,1fr) 2rem;gap:var(--space-5);align-items:center;padding:var(--space-6) var(--space-1);border-bottom:1px solid var(--sub-line)}.co-paths article>span{font:600 var(--text-micro) var(--font-mono);color:var(--text-on-light-link)}.co-paths h3{font-size: var(--text-xl);margin:0}.co-paths p{margin:var(--space-2) 0 0;font-size: var(--text-sm)}.co-paths article>b{color:var(--text-on-light-link);font-weight:400}.co-open h2,.co-contact-panel h2{font-size: var(--text-h2)}.co-open a,.co-contact-status a{display:inline-block;margin-top:var(--space-4);color:var(--text-on-light-link);text-decoration:none;font-weight:650;font-size: var(--text-sm)}.co-contact{background:var(--color-surface-soft)}.co-contact-panel{padding:clamp(var(--space-6),4vw,var(--space-10));border:1px solid var(--sub-line);border-radius:var(--radius-lg);background:var(--color-surface-raised);box-shadow:var(--shadow-card-soft)}.co-contact-status{padding:var(--space-8);border-inline-start:1px solid var(--sub-line)}.co-contact-status span,.co-contact-status small{display:block;font:500 var(--text-micro) var(--font-mono);letter-spacing:.12em;color:var(--text-on-light-link)}.co-contact-status strong{display:block;margin:var(--space-6) 0 var(--space-2);font-size: var(--text-xl)}.co-contact-status small{color:var(--color-text-muted);line-height:1.7}
-@media(max-width:760px){.co-sub-hero-grid,.co-sub-heading,.co-open,.co-contact-panel{grid-template-columns:1fr;gap:var(--space-8)}.co-contact-status{border-inline-start:0;border-top:1px solid var(--sub-line);padding:var(--space-6) 0 0}.co-sub-wrap{width:calc(100% - 2rem)}}
 
-</style>
+<div class="company-careers">
+  <SectionWrapper background="light" class="company-careers-hero">
+    <section aria-labelledby="company-careers-title">
+      <Container width="wide" class="company-careers-hero-grid">
+        <div>
+          <p class="eyebrow">CAREERS &amp; CONTACT</p>
+          <h1 id="company-careers-title">Good work starts<br/>with a <em>conversation.</em></h1>
+          <p class="company-lead">E Deviser exists to work on difficult problems with people who care about making meaningful progress. If that sounds like the work you want to be part of, let’s start a conversation.</p>
+        </div>
+        <div class="company-contact-art" aria-hidden="true">
+          <span>OPEN CHANNEL</span>
+          <strong>Let’s<br/><em>connect.</em></strong>
+          <i>↗</i>
+          <small>E DEVISER / 01</small>
+        </div>
+      </Container>
+    </section>
+  </SectionWrapper>
+
+  <SectionWrapper background="light" class="company-section">
+    <section aria-labelledby="company-careers-start-title">
+      <Container width="wide">
+        <div class="company-split company-careers-intro">
+          <SectionHeading
+            eyebrow="WHAT BRINGS YOU HERE?"
+            title="Start with what matters."
+            id="company-careers-start-title"
+          />
+          <p class="company-copy">We begin with the problem, understand what makes it difficult, and explore what it would take to move it forward. The best conversations are specific, thoughtful, and open to evidence.</p>
+        </div>
+        <ol class="company-paths">
+          {paths.map((path, index) => (
+            <li>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{path[0]}</h3>
+                <p>{path[1]}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </Container>
+    </section>
+  </SectionWrapper>
+
+  <SectionWrapper background="light" class="company-section company-section--soft">
+    <section aria-labelledby="company-careers-principles-title">
+      <Container width="wide" class="company-split">
+        <SectionHeading
+          eyebrow="CAREERS"
+          title="Curious enough to question. Practical enough to build."
+          id="company-careers-principles-title"
+        />
+        <div class="company-copy">
+          <p>We value people who challenge assumptions, get close to the details, and stay open to changing their minds when the evidence tells them to. We look for people who do not just ask what is possible, but what is worth doing.</p>
+          <Link href="/company/team/">Meet the team ↗</Link>
+        </div>
+      </Container>
+    </section>
+  </SectionWrapper>
+
+  {hasContactChannel && (
+    <SectionWrapper background="light" id="contact" class="company-section company-contact-section">
+      <section aria-labelledby="company-contact-title">
+        <Container width="wide">
+          <Card as="div" variant="light" class="company-contact-card">
+            <div class="company-contact-copy">
+              <SectionHeading
+                eyebrow="START A CONVERSATION"
+                title="Tell us what you’re thinking."
+                id="company-contact-title"
+              />
+              {contactEmail && (
+                <p class="company-contact-fallback">
+                  <Link href={`mailto:${contactEmail}`}>Email E Deviser ↗</Link>
+                </p>
+              )}
+            </div>
+            {contactFormEndpoint && (
+              <form class="company-contact-form" data-contact-form method="POST" action={contactFormEndpoint}>
+                <TextInput name="name" label="Name" autocomplete="name" required />
+                <TextInput name="email" label="Email" type="email" autocomplete="email" required />
+                <Select
+                  name="interest"
+                  label="What brings you here?"
+                  options={interestOptions}
+                  placeholder="Select a topic"
+                  required
+                />
+                <Textarea name="message" label="Message" rows={5} required />
+                <Button type="submit" label="Send message" variant="primary" />
+                <div class="company-contact-feedback">
+                  <div data-contact-success hidden>
+                    <FormFeedback tone="success">Your message has been sent.</FormFeedback>
+                  </div>
+                  <div data-contact-error hidden>
+                    <FormFeedback tone="error">
+                      We couldn’t send your message. Please try again{contactEmail ? ' or email E Deviser directly.' : '.'}
+                    </FormFeedback>
+                  </div>
+                </div>
+              </form>
+            )}
+          </Card>
+        </Container>
+      </section>
+    </SectionWrapper>
+  )}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-contact-form]').forEach((form) => {
+    if (form.dataset.initialized === 'true') return;
+    form.dataset.initialized = 'true';
+
+    const feedbackSuccess = form.querySelector<HTMLElement>('[data-contact-success]');
+    const feedbackError = form.querySelector<HTMLElement>('[data-contact-error]');
+    const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const controller = new AbortController();
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      if (feedbackSuccess) feedbackSuccess.hidden = true;
+      if (feedbackError) feedbackError.hidden = true;
+      if (submitButton) submitButton.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (!response.ok) throw new Error('Contact form submission failed');
+        if (feedbackSuccess) feedbackSuccess.hidden = false;
+        form.reset();
+      } catch {
+        if (feedbackError) feedbackError.hidden = false;
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+      }
+    }, { signal: controller.signal });
+
+    const cleanup = () => {
+      controller.abort();
+      document.removeEventListener('astro:before-swap', cleanup);
+    };
+    document.addEventListener('astro:before-swap', cleanup, { once: true });
+  });
+</script>
