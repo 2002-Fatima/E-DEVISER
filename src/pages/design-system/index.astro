@@ -55,14 +55,15 @@ const fontSpecimens = [
   { name: 'Display / Plus Jakarta Sans / ExtraBold', sample: 'Human-centred intelligence', family: 'var(--font-display)', size: 'var(--text-display)', weight: 'var(--weight-extrabold)' },
   { name: 'H1 / Plus Jakarta Sans / Bold', sample: 'Learning that leads to outcomes', family: 'var(--font-display)', size: 'var(--text-h1)', weight: 'var(--weight-bold)' },
   { name: 'H2 / Plus Jakarta Sans / Bold', sample: 'Designing for better decisions', family: 'var(--font-display)', size: 'var(--text-h2)', weight: 'var(--weight-bold)' },
-  { name: 'H3 / Plus Jakarta Sans / Bold', sample: 'A human-centred approach', family: 'var(--font-display)', size: 'var(--text-h3)', weight: 'var(--weight-bold)' },
-  { name: 'H4 / Plus Jakarta Sans / Bold', sample: 'Learning built around people', family: 'var(--font-display)', size: 'var(--text-h4)', weight: 'var(--weight-bold)' },
+  { name: 'H3 / Plus Jakarta Sans / Semibold', sample: 'A human-centred approach', family: 'var(--font-display)', size: 'var(--text-h3)', weight: 'var(--weight-semibold)' },
+  { name: 'H4 / Plus Jakarta Sans / Semibold', sample: 'Learning built around people', family: 'var(--font-display)', size: 'var(--text-h4)', weight: 'var(--weight-semibold)' },
   { name: 'Body large / Inter / Regular', sample: 'Designed for practical learning and meaningful decisions.', family: 'var(--font-body)', size: 'var(--text-body-large)', weight: 'var(--weight-regular)' },
   { name: 'Body regular / Inter / Regular', sample: 'Clear systems help people make progress with confidence.', family: 'var(--font-body)', size: 'var(--text-base)', weight: 'var(--weight-regular)' },
   { name: 'Body small / Inter / Regular', sample: 'Supporting details stay legible and comfortably spaced.', family: 'var(--font-body)', size: 'var(--text-body-small)', weight: 'var(--weight-regular)' },
-  { name: 'Eyebrow / Inter / Bold', sample: 'HUMAN-CENTRED INTELLIGENCE', family: 'var(--font-body)', size: 'var(--text-xs)', weight: 'var(--weight-bold)' },
-  { name: 'Button and navigation / Inter / Semibold', sample: 'Explore the methodology', family: 'var(--font-body)', size: 'var(--text-sm)', weight: 'var(--weight-semibold)' },
-  { name: 'Technical / JetBrains Mono / Medium', sample: 'OUTCOME_BASED_EDUCATION', family: 'var(--font-mono)', size: 'var(--text-xs)', weight: 'var(--weight-medium)' },
+  { name: 'Eyebrow / Inter / Bold', sample: 'HUMAN-CENTRED INTELLIGENCE', family: 'var(--font-body)', size: 'var(--text-eyebrow)', weight: 'var(--weight-bold)' },
+  { name: 'Button / Inter / Semibold', sample: 'Explore the methodology', family: 'var(--font-body)', size: 'var(--text-base)', weight: 'var(--weight-semibold)' },
+  { name: 'Navigation / Inter / Semibold', sample: 'Our Work', family: 'var(--font-body)', size: 'var(--text-sm)', weight: 'var(--weight-semibold)' },
+  { name: 'Technical / JetBrains Mono / Medium', sample: 'OUTCOME_BASED_EDUCATION', family: 'var(--font-mono)', size: 'var(--text-micro)', weight: 'var(--weight-medium)' },
 ];
 const spaces = [
   { token: '--space-1', value: '4px', width: '0.25rem' },
@@ -192,6 +193,7 @@ const selectOptions = [
         </div>
         <p class="type-gradient-sample text-gradient">One intelligence. Many outcomes.</p>
         <p class="font-availability-note">Plus Jakarta Sans, Inter, and JetBrains Mono are loaded with swap-enabled fallbacks.</p>
+        <p class="font-availability-note">Hierarchy: display 800; H1–H2 700; H3–H4 600. Eyebrows use a shared 12px size and tracking. Desktop labels and microcopy do not fall below 12px; relative sizing is reserved for decorative artwork.</p>
       </Container>
     </section>
 
